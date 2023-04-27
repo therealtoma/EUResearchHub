@@ -1,0 +1,27 @@
+---
+title: "EUResearchHub"
+output: html_document
+---
+
+**Valutazione interna dei progetti di ricerca**
+
+**Modellazione principale**
+
+*Ricercatori*
+
+I ricercatori devono poter creare nuovi progetti avere accesso ai report di valutazione e rivedere i loro progetti finchè non vengono approvati o rifiutati.
+
+*Valutatori*
+
+I valutatori possono accedere ai progetti da valutare nella prossima finestra di valutazione, scaricare i documenti da valutare e creare un report di valutazione per ognuno di essi.
+Inoltre hanno la facoltà di aggiornare lo stato di un progetto.
+
+*Progetti*
+
+Ogni progetto comprende una descrizione testuale ed uno o più documenti formato pdf da valutare, possibilmente di tipo diverso (data management plan, ethics deliverable, ...).
+I progetti assumono diversi stati, lo stato di default è "sottomesso per valutazione" che comprende tutti quei progetti appena creati che non hanno ancora ricevuto una valutazione.
+Altri stati che possono assumere sono: "approvato", "rifiutato" e "richiede modifiche".
+Questi tre stati possono essere cambiati solo dai valutatori e una volta approvati o rifiutati non possono più essere modificati.
+
+
+
