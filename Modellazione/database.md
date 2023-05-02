@@ -43,6 +43,7 @@ CREATE TABLE "EUResearchHub".projects (
 ---
 
 <h2 id="evnwin" >Evaluation Windows</h2>
+
 ````sql
 CREATE TABLE "EUResearchHub".evaluation_windows (
 	id int NULL,
@@ -52,9 +53,11 @@ CREATE TABLE "EUResearchHub".evaluation_windows (
 );
 ````
 >Query for the creation of the Evaluation Windows Table
+> 
 ---
 
 <h2 id="msg" >Messages</h2>
+
 ````sql
 CREATE TABLE "EUResearchHub".messages (
 	id int NULL,
@@ -64,10 +67,12 @@ CREATE TABLE "EUResearchHub".messages (
 	CONSTRAINT messages_fk FOREIGN KEY (fk_projects) REFERENCES "EUResearchHub".projects(id)
 );
 ````
+
 >Query for the creation of the Messages Table
 ---
 
 <h2 id="doc" >Documents</h2>
+
 ````sql
 CREATE TABLE "EUResearchHub".documents (
 	id int NULL,
@@ -79,10 +84,13 @@ CREATE TABLE "EUResearchHub".documents (
 	CONSTRAINT projects_fk FOREIGN KEY (fk_project) REFERENCES "EUResearchHub".projects(id)
 );
 ````
+
 >Query for the creation of the Documents Table
+
 ---
 
 <h2 id="doctype" >Document Types</h2>
+
 ````sql
 CREATE TABLE "EUResearchHub".document_types (
 	id int NULL,
@@ -95,6 +103,7 @@ CREATE TABLE "EUResearchHub".document_types (
 ---
 
 <h2 id="docver" >Document Versions</h2>
+
 ````sql
 CREATE TABLE "EUResearchHub".document_versions (
 	id int NULL,
@@ -109,6 +118,7 @@ CREATE TABLE "EUResearchHub".document_versions (
 ---
 
 <h2 id="evr" >Evaluators</h2>
+
 ````sql
 CREATE TABLE "EUResearchHub".evaluators (
 	id int NULL,
@@ -122,6 +132,7 @@ CREATE TABLE "EUResearchHub".evaluators (
 ---
 
 <h2 id="evrmsg" >Evaluators Messages</h2>
+
 ````sql
 CREATE TABLE "EUResearchHub".evaluators_messages (
 	fk_evaluators int NULL,
@@ -135,6 +146,7 @@ CREATE TABLE "EUResearchHub".evaluators_messages (
 ---
 
 <h2 id="evrprj" >Evaluators Projects</h2>
+
 ````sql
 CREATE TABLE "EUResearchHub".evaluators_projects (
 	fk_evaluators int NULL,
@@ -148,6 +160,7 @@ CREATE TABLE "EUResearchHub".evaluators_projects (
 ---
 
 <h2 id="evnrep" >Evaluation Reports</h2>
+
 ````sql
 CREATE TABLE "EUResearchHub".evaluation_reports (
 	id int NULL,
@@ -163,6 +176,7 @@ CREATE TABLE "EUResearchHub".evaluation_reports (
 ---
 
 <h2 id="evrevnrep" >Evaluators Evaluation Reports</h2>
+
 ````sql
 CREATE TABLE "EUResearchHub".evaluators_evaluation_reports (
 	fk_evaluators int NULL,
@@ -176,6 +190,7 @@ CREATE TABLE "EUResearchHub".evaluators_evaluation_reports (
 ---
 
 <h2 id="res" >Researchers</h2>
+
 ````sql
 CREATE TABLE "EUResearchHub".researchers (
 	id int NULL,
@@ -190,6 +205,7 @@ CREATE TABLE "EUResearchHub".researchers (
 ---
 
 <h2 id="resprj" >Researchers Projects</h2>
+
 ````sql
 CREATE TABLE "EUResearchHub".researchers_projects (
 	fk_researchers int NULL,
@@ -203,6 +219,7 @@ CREATE TABLE "EUResearchHub".researchers_projects (
 ---
 
 <h2 id="resmsg" >Researchers Messages</h2>
+
 ````sql
 CREATE TABLE "EUResearchHub".researchers_messages (
 	fk_researchers int NULL,
