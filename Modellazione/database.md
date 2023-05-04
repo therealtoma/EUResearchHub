@@ -108,7 +108,7 @@ CREATE TABLE "EUResearchHub".document_types (
 CREATE TABLE "EUResearchHub".document_versions (
 	id int NULL,
 	description varchar NULL,
-	version_date date NULL,
+	date_version date NULL,
 	fk_document int NOT NULL,
 	CONSTRAINT document_versions_pk PRIMARY KEY (id),
 	CONSTRAINT document_versions_fk FOREIGN KEY (fk_document) REFERENCES "EUResearchHub".documents(id)
