@@ -12,26 +12,13 @@
                 <div class="app-header-left">
                     <span class="app-icon"></span>
                     <p class="app-name">EUResearchHub</p>
-                    <div class="search-wrapper">
-                        <input class="search-input" type="text" placeholder="Search">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
-                            <defs></defs>
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="M21 21l-4.35-4.35"></path>
-                        </svg>
-                    </div>
+
                 </div>
                 <div class="app-header-right">
-                    <button class="mode-switch" title="Switch Theme">
-                        <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
-                            <defs></defs>
-                            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-                        </svg>
-                    </button>
-                    <button class="add-btn" title="Add New Project">
-                        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                            <line x1="12" y1="5" x2="12" y2="19" />
-                            <line x1="5" y1="12" x2="19" y2="12" />
+                    <button class="notification-btn">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"  viewBox="0 0 24 24">
+                            <defs/>
+                            <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>
                         </svg>
                     </button>
                     <button class="notification-btn">
@@ -41,8 +28,8 @@
                         </svg>
                     </button>
                     <button class="profile-btn">
-                    <img src="https://assets.codepen.io/3306515/IMG_2025.jpg" />
-                    <span>Aybüke C.</span>
+                    <img src="images/profile.png" />
+                    <span>[name surname]</span>
                     </button>
                 </div>
                 <button class="messages-btn">
@@ -58,25 +45,25 @@
                 <div class="projects-section">
                     <div class="projects-section-header">
                         <p>Projects</p>
-                        <p class="time">December, 12</p>
+                        <p class="time">Evaluation Window: [from] - [to]</p>
                     </div>
                     <div class="projects-section-line">
                         <div class="projects-status">
                             <div class="item-status">
                                 <span class="status-number">45</span>
-                                <span class="status-type" style="padding:5px !important; border: 2px solid rgba(74, 194, 107, 0.4); border-radius: 20px;background-color: rgb(218, 251, 225); color: rgb(26, 127, 55);font-weight: bold;" >✅ Approved </span>
+                                <span class="status-type" >Approved </span>
                             </div>
                             <div class="item-status">
                                 <span class="status-number">24</span>
-                                <span class="status-type" style="padding:5px !important; border: 2px solid rgba(212, 167, 44, 0.4); border-radius: 20px;background-color: rgb(255, 248, 197); color: rgb(154, 103, 0);font-weight: bold;" >🏗️ Require changes</span>
+                                <span class="status-type"  >Require changes</span>
                             </div>
                             <div class="item-status">
                                 <span class="status-number">62</span>
-                                <span class="status-type" style="padding:5px !important; border: 2px solid rgba(84, 174, 255, 0.4); border-radius: 20px;background-color: rgb(221, 244, 255); color: rgb(9, 105, 218);font-weight: bold;" >📬 Submitted for evaluation</span>
+                                <span class="status-type" >Submitted for evaluation</span>
                             </div>
                             <div class="item-status">
                                 <span class="status-number">62</span>
-                                <span class="status-type" style="padding:5px !important; border: 2px solid rgba(255, 129, 130, 0.4); border-radius: 20px;background-color: rgb(255, 235, 233); color: rgb(209, 36, 47);font-weight: bold;" >🚫 Not Approved</span>
+                                <span class="status-type"  > Not Approved</span>
                             </div>
                         </div>
                         <div class="view-actions">
@@ -88,7 +75,7 @@
                         <div class="project-box-wrapper">
                             <div class="project-box" style="background-color: #fee4cb;">
                                 <div class="project-box-header">
-                                    <span>December 10, 2020</span>
+                                    <span>[creation_date]</span>
                                     <div class="more-wrapper">
                                         <button class="project-btn-more">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
@@ -100,8 +87,8 @@
                                     </div>
                                 </div>
                                 <div class="project-box-content-header">
-                                    <p class="box-content-header">Web Designing</p>
-                                    <p class="box-content-subheader">Prototyping</p>
+                                    <p class="box-content-header">[title]</p>
+                                    <p class="box-content-subheader">[description]</p>
                                 </div>
                                 <div class="box-progress-wrapper">
                                     <p class="box-progress-header">Progress</p>
@@ -121,7 +108,7 @@
                                         </button>
                                     </div>
                                     <div class="days-left" style="color: #ff942e;">
-                                        2 Days Left
+                                        [status]
                                     </div>
                                 </div>
                             </div>
@@ -129,7 +116,7 @@
                         <div class="project-box-wrapper">
                             <div class="project-box" style="background-color: #e9e7fd;">
                                 <div class="project-box-header">
-                                    <span>December 10, 2020</span>
+                                    <span>[creation_date]</span>
                                     <div class="more-wrapper">
                                         <button class="project-btn-more">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
@@ -141,8 +128,8 @@
                                     </div>
                                 </div>
                                 <div class="project-box-content-header">
-                                    <p class="box-content-header">Testing</p>
-                                    <p class="box-content-subheader">Prototyping</p>
+                                    <p class="box-content-header">[title]</p>
+                                    <p class="box-content-subheader">[description]</p>
                                 </div>
                                 <div class="box-progress-wrapper">
                                     <p class="box-progress-header">Progress</p>
@@ -162,15 +149,16 @@
                                         </button>
                                     </div>
                                     <div class="days-left" style="color: #4f3ff0;">
-                                        2 Days Left
+                                        [status]
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="project-box-wrapper">
                             <div class="project-box">
                                 <div class="project-box-header">
-                                    <span>December 10, 2020</span>
+                                    <span>[creation_date]</span>
                                     <div class="more-wrapper">
                                         <button class="project-btn-more">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
@@ -182,8 +170,8 @@
                                     </div>
                                 </div>
                                 <div class="project-box-content-header">
-                                    <p class="box-content-header">Svg Animations</p>
-                                    <p class="box-content-subheader">Prototyping</p>
+                                    <p class="box-content-header">[title]</p>
+                                    <p class="box-content-subheader">[description]</p>
                                 </div>
                                 <div class="box-progress-wrapper">
                                     <p class="box-progress-header">Progress</p>
@@ -203,7 +191,7 @@
                                         </button>
                                     </div>
                                     <div class="days-left" style="color: #096c86;">
-                                        2 Days Left
+                                       [status]
                                     </div>
                                 </div>
                             </div>
@@ -211,7 +199,7 @@
                         <div class="project-box-wrapper">
                             <div class="project-box" style="background-color: #ffd3e2;">
                                 <div class="project-box-header">
-                                    <span>December 10, 2020</span>
+                                    <span>[creation_date]</span>
                                     <div class="more-wrapper">
                                         <button class="project-btn-more">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
@@ -223,8 +211,8 @@
                                     </div>
                                 </div>
                                 <div class="project-box-content-header">
-                                    <p class="box-content-header">UI Development</p>
-                                    <p class="box-content-subheader">Prototyping</p>
+                                    <p class="box-content-header">[title]</p>
+                                    <p class="box-content-subheader">[description]</p>
                                 </div>
                                 <div class="box-progress-wrapper">
                                     <p class="box-progress-header">Progress</p>
@@ -244,7 +232,7 @@
                                         </button>
                                     </div>
                                     <div class="days-left" style="color: #df3670;">
-                                        2 Days Left
+                                        [status]
                                     </div>
                                 </div>
                             </div>
@@ -252,7 +240,7 @@
                         <div class="project-box-wrapper">
                             <div class="project-box" style="background-color: #c8f7dc;">
                                 <div class="project-box-header">
-                                    <span>December 10, 2020</span>
+                                    <span>[creation_date]</span>
                                     <div class="more-wrapper">
                                         <button class="project-btn-more">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
@@ -264,8 +252,8 @@
                                     </div>
                                 </div>
                                 <div class="project-box-content-header">
-                                    <p class="box-content-header">Data Analysis</p>
-                                    <p class="box-content-subheader">Prototyping</p>
+                                    <p class="box-content-header">[title]</p>
+                                    <p class="box-content-subheader">[description]</p>
                                 </div>
                                 <div class="box-progress-wrapper">
                                     <p class="box-progress-header">Progress</p>
@@ -285,7 +273,7 @@
                                         </button>
                                     </div>
                                     <div class="days-left" style="color: #34c471;">
-                                        2 Days Left
+                                        [status]
                                     </div>
                                 </div>
                             </div>
@@ -293,7 +281,7 @@
                         <div class="project-box-wrapper">
                             <div class="project-box" style="background-color: #d5deff;">
                                 <div class="project-box-header">
-                                    <span>December 10, 2020</span>
+                                    <span>[creation_date]</span>
                                     <div class="more-wrapper">
                                         <button class="project-btn-more">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
@@ -305,8 +293,8 @@
                                     </div>
                                 </div>
                                 <div class="project-box-content-header">
-                                    <p class="box-content-header">Web Designing</p>
-                                    <p class="box-content-subheader">Prototyping</p>
+                                    <p class="box-content-header">[title]</p>
+                                    <p class="box-content-subheader">[description]</p>
                                 </div>
                                 <div class="box-progress-wrapper">
                                     <p class="box-progress-header">Progress</p>
@@ -326,7 +314,7 @@
                                         </button>
                                     </div>
                                     <div class="days-left" style="color: #4067f9;">
-                                        2 Days Left
+                                        [status]
                                     </div>
                                 </div>
                             </div>
