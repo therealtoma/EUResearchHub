@@ -1,9 +1,14 @@
 
 # EUResearchHub - Database and query implementations
 
+- [Table Creation](#table)
+- [Roles](#roles)
+- [Trigger](#triggers)
+
+<h2 id="table">Table Creation</h2>
+
 In this document we have listed all the queries for the creation of the database and the implementation of indexes, triggers, cheks and functions.<br>
 To mantain a more readable and compact code, all the queries are sorted according to the table in which they are inserted.<br>
-
 
 - [Projects](#prj)
 - [Evaluation Windows](#evnwin)
@@ -22,7 +27,7 @@ To mantain a more readable and compact code, all the queries are sorted accordin
 
 ---
 
-<h2 id="prj" >Projects</h2>
+<h3 id="prj" >Projects</h3>
 
 ````sql
 CREATE TYPE enum_status AS ENUM ('approved', 'submitted for evaluation', 'require changes', 'not approved');
@@ -50,7 +55,7 @@ ALTER TABLE "EUResearchHub".projects ALTER COLUMN "date" TYPE timestamp USING "d
 ---
 
 
-<h2 id="evnwin" >Evaluation Windows</h2>
+<h3 id="evnwin" >Evaluation Windows</h3>
 
 ````sql
 CREATE TABLE "EUResearchHub".evaluation_windows (
@@ -64,7 +69,7 @@ CREATE TABLE "EUResearchHub".evaluation_windows (
 > 
 ---
 
-<h2 id="msg" >Messages</h2>
+<h3 id="msg" >Messages</h3>
 
 ````sql
 CREATE TABLE "EUResearchHub".messages (
@@ -85,7 +90,7 @@ ALTER TABLE "EUResearchHub".messages ADD "date" timestamp NULL;
 > Add of the date attribute
 ---
 
-<h2 id="doc" >Documents</h2>
+<h3 id="doc" >Documents</h3>
 
 ````sql
 CREATE TABLE "EUResearchHub".documents (
@@ -103,7 +108,7 @@ CREATE TABLE "EUResearchHub".documents (
 
 ---
 
-<h2 id="doctype" >Document Types</h2>
+<h3 id="doctype" >Document Types</h3>
 
 ````sql
 CREATE TABLE "EUResearchHub".document_types (
@@ -116,7 +121,7 @@ CREATE TABLE "EUResearchHub".document_types (
 >Query for the creation of the Document Types Table
 ---
 
-<h2 id="docver" >Document Versions</h2>
+<h3 id="docver" >Document Versions</h3>
 
 ````sql
 CREATE TABLE "EUResearchHub".document_versions (
@@ -138,7 +143,7 @@ ALTER TABLE "EUResearchHub".document_versions ALTER COLUMN "date" TYPE timestamp
 >Update of the name and the type of date_version
 ---
 
-<h2 id="evr" >Evaluators</h2>
+<h3 id="evr" >Evaluators</h3>
 
 ````sql
 CREATE TABLE "EUResearchHub".evaluators (
@@ -158,7 +163,7 @@ ALTER TABLE "EUResearchHub".evaluators ADD surname varchar NULL;
 >Add of the surname attribute
 ---
 
-<h2 id="evrmsg" >Evaluators Messages</h2>
+<h3 id="evrmsg" >Evaluators Messages</h3>
 
 ````sql
 CREATE TABLE "EUResearchHub".evaluators_messages (
@@ -172,7 +177,7 @@ CREATE TABLE "EUResearchHub".evaluators_messages (
 >Query for the creation of the Evaluators Messages Table
 ---
 
-<h2 id="evrprj" >Evaluators Projects</h2>
+<h3 id="evrprj" >Evaluators Projects</h3>
 
 ````sql
 CREATE TABLE "EUResearchHub".evaluators_projects (
@@ -186,7 +191,7 @@ CREATE TABLE "EUResearchHub".evaluators_projects (
 >Query for the creation of the Evaluators Projects Table
 ---
 
-<h2 id="evnrep" >Evaluation Reports</h2>
+<h3 id="evnrep" >Evaluation Reports</h3>
 
 ````sql
 CREATE TABLE "EUResearchHub".evaluation_reports (
@@ -209,7 +214,7 @@ ALTER TABLE "EUResearchHub".evaluation_reports ALTER COLUMN "date" TYPE timestam
 >Update of the name and the type of date_creation
 ---
 
-<h2 id="evrevnrep" >Evaluators Evaluation Reports</h2>
+<h3 id="evrevnrep" >Evaluators Evaluation Reports</h3>
 
 ````sql
 CREATE TABLE "EUResearchHub".evaluators_evaluation_reports (
@@ -223,7 +228,7 @@ CREATE TABLE "EUResearchHub".evaluators_evaluation_reports (
 >Query for the creation of the Evaluators Evaluation Reports Table
 ---
 
-<h2 id="res" >Researchers</h2>
+<h3 id="res" >Researchers</h3>
 
 ````sql
 CREATE TABLE "EUResearchHub".researchers (
@@ -245,7 +250,7 @@ ALTER TABLE "EUResearchHub".researchers ADD surname varchar NULL;
 ---
 
 
-<h2 id="resprj" >Researchers Projects</h2>
+<h3 id="resprj" >Researchers Projects</h3>
 
 ````sql
 CREATE TABLE "EUResearchHub".researchers_projects (
@@ -259,7 +264,7 @@ CREATE TABLE "EUResearchHub".researchers_projects (
 >Query for the creation of the Researchers Projects Table
 ---
 
-<h2 id="resmsg" >Researchers Messages</h2>
+<h3 id="resmsg" >Researchers Messages</h3>
 
 ````sql
 CREATE TABLE "EUResearchHub".researchers_messages (
@@ -274,7 +279,44 @@ CREATE TABLE "EUResearchHub".researchers_messages (
 
 ---
 
-<h2 id="roles" >Ruoli</h2>
+<h2 id="roles" >Roles</h2>
+
+<p>
+SQL roles are used to group database users into sets that share common 
+privileges and permissions. By assigning a role to a user, the user 
+automatically inherits all the privileges and permissions associated with 
+that role. This helps simplify the process of managing user privileges and 
+access control within a database.
+</p>
+
+- [Admin](#admin)
+- [Researcher Role](#res-role)
+- [Evaluator role](#evr-role)
+
+---
+
+<h3 id="admin" >Admin</h3>
+````sql
+CREATE ROLE "Admin" SUPERUSER CREATEDB CREATEROLE NOINHERIT LOGIN NOREPLICATION BYPASSRLS PASSWORD '1234';
+GRANT ALL ON SCHEMA "EUResearchHub" TO "Admin";
+GRANT ALL ON TABLE "EUResearchHub".document_types TO "Admin";
+GRANT ALL ON TABLE "EUResearchHub".document_versions TO "Admin";
+GRANT ALL ON TABLE "EUResearchHub".documents TO "Admin";
+GRANT ALL ON TABLE "EUResearchHub".evaluation_reports TO "Admin";
+GRANT ALL ON TABLE "EUResearchHub".evaluation_windows TO "Admin";
+GRANT ALL ON TABLE "EUResearchHub".evaluators TO "Admin";
+GRANT ALL ON TABLE "EUResearchHub".evaluators_evaluation_reports TO "Admin";
+GRANT ALL ON TABLE "EUResearchHub".evaluators_messages TO "Admin";
+GRANT ALL ON TABLE "EUResearchHub".evaluators_projects TO "Admin";
+GRANT ALL ON TABLE "EUResearchHub".messages TO "Admin";
+GRANT ALL ON TABLE "EUResearchHub".projects TO "Admin";
+GRANT ALL ON TABLE "EUResearchHub".researchers TO "Admin";
+GRANT ALL ON TABLE "EUResearchHub".researchers_messages TO "Admin";
+GRANT ALL ON TABLE "EUResearchHub".researchers_projects TO "Admin";
+````
+>Query for the creation of the Admin role
+---
+
 <h3 id="res-role" >Researcher</h3>
 ````sql
 CREATE ROLE researcher NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT LOGIN NOREPLICATION NOBYPASSRLS PASSWORD '1234';
@@ -288,6 +330,8 @@ GRANT INSERT, DELETE, SELECT ON TABLE "EUResearchHub".projects TO researcher;
 GRANT INSERT, SELECT ON TABLE "EUResearchHub".researchers_projects TO researcher;
 GRANT SELECT ON TABLE "EUResearchHub".researchers_messages TO researcher;
 ````
+>Query for the creation of the Researcher role
+---
 
 <h3 id="evr-role" >Evaluators</h3>
 ````sql
@@ -303,3 +347,11 @@ GRANT SELECT ON TABLE "EUResearchHub".researchers TO evaluator;
 GRANT SELECT ON TABLE "EUResearchHub".researchers_messages TO evaluator;
 GRANT SELECT ON TABLE "EUResearchHub".researchers_projects TO evaluator;
 ````
+>Query for the creation of the Evaluator role
+---
+
+
+<h2 id="triggers" >Triggers</h2>
+
+
+
