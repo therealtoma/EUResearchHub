@@ -42,6 +42,14 @@ CREATE TABLE "EUResearchHub".projects (
 >Query for the creation of the Projects Table
 ---
 
+````sql
+ALTER TABLE "EUResearchHub".projects RENAME COLUMN last_update_date TO "date";
+ALTER TABLE "EUResearchHub".projects ALTER COLUMN "date" TYPE timestamp USING "date"::timestamp;
+````
+>Update of the name and the type of last_update_date
+---
+
+
 <h2 id="evnwin" >Evaluation Windows</h2>
 
 ````sql
@@ -69,6 +77,12 @@ CREATE TABLE "EUResearchHub".messages (
 ````
 
 >Query for the creation of the Messages Table
+---
+
+````sql
+ALTER TABLE "EUResearchHub".messages ADD "date" timestamp NULL;
+````
+> Add of the date attribute
 ---
 
 <h2 id="doc" >Documents</h2>
@@ -117,6 +131,13 @@ CREATE TABLE "EUResearchHub".document_versions (
 >Query for the creation of the Document Versions Table
 ---
 
+````sql
+ALTER TABLE "EUResearchHub".document_versions RENAME COLUMN date_version TO "date";
+ALTER TABLE "EUResearchHub".document_versions ALTER COLUMN "date" TYPE timestamp USING "date"::timestamp;
+````
+>Update of the name and the type of date_version
+---
+
 <h2 id="evr" >Evaluators</h2>
 
 ````sql
@@ -129,6 +150,12 @@ CREATE TABLE "EUResearchHub".evaluators (
 );
 ````
 >Query for the creation of the Evaluators Table
+---
+
+````sql
+ALTER TABLE "EUResearchHub".evaluators ADD surname varchar NULL;
+````
+>Add of the surname attribute
 ---
 
 <h2 id="evrmsg" >Evaluators Messages</h2>
@@ -175,6 +202,13 @@ CREATE TABLE "EUResearchHub".evaluation_reports (
 >Query for the creation of the Evaluation Reports Table
 ---
 
+````sql
+ALTER TABLE "EUResearchHub".evaluation_reports RENAME COLUMN date_creation TO "date";
+ALTER TABLE "EUResearchHub".evaluation_reports ALTER COLUMN "date" TYPE timestamp USING "date"::timestamp;
+````
+>Update of the name and the type of date_creation
+---
+
 <h2 id="evrevnrep" >Evaluators Evaluation Reports</h2>
 
 ````sql
@@ -204,6 +238,13 @@ CREATE TABLE "EUResearchHub".researchers (
 >Query for the creation of the Researchers Table
 ---
 
+````sql
+ALTER TABLE "EUResearchHub".researchers ADD surname varchar NULL;
+````
+>Add of the surname attribute
+---
+
+
 <h2 id="resprj" >Researchers Projects</h2>
 
 ````sql
@@ -231,5 +272,34 @@ CREATE TABLE "EUResearchHub".researchers_messages (
 ````
 >Query for the creation of the Researchers Messages Table
 
+---
 
+<h2 id="roles" >Ruoli</h2>
+<h3 id="res-role" >Researcher</h3>
+````sql
+CREATE ROLE researcher NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT LOGIN NOREPLICATION NOBYPASSRLS PASSWORD '1234';
+GRANT SELECT ON TABLE "EUResearchHub".document_types TO researcher;
+GRANT INSERT, SELECT ON TABLE "EUResearchHub".document_versions TO researcher;
+GRANT INSERT, DELETE, SELECT ON TABLE "EUResearchHub".documents TO researcher;
+GRANT SELECT ON TABLE "EUResearchHub".evaluation_reports TO researcher;
+GRANT SELECT ON TABLE "EUResearchHub".evaluation_windows TO researcher;
+GRANT INSERT, SELECT ON TABLE "EUResearchHub".messages TO researcher;
+GRANT INSERT, DELETE, SELECT ON TABLE "EUResearchHub".projects TO researcher;
+GRANT INSERT, SELECT ON TABLE "EUResearchHub".researchers_projects TO researcher;
+GRANT SELECT ON TABLE "EUResearchHub".researchers_messages TO researcher;
+````
 
+<h3 id="evr-role" >Evaluators</h3>
+````sql
+CREATE ROLE evaluator NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT LOGIN NOREPLICATION NOBYPASSRLS PASSWORD '4321';
+GRANT SELECT ON TABLE "EUResearchHub".document_types TO evaluator;
+GRANT SELECT ON TABLE "EUResearchHub".document_versions TO evaluator;
+GRANT SELECT ON TABLE "EUResearchHub".documents TO evaluator;
+GRANT INSERT, SELECT ON TABLE "EUResearchHub".evaluation_reports TO evaluator;
+GRANT SELECT ON TABLE "EUResearchHub".evaluation_windows TO evaluator;
+GRANT INSERT ON TABLE "EUResearchHub".messages TO evaluator;
+GRANT UPDATE, SELECT ON TABLE "EUResearchHub".projects TO evaluator;
+GRANT SELECT ON TABLE "EUResearchHub".researchers TO evaluator;
+GRANT SELECT ON TABLE "EUResearchHub".researchers_messages TO evaluator;
+GRANT SELECT ON TABLE "EUResearchHub".researchers_projects TO evaluator;
+````
