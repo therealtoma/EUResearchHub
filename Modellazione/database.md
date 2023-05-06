@@ -3,9 +3,9 @@
 
 - [Table Creation](#table)
 - [Roles](#roles)
-- [Trigger](#triggers)
+- [Triggers and checks](#triggers)
 
-<h2 id="table">Table Creation</h2>
+<h3 id="table">Table Creation</h3>
 
 In this document we have listed all the queries for the creation of the database and the implementation of indexes, triggers, cheks and functions.<br>
 To mantain a more readable and compact code, all the queries are sorted according to the table in which they are inserted.<br>
@@ -279,7 +279,7 @@ CREATE TABLE "EUResearchHub".researchers_messages (
 
 ---
 
-<h2 id="roles" >Roles</h2>
+<h3 id="roles" >Roles</h3>
 
 <p>
 SQL roles are used to group database users into sets that share common 
@@ -299,6 +299,7 @@ access control within a database.
 ````sql
 CREATE ROLE "Admin" SUPERUSER CREATEDB CREATEROLE NOINHERIT LOGIN NOREPLICATION BYPASSRLS PASSWORD '1234';
 GRANT ALL ON SCHEMA "EUResearchHub" TO "Admin";
+GRANT CREATE, USAGE ON SCHEMA "EUResearchHub" TO "Admin";
 GRANT ALL ON TABLE "EUResearchHub".document_types TO "Admin";
 GRANT ALL ON TABLE "EUResearchHub".document_versions TO "Admin";
 GRANT ALL ON TABLE "EUResearchHub".documents TO "Admin";
@@ -351,7 +352,132 @@ GRANT SELECT ON TABLE "EUResearchHub".researchers_projects TO evaluator;
 ---
 
 
-<h2 id="triggers" >Triggers</h2>
+<h3 id="triggers" >Triggers and checks</h3>
 
+<h3>Evaluation Windows date</h3>
+Add a CHECK constraint on the "EUResearchHub".evaluation_windows table to ensure that the "from" date is less than or equal to the "to" date:
+sql
+````sql
+ALTER TABLE "EUResearchHub".evaluation_windows
+ADD CONSTRAINT evaluation_windows_dates_check CHECK ("from" <= "to");
+
+````
+---
+
+<h3>Document Versions</h3>
+Add a trigger to ensure that new document versions have a newer timestamp than the previous version:
+````sql
+CREATE FUNCTION check_document_version_date()
+RETURNS TRIGGER AS $$
+DECLARE
+  previous_version_date TIMESTAMP;
+BEGIN
+  SELECT "date" INTO previous_version_date
+  FROM "EUResearchHub".document_versions
+  WHERE fk_document = NEW.fk_document
+  ORDER BY "date" DESC
+  LIMIT 1;
+
+  IF previous_version_date IS NOT NULL AND previous_version_date >= NEW."date" THEN
+    RAISE EXCEPTION 'New document version date must be greater than the previous version date';
+  END IF;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER check_document_versions_date
+  BEFORE INSERT ON "EUResearchHub".document_versions
+  FOR EACH ROW
+  EXECUTE FUNCTION check_document_version_date();
+````
+---
+<h3>Researchers, evaluators</h3>
+Add a CHECK constraint on the "EUResearchHub".researchers and "EUResearchHub".evaluators tables to ensure that the password column has a minimum length:
+````sql
+ALTER TABLE "EUResearchHub".researchers
+ADD CONSTRAINT researchers_password_length_check CHECK (LENGTH("password") >= 8);
+
+ALTER TABLE "EUResearchHub".evaluators
+ADD CONSTRAINT evaluators_password_length_check CHECK (LENGTH("password") >= 8);
+````
+---
+
+<h3>Check project status change</h3>
+Here's a trigger that ensures the status of a project can only be changed by an evaluator if all associated documents have an evaluation report:
+````sql
+CREATE FUNCTION check_project_status_change()
+RETURNS TRIGGER AS $$
+DECLARE
+  document_count INTEGER;
+  evaluated_document_count INTEGER;
+BEGIN
+  SELECT COUNT(*) INTO document_count
+  FROM "EUResearchHub".documents
+  WHERE fk_project = NEW.id;
+
+  SELECT COUNT(DISTINCT d.id) INTO evaluated_document_count
+  FROM "EUResearchHub".documents d
+  JOIN "EUResearchHub".evaluation_reports er ON d.id = er.fk_document
+  WHERE d.fk_project = NEW.id;
+
+  IF document_count <> evaluated_document_count THEN
+    RAISE EXCEPTION 'Cannot change the status of a project if not all documents have been evaluated';
+  END IF;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER check_projects_status_change
+  BEFORE UPDATE ON "EUResearchHub".projects
+  FOR EACH ROW
+  WHEN (OLD.status <> NEW.status AND NEW.status IN ('approved', 'require changes', 'not approved'))
+  EXECUTE FUNCTION check_project_status_change();
+````
+---
+
+<h3>Policy</h3>
+Use Row Level Security (RLS) to restrict access to specific rows
+in the tables based on user roles. For example, you can ensure that 
+researchers can only access their own projects.
+````sql
+ALTER TABLE "EUResearchHub".projects FORCE ROW LEVEL SECURITY;
+CREATE POLICY researcher_project_access_policy
+  ON "EUResearchHub".projects
+  USING (id IN (SELECT fk_projects FROM "EUResearchHub".researchers_projects WHERE fk_researchers = current_setting('eu_research_hub.current_user_id')::integer));
+ALTER TABLE "EUResearchHub".projects FORCE ROW LEVEL SECURITY;
+````
+
+<h3>Indici</h3>
+
+Index on status column in "EUResearchHub".projects table:
+````sql
+CREATE INDEX projects_status_idx ON "EUResearchHub".projects (status);
+````
+> - Advantages: Faster query performance when filtering projects based on their status.
+> - Disadvantages: Slight overhead on insert, update, and delete operations due to index maintenance.
+
+---
+
+Index on fk_projects column in "EUResearchHub".messages table:
+````sql
+CREATE INDEX messages_fk_projects_idx ON "EUResearchHub".messages (fk_projects);
+````
+> - Advantages:Faster query performance when retrieving messages related to a specific project.
+> - Disadvantages: Slight overhead on insert, update, and delete operations due to index maintenance.
+
+---
+
+Materialized view for the count of projects per status: 
+````sql
+CREATE MATERIALIZED VIEW projects_status_count AS
+SELECT status, COUNT(*) as count
+FROM "EUResearchHub".projects
+GROUP BY status;
+````
+> - Advantages: Faster query performance for retrieving the count of projects per status, which might be useful for summary reports or dashboards.
+> - Disadvantages: The materialized view needs to be refreshed periodically or upon specific events to reflect the latest data.
+Additional storage overhead for maintaining the materialized view.
 
 
