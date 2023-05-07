@@ -296,6 +296,7 @@ access control within a database.
 ---
 
 <h3 id="admin" >Admin</h3>
+
 ````sql
 CREATE ROLE "Admin" SUPERUSER CREATEDB CREATEROLE NOINHERIT LOGIN NOREPLICATION BYPASSRLS PASSWORD '1234';
 GRANT ALL ON SCHEMA "EUResearchHub" TO "Admin";
@@ -319,6 +320,7 @@ GRANT ALL ON TABLE "EUResearchHub".researchers_projects TO "Admin";
 ---
 
 <h3 id="res-role" >Researcher</h3>
+
 ````sql
 CREATE ROLE researcher NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT LOGIN NOREPLICATION NOBYPASSRLS PASSWORD '1234';
 GRANT SELECT ON TABLE "EUResearchHub".document_types TO researcher;
@@ -335,6 +337,7 @@ GRANT SELECT ON TABLE "EUResearchHub".researchers_messages TO researcher;
 ---
 
 <h3 id="evr-role" >Evaluators</h3>
+
 ````sql
 CREATE ROLE evaluator NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT LOGIN NOREPLICATION NOBYPASSRLS PASSWORD '4321';
 GRANT SELECT ON TABLE "EUResearchHub".document_types TO evaluator;
@@ -356,16 +359,17 @@ GRANT SELECT ON TABLE "EUResearchHub".researchers_projects TO evaluator;
 
 <h3>Evaluation Windows date</h3>
 Add a CHECK constraint on the "EUResearchHub".evaluation_windows table to ensure that the "from" date is less than or equal to the "to" date:
-sql
+
 ````sql
 ALTER TABLE "EUResearchHub".evaluation_windows
 ADD CONSTRAINT evaluation_windows_dates_check CHECK ("from" <= "to");
-
 ````
+
 ---
 
 <h3>Document Versions</h3>
 Add a trigger to ensure that new document versions have a newer timestamp than the previous version:
+
 ````sql
 CREATE FUNCTION check_document_version_date()
 RETURNS TRIGGER AS $$
@@ -391,9 +395,11 @@ CREATE TRIGGER check_document_versions_date
   FOR EACH ROW
   EXECUTE FUNCTION check_document_version_date();
 ````
+
 ---
 <h3>Researchers, evaluators</h3>
 Add a CHECK constraint on the "EUResearchHub".researchers and "EUResearchHub".evaluators tables to ensure that the password column has a minimum length:
+
 ````sql
 ALTER TABLE "EUResearchHub".researchers
 ADD CONSTRAINT researchers_password_length_check CHECK (LENGTH("password") >= 8);
@@ -401,10 +407,12 @@ ADD CONSTRAINT researchers_password_length_check CHECK (LENGTH("password") >= 8)
 ALTER TABLE "EUResearchHub".evaluators
 ADD CONSTRAINT evaluators_password_length_check CHECK (LENGTH("password") >= 8);
 ````
+
 ---
 
 <h3>Check project status change</h3>
 Here's a trigger that ensures the status of a project can only be changed by an evaluator if all associated documents have an evaluation report:
+
 ````sql
 CREATE FUNCTION check_project_status_change()
 RETURNS TRIGGER AS $$
@@ -435,12 +443,14 @@ CREATE TRIGGER check_projects_status_change
   WHEN (OLD.status <> NEW.status AND NEW.status IN ('approved', 'require changes', 'not approved'))
   EXECUTE FUNCTION check_project_status_change();
 ````
+
 ---
 
 <h3>Policy</h3>
 Use Row Level Security (RLS) to restrict access to specific rows
 in the tables based on user roles. For example, you can ensure that 
 researchers can only access their own projects.
+
 ````sql
 ALTER TABLE "EUResearchHub".projects FORCE ROW LEVEL SECURITY;
 CREATE POLICY researcher_project_access_policy
@@ -452,6 +462,7 @@ ALTER TABLE "EUResearchHub".projects FORCE ROW LEVEL SECURITY;
 <h3>Indici</h3>
 
 Index on status column in "EUResearchHub".projects table:
+
 ````sql
 CREATE INDEX projects_status_idx ON "EUResearchHub".projects (status);
 ````
@@ -461,6 +472,7 @@ CREATE INDEX projects_status_idx ON "EUResearchHub".projects (status);
 ---
 
 Index on fk_projects column in "EUResearchHub".messages table:
+
 ````sql
 CREATE INDEX messages_fk_projects_idx ON "EUResearchHub".messages (fk_projects);
 ````
@@ -470,6 +482,7 @@ CREATE INDEX messages_fk_projects_idx ON "EUResearchHub".messages (fk_projects);
 ---
 
 Materialized view for the count of projects per status: 
+
 ````sql
 CREATE MATERIALIZED VIEW projects_status_count AS
 SELECT status, COUNT(*) as count
