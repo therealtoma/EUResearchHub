@@ -408,7 +408,19 @@ ALTER TABLE "EUResearchHub".evaluators
 ADD CONSTRAINT evaluators_password_length_check CHECK (LENGTH("password") >= 8);
 ````
 
+
+Add a CHECK constraint on the "EUResearchHub".researchers and "EUResearchHub".evaluators tables to ensure that the email is a real email:
+
+````sql
+ALTER TABLE "EUResearchHub".researchers
+ADD CONSTRAINT researchers_email_check CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z]{2,}$');
+
+ALTER TABLE "EUResearchHub".evaluators
+ADD CONSTRAINT researchers_email_check CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z]{2,}$');
+````
+
 ---
+
 
 <h3>Check project status change</h3>
 Here's a trigger that ensures the status of a project can only be changed by an evaluator if all associated documents have an evaluation report:
