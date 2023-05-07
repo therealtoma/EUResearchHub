@@ -419,6 +419,8 @@ ALTER TABLE "EUResearchHub".evaluators
 ADD CONSTRAINT researchers_email_check CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z]{2,}$');
 ````
 
+>These constraints use the ~* operator to perform a case-insensitive regular expression match. The pattern checks that there is at least one character before and after the @ symbol and that the domain part contains at least two characters. 
+
 ---
 
 
