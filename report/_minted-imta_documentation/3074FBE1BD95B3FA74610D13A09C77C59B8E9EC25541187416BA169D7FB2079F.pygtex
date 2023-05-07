@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}}imtaCode\PYG{n+nb}{\PYGZcb{}\PYGZob{}}python\PYG{n+nb}{\PYGZcb{}}
+def mac(a, b, c = 0):
+    \PYGZsh{} multiply\PYGZhy{}accumulate function
+    return a*b + c
+\PYG{k}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}}imtaCode\PYG{n+nb}{\PYGZcb{}}
+\end{Verbatim}

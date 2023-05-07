@@ -1,0 +1,44 @@
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\contentsline {chapter}{\numberline {1}Introduzione}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Contesto dell'applicazione}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Obiettivi e scopo del documento}{5}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Panoramica delle funzionalità del sistema}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Gestione dei progetti di ricerca}{7}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Processo di valutazione e storico modifiche}{7}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Interazione tra ricercatori e valutatori}{7}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Progettazione e modellazione della base di dati}{8}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Raccolta ed analisi dei requisiti}{9}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Quadro generale}{9}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Integrità dei dati: trigger, vincoli e transazioni}{9}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Gestione dei ruoli e politiche di autorizzazione}{9}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Performance: indici, materialized view e procedure }{9}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}Progettazione concettuale}{9}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Schema ad oggetti}{9}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Giustificazione delle decisioni progettuali}{9}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Progettazione logica}{9}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Schema logico}{9}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Giustificazione delle decisioni progettuali}{9}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Progettazione fisica}{9}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Istruzioni \texttt {SQL}}{9}{subsection.3.4.1}%
+\contentsline {chapter}{\numberline {4}Implementazione back-end}{10}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Flask e SQLAlchemy}{11}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Expression Language e ORM}{11}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Sicurezza}{11}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Protezione da XSS}{11}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Protezione da SQL Injection}{11}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Meccanismi di sicurezza aggiuntivi}{11}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}Approfondimento delle tecnologiche specifiche}{11}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}\texttt {libreria1} }{11}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}\texttt {libreria2} }{11}{subsection.4.4.2}%
+\contentsline {chapter}{\numberline {5}Implementazione front-end}{12}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Brand identity}{13}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Demo}{13}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Approfondimento delle tecnologiche specifiche}{13}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}\texttt {framework1} }{13}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}\texttt {css} }{13}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}\texttt {javascript} }{13}{subsection.5.3.3}%
+\contentsline {chapter}{\numberline {6}Collaborazione e contributo individuale}{14}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Planning}{15}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Descrizione del ruolo di ciascun membro del gruppo}{15}{section.6.2}%

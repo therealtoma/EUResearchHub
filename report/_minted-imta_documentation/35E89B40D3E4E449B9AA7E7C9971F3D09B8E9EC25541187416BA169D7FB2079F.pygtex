@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{\PYGZbs{}definecolor}\PYG{n+nb}{\PYGZob{}}imtaGreen\PYG{n+nb}{\PYGZcb{}\PYGZob{}}RGB\PYG{n+nb}{\PYGZcb{}\PYGZob{}}164, 210, 51\PYG{n+nb}{\PYGZcb{}}
+\PYG{k}{\PYGZbs{}definecolor}\PYG{n+nb}{\PYGZob{}}imtaLightBlue\PYG{n+nb}{\PYGZcb{}\PYGZob{}}RGB\PYG{n+nb}{\PYGZcb{}\PYGZob{}}0, 184, 222\PYG{n+nb}{\PYGZcb{}}
+\PYG{k}{\PYGZbs{}definecolor}\PYG{n+nb}{\PYGZob{}}imtaDarkBlue\PYG{n+nb}{\PYGZcb{}\PYGZob{}}RGB\PYG{n+nb}{\PYGZcb{}\PYGZob{}}12, 35, 64\PYG{n+nb}{\PYGZcb{}}
+\PYG{k}{\PYGZbs{}definecolor}\PYG{n+nb}{\PYGZob{}}imtaGray\PYG{n+nb}{\PYGZcb{}\PYGZob{}}RGB\PYG{n+nb}{\PYGZcb{}\PYGZob{}}87, 87, 87\PYG{n+nb}{\PYGZcb{}}
+\end{Verbatim}
