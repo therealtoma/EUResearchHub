@@ -155,6 +155,10 @@ CREATE TABLE "EUResearchHub".evaluators (
 );
 ````
 >Query for the creation of the Evaluators Table
+
+````sql
+ALTER TABLE "EUResearchHub".evaluators ALTER COLUMN "password" TYPE _uuid USING "password"::_uuid;
+````
 ---
 
 ````sql
@@ -241,6 +245,10 @@ CREATE TABLE "EUResearchHub".researchers (
 );
 ````
 >Query for the creation of the Researchers Table
+
+````sql
+ALTER TABLE "EUResearchHub".researchers ALTER COLUMN "password" TYPE _uuid USING "password"::_uuid;
+````
 ---
 
 ````sql
@@ -357,7 +365,14 @@ GRANT SELECT ON TABLE "EUResearchHub".researchers_projects TO evaluator;
 
 <h3 id="triggers" >Triggers and checks</h3>
 
-<h3>Evaluation Windows date</h3>
+- [Evaluation Windows Checks](#evwindch)
+- [Document versions Checks](#docverch)
+- [Researchers,Evaluators Checks](#resevch)
+- [Project Status Trigger](#prjststr)
+- [Projects Policy](#prjpol)
+- [Indexes](#indexes)
+
+<h3 id="evwindch" >Evaluation Windows date</h3>
 Add a CHECK constraint on the "EUResearchHub".evaluation_windows table to ensure that the "from" date is less than or equal to the "to" date:
 
 ````sql
@@ -367,7 +382,7 @@ ADD CONSTRAINT evaluation_windows_dates_check CHECK ("from" <= "to");
 
 ---
 
-<h3>Document Versions</h3>
+<h3 id="docverch" >Document Versions</h3>
 Add a trigger to ensure that new document versions have a newer timestamp than the previous version:
 
 ````sql
@@ -397,7 +412,7 @@ CREATE TRIGGER check_document_versions_date
 ````
 
 ---
-<h3>Researchers, evaluators</h3>
+<h3 id="resevch" >Researchers, evaluators</h3>
 Add a CHECK constraint on the "EUResearchHub".researchers and "EUResearchHub".evaluators tables to ensure that the password column has a minimum length:
 
 ````sql
@@ -424,7 +439,7 @@ ADD CONSTRAINT researchers_email_check CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za
 ---
 
 
-<h3>Check project status change</h3>
+<h3 id="prjststr">Check project status change</h3>
 Here's a trigger that ensures the status of a project can only be changed by an evaluator if all associated documents have an evaluation report:
 
 ````sql
@@ -460,7 +475,7 @@ CREATE TRIGGER check_projects_status_change
 
 ---
 
-<h3>Policy</h3>
+<h3 id="prjpol">Projects Policy</h3>
 Use Row Level Security (RLS) to restrict access to specific rows
 in the tables based on user roles. For example, you can ensure that 
 researchers can only access their own projects.
@@ -473,7 +488,7 @@ CREATE POLICY researcher_project_access_policy
 ALTER TABLE "EUResearchHub".projects FORCE ROW LEVEL SECURITY;
 ````
 
-<h3>Indici</h3>
+<h3 id="indexes" >Indexs</h3>
 
 Index on status column in "EUResearchHub".projects table:
 
