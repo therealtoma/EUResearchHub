@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{ALTER}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{l+m+mf}{.}\PYG{n}{projects}\PYG{+w}{ }\PYG{k}{FORCE}\PYG{+w}{ }\PYG{k}{ROW}\PYG{+w}{ }\PYG{k}{LEVEL}\PYG{+w}{ }\PYG{k}{SECURITY}\PYG{p}{;}
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{POLICY}\PYG{+w}{ }\PYG{n}{researcher\PYGZus{}project\PYGZus{}access\PYGZus{}policy}
+\PYG{+w}{  }\PYG{k}{ON}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{l+m+mf}{.}\PYG{n}{projects}
+\PYG{+w}{  }\PYG{k}{USING}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{id}\PYG{+w}{ }\PYG{k}{IN}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{fk\PYGZus{}projects}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{l+m+mf}{.}\PYG{n}{researchers\PYGZus{}projects}\PYG{+w}{ }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{fk\PYGZus{}researchers}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{current\PYGZus{}setting}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}eu\PYGZus{}research\PYGZus{}hub.current\PYGZus{}user\PYGZus{}id\PYGZsq{}}\PYG{p}{)}\PYG{o}{::}\PYG{n+nb}{integer}\PYG{p}{));}
+\PYG{k}{ALTER}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{l+m+mf}{.}\PYG{n}{projects}\PYG{+w}{ }\PYG{k}{FORCE}\PYG{+w}{ }\PYG{k}{ROW}\PYG{+w}{ }\PYG{k}{LEVEL}\PYG{+w}{ }\PYG{k}{SECURITY}\PYG{p}{;}
+\end{Verbatim}

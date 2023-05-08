@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{ALTER}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{p}{.}\PYG{n}{researchers}
+\PYG{k}{ADD}\PYG{+w}{ }\PYG{k}{CONSTRAINT}\PYG{+w}{ }\PYG{n}{researchers\PYGZus{}email\PYGZus{}check}\PYG{+w}{ }\PYG{k}{CHECK}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{email}\PYG{+w}{ }\PYG{o}{\PYGZti{}*}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}\PYGZca{}[A\PYGZhy{}Za\PYGZhy{}z0\PYGZhy{}9.\PYGZus{}\PYGZpc{}+\PYGZhy{}]+@[A\PYGZhy{}Za\PYGZhy{}z0\PYGZhy{}9.\PYGZhy{}]+\PYGZbs{}.[A\PYGZhy{}Z]\PYGZob{}2,\PYGZcb{}\PYGZdl{}\PYGZsq{}}\PYG{p}{);}
+
+\PYG{k}{ALTER}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{l+s+ss}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{p}{.}\PYG{n}{evaluators}
+\PYG{k}{ADD}\PYG{+w}{ }\PYG{k}{CONSTRAINT}\PYG{+w}{ }\PYG{n}{researchers\PYGZus{}email\PYGZus{}check}\PYG{+w}{ }\PYG{k}{CHECK}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{email}\PYG{+w}{ }\PYG{o}{\PYGZti{}*}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}\PYGZca{}[A\PYGZhy{}Za\PYGZhy{}z0\PYGZhy{}9.\PYGZpc{}+\PYGZhy{}]+@[A\PYGZhy{}Za\PYGZhy{}z0\PYGZhy{}9.\PYGZhy{}]+\PYGZbs{}.[A\PYGZhy{}Z]\PYGZob{}2,\PYGZcb{}\PYGZdl{}\PYGZsq{}}\PYG{p}{);}
+\end{Verbatim}

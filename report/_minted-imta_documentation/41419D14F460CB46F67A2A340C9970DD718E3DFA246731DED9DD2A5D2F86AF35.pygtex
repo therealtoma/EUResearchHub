@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{CREATE} \PYG{n}{INDEX} \PYG{n}{projects\PYGZus{}status\PYGZus{}idx} \PYG{n}{ON} \PYG{l+s+s2}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{o}{.}\PYG{n}{projects} \PYG{p}{(}\PYG{n}{status}\PYG{p}{);}
+\end{Verbatim}

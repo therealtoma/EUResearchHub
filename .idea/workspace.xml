@@ -5,18 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb69cb6a-a66d-4ef2-8c10-ab2e0215501a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Modellazione/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modellazione/.idea/Modellazione.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modellazione/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modellazione/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modellazione/.idea/jupyter-settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modellazione/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modellazione/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modellazione/.idea/rGraphicsSettings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modellazione/.idea/rSettings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modellazione/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modellazione/Modellazione.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modellazione/Modellazione.rmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report/imta_documentation.aux" beforeDir="false" afterPath="$PROJECT_DIR$/report/imta_documentation.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report/imta_documentation.log" beforeDir="false" afterPath="$PROJECT_DIR$/report/imta_documentation.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report/imta_documentation.out" beforeDir="false" afterPath="$PROJECT_DIR$/report/imta_documentation.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report/imta_documentation.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/report/imta_documentation.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report/imta_documentation.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/report/imta_documentation.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report/imta_documentation.tex" beforeDir="false" afterPath="$PROJECT_DIR$/report/imta_documentation.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report/imta_documentation.toc" beforeDir="false" afterPath="$PROJECT_DIR$/report/imta_documentation.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report/texput.log" beforeDir="false" afterPath="$PROJECT_DIR$/report/texput.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
