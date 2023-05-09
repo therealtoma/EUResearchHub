@@ -233,7 +233,7 @@ Da una prima analisi del problema otteniamo il seguente diagramma di autorizzazi
 \includegraphics[scale = 0.7]{1.pdf}
 \end{center}
 Nel contesto descritto, non sembra necessario inserire ereditarietà o delega di permessi tra i ruoli, motivo per cui nel diagramma soprastante i nodi non sono legati tra di essi. Ogni ruolo ha responsabilità e permessi molto specifici e distinti, e non sembra esserci un caso d’uso in cui un ruolo avrebbe bisogno di ereditare i permessi di un altro ruolo.\\
-Approffondiamo ora i tre ruoli:
+Approffondiamo ora i tre ruoli:\\
 L'utente \textbf{Admin} ha privilegi di superutente, il che significa che può accedere a tutte le tabelle e eseguire qualsiasi operazione sullo schema EUResearchHub. Questo ruolo è utile per la gestione e la manutenzione del sistema e dovrebbe essere limitato a un ristretto numero di utenti.
 \begin{imtaCode}{PostgreSQL}
 CREATE ROLE "Admin" SUPERUSER CREATEDB CREATEROLE NOINHERIT LOGIN NOREPLICATION BYPASSRLS PASSWORD '****';
@@ -283,7 +283,7 @@ GRANT SELECT ON TABLE "EUResearchHub".researchers_projects TO evaluator;
 \end{imtaCode}
 
 Per quanto utilizzare ruoli permetta di evitare inconsistenze, ci sono anche alcuni svantaggi, come la possibile complessità nella gestione dei privilegi e la necessità di aggiornare costantemente i ruoli e le politiche di autorizzazione in base alle esigenze del sistema.  \\
-Le politiche di autorizzazione, consentono di imporre ulteriori ma necessarie restrizioni sull'accesso ai dati, in particolare attraverso l'uso di Row Level Security (RLS). RLS è una funzionalità che limita l'accesso alle righe di una tabella in base a una condizione specificata nella politica.\\
+Le politiche di autorizzazione, consentono di imporre ulteriori ma necessarie restrizioni sull'accesso ai dati, in particolare attraverso l'uso di \textbf{Row Level Security (RLS)}. RLS è una funzionalità che limita l'accesso alle righe di una tabella in base a una condizione specificata nella politica.\\
 Nel nostro caso, abbiamo forzato la Row Level Security sulla tabella \imtaInlinecode{latex}{projects} e creato la politica researcher\_project\_access\_policy. Questa politica limita l'accesso alle righe della tabella \imtaInlinecode{latex}{projects} ai soli ricercatori associati a un determinato progetto. In questo modo, i ricercatori possono vedere e modificare solo i progetti a cui sono associati, garantendo una maggiore sicurezza e protezione dei dati.
 \begin{imtaCode}{PostgreSQL}
 ALTER TABLE "EUResearchHub".projects FORCE ROW LEVEL SECURITY;
@@ -294,12 +294,12 @@ ALTER TABLE "EUResearchHub".projects FORCE ROW LEVEL SECURITY;
 \end{imtaCode}
 
 \subsection{Performance: indici e  materialized view }
-Anche la performance del database è un aspetto cruciale nell'analisi dei requisiti, poiché può influenzare direttamente l'esperienza utente e le prestazioni generali del sistema. Per ottimizzare le prestazioni del database, si possono utilizzare indici, materialized view e procedure. Di seguito viene analizzata l'implementazione degli indici e delle materialized view individuate ed implementate in EUResearchHub soffermandoci non solo sui vantaggi ma anche sui svantaggi che consapevolpente ci assumiamo:
+Anche la performance del database è un aspetto cruciale nell'analisi dei requisiti, poiché può influenzare direttamente l'esperienza utente e le prestazioni generali del sistema. Per ottimizzare le prestazioni del database, si possono utilizzare indici, materialized view e procedure. Di seguito viene analizzata l'implementazione degli indici e delle materialized view individuate ed implementate in EUResearchHub soffermandoci non solo sui vantaggi ma anche sui svantaggi che consapevolpente teniamo in considerazione:
 \begin{itemize}
 \item \imtaInlinecode{latex}{projects_status_idx}: questo indice viene creato sulla colonna status della tabella \imtaInlinecode{latex}{projects}. Gli indici su colonne frequentemente utilizzate nelle clausole WHERE delle query possono velocizzare notevolmente le operazioni di ricerca. I vantaggi di questo indice includono un accesso più rapido ai dati per le query che filtrano i progetti in base allo stato (utile per i valutatori) e un miglioramento delle prestazioni delle query complesse che coinvolgono la tabella \imtaInlinecode{latex}{projects}. Gli svantaggi includono un maggiore utilizzo dello spazio su disco e un potenziale rallentamento delle operazioni di inserimento, aggiornamento e cancellazione, poiché l'indice deve essere mantenuto coerente con i dati nella tabella. Ipotizzando però che queste tipologie di operazioni avvengono raramente o in momenti specifici (i.e. inizio/fine di una finsetra di valutazione) si è deciso ad ogni modo di implementare questo indice per ottimizzare l'user experience nel resto del tempo.\\
 
 \begin{minipage}{\linewidth}
-\begin{imtaCode}{python}
+\begin{imtaCode}{PostgreSQL}
 CREATE INDEX projects_status_idx ON "EUResearchHub".projects (status);
 \end{imtaCode}
 \end{minipage}
@@ -385,7 +385,7 @@ Anche nella traduzione alcune decisioni chiave sono state prese per garantire ch
 
 \item \textbf{Utilizzo di tabelle intermedie per relazioni molti-a-molti:} Per gestire le relazioni molti-a-molti tra entità, sono state create tabelle intermedie, come \imtaInlinecode{latex}{researchers_projects} e \imtaInlinecode{latex}{evaluators_messages}. Queste tabelle consentono di associare più ricercatori a più progetti e più messaggi a più valutatori, garantendo la flessibilità del sistema e semplificando le query tra tabelle correlate.
 
-\item\textbf{ Inserito \imtaInlinecode{latex}{id} univoco per ogni tabella:} Ogni tabella è caratterizzata da un ID univoco sotto forma di UUID (Universally Unique Identifier) ovvero un identificativo alfanumerico di 16 cifre generato casualmente da Flask al momento di creazione del record.
+\item \textbf{Inserito \imtaInlinecode{latex}{id} univoco per ogni tabella:} Ogni tabella è caratterizzata da un ID univoco sotto forma di UUID (Universally Unique Identifier) ovvero un identificativo alfanumerico di 16 cifre generato casualmente da Flask al momento di creazione del record.
 
 \end{itemize}
 

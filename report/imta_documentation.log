@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.15)  8 MAY 2023 22:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.15)  8 MAY 2023 23:11
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1576,8 +1576,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 299--300
 \openout4 = `imta_documentation.pyg'.
 
 
-(./_minted-imta_documentation/41419D14F460CB46F67A2A340C9970DD718E3DFA246731DED
-9DD2A5D2F86AF35.pygtex)
+(./_minted-imta_documentation/41419D14F460CB46F67A2A340C9970DD22603BBBF7FD3BD46
+9AD8E4D0FFCD994.pygtex)
 Package mdframed Info: mdframed inside a box 
  mdframed uses option nobreak mdframed on input line 304.
 Package mdframed Info: mdframed inside a box 
@@ -2673,7 +2673,7 @@ Here is how much of TeX's memory you used:
  39115 multiletter control sequences out of 15000+600000
  584866 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,11n,64p,1174b,878s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,11n,64p,1174b,877s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/tex
 live/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texl
@@ -2688,7 +2688,7 @@ f-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2020/texmf-dist/
 fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/t
 ype1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/u
 rw/zapfding/uzdr.pfb>
-Output written on imta_documentation.pdf (31 pages, 549576 bytes).
+Output written on imta_documentation.pdf (31 pages, 549760 bytes).
 PDF statistics:
  603 PDF objects out of 1000 (max. 8388607)
  543 compressed objects within 6 object streams
