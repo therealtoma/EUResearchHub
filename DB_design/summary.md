@@ -1,5 +1,5 @@
 
-# EUResearchHub - Database and query implementations
+# EUResearchHub - Database Design
 - [Conceptual Model](#concmdl)
 - [Logical Model](#lgclmdl)
 - [Table Creation](#table)
@@ -25,32 +25,24 @@
 ---
 
 
-<h3 id="table">Conceptual Model</h3>
+<h3 id="concmdl">Conceptual Model</h3>
 
-![alt text](http://url/to/img.png)
-
-
----
-
----
-
-
-<h3 id="table">Logical Model</h3>
-
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/therealtoma/EUResearchHub/blob/b0f99b7b7a4967b966862a9a320acc4d73e9e305/DB_design/conceptual_model.jpg)
 
 
 ---
 
----
+<h3 id="lgclmdl">Logical Model</h3>
 
+![alt text](https://github.com/therealtoma/EUResearchHub/blob/b0f99b7b7a4967b966862a9a320acc4d73e9e305/DB_design/logic_model.jpg)
+
+
+---
 
 <h3 id="table">Table Creation</h3>
 
 In this document we have listed all the queries for the creation of the database and the implementation of indexes, triggers, cheks and functions.<br>
 To mantain a more readable and compact code, all the queries are sorted according to the table in which they are inserted.<br>
-
----
 
 <h3 id="prj" >Projects</h3>
 
