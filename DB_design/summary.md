@@ -18,7 +18,16 @@
 	- [Researchers Projects](#resprj)
 	- [Researchers Messages](#resmsg)	 
 - [Roles](#roles)
+	- [Admin](#admin)
+	- [Researcher Role](#res-role)
+	- [Evaluator role](#evr-role)
 - [Triggers and checks](#triggers)
+	- [Evaluation Windows Checks](#evwindch)
+	- [Document versions Checks](#docverch)
+	- [Researchers,Evaluators Checks](#resevch)
+	- [Project Status Trigger](#prjststr)
+	- [Projects Policy](#prjpol)
+	- [Indexes](#indexes)
 
 
 
@@ -314,12 +323,6 @@ that role. This helps simplify the process of managing user privileges and
 access control within a database.
 </p>
 
-- [Admin](#admin)
-- [Researcher Role](#res-role)
-- [Evaluator role](#evr-role)
-
----
-
 <h3 id="admin" >Admin</h3>
 
 ````sql
@@ -381,13 +384,6 @@ GRANT SELECT ON TABLE "EUResearchHub".researchers_projects TO evaluator;
 
 
 <h3 id="triggers" >Triggers and checks</h3>
-
-- [Evaluation Windows Checks](#evwindch)
-- [Document versions Checks](#docverch)
-- [Researchers,Evaluators Checks](#resevch)
-- [Project Status Trigger](#prjststr)
-- [Projects Policy](#prjpol)
-- [Indexes](#indexes)
 
 <h3 id="evwindch" >Evaluation Windows date</h3>
 Add a CHECK constraint on the "EUResearchHub".evaluation_windows table to ensure that the "from" date is less than or equal to the "to" date:
