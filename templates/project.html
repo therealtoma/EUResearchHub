@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>EUResearchHub</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="functions.js"></script>
+    </head>
+    <body>
+        <div class="app-container">
+            <div class="app-header">
+                <div class="app-header-left">
+                    <span class="app-icon"></span>
+                    <p class="app-name">EUResearchHub</p>
+                </div>
+                <div class="app-header-right">
+                    <button class="notification-btn">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"  viewBox="0 0 24 24">
+                            <defs/>
+                            <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>
+                        </svg>
+                    </button>
+                    <button class="notification-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                        </svg>
+                    </button>
+                    <button class="profile-btn">
+                    <img src="images/profile.png" />
+                    <span>[name surname]</span>
+                    </button>
+                </div>
+                <button class="messages-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="app-content">
+                <div class="app-sidebar">
+
+                </div>
+                <div class="projects-section">
+                    <div class="projects-section-header">
+
+
+                        <p style="color:#666666;">[title]</p>
+
+                        <p  style="color:#666666; class="time"  >Evaluation window: [from] - [to]</p>
+
+
+                    </div>
+                    <div class="projects-section-line">
+                        <div class="projects-status">
+                            <div class="item-status">
+
+                                <span class="status-type">[Description]</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="project-boxes jsListView">
+                        <div class="project-box-wrapper">
+                            <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
+
+                                <div class="project-box-content-header">
+                                    <p class="box-content-header">[name]</p>
+                                    <p class="box-content-subheader">[description]</p>
+                                </div>
+                                <div class="box-progress-wrapper">
+
+                                </div>
+                                <div class="project-box-footer">
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [download]
+                                    </div>
+                                    </br>
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [ev. report]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="project-box-wrapper">
+                            <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
+
+                                <div class="project-box-content-header">
+                                    <p class="box-content-header">[name]</p>
+                                    <p class="box-content-subheader">[description]</p>
+                                </div>
+                                <div class="box-progress-wrapper">
+
+                                </div>
+                                <div class="project-box-footer">
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [download]
+                                    </div>
+                                    </br>
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [ev. report]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-box-wrapper">
+                            <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
+
+                                <div class="project-box-content-header">
+                                    <p class="box-content-header">[name]</p>
+                                    <p class="box-content-subheader">[description]</p>
+                                </div>
+                                <div class="box-progress-wrapper">
+
+                                </div>
+                                <div class="project-box-footer">
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [download]
+                                    </div>
+                                    </br>
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [ev. report]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-box-wrapper">
+                            <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
+
+                                <div class="project-box-content-header">
+                                    <p class="box-content-header">[name]</p>
+                                    <p class="box-content-subheader">[description]</p>
+                                </div>
+                                <div class="box-progress-wrapper">
+
+                                </div>
+                                <div class="project-box-footer">
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [download]
+                                    </div>
+                                    </br>
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [ev. report]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-box-wrapper">
+                            <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
+
+                                <div class="project-box-content-header">
+                                    <p class="box-content-header">[name]</p>
+                                    <p class="box-content-subheader">[description]</p>
+                                </div>
+                                <div class="box-progress-wrapper">
+
+                                </div>
+                                <div class="project-box-footer">
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [download]
+                                    </div>
+                                    </br>
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [ev. report]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-box-wrapper">
+                            <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
+
+                                <div class="project-box-content-header">
+                                    <p class="box-content-header">[name]</p>
+                                    <p class="box-content-subheader">[description]</p>
+                                </div>
+                                <div class="box-progress-wrapper">
+
+                                </div>
+                                <div class="project-box-footer">
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [download]
+                                    </div>
+                                    </br>
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [ev. report]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-box-wrapper">
+                            <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
+
+                                <div class="project-box-content-header">
+                                    <p class="box-content-header">[name]</p>
+                                    <p class="box-content-subheader">[description]</p>
+                                </div>
+                                <div class="box-progress-wrapper">
+
+                                </div>
+                                <div class="project-box-footer">
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [download]
+                                    </div>
+                                    </br>
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [ev. report]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-box-wrapper">
+                            <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
+
+                                <div class="project-box-content-header">
+                                    <p class="box-content-header">[name]</p>
+                                    <p class="box-content-subheader">[description]</p>
+                                </div>
+                                <div class="box-progress-wrapper">
+
+                                </div>
+                                <div class="project-box-footer">
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [download]
+                                    </div>
+                                    </br>
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [ev. report]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-box-wrapper">
+                            <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
+
+                                <div class="project-box-content-header">
+                                    <p class="box-content-header">[name]</p>
+                                    <p class="box-content-subheader">[description]</p>
+                                </div>
+                                <div class="box-progress-wrapper">
+
+                                </div>
+                                <div class="project-box-footer">
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [download]
+                                    </div>
+                                    </br>
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [ev. report]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-box-wrapper">
+                            <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
+
+                                <div class="project-box-content-header">
+                                    <p class="box-content-header">[name]</p>
+                                    <p class="box-content-subheader">[description]</p>
+                                </div>
+                                <div class="box-progress-wrapper">
+
+                                </div>
+                                <div class="project-box-footer">
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [download]
+                                    </div>
+                                    </br>
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [ev. report]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-box-wrapper">
+                            <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
+
+                                <div class="project-box-content-header">
+                                    <p class="box-content-header">[name]</p>
+                                    <p class="box-content-subheader">[description]</p>
+                                </div>
+                                <div class="box-progress-wrapper">
+
+                                </div>
+                                <div class="project-box-footer">
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [download]
+                                    </div>
+                                    </br>
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [ev. report]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-box-wrapper">
+                            <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
+
+                                <div class="project-box-content-header">
+                                    <p class="box-content-header">[name]</p>
+                                    <p class="box-content-subheader">[description]</p>
+                                </div>
+                                <div class="box-progress-wrapper">
+
+                                </div>
+                                <div class="project-box-footer">
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [download]
+                                    </div>
+                                    </br>
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [ev. report]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-box-wrapper">
+                            <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
+
+                                <div class="project-box-content-header">
+                                    <p class="box-content-header">[name]</p>
+                                    <p class="box-content-subheader">[description]</p>
+                                </div>
+                                <div class="box-progress-wrapper">
+
+                                </div>
+                                <div class="project-box-footer">
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [download]
+                                    </div>
+                                    </br>
+                                    <div class="days-left" style="color: #729DAC;">
+                                        [ev. report]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+                <div class="messages-section">
+                    <button class="messages-close">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="15" y1="9" x2="9" y2="15" />
+                            <line x1="9" y1="9" x2="15" y2="15" />
+                        </svg>
+                    </button>
+                    <div class="projects-section-header">
+                        <p style="color:#666666;">Messages</p>
+                    </div>
+                    <div class="messages">
+                        <div class="message-box">
+                            <img src="images/profile.png" alt="profile image">
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <div class="name" style="color:#666666;">[name]</div>
+                                </div>
+                                <p class="message-line">
+                                    [text]
+                                </p>
+                                <p class="message-line time">
+                                    [datetime]
+                                </p>
+                            </div>
+                        </div>
+                        <div class="message-box">
+                            <img src="images/profile.png" alt="profile image">
+                            <div class="message-content">
+                                <div class="message-header">
+                                    <div class="name" style="color:#666666;">[name]</div>
+
+                                </div>
+                                <p class="message-line">
+                                    [text]
+                                </p>
+                                <p class="message-line time">
+                                    [datetime]
+                                </p>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+                <div class="versions-section">
+
+                    <div class="projects-section-header">
+                        <p style="color:#666666;">Versions of: [name] </p>
+                    </div>
+                    <div class="message-box">
+                    <div class="message-content">
+                        <div class="message-header">
+                            <div class="name" style="color:#666666;">1. [file_path]</div>
+
+                        </div>
+                        <p class="message-line">
+                            [description changes made]
+                        </p>
+                        <p class="message-line time">
+                            [datetime]
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>
