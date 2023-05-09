@@ -1,29 +1,54 @@
 
 # EUResearchHub - Database and query implementations
-
+- [Conceptual Model](#concmdl)
+- [Logical Model](#lgclmdl)
 - [Table Creation](#table)
+	- [Projects](#prj)
+	- [Evaluation Windows](#evnwin)
+	- [Messages](#msg)
+	- [Documents](#doc)
+	- [Document types](#doctype)
+	- [Document versions](#docver)
+	- [Evaluators](#evr)
+	- [Evaluators Messages](#evrmsg)
+	- [Evaluators Projects](#evrprj)
+	- [Evaluation Reports](#evnrep)
+	- [Evaluators Evaluation Reports](#evrevnrep)
+	- [Researchers](#res)
+	- [Researchers Projects](#resprj)
+	- [Researchers Messages](#resmsg)	 
 - [Roles](#roles)
 - [Triggers and checks](#triggers)
+
+
+
+---
+
+
+<h3 id="table">Conceptual Model</h3>
+
+![alt text](http://url/to/img.png)
+
+
+---
+
+---
+
+
+<h3 id="table">Logical Model</h3>
+
+![alt text](http://url/to/img.png)
+
+
+---
+
+---
+
 
 <h3 id="table">Table Creation</h3>
 
 In this document we have listed all the queries for the creation of the database and the implementation of indexes, triggers, cheks and functions.<br>
 To mantain a more readable and compact code, all the queries are sorted according to the table in which they are inserted.<br>
-
-- [Projects](#prj)
-- [Evaluation Windows](#evnwin)
-- [Messages](#msg)
-- [Documents](#doc)
-- [Document types](#doctype)
-- [Document versions](#docver)
-- [Evaluators](#evr)
-- [Evaluators Messages](#evrmsg)
-- [Evaluators Projects](#evrprj)
-- [Evaluation Reports](#evnrep)
-- [Evaluators Evaluation Reports](#evrevnrep)
-- [Researchers](#res)
-- [Researchers Projects](#resprj)
-- [Researchers Messages](#resmsg)
 
 ---
 
