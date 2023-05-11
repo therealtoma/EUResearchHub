@@ -712,7 +712,72 @@ form.hide-submit input[type="submit"] {
     border-radius: 30px;
     padding: 16px;
     background-color: var(--main-color-card);
+    transition: border-color 0.3s ease;
 }
+
+.button-hold{
+    margin: 0 !important;
+    position: absolute !important;
+    top: 50% !important;
+    left:50% !important;
+    -ms-transform: translateY(-50%) !important;
+    transform: translateY(-50%) !important;
+}
+
+.plus-button {
+    border: 2px solid rgba(114,157,172,0.09);
+    background-color: #fff;
+    font-size: 16px;
+    height: 2.5em;
+    width: 2.5em;
+    border-radius: 10px;
+    position: relative;
+}
+
+.plus-button:after,
+.plus-button:before {
+    content: "";
+    display: block;
+    background-color: rgba(114,157,172,0.09);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.plus-button:before {
+    height: 1em;
+    width: 0.2em;
+}
+.plus-button:after {
+    height: 0.2em;
+    width: 1em;
+}
+
+.plus-button:hover:after, .plus-button:hover:before {
+    background-color: var(--main-color);
+    transition: 0.2s;
+}
+
+.plus-button:hover{
+    background-color: var(--app-container);
+    transition: 0.2s;
+}
+
+
+
+
+.new-project-box{
+    position: relative;
+    height:100%;
+    background-color: transparent !important;
+    border: 3px dashed rgba(114,157,172,0.09);
+    border-radius: 10px;
+    padding: 16px;
+}
+
+
+
 
 .project-box-header {
     display: flex;
@@ -736,6 +801,11 @@ form.hide-submit input[type="submit"] {
 
 .project-box-content-header p {
     margin: 0;
+}
+
+.new-project-box-wrapper {
+    height: 109px;
+    padding: 8px;
 }
 
 .project-box-wrapper {
