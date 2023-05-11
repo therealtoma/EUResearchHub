@@ -1,22 +1,3 @@
-from flask import Flask, render_template, url_for, redirect
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import InputRequired, Length, ValidationError
-from sqlalchemy import URL
-
-url_object = URL.create(
-    "postgresql",
-    username="",
-    password="",  # plain (unescaped) text
-    host="localhost",
-    port=5432,
-    database="postgres"
-)
-
-
-
 app = Flask(__name__)
 db = SQLAlchemy(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = "jdbc:postgresql://localhost:5432/postgres"
