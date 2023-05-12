@@ -1,7 +1,6 @@
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, Enum, TIMESTAMP, Date, UUID
 from sqlalchemy.orm import declarative_base, sessionmaker
 from dotenv import load_dotenv
-import enum  # mi serve per i tipi enumerativi (status)
 import os
 
 load_dotenv()  # carico le variabili d'ambiente
@@ -16,6 +15,36 @@ Base = declarative_base()  # creo la base per le classi
 enum_status = Enum('approved', 'submitted for evaluation', 'require changes', 'not approved')
 
 # definisco le tabelle del database
+
+class Users(Base):
+    __tablename__ = 'users'    
+
+    id = Column('id', Integer, primary_key=True)
+    name = Column('name', String)
+    surname = Column('surname', String)
+    email = Column('email', String)
+    password = Column('password', String)
+    profile_picture = Column('profile_picture', String)
+    
+    type = Column('type', String)
+    
+    __mapper_args__ = {
+        'polymorphic_identity':'users',
+        'with_polymorphic': '*',
+        'polymorphic_on': type
+    }
+    
+    def __init__(self, id, name, surname, email, password, profile_picture):
+        self.id = id
+        self.name = name
+        self.surname = surname
+        self.email = email
+        self.password = password
+        self.profile_picture = profile_picture
+        
+    def __repr__(self):
+        return f"users('{self.id}', '{self.name}', '{self.surname}', '{self.email}', '{self.password}', '{self.profile_picture}')"
+
 class Evaluation_Windows(Base):
     __tablename__ = 'evaluation_windows'
 
@@ -105,24 +134,18 @@ class Evaluation_Reports(Base):
     def __repr__(self):
         return f"evaluation_reports('{self.id}', '{self.comment}', '{self.date}', '{self.file_path}', '{self.fk_document}')"
 
-class Evaluators(Base):
+class Evaluators(Users):
     __tablename__ = 'evaluators'
 
-    id = Column('id', Integer, primary_key=True)
+    id = Column('id', Integer, ForeignKey('users.id'), primary_key=True)
 
-    name = Column('name', String)
-    surname = Column('surname', String)
-    email = Column('email', String)
-    password = Column('password', String)
-    profile_picture = Column('profile_picture', String)
+    __mapper_args__ = {
+        'polymorphic_identity': 'evaluators',
+        'with_polymorphic': '*'
+    }
 
-    def __init__(self, id, name, surname, email, password, p_p):
-        self.id = id
-        self.name = name
-        self.surname = surname
-        self.email = email
-        self.password = password
-        self.profile_picture = p_p
+    def __init__(self, id, name, surname, email, password, profile_picture):
+        super().__init__(id, name, surname, email, password, profile_picture)
 
     def __repr__(self):
         return f"evaluators('{self.id}', '{self.name}', '{self.surname}', '{self.email}', '{self.password}')"
@@ -208,25 +231,20 @@ class Evaluators_Messages(Base):
     def __repr__(self):
         return f"evaluators_messages('{self.fk_evaluators}', '{self.fk_messages}')"
 
-class Researchers(Base):
+class Researchers(Users):
     __tablename__ = 'researchers'
 
-    id = Column('id', Integer, primary_key=True)
-    name = Column('name', String)
-    surname = Column('surname', String)
-    email = Column('email', String)
-    password = Column('password', UUID)
+    id = Column('id', Integer, ForeignKey('users.id'), primary_key=True)
     affiliation = Column('affiliation', String)
-    profile_picture = Column('profile_picture', String)
 
-    def __init__(self, id, name, surname, email, password, affiliation, p_p):
-        self.id = id
-        self.name = name
-        self.surname = surname
-        self.email = email
-        self.password = password
+    __mapper_args__ = {
+        'polymorphic_identity': 'researchers',
+        'with_polymorphic': '*'
+    }
+
+    def __init__(self, id, name, surname, email, password, affiliation, profile_picture):
+        super().__init__(id, name, surname, email, password, profile_picture)
         self.affiliation = affiliation
-        self.profile_picture = p_p
 
     def __repr__(self):
         return f"researchers('{self.id}', '{self.name}', '{self.surname}', '{self.email}', '{self.password}', '{self.affiliation}')"
