@@ -113,14 +113,16 @@ class Evaluators(Base):
     name = Column('name', String)
     surname = Column('surname', String)
     email = Column('email', String)
-    password = Column('password', UUID)
+    password = Column('password', String)
+    profile_picture = Column('profile_picture', String)
 
-    def __init__(self, id, name, surname, email, password):
+    def __init__(self, id, name, surname, email, password, p_p):
         self.id = id
         self.name = name
         self.surname = surname
         self.email = email
         self.password = password
+        self.profile_picture = p_p
 
     def __repr__(self):
         return f"evaluators('{self.id}', '{self.name}', '{self.surname}', '{self.email}', '{self.password}')"
@@ -210,20 +212,21 @@ class Researchers(Base):
     __tablename__ = 'researchers'
 
     id = Column('id', Integer, primary_key=True)
-
     name = Column('name', String)
     surname = Column('surname', String)
     email = Column('email', String)
     password = Column('password', UUID)
     affiliation = Column('affiliation', String)
+    profile_picture = Column('profile_picture', String)
 
-    def __init__(self, id, name, surname, email, password, affiliation):
+    def __init__(self, id, name, surname, email, password, affiliation, p_p):
         self.id = id
         self.name = name
         self.surname = surname
         self.email = email
         self.password = password
         self.affiliation = affiliation
+        self.profile_picture = p_p
 
     def __repr__(self):
         return f"researchers('{self.id}', '{self.name}', '{self.surname}', '{self.email}', '{self.password}', '{self.affiliation}')"
