@@ -10,6 +10,12 @@
     <div>
         <form action="{{ url_for('auth.register') }}" method="POST">
 
+            {% if user == 'none': %}
+                <label for="user">Tipo di utente: </label>
+                <button type="submit">Researcher</button>
+                <button type="submit">Evaluator</button>
+            {% else %}
+
             <input type="file" accept="image/jpg" name="profile_picture" id="register-profile_picture">
 
             <label for="name">Nome: </label>
@@ -24,10 +30,14 @@
             <label for="password">Password: </label>
             <input type="password" name="password" id="register-password">
 
+            {% if user == 'researcher' %}
             <label for="affiliation">Affiliation: </label>
-            <input type="text" name="affiliation" id=register-affiliation>
-        
+            <input type="text" name="affiliation" id="register-affiliation" >
+            
+            {% endif %}
             <button type="submit">Register</button>
+
+            {% endif %}
         </form>
     </div>
 </body>
