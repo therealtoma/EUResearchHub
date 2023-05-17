@@ -4,7 +4,14 @@
         <meta charset="UTF-8">
         <title>EUResearchHub</title>
         <link rel="stylesheet" href="../static/style.css">
-        <script src="../static/functions.js"></script>
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap">
+        <link rel="stylesheet" href="../static/style_upload.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
+
     </head>
     <body>
         <div class="app-container">
@@ -146,10 +153,11 @@
                         <div class="new-document-box-wrapper">
                             <div class="new-document-box">
                                 <div class="button-hold">
-                                    <button class="plus-button"></button>
+                                    <button id="openModalButton" class="plus-button"></button>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
@@ -159,7 +167,7 @@
 
                     <div class="messages-section">
                         <button class="messages-close">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
                                 <circle cx="12" cy="12" r="10" />
                                 <line x1="15" y1="9" x2="9" y2="15" />
                                 <line x1="9" y1="9" x2="15" y2="15" />
@@ -240,7 +248,7 @@
                             <input class="message-holder" type="text" placeholder="Type anything...">
                             <label style="">
                                 <input type="submit">
-                                <svg style="height:35px; margin-left:10px; margin-right:20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#666666">
+                                <svg style="height:35px; margin-left:10px; margin-right:20px" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#666666">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                     <g id="SVGRepo_iconCarrier">
@@ -255,7 +263,7 @@
                         <div class="projects-section-header">
                             <p style="color:#666666;">Versions of: [name] </p>
                             <div class="button-hold-versions">
-                                <button class="plus-button-versions"></button>
+                                <button id="openModalButton2" class="plus-button-versions"></button>
                             </div>
                         </div>
                         <div class="messages">
@@ -308,6 +316,90 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
+
         </div>
+
+
+
+        <div id="modalContainer" class="modal-container">
+            <div id="uploadArea" class="upload-area">
+                <!-- Header -->
+                <div class="upload-area__header">
+                    <h1 class="upload-area__title">  Upload your file </h1>
+                    <p class="upload-area__paragraph">
+                        File should be a document or image
+                        <strong class="upload-area__tooltip">
+                            <span class="upload-area__tooltip-data"></span> <!-- Data Will be Comes From Js -->
+                        </strong>
+                    </p>
+                </div>
+                <!-- End Header -->
+
+                <!-- Drop Zoon -->
+                <div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
+    <span class="drop-zoon__icon">
+      <i class='bx bxs-file-image'></i>
+    </span>
+                    <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
+                    <span id="loadingText" class="drop-zoon__loading-text">Please Wait</span>
+                    <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image" draggable="false">
+                    <input type="file" id="fileInput" class="drop-zoon__file-input" accept="image/*">
+                </div>
+                <!-- End Drop Zoon -->
+
+                <!-- File Details -->
+                <div id="fileDetails" class="upload-area__file-details file-details">
+                    <h3 class="file-details__title">Uploaded File</h3>
+
+                    <div id="uploadedFile" class="uploaded-file">
+                        <div class="uploaded-file__icon-container">
+                            <i class='bx bxs-file-blank uploaded-file__icon'></i>
+                            <span class="uploaded-file__icon-text"></span> <!-- Data Will be Comes From Js -->
+                        </div>
+
+                        <div id="uploadedFileInfo" class="uploaded-file__info">
+                            <span class="uploaded-file__name">Proejct 1</span>
+                            <span class="uploaded-file__counter">0%</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End File Details -->
+            </div>
+            <!-- End Upload Area -->
+            <!-- partial -->
+            <script src="../static/functions.js"></script>
+            <script>
+                const openModalButton = document.getElementById('openModalButton');
+                const openModalButton2 = document.getElementById('openModalButton2');
+                const modalContainer = document.getElementById('modalContainer');
+
+                openModalButton.addEventListener('click', function() {
+                    modalContainer.style.display = 'block';
+                });
+
+                openModalButton2.addEventListener('click', function() {
+                    modalContainer.style.display = 'block';
+                });
+                // Hide the modal when the user clicks outside of it
+                window.addEventListener('click', function(event) {
+                    if (event.target === modalContainer) {
+                        modalContainer.style.display = 'none';
+                    }
+                });
+            </script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
+
+
+
+        </div>
+
+
+
     </body>
 </html>
