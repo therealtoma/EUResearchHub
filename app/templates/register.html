@@ -32,11 +32,7 @@
                 <span class="login100-form-title">
                     <strong>EUResearchHub</strong>
                 </span>
-                {% if user == 'none': %}
-                    <label for="user">Tipo di utente: </label>
-                    <button type="submit">Researcher</button>
-                    <button type="submit">Evaluator</button>
-                {% else %}
+
                 <div class="wrap-input100 validate-input" data-validate="the name is missing">
                     <input class="input100" type="text" name="name" placeholder="Name" id="register-name">
                     <span class="focus-input100"></span>
@@ -54,13 +50,13 @@
                 </div>
 
                 <div class="wrap-input100 validate-input">
-                    <input accept="image/jpg" class="input100" type="file" name="profile_picture" id="register-profile_picture" placeholder="Profile Picture">
+                    <input accept="image/jpg" style="color:black; padding-left: 15px !important; padding-top: 13px !important;" class="input100" type="file" name="profile_picture" id="register-profile_picture" placeholder="Profile Picture">
                     <span class="focus-input100"></span>
                 </div>
 
                 {% if user == 'researcher' %}
                 <div class="wrap-input100 validate-input"  data-validate="the affiliation is missing">
-                    <input class="input100" type="text" style="color:black; padding-left: 15px !important; padding-top: 13px !important;" name="affiliation" id="register-affiliation" placeholder="Affiliation">
+                    <input class="input100" type="text" name="affiliation" id="register-affiliation" placeholder="Affiliation">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
