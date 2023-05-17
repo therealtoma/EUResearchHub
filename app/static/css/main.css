@@ -247,6 +247,20 @@ iframe {
 }
 
 
+.input100-file {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: black;
+
+  display: block;
+  width: 100%;
+  background: rgba(114,157,172,0.09);
+  height: 50px;
+  border-radius: 25px;
+  padding-left: ;
+}
+
 /*------------------------------------------------------------------
 [ Focus ]*/
 .focus-input100 {
