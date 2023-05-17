@@ -211,6 +211,11 @@ iframe {
   width: 290px;
 }
 
+.login100-form-user {
+  display: flex;
+  width: 290px;
+}
+
 .login100-form-title {
   font-family: 'DM Sans', sans-serif;
   font-size: 24px;
@@ -246,6 +251,27 @@ iframe {
   padding: 0 30px 0 68px;
 }
 
+.input-user {
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  width:100%;
+  color: white;
+  margin:3px;
+  display: block;
+  background: #729DAC;
+  height: 50px;
+  border-radius: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.input-user:hover {
+  transition: 0.5s;
+  background: #243244;
+}
+
 
 .input100-file {
   font-family: 'DM Sans', sans-serif;
@@ -258,7 +284,7 @@ iframe {
   background: rgba(114,157,172,0.09);
   height: 50px;
   border-radius: 25px;
-  padding-left: ;
+  padding: 0 30px 0 68px;
 }
 
 /*------------------------------------------------------------------
