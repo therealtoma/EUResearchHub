@@ -1,22 +1,50 @@
 from flask import Blueprint, request, render_template, url_for, redirect, flash
+from sqlalchemy import text
+from flask_wtf.csrf import CSRFProtect
+
+
 from app.models.database import db, Researchers, Evaluators
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user, login_required, current_user
-from app.modules.modules import check_email
+from app.utils.utils import check_email
+import os
+
+from flask import current_app
 
 auth = Blueprint('auth', __name__)
 
 # login route
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
+
     if request.method == 'POST':
-        email = request.form.get('emai') # email from the form
+        email = request.form.get('email') # email from the form
         password = request.form.get('password') # password from the form
-        
-        usertype = request.form.get('usertype') # type of user that whants to login
-        print(usertype)
-        
+        print(email)
+        evaluator = Evaluators.query.filter_by(email=email).first()
+        researcher = Researchers.query.filter_by(email=email).first()
+
+        if evaluator and check_password_hash(evaluator.password, password):
+            login_user(evaluator)
+            db.session.close()
+            print(os.getenv('EVALUATOR_DATABASE_URI'))
+            current_app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('EVALUATOR_DATABASE_URI')
+            return redirect(url_for('views.projects'))
+        elif researcher and check_password_hash(researcher.password, password):
+            login_user(researcher)
+            db.session.close()
+            current_app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('RESEARCHER_DATABASE_URI')
+            return redirect(url_for('projects'))
+        else:
+            flash('Invalid email or password', 'error')
+
+
     return render_template('login.html')
+
+
+
+
+
 
 # register route
 @auth.route('/register', methods=['GET', 'POST'])
@@ -81,7 +109,7 @@ def register():
 
 # logout route
 @auth.route('/logout')
-@login_required
 def logout():
     logout_user()
+    flash('You have been logged out successfully', 'success')
     return redirect(url_for('auth.login'))

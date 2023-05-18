@@ -29,7 +29,9 @@
                 <img src="../static/images/2.png" alt="IMG">
             </div>
 
-            <form class="login100-form validate-form" method="post" action="{{url_for('auth.login')}}">  
+            <form class="login100-form validate-form" method="post" action="{{url_for('auth.login')}}">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
 					<span class="login100-form-title">
                         <strong>EUResearchHub</strong>
 					</span>
@@ -50,17 +52,25 @@
                 </div>
 
                 <div class="container-login100-form-btn">
+
                     <button class="login100-form-btn" type="submit">
                         <strong>Login</strong>
                     </button>
                 </div>
                 
-
-                <div class="text-center p-t-12">
-                    <span class="txt1" style="color:red;">
-                        Wrong Username or Password.
-                    </span>
-                </div>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="text-center p-t-12">
+                            {% for message in messages %}
+                                {% if 'success' in message %}
+                                    <span class="txt1" style="color: green;">{{ message }}</span>
+                                {% else %}
+                                    <span class="txt1" style="color: red;">{{ message }}</span>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
 
                 <div class="text-center p-t-136">
                 </div>

@@ -1,5 +1,8 @@
+from flask import Flask, render_template, redirect, url_for
+from flask_wtf.csrf import CSRFError
+
 '''
-from flask import Flask, render_template
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
 from flask_login import LoginManager
@@ -39,25 +42,27 @@ def create_database(uri):
     
 '''
 # REFACTORING CODE
-from flask import Flask
+from flask import Flask, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from dotenv import load_dotenv
 from app.models.database import db
 import os
-
+from flask_wtf import CSRFProtect
 load_dotenv() # loads enviroment variables form .env file
 
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DEFAULT_DATABASE_URI')
+    csrf = CSRFProtect(app)
+    csrf.init_app(app)
     db.init_app(app)
-    
+
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
-    
+
     with app.app_context():
         db.create_all()
     # registro i blueprints
@@ -71,5 +76,22 @@ def create_app():
     @login_manager.user_loader
     def load_user(id):
         return Evaluators.query.get(int(id))
-        
+
+    @app.errorhandler(403)
+    def handle_unauthorized(e):
+        with app.app_context():
+            return render_template('403.html'), 403
+
+    @app.errorhandler(404)
+    def page_not_found(e):
+        with app.app_context():
+            return render_template('404.html'), 404
+
+    @app.errorhandler(CSRFError)
+    def handle_csrf_error(e):
+        flash('CSRF token validation failed', 'error')
+        return redirect(url_for('auth.login'))
+
     return app
+
+
