@@ -51,8 +51,9 @@ def login():
 def register():
     if request.method == 'POST':
         choice = request.form.get('choice')
+        print(choice)
         if choice:
-            if choice == 'researcher':
+            if choice == 'Researcher':
                 return render_template('register.html', user='researcher')
             else:
                 return render_template('register.html', user='evaluator')

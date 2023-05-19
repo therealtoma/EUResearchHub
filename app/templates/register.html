@@ -23,93 +23,126 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <div class="login100-pic js-tilt" data-tilt>
+            <div class="login100-pic js-tilt" data-tilt style="display: none">
                 <img src="../static/images/2.png" alt="IMG">
             </div>
-            <span class="login100-form-title">
-                <strong>EUResearchHub</strong>
-            </span>
-            <div>
-                {% if user == 'none' %}
-                    <form class="login100-form-user login100-form validate-form" method="post" action="{{ url_for('auth.register') }}">
-                        <label style="width:100%;" for="user">Type of user: </label>
-                        <input class="input-user" type="submit" value="Evaluator" name="choice">
-                        <input class="input-user" type="submit" value="Researcher" name="choice">
-                    </form>
-                {% else %}
-            </div>
-            <div>
-                <form class="login100-form validate-form" method="post" action="{{ url_for('auth.register') }}">
-                    <div class="wrap-input100 validate-input" data-validate="the name is missing">
-                        <input class="input100" type="text" name="name" placeholder="Name" id="register-name">
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                        </span>
-                    </div>
+            {% if user == 'none' %}
+                <span class="login100-form-title">
+                    <strong>EUResearchHub - Registration</strong>
+                </span>
+                <div style="margin: 0 auto; width: auto;">
 
-                    <div class="wrap-input100 validate-input" data-validate="the surname is missing">
-                        <input class="input100" type="text" name="surname" id="register-surname" placeholder="Surname">
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                        </span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input">
-                        <input accept="image/jpg" style="color:black; padding-left: 15px !important; padding-top: 13px !important;" class="input100" type="file" name="profile_picture" id="register-profile_picture" placeholder="Profile Picture">
-                        <span class="focus-input100"></span>
-                    </div>
-
+                        <form style="width: 600px;" class="login100-form-user login100-form validate-form" method="post" action="{{ url_for('auth.register') }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <input class="input-user" type="submit" value="Evaluator" name="choice">
+                            <input class="input-user" type="submit" value="Researcher" name="choice">
+                        </form>
+                </div>
+            {% else %}
+                <span class="login100-form-title">
                     {% if user == 'researcher' %}
-                    <div class="wrap-input100 validate-input"  data-validate="the affiliation is missing">
-                        <input class="input100" type="text" name="affiliation" id="register-affiliation" placeholder="Affiliation">
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                        </span>
-                    </div>
+                        <strong>EUResearchHub - Researcher</strong>
+                    {% else %}
+                        <strong>EUResearchHub - Evaluator</strong>
                     {% endif %}
+                </span>
+                <div style="margin: 0 auto; width: auto;">
+                    <form class="login100-form validate-form" method="post" action="{{ url_for('auth.register') }}">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
-                    <div class="wrap-input100 validate-input" data-validate="the mail is missing">
-                        <input class="input100" type="text" name="email" id="register-email" placeholder="Email">
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                        </span>
-                    </div>
+                        <div class="wrap-input100-profile-picture validate-input" data-validate="the profile picture is missing">
+                            <label class="input100-file" for="register-profile_picture"><span style="align-items: center">Profile</span><br><span style="align-items: center">Picture</span></label>
+                            <img alt="User Pic"  id="img-tag" style="border-radius: 50%; box-shadow: 0px 0px 5px 0px #c1c1c1;  width: 100px; height: 100px;margin: 0 auto;" src="https://d30y9cdsu7xlg0.cloudfront.net/png/138926-200.png" >
+                            <input onchange="previewFile()" accept="image/png" style="padding-left: 15px !important; padding-top: 13px !important;display:none" class="input100-file" type="file" name="profile_picture" id="register-profile_picture" placeholder="Profile Picture">
+                        </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="the password is missing">
-                        <input class="input100" type="password" name="password" id="register-password" placeholder="Password">
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-lock" aria-hidden="true"></i>
-                        </span>
-                    </div>
+                        <div class="wrap-input100 validate-input" data-validate="the name is missing">
+                            <input class="input100" type="text" name="name" placeholder="Name" id="register-name">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </span>
+                        </div>
 
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn" type="submit">
-                            <strong>Register</strong>
-                        </button>
-                    </div>
-                    {% endif %}
-                    {% with messages = get_flashed_messages(with_categories=True)%}
-                        {% if messages %}
-                            {% for category, message in messages %}
-                            <div class="text-center p-t-12">
-                                <span class="txt1 {{category}}" style="color:red;">
-                                    {{ message }}
+                        <div class="wrap-input100 validate-input" data-validate="the surname is missing">
+                            <input class="input100" type="text" name="surname" id="register-surname" placeholder="Surname">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </span>
+                        </div>
+
+
+
+                        {% if user == 'researcher' %}
+                            <div class="wrap-input100 validate-input"  data-validate="the affiliation is missing">
+                                <input class="input100" type="text" name="affiliation" id="register-affiliation" placeholder="Affiliation">
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
                                 </span>
                             </div>
-                            {% endfor %}
                         {% endif %}
-                    {% endwith %}
-                    <div class="text-center p-t-136">
-                    </div>
-                </form>
-            </div>
+
+                        <div class="wrap-input100 validate-input" data-validate="the mail is missing">
+                            <input class="input100" type="text" name="email" id="register-email" placeholder="Email">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input" data-validate="the password is missing">
+                            <input class="input100" type="password" name="password" id="register-password" placeholder="Password">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                            </span>
+                        </div>
+
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn" type="submit">
+                                <strong>Register</strong>
+                            </button>
+                        </div>
+                        {% endif %}
+                        {% with messages = get_flashed_messages(with_categories=True)%}
+                            {% if messages %}
+                                {% for category, message in messages %}
+                                <div class="text-center p-t-12">
+                                    <span class="txt1 {{category}}" style="color:red;">
+                                        {{ message }}
+                                    </span>
+                                </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                        <div class="text-center p-t-136">
+                        </div>
+                    </form>
+                </div>
         </div>
     </div>
 </div>
+    <script>
+        function previewFile() {
+            var preview = document.querySelector('img');
+            var file    = document.querySelector('input[type=file]').files[0];
+            var reader  = new FileReader();
+            reader.addEventListener("load", function () {
+                preview.src = reader.result;
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+            $(function() {
+                $('#img-tag').on('click', function() {
+                    $('#register-profile_picture').click();
+                });
+            });
+    </script>
 </body>
 </html>
