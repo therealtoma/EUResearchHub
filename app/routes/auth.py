@@ -27,7 +27,6 @@ def login():
         if evaluator and check_password_hash(evaluator.password, password):
             login_user(evaluator)
             db.session.close()
-            print(os.getenv('EVALUATOR_DATABASE_URI'))
             current_app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('EVALUATOR_DATABASE_URI')
             return redirect(url_for('views.projects'))
         elif researcher and check_password_hash(researcher.password, password):
@@ -75,21 +74,21 @@ def register():
         else:
 
             profile_picture = request.files.get('profile_picture')
+            print(profile_picture)
             if profile_picture and profile_picture.filename != '':
                 current_directory = os.path.dirname(os.path.realpath(__file__))
                 current_app.config['UPLOAD_FOLDER'] = os.path.join(current_directory, '../uploads/profile_images')
-                filename = secure_filename(profile_picture.filename)
+                filename = f'{email}.jpg'
                 profile_picture.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
-
+            else:
+                filename = 'default.jpg'
 
             if affiliation is None:
-                new_user = Evaluators(name=name, surname=surname, email=email, password=generate_password_hash(password, method='sha256'))
+                new_user = Evaluators(name=name, surname=surname, email=email, password=generate_password_hash(password, method='sha256'), profile_picture=filename)
             else:
-                new_user = Researchers(name=name, surname=surname, email=email, password=generate_password_hash(password, method='sha256'), affiliation=affiliation)
+                new_user = Researchers(name=name, surname=surname, email=email, password=generate_password_hash(password, method='sha256'), affiliation=affiliation, profile_picture=filename)
             db.session.add(new_user)
             db.session.commit()
-
-
 
             login_user(new_user, remember=True)
             return redirect(url_for('views.home'))
@@ -98,7 +97,7 @@ def register():
         else:
             return render_template('register.html', user='researcher')
     return render_template('register.html', user='none')
-   
+
 # logout route
 @auth.route('/logout')
 def logout():

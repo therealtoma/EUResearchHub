@@ -14,7 +14,7 @@ def create_app():
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DEFAULT_DATABASE_URI')
-	app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../uploads/profile_images')
+    app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../uploads/profile_images')
     app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB
     csrf = CSRFProtect(app)
     csrf.init_app(app)
