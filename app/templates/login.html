@@ -57,22 +57,6 @@
                         <strong>Login</strong>
                     </button>
                 </div>
-<<<<<<< HEAD
-
-                <div class="container-login100-form-btn">
-                    <p>
-                        Don't have an account? <a href="{{ url_for('auth.register') }}">Create one!</a>
-                    </p>
-                </div>
-
-                {# comment
-                <div class="text-center p-t-12">
-                    <span class="txt1" style="color:red;">
-                        Wrong Username or Password.
-                    </span>
-                </div>
-                 #}
-=======
                 
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
@@ -88,7 +72,6 @@
                     {% endif %}
                 {% endwith %}
 
->>>>>>> origin/15-connection_DB
                 <div class="text-center p-t-136">
                 </div>
             </form>
