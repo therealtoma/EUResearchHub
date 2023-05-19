@@ -20,14 +20,12 @@ def login():
     if request.method == 'POST':
         email = request.form.get('email') # email from the form
         password = request.form.get('password') # password from the form
-        print(email)
         evaluator = Evaluators.query.filter_by(email=email).first()
         researcher = Researchers.query.filter_by(email=email).first()
 
         if evaluator and check_password_hash(evaluator.password, password):
             login_user(evaluator)
             db.session.close()
-            print(os.getenv('EVALUATOR_DATABASE_URI'))
             current_app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('EVALUATOR_DATABASE_URI')
             return redirect(url_for('views.projects'))
         elif researcher and check_password_hash(researcher.password, password):

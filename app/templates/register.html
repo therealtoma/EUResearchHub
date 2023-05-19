@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,17 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="../static/css/util.css">
+
     <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <!--===============================================================================================-->
     <title>Register</title>
 </head>
 <body>
@@ -46,103 +52,104 @@
                         <strong>EUResearchHub - Evaluator</strong>
                     {% endif %}
                 </span>
-                <div style="margin: 0 auto; width: auto;">
-                    <form class="login100-form validate-form" method="post" action="{{ url_for('auth.register') }}">
-                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
-                        <div class="wrap-input100-profile-picture validate-input" data-validate="the profile picture is missing">
-                            <label class="input100-file" for="register-profile_picture"><span style="align-items: center">Profile</span><br><span style="align-items: center">Picture</span></label>
-                            <img alt="User Pic"  id="img-tag" style="border-radius: 50%; box-shadow: 0px 0px 5px 0px #c1c1c1;  width: 100px; height: 100px;margin: 0 auto;" src="https://d30y9cdsu7xlg0.cloudfront.net/png/138926-200.png" >
-                            <input onchange="previewFile()" accept="image/png" style="padding-left: 15px !important; padding-top: 13px !important;display:none" class="input100-file" type="file" name="profile_picture" id="register-profile_picture" placeholder="Profile Picture">
-                        </div>
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <div class="wrap-input100" style="text-align: center;">
+                  <div class="profile-pic" style="display: inline-block;">
+                    <input onchange="previewFile()" accept="image/png" style="padding-left: 15px !important; padding-top: 13px !important; display: none;" class="input100-file" type="file" name="profile_picture" id="register-profile_picture" placeholder="Profile Picture">
+                    <img alt="User Pic" id="img-tag" style="border-radius: 50%; box-shadow: 0px 0px 5px 0px #c1c1c1; width: 100px; height: 100px; cursor: pointer; display: block; margin: 0 auto;" src="../static/images/profile.png" onclick="document.getElementById('register-profile_picture').click();">
+                  </div>
+                </div>
 
-                        <div class="wrap-input100 validate-input" data-validate="the name is missing">
-                            <input class="input100" type="text" name="name" placeholder="Name" id="register-name">
-                            <span class="focus-input100"></span>
-                            <span class="symbol-input100">
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <div class="wrap-input100 validate-input" data-validate="the name is missing">
+                    <input class="input100" type="text" name="name" placeholder="Name" id="register-name">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="the surname is missing">
+                    <input class="input100" type="text" name="surname" id="register-surname" placeholder="Surname">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                                <i class="fa fa-user" aria-hidden="true"></i>
                             </span>
-                        </div>
-
-                        <div class="wrap-input100 validate-input" data-validate="the surname is missing">
-                            <input class="input100" type="text" name="surname" id="register-surname" placeholder="Surname">
-                            <span class="focus-input100"></span>
-                            <span class="symbol-input100">
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                            </span>
-                        </div>
+                </div>
 
 
 
-                        {% if user == 'researcher' %}
-                            <div class="wrap-input100 validate-input"  data-validate="the affiliation is missing">
-                                <input class="input100" type="text" name="affiliation" id="register-affiliation" placeholder="Affiliation">
-                                <span class="focus-input100"></span>
-                                <span class="symbol-input100">
-                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                {% if user == 'researcher' %}
+                    <div class="wrap-input100 validate-input"  data-validate="the affiliation is missing">
+                        <input class="input100" type="text" name="affiliation" id="register-affiliation" placeholder="Affiliation">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                                    <i class="fa fa-building" aria-hidden="true"></i>
                                 </span>
-                            </div>
-                        {% endif %}
+                    </div>
+                {% endif %}
 
-                        <div class="wrap-input100 validate-input" data-validate="the mail is missing">
-                            <input class="input100" type="text" name="email" id="register-email" placeholder="Email">
-                            <span class="focus-input100"></span>
-                            <span class="symbol-input100">
+                <div class="wrap-input100 validate-input" data-validate="the mail is missing">
+                    <input class="input100" type="text" name="email" id="register-email" placeholder="Email">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                             </span>
-                        </div>
+                </div>
 
-                        <div class="wrap-input100 validate-input" data-validate="the password is missing">
-                            <input class="input100" type="password" name="password" id="register-password" placeholder="Password">
-                            <span class="focus-input100"></span>
-                            <span class="symbol-input100">
+                <div class="wrap-input100 validate-input" data-validate="the password is missing">
+                    <input class="input100" type="password" name="password" id="register-password" placeholder="Password">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
                                 <i class="fa fa-lock" aria-hidden="true"></i>
                             </span>
-                        </div>
-
-                        <div class="container-login100-form-btn">
-                            <button class="login100-form-btn" type="submit">
-                                <strong>Register</strong>
-                            </button>
-                        </div>
-                        {% endif %}
-                        {% with messages = get_flashed_messages(with_categories=True)%}
-                            {% if messages %}
-                                {% for category, message in messages %}
-                                <div class="text-center p-t-12">
-                                    <span class="txt1 {{category}}" style="color:red;">
-                                        {{ message }}
-                                    </span>
-                                </div>
-                                {% endfor %}
-                            {% endif %}
-                        {% endwith %}
-                        <div class="text-center p-t-136">
-                        </div>
-                    </form>
                 </div>
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" type="submit">
+                        <strong>Register</strong>
+                    </button>
+                </div>
+            {% endif %}
+             {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="text-center p-t-12">
+                            {% for message in messages %}
+                                {% if 'success' in message %}
+                                    <span class="txt1" style="color: green;">{{ message }}</span>
+                                {% else %}
+                                    <span class="txt1" style="color: red;">{{ message }}</span>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+            <div class="text-center p-t-136">
+            </div>
+            </div>
         </div>
     </div>
-</div>
+
     <script>
         function previewFile() {
-            var preview = document.querySelector('img');
-            var file    = document.querySelector('input[type=file]').files[0];
-            var reader  = new FileReader();
-            reader.addEventListener("load", function () {
-                preview.src = reader.result;
-            }, false);
+          var preview = document.querySelector('#img-tag');
+          var file = document.querySelector('#register-profile_picture').files[0];
+          var reader = new FileReader();
 
-            if (file) {
-                reader.readAsDataURL(file);
-            }
+          reader.addEventListener("load", function () {
+            preview.src = reader.result;
+          }, false);
+
+          if (file) {
+            reader.readAsDataURL(file);
+          }
         }
 
-            $(function() {
-                $('#img-tag').on('click', function() {
-                    $('#register-profile_picture').click();
-                });
-            });
+        $(function() {
+          $('#img-tag').on('click', function() {
+            $('#register-profile_picture').click();
+          });
+        });
     </script>
 </body>
 </html>
