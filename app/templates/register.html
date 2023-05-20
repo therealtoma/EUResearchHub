@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--===============================================================================================-->
@@ -38,11 +38,11 @@
                 </span>
                 <div style="margin: 0 auto; width: auto;">
 
-                        <form style="width: 600px;" class="login100-form-user login100-form validate-form" method="post" action="{{ url_for('auth.register') }}">
-                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                            <input class="input-user" type="submit" value="Evaluator" name="choice">
-                            <input class="input-user" type="submit" value="Researcher" name="choice">
-                        </form>
+                    <form style="width: 600px;" class="login100-form-user login100-form validate-form" method="post" action="{{ url_for('auth.register') }}">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <input class="input-user" type="submit" value="Evaluator" name="choice">
+                        <input class="input-user" type="submit" value="Researcher" name="choice">
+                    </form>
                 </div>
             {% else %}
                 <span class="login100-form-title">
@@ -74,6 +74,7 @@
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                                 <i class="fa fa-user" aria-hidden="true"></i>
+
                             </span>
                 </div>
 
@@ -85,6 +86,7 @@
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                                     <i class="fa fa-building" aria-hidden="true"></i>
+
                                 </span>
                     </div>
                 {% endif %}
@@ -144,6 +146,7 @@
             reader.readAsDataURL(file);
           }
         }
+    }
 
         $(function() {
           $('#img-tag').on('click', function() {
