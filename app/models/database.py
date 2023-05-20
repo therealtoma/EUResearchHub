@@ -133,3 +133,9 @@ class Researchers_Projects(db.Model):
 
     fk_researchers = db.Column('fk_researchers', db.Integer, db.ForeignKey('researchers.id'), primary_key=True)
     fk_projects = db.Column('fk_projects', db.Integer, db.ForeignKey('projects.id'), primary_key=True)
+
+class ProjectsStatusCount(db.Model):
+    __tablename__ = 'projects_status_count'
+
+    status = db.Column('status', db.Enum(EnumStatus), primary_key=True)
+    count = db.Column('count', db.Integer)

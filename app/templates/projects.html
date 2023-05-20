@@ -29,7 +29,7 @@
                     </button>
                     <button class="profile-btn">
                     <img src="../static/images/profile.png" />
-                    <span>[name surname]</span>
+                    <span> {{ name }} {{ surname }} </span>
                     </button>
                 </div>
                 <button class="messages-btn">
@@ -45,37 +45,38 @@
                 <div class="projects-section">
                     <div class="projects-section-header">
                         <p style="color:#666666;">Projects</p>
-                        <p style="color:#666666;" class="time">Evaluation Window: [from] - [to]</p>
+                        <p style="color:#666666;" class="time">Evaluation Window: {{ from_date }} - {{ to_date }}</p>
                     </div>
                     <div class="projects-section-line">
-                        <div class="projects-status">
-                            <div class="item-status">
-                                <span style="color:#666666;" class="status-number">45</span>
-                                <span class="status-type" >Approved </span>
-                            </div>
-                            <div class="item-status">
-                                <span style="color:#666666;" class="status-number">24</span>
-                                <span class="status-type"  >Require changes</span>
-                            </div>
-                            <div class="item-status">
-                                <span style="color:#666666;" class="status-number">62</span>
-                                <span class="status-type" >Submitted for evaluation</span>
-                            </div>
-                            <div class="item-status">
-                                <span style="color:#666666;" class="status-number">62</span>
-                                <span class="status-type"  > Not Approved</span>
-                            </div>
-                        </div>
-                        <div class="view-actions">
+    <div class="projects-status">
+        <div class="item-status">
+            <span style="color:#666666;" class="status-number">{{ counts_by_status['approved'] }}</span>
+            <span class="status-type">Approved</span>
+        </div>
+        <div class="item-status">
+            <span style="color:#666666;" class="status-number">{{ counts_by_status['require changes'] }}</span>
+            <span class="status-type">Require changes</span>
+        </div>
+        <div class="item-status">
+            <span style="color:#666666;" class="status-number">{{ counts_by_status['submitted for evaluation'] }}</span>
+            <span class="status-type">Submitted for evaluation</span>
+        </div>
+        <div class="item-status">
+            <span style="color:#666666;" class="status-number">{{ counts_by_status['not approved'] }}</span>
+            <span class="status-type">Not Approved</span>
+        </div>
+    </div>
+    <div class="view-actions">
 
 
                         </div>
                     </div>
                     <div class="project-boxes jsGridView">
+                        {% for project in projects %}
                         <div class="project-box-wrapper">
                             <div class="project-box" style="background-color: rgba(114,157,172,0.09);">
                                 <div class="project-box-header">
-                                    <span>[creation_date]</span>
+                                    <span>{{ project.date.strftime("%Y-%m-%d") }}</span>
                                     <div class="more-wrapper">
                                         <button class="project-btn-more">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
@@ -87,8 +88,8 @@
                                     </div>
                                 </div>
                                 <div class="project-box-content-header">
-                                    <p class="box-content-header">[title]</p>
-                                    <p class="box-content-subheader">[description]</p>
+                                    <p class="box-content-header">{{ project.title }}</p>
+                                    <p class="box-content-subheader">{{ project.description }}</p>
                                 </div>
                                 <div class="box-progress-wrapper">
                                     <p class="box-progress-header">Progress</p>
@@ -99,63 +100,26 @@
                                 </div>
                                 <div class="project-box-footer">
                                     <div class="participants">
-                                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="participant">
-                                        <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="participant">
+                                         {% for profile_picture in researcher_profile_pictures[loop.index0] %}
+                                        <img src="{{ profile_picture[0] }}" alt="participant">
+                                        {% endfor %}
+                                        {% if user_type == 'researcher' %}
                                         <button class="add-participant" style="color: #729DAC;">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
                                                 <path d="M12 5v14M5 12h14" />
                                             </svg>
                                         </button>
+                                        {% endif %}
                                     </div>
                                     <div class="days-left" style="color: #729DAC;">
-                                        [status]
+                                        {{ project.status.value }}
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="project-box-wrapper">
-                            <div class="project-box" style="background-color: rgba(114,157,172,0.09);">
-                                <div class="project-box-header">
-                                    <span>[creation_date]</span>
-                                    <div class="more-wrapper">
-                                        <button class="project-btn-more">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                                                <circle cx="12" cy="12" r="1" />
-                                                <circle cx="12" cy="5" r="1" />
-                                                <circle cx="12" cy="19" r="1" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="project-box-content-header">
-                                    <p class="box-content-header">[title]</p>
-                                    <p class="box-content-subheader">[description]</p>
-                                </div>
-                                <div class="box-progress-wrapper">
-                                    <p class="box-progress-header">Progress</p>
-                                    <div class="box-progress-bar">
-                                        <span class="box-progress" style="width: 60%; background-color: #729DAC"></span>
-                                    </div>
-                                    <p class="box-progress-percentage">60%</p>
-                                </div>
-                                <div class="project-box-footer">
-                                    <div class="participants">
-                                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="participant">
-                                        <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="participant">
-                                        <button class="add-participant" style="color: #729DAC;">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                                <path d="M12 5v14M5 12h14" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <div class="days-left" style="color: #729DAC;">
-                                        [status]
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        {% endfor %}
+                        {% if user_type == 'researcher' %}
                         <div class="new-project-box-wrapper">
                             <div class="new-project-box">
                                  <div class="button-hold">
@@ -163,7 +127,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        {% endif %}
                     </div>
                 </div>
             </div>

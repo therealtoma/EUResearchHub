@@ -2,7 +2,6 @@ from flask import Blueprint, request, render_template, url_for, redirect, flash
 from sqlalchemy import text
 from flask_wtf.csrf import CSRFProtect
 
-
 from app.models.database import db, Researchers, Evaluators
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user, login_required, current_user
@@ -13,13 +12,13 @@ from flask import current_app
 
 auth = Blueprint('auth', __name__)
 
+
 # login route
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
-
     if request.method == 'POST':
-        email = request.form.get('email') # email from the form
-        password = request.form.get('password') # password from the form
+        email = request.form.get('email')  #  email from the form
+        password = request.form.get('password')  #  password from the form
         evaluator = Evaluators.query.filter_by(email=email).first()
         researcher = Researchers.query.filter_by(email=email).first()
 
@@ -27,21 +26,16 @@ def login():
             login_user(evaluator)
             db.session.close()
             current_app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('EVALUATOR_DATABASE_URI')
-            return redirect(url_for('views.projects'))
+            return redirect(url_for('views.projects', user_type='evaluator'))
         elif researcher and check_password_hash(researcher.password, password):
             login_user(researcher)
             db.session.close()
             current_app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('RESEARCHER_DATABASE_URI')
-            return redirect(url_for('projects'))
+            return redirect(url_for('views.projects', user_type='researcher'))
         else:
             flash('Invalid email or password', 'error')
 
-
     return render_template('login.html')
-
-
-
-
 
 
 # register route
@@ -55,19 +49,19 @@ def register():
                 return render_template('register.html', user='researcher')
             else:
                 return render_template('register.html', user='evaluator')
-        
-        name = request.form.get('name') # name from the form
-        surname = request.form.get('surname') # surname from the form
-        email = request.form.get('email') # email from the form
-        password = request.form.get('password') # password from the form
-        affiliation = request.form.get('affiliation') # affiliation from the form
-        
+
+        name = request.form.get('name')  # name from the form
+        surname = request.form.get('surname')  # surname from the form
+        email = request.form.get('email')  # email from the form
+        password = request.form.get('password')  # password from the form
+        affiliation = request.form.get('affiliation')  # affiliation from the form
+
         # if the affiliation is not set, the user is an evaluator
         if affiliation is None:
-            user = Evaluators.query.filter_by(email=email).first() # find user from database
+            user = Evaluators.query.filter_by(email=email).first()  # find user from database
         else:
-            user = Researchers.query.filter_by(email=email).first() # find user from databse
-            
+            user = Researchers.query.filter_by(email=email).first()  #  find user from databse
+
         if user:
             flash('Email already registered', category='error')
         elif not check_email(email):
@@ -76,9 +70,12 @@ def register():
             flash('Password must be 8 characters', category='error')
         else:
             if affiliation is None:
-                new_user = Evaluators(name=name, surname=surname, email=email, password=generate_password_hash(password, method='sha256'))
+                new_user = Evaluators(name=name, surname=surname, email=email,
+                                      password=generate_password_hash(password, method='sha256'))
             else:
-                new_user = Researchers(name=name, surname=surname, email=email, password=generate_password_hash(password, method='sha256'), affiliation=affiliation)
+                new_user = Researchers(name=name, surname=surname, email=email,
+                                       password=generate_password_hash(password, method='sha256'),
+                                       affiliation=affiliation)
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember=True)
@@ -105,6 +102,7 @@ def register():
                 
     return render_template('register.html', user='none')
     '''
+
 
 # logout route
 @auth.route('/logout')
