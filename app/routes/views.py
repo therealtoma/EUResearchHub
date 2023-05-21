@@ -1,4 +1,7 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+
+import time
+
+from flask import Blueprint, render_template, request, redirect, url_for, flash, get_flashed_messages
 from flask_login import login_required, current_user
 
 
@@ -6,10 +9,12 @@ from app.models.database import db, Evaluation_Windows, Projects,ProjectsStatusC
 
 views = Blueprint('views', __name__)
 
+
 @views.route('/')
 @login_required
 def home():
     return render_template('index.html')
+
 
 @views.route('/projects')
 @login_required
@@ -50,6 +55,9 @@ def projects():
     evaluation_window_from = evaluation_window.evaluation_windows_from.strftime("%Y/%m")
     evaluation_window_to = evaluation_window.evaluation_windows_to.strftime("%Y/%m")
 
+    flashed_messages = get_flashed_messages()
+    print(flashed_messages)
+
     return render_template('projects.html',
                            name=user.name,
                            surname=user.surname,
@@ -58,7 +66,28 @@ def projects():
                            counts_by_status=counts_by_status,
                            projects=projects2show,
                            researcher_profile_pictures=researcher_profile_pictures,
-                           user_type=user_type)
+                           user_type=user_type,
+                           messages=flashed_messages)
+
+
+@views.route('/update_project_status', methods=['POST'])
+@login_required
+def update_project_status():
+
+    project_id = request.form.get('project_id')
+    new_status = request.form.get('new_status')
+    print("adsfsajdfgaksdf")
+    project = Projects.query.get(project_id)
+    if project:
+        project.status = new_status
+        db.session.commit()
+        flash('Project status updated successfully.', 'success')
+    else:
+        flash('Project not found.', 'error')
+
+    return redirect(url_for('views.projects'))
+
+
 
 @views.route('/project')
 @login_required

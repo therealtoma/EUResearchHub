@@ -3,6 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <title>EUResearchHub</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
         <link rel="stylesheet" href="../static/style.css">
         <script src="../static/functions.js"></script>
     </head>
@@ -12,6 +15,20 @@
                 <div class="app-header-left">
                     <span class="app-icon"></span>
                     <p class="app-name">EUResearchHub</p>
+
+                    {% if messages %}
+    <div class="text-center p-t-12">
+        {% for message in messages %}
+            {% if 'success' in message %}
+                <span class="txt1" style="color: green;">{{ message }}</span>
+            {% else %}
+                <span class="txt1" style="color: red;">{{ message }}</span>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
+
+
 
                 </div>
                 <div class="app-header-right">
@@ -44,7 +61,7 @@
                 </div>
                 <div class="projects-section">
                     <div class="projects-section-header">
-                        <p style="color:#666666;">Projects</p>
+                        <p style="color:#666666;">Projects </p>
                         <p style="color:#666666;" class="time">Evaluation Window: {{ from_date }} - {{ to_date }}</p>
                     </div>
                     <div class="projects-section-line">
@@ -111,10 +128,23 @@
                                         </button>
                                         {% endif %}
                                     </div>
-                                    <div class="days-left" style="color: #729DAC;">
+
+                                {% if user_type == 'evaluator' %}
+                                <div class="days-left" style="color: #729DAC;">
+                                    <select id="status-select-{{ loop.index }}" onchange="changeStatus({{ loop.index }})" data-project-id="{{ project.id }}">
+                                        <option value="submitted_for_evaluation" {% if project.status.value == 'submitted for evaluation' %}selected{% endif %}>submitted for evaluation</option>
+                                        <option value="approved" {% if project.status.value == 'approved' %}selected{% endif %}>approved</option>
+                                        <option value="require_changes" {% if project.status.value == 'require changes' %}selected{% endif %}>required changes</option>
+                                        <option value="not_approved" {% if project.status.value == 'not approved' %}selected{% endif %}>not approved</option>
+                                    </select>
+                                </div>
+                                {% elif user_type == 'researcher' %}
+                                <div class="days-left" style="color: #729DAC;">
                                         {{ project.status.value }}
                                     </div>
-                                </div>
+                                {% endif %}
+                                    </div>
+
                             </div>
                         </div>
 
@@ -132,5 +162,35 @@
                 </div>
             </div>
         </div>
+
+  <script>
+function changeStatus(projectIndex) {
+    var selectElement = document.getElementById("status-select-" + projectIndex);
+    var selectedStatus = selectElement.value;
+    var projectId = selectElement.dataset.projectId;  // Retrieve the project ID using the dataset property
+   var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+
+    // Make an AJAX request to update the project status
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "/update_project_status", true);
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+xhr.setRequestHeader("X-CSRFToken", csrfToken);  // Include the CSRF token in the request headers
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log(xhr.responseText);
+        window.location.reload();  // Reload the page after the AJAX request completes
+    }
+};
+
+// Log the values before sending the request
+console.log("project_id=" + projectId + "&new_status=" + selectedStatus + "&csrfmiddlewaretoken=" + csrfToken);
+
+xhr.send("project_id=" + projectId + "&new_status=" + selectedStatus);
+}
+
+
+
+    </script>
     </body>
 </html>
