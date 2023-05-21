@@ -15,7 +15,7 @@
 
 body {
 
-  background-color: var(--clr-light);
+  background-color: var(--app-container);
   color: var(--clr-black);
   font-family: 'DM Sans', sans-serif;
 
