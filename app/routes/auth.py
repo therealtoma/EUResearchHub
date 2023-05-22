@@ -97,11 +97,12 @@ def register():
             db.session.commit()
 
             login_user(new_user, remember=True)
+            if affiliation is None:
+                session['user_type'] = 'evaluator'
+            else:
+                session['user_type'] = 'researcher'
             return redirect(url_for('views.projects'))
-        if affiliation is None:
-            return render_template('register.html', user='evaluator')
-        else:
-            return render_template('register.html', user='researcher')
+        return render_template('register.html', user=session['user_type'])
     return render_template('register.html', user='none')
 
 
