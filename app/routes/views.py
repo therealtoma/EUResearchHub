@@ -5,7 +5,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash,
 from flask_login import login_required, current_user
 
 
-from app.models.database import db, Evaluation_Windows, Projects,ProjectsStatusCount, Researchers, Researchers_Projects, Documents, Evaluation_Reports
+from app.models.database import db, Evaluation_Windows, Projects,ProjectsStatusCount, Researchers, Researchers_Projects, Documents, Evaluation_Reports, Researchers_Projects
 
 views = Blueprint('views', __name__)
 
@@ -44,7 +44,14 @@ def projects():
 
     elif user_type == 'researcher':
         print('researcher')
-        render_template('404.html')
+        projects2show = db.session.query(Projects).join(Researchers_Projects).filter(Researchers_Projects.fk_researchers == user.id).all()
+        project_counts = db.session.query(Projects.status, func.count()).join(Researchers_Projects).filter(Researchers_Projects.fk_researchers == user.id).group_by(Projects.status).all()
+        aux = {status.value: count for status, count in project_counts}
+        counts_by_status = {**counts_by_status, **aux}
+
+        print (counts_by_status)
+
+
 
     researcher_profile_pictures = []
     for project in projects2show:
@@ -70,7 +77,9 @@ def projects():
 
         evaluation_percentages[project_id] = evaluation_percentage
 
-    evaluation_window = Evaluation_Windows.query.first()
+    from sqlalchemy import desc
+
+    evaluation_window = db.session.query(Evaluation_Windows).order_by(desc(Evaluation_Windows.evaluation_windows_to)).first()
     evaluation_window_from = evaluation_window.evaluation_windows_from.strftime("%Y/%m")
     evaluation_window_to = evaluation_window.evaluation_windows_to.strftime("%Y/%m")
 
