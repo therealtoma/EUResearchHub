@@ -5,7 +5,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash,
 from flask_login import login_required, current_user
 
 
-from app.models.database import db, Evaluation_Windows, Projects,ProjectsStatusCount, Researchers, Researchers_Projects
+from app.models.database import db, Evaluation_Windows, Projects,ProjectsStatusCount, Researchers, Researchers_Projects, Documents, Evaluation_Reports
 
 views = Blueprint('views', __name__)
 
@@ -14,6 +14,9 @@ views = Blueprint('views', __name__)
 @login_required
 def home():
     return render_template('index.html')
+
+
+from sqlalchemy import func
 
 
 @views.route('/projects')
@@ -26,10 +29,10 @@ def projects():
     user = current_user
 
     counts_by_status = {
-            'approved': 0,
-            'require changes': 0,
-            'submitted for evaluation': 0,
-            'not approved': 0
+        'approved': 0,
+        'require changes': 0,
+        'submitted for evaluation': 0,
+        'not approved': 0
     }
 
     if user_type == 'evaluator':
@@ -52,6 +55,20 @@ def projects():
             .all()
         researcher_profile_pictures.append(profile_pictures)
 
+    # Aggiungi la query per ottenere la percentuale di documenti valutati per ogni progetto
+    evaluation_percentages = {}
+    for project in projects2show:
+        project_id = project.id
+        total_documents = Documents.query.filter_by(fk_project=project_id).count()
+        evaluated_documents = Evaluation_Reports.query.join(Documents).filter(
+            Documents.fk_project == project_id).count()
+
+        if total_documents > 0:
+            evaluation_percentage = (evaluated_documents / total_documents) * 100
+        else:
+            evaluation_percentage = 0.0
+
+        evaluation_percentages[project_id] = evaluation_percentage
 
     evaluation_window = Evaluation_Windows.query.first()
     evaluation_window_from = evaluation_window.evaluation_windows_from.strftime("%Y/%m")
@@ -70,7 +87,8 @@ def projects():
                            researcher_profile_pictures=researcher_profile_pictures,
                            user_type=user_type,
                            profile_picture=user.profile_picture,
-                           messages=flashed_messages)
+                           messages=flashed_messages,
+                           evaluation_percentages=evaluation_percentages)
 
 
 @views.route('/update_project_status', methods=['POST'])

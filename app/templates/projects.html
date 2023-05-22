@@ -96,11 +96,7 @@
                                     <span>{{ project.date.strftime("%Y-%m-%d") }}</span>
                                     <div class="more-wrapper">
                                         <button class="project-btn-more">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                                                <circle cx="12" cy="12" r="1" />
-                                                <circle cx="12" cy="5" r="1" />
-                                                <circle cx="12" cy="19" r="1" />
-                                            </svg>
+
                                         </button>
                                     </div>
                                 </div>
@@ -109,11 +105,11 @@
                                     <p class="box-content-subheader">{{ project.description }}</p>
                                 </div>
                                 <div class="box-progress-wrapper">
-                                    <p class="box-progress-header">Progress</p>
+                                    <p class="box-progress-header">Evaluation progress</p>
                                     <div class="box-progress-bar">
-                                        <span class="box-progress" style="width: 60%; background-color: #729DAC"></span>
+                                        <span class="box-progress" style="width: {{ evaluation_percentages[project.id]}}%; background-color: #729DAC"></span>
                                     </div>
-                                    <p class="box-progress-percentage">60%</p>
+                                    <p class="box-progress-percentage">{{ evaluation_percentages[project.id]}}%</p>
                                 </div>
                                 <div class="project-box-footer">
                                     <div class="participants">
