@@ -53,7 +53,7 @@
                     {% endif %}
                 </span>
             <div style="margin: 0 auto; width: auto;">
-                <form class="login100-form validate-form" method="post" action="{{ url_for('auth.register') }}">
+                <form class="login100-form validate-form" enctype="multipart/form-data" method="post" action="{{ url_for('auth.register') }}">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                     <div class="wrap-input100" style="text-align: center;">
                           <div class="profile-pic" style="display: inline-block;">
@@ -145,7 +145,6 @@
             reader.readAsDataURL(file);
           }
         }
-
 
         $(function() {
           $('#img-tag').on('click', function() {
