@@ -56,7 +56,9 @@
                     <button class="login100-form-btn" type="submit">
                         <strong>Login</strong>
                     </button>
-                    <span>Don't have an account? <a href="{{ url_for('auth.register') }}">create one</a></span>
+                    <span  style="margin-top: 10px !important;font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.5;color: #999999;font-weight: bold;">Don't have an account?
+                        <a class="register-text" style="text-decoration: underline; color: #999999" href="{{ url_for('auth.register') }}">Create One</a>
+                    </span>
                 </div>
                 
                 {% with messages = get_flashed_messages() %}
