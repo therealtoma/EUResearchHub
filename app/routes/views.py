@@ -69,6 +69,7 @@ def projects():
                            projects=projects2show,
                            researcher_profile_pictures=researcher_profile_pictures,
                            user_type=user_type,
+                           profile_picture=user.profile_picture,
                            messages=flashed_messages)
 
 

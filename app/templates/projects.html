@@ -45,7 +45,7 @@
                         </svg>
                     </button>
                     <button class="profile-btn">
-                    <img src="../static/images/profile.png" />
+                    <img src="../static/uploads/profile_images/{{ profile_picture }}" />
                     <span> {{ name }} {{ surname }} </span>
                     </button>
                 </div>
@@ -117,8 +117,8 @@
                                 </div>
                                 <div class="project-box-footer">
                                     <div class="participants">
-                                         {% for profile_picture in researcher_profile_pictures[loop.index0] %}
-                                        <img src="{{ profile_picture[0] }}" alt="participant">
+                                         {% for pp in researcher_profile_pictures[loop.index0] %}
+                                        <img src="../static/uploads/profile_images/{{ pp[0] }}" alt="participant">
                                         {% endfor %}
                                         {% if user_type == 'researcher' %}
                                         <button class="add-participant" style="color: #729DAC;">
