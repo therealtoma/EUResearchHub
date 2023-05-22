@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, flash
+from flask import Flask, render_template, redirect, url_for, flash, session
 from flask_wtf.csrf import CSRFError
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, logout_user
@@ -37,7 +37,7 @@ def create_app():
     from .models.database import Researchers, Evaluators
     @login_manager.user_loader
     def load_user(id):
-        return Evaluators.query.get(int(id))
+        return Researchers.query.get(int(id)) or Evaluators.query.get(int(id))
 
     @app.errorhandler(403)
     def handle_unauthorized(e):
