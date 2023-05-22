@@ -57,8 +57,8 @@
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                     <div class="wrap-input100" style="text-align: center;">
                           <div class="profile-pic" style="display: inline-block;">
-                                <input onchange="previewFile()" accept="image/png" style="padding-left: 15px !important; padding-top: 13px !important; display: none;" class="input100-file" type="file" name="profile_picture" id="register-profile_picture" placeholder="Profile Picture">
-                                <img alt="User Pic" id="img-tag" style="border-radius: 50%; box-shadow: 0px 0px 5px 0px #c1c1c1; width: 100px; height: 100px; cursor: pointer; display: block; margin: 0 auto;" src="../static/images/profile.png" onclick="document.getElementById('register-profile_picture').click();">
+                                <input onchange="previewFile(this)" accept="image/jpeg" style="padding-left: 15px !important; padding-top: 13px !important; display: none;" class="input100-file" type="file" name="profile_picture" id="register-profile_picture" placeholder="Profile Picture">
+                                <img alt="User Pic" id="img-tag" style="border-radius: 50%; box-shadow: 0px 0px 5px 0px #c1c1c1; width: 100px; height: 100px; cursor: pointer; display: block; margin: 0 auto;" src="../static/images/profile.png">
                           </div>
                     </div>
 
@@ -130,8 +130,25 @@
         </div>
     </div>
 </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+    <script type="text/javascript">
 
-    <script>
+        $('#img-tag').on('click', () => {
+            $('#register-profile_picture').click()
+        })
+
+        function previewFile(input) {
+            const file = $('#register-profile_picture').get(0).files[0]
+            if (file) {
+                const reader = new FileReader()
+                reader.onload = () => {
+                    $('#img-tag').attr('src', reader.result)
+                }
+                reader.readAsDataURL(file)
+            }
+        }
+
+        /*
         function previewFile() {
           var preview = document.querySelector('#img-tag');
           var file = document.querySelector('#register-profile_picture').files[0];
@@ -145,12 +162,12 @@
             reader.readAsDataURL(file);
           }
         }
-
         $(function() {
           $('#img-tag').on('click', function() {
             $('#register-profile_picture').click();
           });
         });
+         */
     </script>
 </body>
 </html>
