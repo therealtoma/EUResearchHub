@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, flash
 from flask_wtf.csrf import CSRFError
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager
+from flask_login import LoginManager, logout_user
 from dotenv import load_dotenv
 from app.models.database import db
 import os
@@ -51,6 +51,7 @@ def create_app():
 
     @app.errorhandler(CSRFError)
     def handle_csrf_error(e):
+        logout_user()
         flash('CSRF token validation failed', 'error')
         return redirect(url_for('auth.login'))
 
