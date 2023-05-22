@@ -1,7 +1,7 @@
 
 import time
 
-from flask import Blueprint, render_template, request, redirect, url_for, flash, get_flashed_messages
+from flask import Blueprint, render_template, request, redirect, url_for, flash, get_flashed_messages, session
 from flask_login import login_required, current_user
 
 
@@ -20,7 +20,9 @@ def home():
 @login_required
 def projects():
     projects2show = Projects.query.all()
-    user_type = request.args.get('user_type')
+    user_type = session['user_type']
+    # delete the get params
+
     user = current_user
 
     counts_by_status = {

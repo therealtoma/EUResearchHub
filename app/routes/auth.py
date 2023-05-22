@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, url_for, redirect, flash, current_app
+from flask import Blueprint, request, render_template, url_for, redirect, flash, current_app, session
 from sqlalchemy import text
 from flask_wtf.csrf import CSRFProtect
 from app.models.database import db, Researchers, Evaluators
@@ -28,12 +28,14 @@ def login():
             login_user(evaluator)
             db.session.close()
             current_app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('EVALUATOR_DATABASE_URI')
-            return redirect(url_for('views.projects', user_type='evaluator'))
+            session['user_type'] = 'evaluator'
+            return redirect(url_for('views.projects'))
         elif researcher and check_password_hash(researcher.password, password):
             login_user(researcher)
             db.session.close()
             current_app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('RESEARCHER_DATABASE_URI')
-            return redirect(url_for('views.projects', user_type='researcher'))
+            session['user_type'] = 'researcher'
+            return redirect(url_for('views.projects'))
         else:
             flash('Invalid email or password', 'error')
     return render_template('login.html')
