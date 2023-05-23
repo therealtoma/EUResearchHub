@@ -306,6 +306,62 @@ body {
   animation-delay: 300ms;
 }
 
+.uploadedDescription-container{
+  position: relative;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  margin-top: 2.1875rem;
+  cursor: pointer;
+  transition: border-color 300ms ease-in-out;
+}
+
+.uploaded-description{
+  height:100%;
+  width:100%;
+}
+
+.login100-form-description {
+  height: 100%;
+  width: 100%;
+}
+
+.input-description{
+  border: 2px dashed var(--clr-light-blue);
+  border-radius: 15px;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+}
+
+.input-description:focus{
+    border: 2px dashed var(--clr-light-blue) !important;
+    border-radius: 15px;
+    outline: none;
+}
+
+.container-login100-form-btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.upload-button:hover{
+    background: #fff !important;
+    color: #729DAC;
+    border-color: #729DAC !important;
+    border: 2px solid;
+}
+
 @keyframes progressMove {
   from {
     width: 0%;
