@@ -758,8 +758,8 @@ form.hide-submit input[type="submit"] {
     border: 2px solid #666666;
     background-color: var(--main-color);
     font-size: 14px;
-    height: 1.7em;
-    width: 1.7em;
+    height: 2em;
+    width: 2em;
     border-radius: 10px;
     position: relative;
 }
@@ -782,6 +782,16 @@ form.hide-submit input[type="submit"] {
 .plus-button-versions:after {
     height: 0.2em;
     width: 1em;
+}
+
+.plus-button-versions:hover{
+    background-color: #666666;
+}
+
+.plus-button-versions:hover:after,
+.plus-button-versions:hover:before {
+    background-color: var(--main-color);
+    transition: 0.2s;
 }
 
 /* DOCUMENTS-BUTTON */
