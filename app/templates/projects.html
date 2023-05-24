@@ -110,11 +110,16 @@
                                         <img src="../static/uploads/profile_images/{{ pp[0] }}" alt="participant">
                                         {% endfor %}
                                         {% if user_type == 'researcher' %}
-                                        <button class="add-participant" style="color: #729DAC;">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                                <path d="M12 5v14M5 12h14" />
-                                            </svg>
-                                        </button>
+                                <button class="add-participant" style="color: #729DAC;" onclick="toggleParticipantAdd({{ project.id }})">
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
+        <path d="M12 5v14M5 12h14" />
+    </svg>
+</button>
+<div class="add-participant-field" id="add-participant-field-{{ project.id }}" style="display: none;">
+    <input type="text" id="participant-email-{{ project.id }}" placeholder="Enter email">
+    <button onclick="addParticipant({{ project.id }})">Add</button>
+</div>
+
                                         {% endif %}
                                     </div>
 
@@ -152,7 +157,45 @@
             </div>
         </div>
 
-  <script>
+        <script>
+function toggleParticipantAdd(projectId) {
+    var addField = document.getElementById('add-participant-field-' + projectId);
+    if (addField.style.display === "none") {
+        addField.style.display = "block";
+    } else {
+        addField.style.display = "none";
+    }
+}
+
+function addParticipant(projectId) {
+    var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    var email = document.getElementById('participant-email-' + projectId).value;
+    if (!email) {
+        alert("Please enter an email address.");
+        return;
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/add_participant", true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader("X-CSRFToken", csrfToken);  // Include the CSRF token in the request headers
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log(xhr.responseText);
+        window.location.reload();  // Reload the page after the AJAX request completes
+    }
+};
+    xhr.send(JSON.stringify({
+        projectId: projectId,
+        email: email
+    }));
+
+
+}
+
+
+
 function changeStatus(projectIndex) {
     var selectElement = document.getElementById("status-select-" + projectIndex);
     var selectedStatus = selectElement.value;

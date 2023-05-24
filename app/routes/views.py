@@ -119,6 +119,45 @@ def update_project_status():
 
 
 
+@views.route('/add_participant', methods=['POST'])
+@login_required
+def add_participant():
+    # Get data from the post request
+    data = request.get_json()
+
+    # Get project_id and email from the posted data
+    project_id = data.get('projectId')
+    email = data.get('email')
+    print(project_id)
+    print(email)
+    # Check if the project and the researcher with the provided email exist
+    project = Projects.query.get(project_id)
+    researcher = Researchers.query.filter_by(email=email).first()
+
+    if not project or not researcher:
+        flash('Project or researcher does not exist.', 'error')
+        # If either the project or researcher does not exist, return an error
+
+
+    # Check if the researcher is already added to the project
+    researcher_project = Researchers_Projects.query.filter_by(fk_projects=project_id,
+                                                              fk_researchers=researcher.id).first()
+    if researcher_project:
+        # If the researcher is already added, return an error
+        flash('Researcher is already added to this project.', 'error')
+
+    # Create a new record
+    new_researcher = Researchers_Projects(fk_researchers=researcher.id, fk_projects=project_id)
+
+    # Add the new record to the session and commit it to the database
+    db.session.add(new_researcher)
+
+    db.session.commit()
+
+    # Return a success response
+    return redirect(url_for('views.projects'))
+
+
 @views.route('/project')
 @login_required
 def project():

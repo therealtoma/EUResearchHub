@@ -3,6 +3,26 @@
 * {
     box-sizing: border-box;
 }
+.add-participant-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-participant-field input {
+    border: 1px solid #729DAC;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.add-participant-field button {
+    background-color: #729DAC;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
 
 
 :root {
