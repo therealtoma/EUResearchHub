@@ -71,9 +71,9 @@ def projects():
             Documents.fk_project == project_id).count()
 
         if total_documents > 0:
-            evaluation_percentage = (evaluated_documents / total_documents) * 100
+            evaluation_percentage = int((evaluated_documents / total_documents) * 100)
         else:
-            evaluation_percentage = 0.0
+            evaluation_percentage = 100
 
         evaluation_percentages[project_id] = evaluation_percentage
 
@@ -83,8 +83,7 @@ def projects():
     evaluation_window_from = evaluation_window.evaluation_windows_from.strftime("%Y/%m")
     evaluation_window_to = evaluation_window.evaluation_windows_to.strftime("%Y/%m")
 
-    flashed_messages = get_flashed_messages()
-    print(flashed_messages)
+
 
     return render_template('projects.html',
                            name=user.name,
@@ -96,7 +95,7 @@ def projects():
                            researcher_profile_pictures=researcher_profile_pictures,
                            user_type=user_type,
                            profile_picture=user.profile_picture,
-                           messages=flashed_messages,
+
                            evaluation_percentages=evaluation_percentages)
 
 
@@ -109,9 +108,10 @@ def update_project_status():
     print("adsfsajdfgaksdf")
     project = Projects.query.get(project_id)
     if project:
+        flash('Cannot change the status of a project if not all documents have been evaluated.', 'error')
+
         project.status = new_status
         db.session.commit()
-        flash('Project status updated successfully.', 'success')
     else:
         flash('Project not found.', 'error')
 
@@ -158,7 +158,26 @@ def add_participant():
     return redirect(url_for('views.projects'))
 
 
+@views.route('/create_project', methods=['POST'])
+@login_required
+def create_project():
+    print("Function executed")
+    # Extract the project details from the form data
+    title = request.form.get('title')
+    description = request.form.get('description')
+    print(title)
+    print(description)
+    # Process and save the project in your database
+    # ...
+
+    # Redirect the user to the projects page or display a success message
+    # ...
+
+    return redirect(url_for('views.projects'))
+
+
 @views.route('/project/<int:project_id>')
+
 @login_required
 def project(project_id):
     # controllo se l'utente è un ricercatore
