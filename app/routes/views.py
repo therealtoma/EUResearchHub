@@ -1,7 +1,7 @@
 
 import time
 
-from flask import Blueprint, render_template, request, redirect, url_for, flash, get_flashed_messages, session
+from flask import Blueprint, render_template, request, redirect, url_for, flash, get_flashed_messages, session, abort
 from flask_login import login_required, current_user
 
 
@@ -158,8 +158,6 @@ def add_participant():
     return redirect(url_for('views.projects'))
 
 
-
-
 @views.route('/create_project', methods=['POST'])
 @login_required
 def create_project():
@@ -177,7 +175,15 @@ def create_project():
 
     return redirect(url_for('views.projects'))
 
-@views.route('/project')
+
+@views.route('/project/<int:project_id>')
+
 @login_required
-def project():
+def project(project_id):
+    # controllo se l'utente è un ricercatore
+    if session['user_type'] == 'researcher':
+        # se l'utente è ricercatore deve avere accesso al progetto
+        has_access = Researchers_Projects.query.filter_by(fk_projects=project_id, fk_researchers=current_user.id).first()
+        if not has_access:
+            abort(403)
     return render_template('project.html', name=current_user.name, surname=current_user.surname)
