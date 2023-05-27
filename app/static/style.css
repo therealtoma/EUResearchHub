@@ -161,7 +161,7 @@ body {
 
 .dark:root {
     --app-container: #1f1d2b;
-    --app-container: #111827;
+    /*--app-container: #111827;*/
     --main-color: #fff;
     --secondary-color: rgba(255,255,255,.8);
     --projects-section: #1f2937;
@@ -282,7 +282,7 @@ a {
     font-size: 20px;
     line-height: 24px;
     font-weight: 700;
-    margin: 0 32px;
+    /*margin: 0 32px;*/
 }
 
 .mode-switch {
@@ -325,7 +325,7 @@ a {
     color: var(--main-color);
 }
 
-.search-input:placeholder {
+.search-input::placeholder {
     color: var(--main-color);
     opacity: 0.6;
 }
@@ -355,7 +355,7 @@ a {
 }
 
 .profile-btn {
-    padding: 0;
+    /*padding: 0;*/
     border: 0;
     background-color: transparent;
     display: flex;
@@ -393,7 +393,7 @@ a {
 
 .app-sidebar-link {
     color: var(--main-color);
-    color: var(--link-color);
+    /*color: var(--link-color);*/
     margin: 16px 0;
     transition: 0.2s;
     border-radius: 50%;
@@ -473,7 +473,7 @@ a {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    border: 0px solid var(--secondary-color);
+    border: 0 solid var(--secondary-color);
 }
 
 .status-number {
@@ -538,7 +538,6 @@ form.hide-submit input[type="submit"] {
     padding-bottom: 10px;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;
-    overflow: auto;
 }
 .messages-label::-webkit-scrollbar {
     display: none;  /* Safari and Chrome */
@@ -556,7 +555,7 @@ form.hide-submit input[type="submit"] {
     justify-content:center;
     display: flex;
     flex: 1;
-    border: 0px solid  var(--app-container);
+    border: 0 solid  var(--app-container);
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;
 }
@@ -574,7 +573,6 @@ form.hide-submit input[type="submit"] {
     align-items: center;
     flex-direction: column;
     margin-left: 24px;
-    flex-shrink: 0;
     flex: 1;
 
 }
@@ -1014,7 +1012,7 @@ form.hide-submit input[type="submit"] {
     padding: 16px;
     transition: 0.2s;
     box-sizing: border-box;
-        height: 250px; /* Adjust the height as needed */
+    height: 250px; /* Adjust the height as needed */
 }
 
 .project-box-wrapper {
@@ -1026,7 +1024,6 @@ form.hide-submit input[type="submit"] {
     padding: 0;
     height: 14px;
     width: 24px;
-    height: 24px;
     position: relative;
     background-color: transparent;
     border: none;
@@ -1187,7 +1184,6 @@ bottom: 0;
     justify-content: center;
     align-items: center;
     padding: 4px;
-    display: none;
 }
 
 @media screen and (max-width: 980px) {
