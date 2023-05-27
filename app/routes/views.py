@@ -5,7 +5,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash,
 from flask_login import login_required, current_user
 
 
-from app.models.database import db, Evaluation_Windows, Projects,ProjectsStatusCount, Researchers, Researchers_Projects, Documents, Evaluation_Reports, Researchers_Projects
+from app.models.database import db, Evaluation_Windows, Projects,ProjectsStatusCount, Researchers, Researchers_Projects, Documents, Evaluation_Reports, Researchers_Projects, EnumStatus
 
 views = Blueprint('views', __name__)
 
@@ -151,8 +151,9 @@ def add_participant():
 
     # Add the new record to the session and commit it to the database
     db.session.add(new_researcher)
-
     db.session.commit()
+
+
 
     # Return a success response
     return redirect(url_for('views.projects'))
@@ -161,19 +162,24 @@ def add_participant():
 @views.route('/create_project', methods=['POST'])
 @login_required
 def create_project():
-    print("Function executed")
     # Extract the project details from the form data
     title = request.form.get('title')
     description = request.form.get('description')
-    print(title)
-    print(description)
-    # Process and save the project in your database
-    # ...
 
-    # Redirect the user to the projects page or display a success message
-    # ...
+    max_evaluation_id = db.session.query(func.max(Evaluation_Windows.id)) # trovo l'ultima evaluation window disponibile
 
-    return redirect(url_for('views.projects'))
+    # creo e aggiungo il progetto al database
+    new_project = Projects(title=title, description=description, status=EnumStatus.submitted_for_evaluation, fk_evaluation_window = max_evaluation_id)
+
+    db.session.add(new_project)
+    db.session.commit()
+
+    # collego il progetto all'utente
+    project_creator = Researchers_Projects(fk_researchers=current_user.id, fk_projects=new_project.id)
+    db.session.add(project_creator)
+    db.session.commit()
+
+    return redirect(url_for('views.project', project_id=new_project.id))
 
 
 @views.route('/project/<int:project_id>')
