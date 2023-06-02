@@ -5,7 +5,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash,
 from flask_login import login_required, current_user
 
 
-from app.models.database import db, Evaluation_Windows, Projects,ProjectsStatusCount, Researchers, Researchers_Projects, Documents, Evaluation_Reports, Researchers_Projects, EnumStatus, Messages, Evaluators_Messages, Researchers_Messages, Evaluators,Researchers
+from app.models.database import *
 
 views = Blueprint('views', __name__)
 
@@ -222,6 +222,14 @@ def project(project_id):
     project = Projects.query.filter_by(id=project_id).first()
 
 
+    # ottengo la lista dei documenti del progetto
+    documents = Documents.query.filter_by(fk_project=project_id).all()
+    # per ogni documento voglio sapere il tipo
+    docs = []
+    for doc in documents:
+        doc_type = Document_Types.query.filter_by(id=doc.fk_document_type).first()
+        docs.append(doc_type)
+
     return render_template('project.html',
                            profile_picture=current_user.profile_picture,
                            name=current_user.name,
@@ -229,6 +237,7 @@ def project(project_id):
                            messages=messages,
                            researchers=researchers,
                            evaluators=evaluators,
-                           project=project
+                           project=project,
+                           documents=docs
                            )
 

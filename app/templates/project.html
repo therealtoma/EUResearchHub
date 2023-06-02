@@ -63,31 +63,34 @@
 
                     </div>
                     <div class="project-boxes jsListView">
-                        <div class="project-box-wrapper">
-                            <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
+                        {% if documents %}
+                            {% for document in documents %}
+                                <div class="project-box-wrapper">
+                                    <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
 
-                                <div class="project-box-content-header">
-                                    <p class="box-content-header">[name]</p>
-                                    <p class="box-content-subheader">[description]</p>
-                                </div>
-                                <div class="box-progress-wrapper">
+                                        <div class="project-box-content-header">
+                                            <p class="box-content-header">{{ document.nome }}</p>
+                                            <p class="box-content-subheader">{{ document.descrizione }}</p>
+                                        </div>
+                                        <div class="box-progress-wrapper">
 
-                                </div>
-                                <div class="project-box-footer">
-                                    <div class="days-left" style="color: #729DAC;">
-                                        [download]
+                                        </div>
+                                        <div class="project-box-footer">
+                                            <div class="days-left" style="color: #729DAC;">
+                                                [download]
+                                            </div>
+                                            <br>
+                                            <div class="days-left" style="color: #729DAC;">
+                                                [ev. report]
+                                            </div>
+                                        </div>
                                     </div>
-                                    <br>
-                                    <div class="days-left" style="color: #729DAC;">
-                                        [ev. report]
-                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            {% endfor %}
+                        {% endif %}
 
 
-
-
+                    {% if session['user_type'] == 'researcher' %}
                         <div class="new-document-box-wrapper">
                             <div class="new-document-box">
                                 <div class="button-hold">
@@ -95,6 +98,7 @@
                                 </div>
                             </div>
                         </div>
+                    {% endif %}
 
                     </div>
                 </div>
