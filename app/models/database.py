@@ -42,6 +42,7 @@ class Document_Versions(db.Model):
     __tablename__ = 'document_versions'
 
     id = db.Column('id', db.Integer, primary_key=True)
+    title = db.Column('title', db.String)
 
     description = db.Column('description', db.String)
     date = db.Column('db.DateTime', TIMESTAMP, default=func.current_timestamp())
