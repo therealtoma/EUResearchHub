@@ -1,12 +1,12 @@
 
 import time
 
-from flask import Blueprint, render_template, request, redirect, url_for, flash, get_flashed_messages, session, abort
+from flask import Blueprint, render_template, request, redirect, url_for, flash, get_flashed_messages, session, abort, current_app
 from flask_login import login_required, current_user
 
 
 from app.models.database import *
-
+import os
 views = Blueprint('views', __name__)
 
 
@@ -242,3 +242,28 @@ def project(project_id):
                            documents=docs
                            )
 
+@views.route('/add_document/<int:project_id>', methods=['POST'])
+@login_required
+def add_document(project_id):
+    # caricare il documento nella cartella del progetto
+    document = request.files['document']
+
+    document_type = request.form.get('docType')
+    doc_name = Document_Types.query.filter_by(id=document_type).first().nome
+
+    if document and document.filename != '':
+        current_directory = os.path.dirname(os.path.realpath(__file__))
+        current_app.config['UPLOAD_FOLDER'] = os.path.join(current_directory,
+                                                           '../static/uploads/projects/' + str(project_id))
+        filename = f'{doc_name}.pdf'
+        if not os.path.exists(os.path.join(current_app.config['UPLOAD_FOLDER'])):
+            os.makedirs(os.path.join(current_app.config['UPLOAD_FOLDER']))
+        document.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+
+    # aggiungere il documento al database
+    new_document = Documents(file_path=f'{str(project_id)}/{doc_name}', fk_document_type=document_type, fk_project=project_id)
+    db.session.add(new_document)
+    db.session.commit()
+
+    # reindirizzare alla pagina del progetto
+    return redirect(url_for('views.project', project_id=project_id))
