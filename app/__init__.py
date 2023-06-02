@@ -8,7 +8,6 @@ import os
 from flask_wtf import CSRFProtect
 
 load_dotenv() # loads enviroment variables form .env file
-
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')

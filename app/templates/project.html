@@ -33,7 +33,7 @@
                     </button>
                     <button class="profile-btn">
 
-                    <img src="../static/images/profile.png" />
+                    <img src="../static/uploads/profile_images/{{ profile_picture }}" />
                     <span> {{ name }} {{ surname }} </span>
                     </button>
                 </div>
@@ -52,13 +52,7 @@
                 <div class="projects-section">
                     <div class="projects-section-header">
                         <p style="color:#666666;">[title]</p>
-                        <p  style="color:#666666;" time  >Evaluation window:
-                            {{
-                                ev_win.evaluation_windows_from.strftime('%d/%m/%Y')
-                            }} - {{
-                                ev_win.evaluation_windows_to.strftime('%d/%m/%Y')
-                            }}
-                        </p>
+
                     </div>
                     <div class="projects-section-line">
                         <div class="projects-status">
@@ -91,69 +85,8 @@
                             </div>
                         </div>
 
-                        <div class="project-box-wrapper">
-                            <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
 
-                                <div class="project-box-content-header">
-                                    <p class="box-content-header">[name]</p>
-                                    <p class="box-content-subheader">[description]</p>
-                                </div>
-                                <div class="box-progress-wrapper">
 
-                                </div>
-                                <div class="project-box-footer">
-                                    <div class="days-left" style="color: #729DAC;">
-                                        [download]
-                                    </div>
-                                    <br>
-                                    <div class="days-left" style="color: #729DAC;">
-                                        [ev. report]
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-box-wrapper">
-                            <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
-
-                                <div class="project-box-content-header">
-                                    <p class="box-content-header">[name]</p>
-                                    <p class="box-content-subheader">[description]</p>
-                                </div>
-                                <div class="box-progress-wrapper">
-
-                                </div>
-                                <div class="project-box-footer">
-                                    <div class="days-left" style="color: #729DAC;">
-                                        [download]
-                                    </div>
-                                    <br>
-                                    <div class="days-left" style="color: #729DAC;">
-                                        [ev. report]
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-box-wrapper">
-                            <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
-
-                                <div class="project-box-content-header">
-                                    <p class="box-content-header">[name]</p>
-                                    <p class="box-content-subheader">[description]</p>
-                                </div>
-                                <div class="box-progress-wrapper">
-
-                                </div>
-                                <div class="project-box-footer">
-                                    <div class="days-left" style="color: #729DAC;">
-                                        [download]
-                                    </div>
-                                    <br>
-                                    <div class="days-left" style="color: #729DAC;">
-                                        [ev. report]
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="new-document-box-wrapper">
                             <div class="new-document-box">
@@ -182,65 +115,30 @@
                             <p style="color:#666666;">Messages</p>
                         </div>
                         <div class="messages">
+                            {% for message in messages %}
                             <div class="message-box">
-                                <img src="../static/images/profile.png" alt="profile image">
-                                <div class="message-content">
-                                    <div class="message-header">
-                                        <div class="name" style="color:#666666;">[name]</div>
-                                    </div>
-                                    <p class="message-line">
-                                        [text]
-                                    </p>
-                                    <p class="message-line time">
-                                        [datetime]
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="message-box">
-                                <img src="../static/images/profile.png" alt="profile image">
-                                <div class="message-content">
-                                    <div class="message-header">
-                                        <div class="name" style="color:#666666;">[name]</div>
+        <img src="../static/uploads/profile_images/{% if researchers[loop.index0] %}{{ researchers[loop.index0].profile_picture }}{% elif evaluators[loop.index0] %}default.jpg{% endif %}" alt="profile image">
 
-                                    </div>
-                                    <p class="message-line">
-                                        [text]
-                                    </p>
-                                    <p class="message-line time">
-                                        [datetime]
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="message-box">
-                                <img src="../static/images/profile.png" alt="profile image">
+
                                 <div class="message-content">
                                     <div class="message-header">
-                                        <div class="name" style="color:#666666;">[name]</div>
-
+                                        <div class="name" style="color:#666666;"> {% if researchers[loop.index0] %}
+                        {{ researchers[loop.index0].name }} {{ researchers[loop.index0].surname }}
+                    {% elif evaluators[loop.index0] %}
+                        Unknown
+                    {% endif %}
+                    </div>
                                     </div>
                                     <p class="message-line">
-                                        [text]
+                {{ message.text }}
                                     </p>
                                     <p class="message-line time">
-                                        [datetime]
+                {{ message.date.strftime('%Y-%m-%d %H:%M:%S') }}
                                     </p>
                                 </div>
                             </div>
-                            <div class="message-box">
-                                <img src="../static/images/profile.png" alt="profile image">
-                                <div class="message-content">
-                                    <div class="message-header">
-                                        <div class="name" style="color:#666666;">[name]</div>
 
-                                    </div>
-                                    <p class="message-line">
-                                        [text]
-                                    </p>
-                                    <p class="message-line time">
-                                        [datetime]
-                                    </p>
-                                </div>
-                            </div>
+    {% endfor %}
 
 
                         </div>
@@ -249,21 +147,24 @@
 
 
                     </div>
-                        <form action="" class="message-label hide-submit message-sender">
-                            <input class="message-holder" type="text" placeholder="Type anything...">
-                            <label style="">
-                                <input type="submit">
-                                <svg style="height:35px; margin-left:10px; margin-right:20px" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#666666">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                    <path d="M10 14L13 21L20 4L3 11L6.5 12.5" stroke="#666666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    </path>
-                                    </g>
-                                </svg>
-                            </label>
 
-                        </form>
+
+<form action="" class="message-label hide-submit message-sender" method="POST">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input class="message-holder" type="text" name="message" placeholder="Type anything..." required>
+            <button type="submit" class="submit-button">
+                <svg style="height:35px" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#666666">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path d="M10 14L13 21L20 4L3 11L6.5 12.5" stroke="#666666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </svg>
+            </button>
+</form>
+
+
+
                     <div class="versions-section">
                         <div class="projects-section-header">
                             <p style="color:#666666;">Versions of: [name] </p>
@@ -287,35 +188,8 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="message-box">
-                                <div class="message-content">
-                                    <div class="message-header">
-                                        <div class="name" style="color:#666666;">1. [file_path]</div>
 
-                                    </div>
-                                    <p class="message-line">
-                                        [description changes made]
-                                    </p>
-                                    <p class="message-line time">
-                                        [datetime]
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="message-box">
-                                <div class="message-content">
-                                    <div class="message-header">
-                                        <div class="name" style="color:#666666;">1. [file_path]</div>
 
-                                    </div>
-                                    <p class="message-line">
-                                        [description changes made]
-                                    </p>
-                                    <p class="message-line time">
-                                        [datetime]
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
 
 
                     </div>

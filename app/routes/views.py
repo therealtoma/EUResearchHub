@@ -5,7 +5,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash,
 from flask_login import login_required, current_user
 
 
-from app.models.database import db, Evaluation_Windows, Projects,ProjectsStatusCount, Researchers, Researchers_Projects, Documents, Evaluation_Reports, Researchers_Projects, EnumStatus
+from app.models.database import db, Evaluation_Windows, Projects,ProjectsStatusCount, Researchers, Researchers_Projects, Documents, Evaluation_Reports, Researchers_Projects, EnumStatus, Messages, Evaluators_Messages, Researchers_Messages, Evaluators,Researchers
 
 views = Blueprint('views', __name__)
 
@@ -182,14 +182,40 @@ def create_project():
     return redirect(url_for('views.project', project_id=new_project.id))
 
 
-@views.route('/project/<int:project_id>')
+@views.route('/project/<int:project_id>', methods=['GET', 'POST'])
 
 @login_required
 def project(project_id):
+    if request.method == 'POST':
+        message_text = request.form.get('message')
+        user_type = session['user_type']
+
+        # Create a new message object
+        message = Messages(text=message_text, fk_projects=project_id)
+        db.session.add(message)
+        db.session.commit()
+
+        # Associate the message with the current user based on the user type
+        if user_type == 'evaluator':
+            evaluator_message = Evaluators_Messages(fk_evaluators=current_user.id, fk_messages=message.id)
+            db.session.add(evaluator_message)
+        elif user_type == 'researcher':
+            researcher_message = Researchers_Messages(fk_researchers=current_user.id, fk_messages=message.id)
+            db.session.add(researcher_message)
+
+        db.session.commit()
+
+
     # controllo se l'utente è un ricercatore
-    if session['user_type'] == 'researcher':
-        # se l'utente è ricercatore deve avere accesso al progetto
-        has_access = Researchers_Projects.query.filter_by(fk_projects=project_id, fk_researchers=current_user.id).first()
-        if not has_access:
-            abort(403)
-    return render_template('project.html', name=current_user.name, surname=current_user.surname)
+    messages = Messages.query.filter_by(fk_projects=project_id).all()
+
+    researchers = []
+    evaluators = []
+
+    for message in messages:
+        researcher = Researchers.query.join(Researchers_Messages).filter_by(fk_messages=message.id).first()
+        evaluator = Evaluators.query.join(Evaluators_Messages).filter_by(fk_messages=message.id).first()
+        researchers.append(researcher)
+        evaluators.append(evaluator)
+    return render_template('project.html',profile_picture=current_user.profile_picture, name=current_user.name, surname=current_user.surname, messages=messages, researchers=researchers, evaluators=evaluators)
+
