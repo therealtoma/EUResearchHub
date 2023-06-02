@@ -325,7 +325,7 @@
             const modalContainer2 = document.getElementById('modalContainer2');
             openModalButton.addEventListener('click', function() {
                 $.ajax({
-                    url: '/api/get_doc_types/{{ session['project_id'] }}',
+                    url: '/api/get_doc_types',
                     type: 'POST',
                     datatype: 'json',
                     beforeSend: function(xhr) {

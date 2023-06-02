@@ -8,15 +8,14 @@ def check_email(s):
     pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
     return match(pattern, s)
 
-@api.route('/get_doc_types/<int:project_id>', methods=['POST'])
-def get_doc_types(project_id):
-    documents = Documents.query.filter_by(fk_project=project_id).all()
+@api.route('/get_doc_types', methods=['POST'])
+def get_doc_types():
+    d = Document_Types.query.all()
     doc_types = []
-    for type in documents:
-        d = Document_Types.query.filter_by(id=type.fk_document_type).first()
+    for type in d:
         doc_types.append({
-            'id': d.id,
-            'name': d.nome
+            'id': type.id,
+            'name': type.nome
         })
 
     return jsonify(doc_types)
