@@ -33,6 +33,9 @@ def create_app():
     from .routes.views import views
     app.register_blueprint(views, url_prefix='/')
 
+    from .utils.utils import api
+    app.register_blueprint(api, url_prefix='/api')
+
     from .models.database import Researchers, Evaluators
     @login_manager.user_loader
     def load_user(id):

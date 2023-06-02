@@ -230,6 +230,7 @@ def project(project_id):
         doc_type = Document_Types.query.filter_by(id=doc.fk_document_type).first()
         docs.append(doc_type)
 
+    session['project_id'] = project_id
     return render_template('project.html',
                            profile_picture=current_user.profile_picture,
                            name=current_user.name,

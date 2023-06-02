@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <title>EUResearchHub</title>
         <link rel="stylesheet" href="../static/style.css">
+        <link rel="stylesheet" href="../static/style_profile.css">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
@@ -13,8 +15,6 @@
         <link rel="stylesheet" type="text/css" href="../static/css/util.css">
 
         <link rel="stylesheet" type="text/css" href="../static/css/main.css">
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
 
     </head>
     <body>
@@ -241,8 +241,12 @@
                             <span class="uploaded-file__name">Proejct 1</span>
                             <span class="uploaded-file__counter">0%</span>
                         </div>
+
                     </div>
                 </div>
+                <select id="selectDocType">
+
+                </select>
                 <!-- End File Details -->
             </div>
         </div>
@@ -311,14 +315,28 @@
             <!-- End Upload Area -->
         </div>
         <!-- partial -->
+        <script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
         <script src="../static/functions.js"></script>
+
         <script>
             const openModalButton = document.getElementById('openModalButton');
             const openModalButton2 = document.getElementById('openModalButton2');
             const modalContainer = document.getElementById('modalContainer');
             const modalContainer2 = document.getElementById('modalContainer2');
-
             openModalButton.addEventListener('click', function() {
+                $.ajax({
+                    url: '/api/get_doc_types/{{ session['project_id'] }}',
+                    type: 'POST',
+                    datatype: 'json',
+                    beforeSend: function(xhr) {
+                        xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+                    },
+                    success: (data) => {
+                        data.forEach(item => {
+                            $('#selectDocType').append(`<option value="${item.id}">${item.name}</option>`)
+                        })
+                    }
+                })
                 modalContainer.style.display = 'block';
             });
 
