@@ -217,5 +217,18 @@ def project(project_id):
         evaluator = Evaluators.query.join(Evaluators_Messages).filter_by(fk_messages=message.id).first()
         researchers.append(researcher)
         evaluators.append(evaluator)
-    return render_template('project.html',profile_picture=current_user.profile_picture, name=current_user.name, surname=current_user.surname, messages=messages, researchers=researchers, evaluators=evaluators)
+
+    # ottengo le informazioni relative al progetto corrente
+    project = Projects.query.filter_by(id=project_id).first()
+
+
+    return render_template('project.html',
+                           profile_picture=current_user.profile_picture,
+                           name=current_user.name,
+                           surname=current_user.surname,
+                           messages=messages,
+                           researchers=researchers,
+                           evaluators=evaluators,
+                           project=project
+                           )
 
