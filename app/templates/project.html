@@ -202,56 +202,65 @@
         </div>
 
         <div id="modalContainer" class="modal-container">
-            <div id="uploadArea" class="upload-area">
-                <!-- Header -->
-                <div class="upload-area__header">
-                    <h1 class="upload-area__title">  Upload your file </h1>
-                    <p class="upload-area__paragraph">
-                        File should be a document or image
-                        <strong class="upload-area__tooltip">
-                            <span class="upload-area__tooltip-data"></span> <!-- Data Will be Comes From Js -->
-                        </strong>
-                    </p>
-                </div>
-                <!-- End Header -->
+            <form action="/add_document/{{ session['project_id'] }}" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <div id="uploadArea" class="upload-area">
+                    <!-- Header -->
+                    <div class="upload-area__header">
+                        <h1 class="upload-area__title">  Upload your file </h1>
+                        <p class="upload-area__paragraph">
+                            File should be a document or image
+                            <strong class="upload-area__tooltip">
+                                <span class="upload-area__tooltip-data"></span> <!-- Data Will be Comes From Js -->
+                            </strong>
+                        </p>
+                    </div>
+                    <!-- End Header -->
 
-                <!-- Drop Zone -->
-                <div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
-                    <span class="drop-zoon__icon">
-                      <i class='bx bxs-file-image'></i>
-                    </span>
-                    <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
-                    <span id="loadingText" class="drop-zoon__loading-text">Please Wait</span>
-                    <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image" draggable="false">
-                    <input type="file" id="fileInput" class="drop-zoon__file-input" accept="image/*">
-                </div>
-                <!-- End Drop Zone -->
+                    <!-- Drop Zone -->
+                    <div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
+                        <span class="drop-zoon__icon">
+                          <i class='bx bxs-file-image'></i>
+                        </span>
+                        <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
+                        <span id="loadingText" class="drop-zoon__loading-text">Please Wait</span>
+                        <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image" draggable="false">
+                        <input required type="file" id="fileInput" class="drop-zoon__file-input" accept="application/pdf" name="document">
+                    </div>
+                    <!-- End Drop Zone -->
 
-                <!-- File Details -->
-                <div id="fileDetails" class="upload-area__file-details file-details">
-                    <h3 class="file-details__title">Uploaded File</h3>
+                    <!-- File Details -->
+                    <div id="fileDetails" class="upload-area__file-details file-details">
+                        <h3 class="file-details__title">Uploaded File</h3>
 
-                    <div id="uploadedFile" class="uploaded-file">
-                        <div class="uploaded-file__icon-container">
-                            <i class='bx bxs-file-blank uploaded-file__icon'></i>
-                            <span class="uploaded-file__icon-text"></span> <!-- Data Will be Comes From Js -->
+                        <div id="uploadedFile" class="uploaded-file">
+                            <div class="uploaded-file__icon-container">
+                                <i class='bx bxs-file-blank uploaded-file__icon'></i>
+                                <span class="uploaded-file__icon-text"></span> <!-- Data Will be Comes From Js -->
+                            </div>
+
+                            <div id="uploadedFileInfo" class="uploaded-file__info">
+                                <span class="uploaded-file__name">Proejct 1</span>
+                                <span class="uploaded-file__counter">0%</span>
+                            </div>
+
                         </div>
+                    </div>
+                    <div class="selectDT">
+                        <label class="doctypelabel">Seleziona il tipo di documento</label>
+                        <select name="docType" id="selectDocType">
 
-                        <div id="uploadedFileInfo" class="uploaded-file__info">
-                            <span class="uploaded-file__name">Proejct 1</span>
-                            <span class="uploaded-file__counter">0%</span>
-                        </div>
+                        </select>
+                    </div>
+                    <!-- End File Details -->
+                    <div class="container-login100-form-btn">
 
+                        <button class="login100-form-btn upload-button" type="submit">
+                            <strong>Upload</strong>
+                        </button>
                     </div>
                 </div>
-                <div class="selectDT">
-                    <label class="doctypelabel">Seleziona il tipo di documento</label>
-                    <select  id="selectDocType">
-
-                    </select>
-                </div>
-                <!-- End File Details -->
-            </div>
+            </form>
         </div>
 
         <div id="modalContainer2" class="modal-container">
@@ -276,7 +285,7 @@
                     <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
                     <span id="loadingText2" class="drop-zoon__loading-text">Please Wait</span>
                     <img src="" alt="Preview Image" id="previewImage2" class="drop-zoon__preview-image" draggable="false">
-                    <input type="file" id="fileInput2" class="drop-zoon__file-input" accept="image/*">
+                    <input type="file" id="fileInput2" class="drop-zoon__file-input" accept="image/pdf">
                 </div>
                 <!-- End Drop Zone -->
 
