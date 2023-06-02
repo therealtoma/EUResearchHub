@@ -103,6 +103,48 @@ textarea {
     outline: none;
 }
 
+.doctypelabel{
+    color: var(--clr-light-gray);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.selectDT{
+
+    margin: 0 auto;
+    width: 70% !important;
+    color: #729DAC;
+    background-color: rgba(255, 255, 255, 0.6);
+    font-size: 24px;
+    border-radius: 20px;
+    flex-shrink: 0;
+    padding: 6px 16px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.selectDT select {
+    margin-top: 10px;
+    text-align: center;
+    background-color: transparent;
+    padding: 5px 10px;
+    border-radius: 10px;
+    width: 70%;
+    border: 2px solid var(--app-container);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    outline: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: #729DAC;
+
+}
+
+.inputdoctype{
+    text-align: center;
+}
+
 /* Modal Buttons */
 .modal-buttons {
     margin: 0 auto;
@@ -878,7 +920,6 @@ form.hide-submit input[type="submit"] {
 
 .project-boxes.jsListView .project-box-content-header {
     order: 1;
-    max-width: 120px;
 }
 
 .project-boxes.jsListView .project-box-header {
@@ -1136,6 +1177,7 @@ bottom: 0;
 }
 
 .box-content-header {
+    width: auto;
     text-decoration: none;
     color: black;
     font-size: 16px;

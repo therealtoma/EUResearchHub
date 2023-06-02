@@ -244,9 +244,12 @@
 
                     </div>
                 </div>
-                <select id="selectDocType">
+                <div class="selectDT">
+                    <label class="doctypelabel">Seleziona il tipo di documento</label>
+                    <select  id="selectDocType">
 
-                </select>
+                    </select>
+                </div>
                 <!-- End File Details -->
             </div>
         </div>
@@ -332,8 +335,9 @@
                         xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
                     },
                     success: (data) => {
+                        $('#selectDocType').empty()
                         data.forEach(item => {
-                            $('#selectDocType').append(`<option value="${item.id}">${item.name}</option>`)
+                            $('#selectDocType').append(`<option class="inputdoctype" value="${item.id}">${item.name}</option>`)
                         })
                     }
                 })
