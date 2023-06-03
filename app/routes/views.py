@@ -228,7 +228,19 @@ def project(project_id):
     docs = []
     for doc in documents:
         doc_type = Document_Types.query.filter_by(id=doc.fk_document_type).first()
-        docs.append(doc_type)
+        ev_rep = Evaluation_Reports.query.filter_by(fk_document=doc.id).first()
+        if ev_rep is not None:
+            ev_rep = ev_rep.file_path
+
+        docs.append({
+            'nome': doc_type.nome,
+            'descrizione': doc_type.descrizione,
+            'finelename': doc.file_path,
+            'ev_rep': ev_rep
+        })
+
+
+
 
     session['project_id'] = project_id
     return render_template('project.html',
@@ -260,10 +272,10 @@ def add_document(project_id):
             os.makedirs(os.path.join(current_app.config['UPLOAD_FOLDER']))
         document.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
 
-    # aggiungere il documento al database
-    new_document = Documents(file_path=f'{str(project_id)}/{doc_name}', fk_document_type=document_type, fk_project=project_id)
-    db.session.add(new_document)
-    db.session.commit()
+        # aggiungere il documento al database
+        new_document = Documents(file_path=f'{str(project_id)}/{doc_name}', fk_document_type=document_type, fk_project=project_id)
+        db.session.add(new_document)
+        db.session.commit()
 
     # reindirizzare alla pagina del progetto
     return redirect(url_for('views.project', project_id=project_id))
