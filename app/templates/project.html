@@ -90,46 +90,35 @@
                     <div class="project-boxes jsListView">
                         {% if documents %}
                             {% for document in documents %}
-                                <div class="project-box-wrapper">
-                                    <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
+    <div class="project-box-wrapper">
+        <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
+            <div class="project-box-content-header">
 
-                                        <div class="project-box-content-header">
+
 <a href="/project/{{ project.id }}?document_id={{ document.id }}">                    <p class="box-content-header">{{ document.nome }}</p>
-                </a>                                            
-                                          <p class="box-content-subheader">{{ document.descrizione }}</p>
-                                        </div>
-                                        <div class="box-progress-wrapper">
+                </a>
+                <p class="box-content-subheader">{{ document.descrizione }}</p>
+            </div>
+            <div class="box-progress-wrapper">
+                <!-- Progress content goes here -->
+            </div>
+            <div class="project-box-footer">
+                <div class="days-left" style="color: #729DAC;">
+                    [download]
+                </div>
+                <br>
+                <div class="days-left" style="color: #729DAC;">
+                    [ev. report]
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
 
-                                        </div>
-                                        <div class="project-box-footer">
-                                            <div class="days-left" style="color: #729DAC;">
-                                                <a href="{{ url_for('static', filename= 'uploads/projects/' + document.finelename + '.pdf') }}" download>Download</a>
-                                            </div>
-                                            <br>
-                                            {% if session['user_type'] == 'researcher' %}
-                                                {% if document.ev_rep %}
-                                                    <div class="days-left" style="color: #729DAC;">
-                                                        <a href="{{ url_for('static', filename= 'uploads/projects/' + document.ev_rep + '.pdf') }}"
-                                                           download
-                                                        >ev.report</a>
-                                                    </div>
-                                                {% endif %}
-                                            {% else %}
 
-                                                <div class="days-left" style="color: #729DAC;">
-                                                    {% if document.ev_rep %}
-                                                        <a href="{{ url_for('static', filename= 'uploads/projects/' + document.ev_rep + '.pdf') }}"
-                                                           download
-                                                        >ev.report</a>
-                                                    {% else %}
-                                                        <button onClick="toggleUpload3()">Upload ev.report</button>
-                                                    {% endif %}
-                                                </div>
-                                            {% endif %}
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endfor %}
+
+
+
 
                         {% endif %}
 
@@ -268,65 +257,56 @@
         </div>
 
         <div id="modalContainer" class="modal-container">
-            <form action="/add_document/{{ session['project_id'] }}" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                <div id="uploadArea" class="upload-area">
-                    <!-- Header -->
-                    <div class="upload-area__header">
-                        <h1 class="upload-area__title">  Upload your file </h1>
-                        <p class="upload-area__paragraph">
-                            File should be a document or image
-                            <strong class="upload-area__tooltip">
-                                <span class="upload-area__tooltip-data"></span> <!-- Data Will be Comes From Js -->
-                            </strong>
-                        </p>
-                    </div>
-                    <!-- End Header -->
+            <div id="uploadArea" class="upload-area">
+                <!-- Header -->
+                <div class="upload-area__header">
+                    <h1 class="upload-area__title">  Upload your file </h1>
+                    <p class="upload-area__paragraph">
+                        File should be a document or image
+                        <strong class="upload-area__tooltip">
+                            <span class="upload-area__tooltip-data"></span> <!-- Data Will be Comes From Js -->
+                        </strong>
+                    </p>
+                </div>
+                <!-- End Header -->
 
-                    <!-- Drop Zone -->
-                    <div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
-                        <span class="drop-zoon__icon">
-                          <i class='bx bxs-file-image'></i>
-                        </span>
-                        <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
-                        <span id="loadingText" class="drop-zoon__loading-text">Please Wait</span>
-                        <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image" draggable="false">
-                        <input required type="file" id="fileInput" class="drop-zoon__file-input" accept="application/pdf" name="document">
-                    </div>
-                    <!-- End Drop Zone -->
+                <!-- Drop Zone -->
+                <div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
+                    <span class="drop-zoon__icon">
+                      <i class='bx bxs-file-image'></i>
+                    </span>
+                    <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
+                    <span id="loadingText" class="drop-zoon__loading-text">Please Wait</span>
+                    <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image" draggable="false">
+                    <input type="file" id="fileInput" class="drop-zoon__file-input" accept="image/*">
+                </div>
+                <!-- End Drop Zone -->
 
-                    <!-- File Details -->
-                    <div id="fileDetails" class="upload-area__file-details file-details">
-                        <h3 class="file-details__title">Uploaded File</h3>
+                <!-- File Details -->
+                <div id="fileDetails" class="upload-area__file-details file-details">
+                    <h3 class="file-details__title">Uploaded File</h3>
 
-                        <div id="uploadedFile" class="uploaded-file">
-                            <div class="uploaded-file__icon-container">
-                                <i class='bx bxs-file-blank uploaded-file__icon'></i>
-                                <span class="uploaded-file__icon-text"></span> <!-- Data Will be Comes From Js -->
-                            </div>
-
-                            <div id="uploadedFileInfo" class="uploaded-file__info">
-                                <span class="uploaded-file__name">Proejct 1</span>
-                                <span class="uploaded-file__counter">0%</span>
-                            </div>
-
+                    <div id="uploadedFile" class="uploaded-file">
+                        <div class="uploaded-file__icon-container">
+                            <i class='bx bxs-file-blank uploaded-file__icon'></i>
+                            <span class="uploaded-file__icon-text"></span> <!-- Data Will be Comes From Js -->
                         </div>
-                    </div>
-                    <div class="selectDT">
-                        <label class="doctypelabel">Seleziona il tipo di documento</label>
-                        <select name="docType" id="selectDocType">
 
-                        </select>
-                    </div>
-                    <!-- End File Details -->
-                    <div class="container-login100-form-btn">
+                        <div id="uploadedFileInfo" class="uploaded-file__info">
+                            <span class="uploaded-file__name">Proejct 1</span>
+                            <span class="uploaded-file__counter">0%</span>
+                        </div>
 
-                        <button class="login100-form-btn upload-button" type="submit">
-                            <strong>Upload</strong>
-                        </button>
                     </div>
                 </div>
-            </form>
+                <div class="selectDT">
+                    <label class="doctypelabel">Select the document you want to upload:</label>
+                    <select  id="selectDocType">
+
+                    </select>
+                </div>
+                <!-- End File Details -->
+            </div>
         </div>
 
         <div id="modalContainer2" class="modal-container">
@@ -351,12 +331,12 @@
                     <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
                     <span id="loadingText2" class="drop-zoon__loading-text">Please Wait</span>
                     <img src="" alt="Preview Image" id="previewImage2" class="drop-zoon__preview-image" draggable="false">
-                    <input type="file" id="fileInput2" class="drop-zoon__file-input" accept="image/pdf">
+                    <input type="file" id="fileInput2" class="drop-zoon__file-input" accept="image/*">
                 </div>
                 <!-- End Drop Zone -->
 
                 <!-- File Details -->
-                <div id="fileDetails3" class="upload-area__file-details file-details">
+                <div id="fileDetails2" class="upload-area__file-details file-details">
                     <h3 class="file-details__title">Uploaded File</h3>
 
                     <div id="uploadedFile2" class="uploaded-file">
@@ -382,74 +362,6 @@
                     </div>
                 </div>
 
-                <div class="selectDT">
-                    <label class="doctypelabel">Select the document you want to upload:</label>
-                    <select  id="selectDocType">
-
-
-                <div class="container-login100-form-btn">
-
-                    <button class="login100-form-btn upload-button" type="submit">
-                        <strong>Upload</strong>
-                    </button>
-                </div>
-                <!-- End File Details -->
-            </div>
-            <!-- End Upload Area -->
-        </div>
-        <div id="modalContainer3" class="modal-container">
-            <div id="uploadArea3" class="upload-area">
-                <!-- Header -->
-                <div class="upload-area__header">
-                    <h1 class="upload-area__title">  Upload your file </h1>
-                    <p class="upload-area__paragraph">
-                        File should be a document or image
-                        <strong class="upload-area__tooltip">
-                            <span class="upload-area__tooltip-data2"></span> <!-- Data Will be Comes From Js -->
-                        </strong>
-                    </p>
-                </div>
-                <!-- End Header -->
-
-                <!-- Drop Zone -->
-                <div id="dropZoon3" class="upload-area__drop-zoon drop-zoon">
-                    <span class="drop-zoon__icon">
-                      <i class='bx bxs-file-image'></i>
-                    </span>
-                    <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
-                    <span id="loadingText3" class="drop-zoon__loading-text">Please Wait</span>
-                    <img src="" alt="Preview Image" id="previewImage3" class="drop-zoon__preview-image" draggable="false">
-                    <input type="file" id="fileInput3" class="drop-zoon__file-input" accept="image/pdf">
-                </div>
-                <!-- End Drop Zone -->
-
-                <!-- File Details -->
-                <div id="fileDetails3" class="upload-area__file-details file-details">
-                    <h3 class="file-details__title">Uploaded File</h3>
-
-                    <div id="uploadedFile3" class="uploaded-file">
-                        <div class="uploaded-file__icon-container">
-                            <i class='bx bxs-file-blank uploaded-file__icon'></i>
-                            <span class="uploaded-file__icon-text2"></span> <!-- Data Will be Comes From Js -->
-                        </div>
-
-                        <div id="uploadedFileInfo2" class="uploaded-file__info">
-                            <span class="uploaded-file__name2">Proejct 1</span>
-                            <span class="uploaded-file__counter2">0%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="uploadedDescription-container3" class="uploadedDescription-container">
-                    <div id="uploadedDescription3" class="uploaded-description">
-                        <form  class="login100-form-description validate-form" method="post">
-                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                            <input class="input-description" type="text" required name="description" placeholder="Inser your description here">
-
-                        </form>
-                    </div>
-                </div>
-
                 <div class="container-login100-form-btn">
 
                     <button class="login100-form-btn upload-button" type="submit">
@@ -467,17 +379,14 @@
         <script>
             const openModalButton = document.getElementById('openModalButton');
             const openModalButton2 = document.getElementById('openModalButton2');
-            const openModalButton3 = $('#openModalButton3')
             const modalContainer = document.getElementById('modalContainer');
             const modalContainer2 = document.getElementById('modalContainer2');
-            const modalContainer3 = document.getElementById('modalContainer3');
-
             openModalButton.addEventListener('click', function() {
                 $.ajax({
                     url: '/api/get_doc_types',
                     type: 'POST',
                     datatype: 'json',
-                    beforeSend: (xhr) => {
+                    beforeSend: function(xhr) {
                         xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
                     },
                     success: (data) => {
@@ -493,7 +402,6 @@
             openModalButton2.addEventListener('click', function() {
                 modalContainer2.style.display = 'block';
             });
-
             // Hide the modal when the user clicks outside of it
             window.addEventListener('click', function(event) {
                 if (event.target === modalContainer) {
@@ -506,7 +414,6 @@
                     modalContainer2.style.display = 'none';
                 }
             });
-
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
 
