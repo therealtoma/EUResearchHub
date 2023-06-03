@@ -186,7 +186,9 @@ def create_project():
 
 @login_required
 def project(project_id):
+    document_id = request.args.get('document_id')
     if request.method == 'POST':
+
         message_text = request.form.get('message')
         user_type = session['user_type']
 
@@ -204,9 +206,16 @@ def project(project_id):
             db.session.add(researcher_message)
 
         db.session.commit()
+        redirect_url = url_for('views.project', project_id=project_id)
+        if document_id:
+            redirect_url += f"?document_id={document_id}"
 
 
-    # controllo se l'utente è un ricercatore
+        # Redirect the user to the URL with query parameters
+        return redirect(redirect_url)
+
+
+    # Controllo se l'utente è un ricercatore
     messages = Messages.query.filter_by(fk_projects=project_id).all()
 
     researchers = []
@@ -218,13 +227,12 @@ def project(project_id):
         researchers.append(researcher)
         evaluators.append(evaluator)
 
-    # ottengo le informazioni relative al progetto corrente
+    # Ottengo le informazioni relative al progetto corrente
     project = Projects.query.filter_by(id=project_id).first()
 
-
-    # ottengo la lista dei documenti del progetto
+    # Ottengo la lista dei documenti del progetto
     documents = Documents.query.filter_by(fk_project=project_id).all()
-    # per ogni documento voglio sapere il tipo
+    # Per ogni documento voglio sapere il tipo
     docs = []
     for doc in documents:
         doc_type = Document_Types.query.filter_by(id=doc.fk_document_type).first()
@@ -241,6 +249,27 @@ def project(project_id):
 
 
 
+
+    # Get the view_document data
+    if document_id:
+        document = Documents.query.get_or_404(document_id)
+
+        nome_tipo_documento = Document_Types.query.filter_by(id=document.fk_document_type).first()
+        versions = Document_Versions.query.filter_by(fk_document=document.id).all()
+
+        return render_template('project.html',
+                               profile_picture=current_user.profile_picture,
+                               name=current_user.name,
+                               surname=current_user.surname,
+                               messages=messages,
+                               researchers=researchers,
+                               evaluators=evaluators,
+                               project=project,
+                               documents=docs,
+                               selected_document=document,
+                               versions=versions,
+                               name_document_selected=nome_tipo_documento.nome
+                               )
 
     session['project_id'] = project_id
     return render_template('project.html',

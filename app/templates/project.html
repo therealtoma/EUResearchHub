@@ -1,5 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+  .icon-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16vh; /* Adjust the height as needed */
+  }
+
+  .icon-holder svg {
+    height: 4em; /* Adjust the size of the icon as needed */
+      animation: beat 1s infinite;
+  }
+  @keyframes beat {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+</style>
     <head>
         <meta charset="UTF-8">
         <title>EUResearchHub</title>
@@ -15,6 +39,7 @@
         <link rel="stylesheet" type="text/css" href="../static/css/util.css">
 
         <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     </head>
     <body>
@@ -69,8 +94,9 @@
                                     <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
 
                                         <div class="project-box-content-header">
-                                            <p class="box-content-header">{{ document.nome }}</p>
-                                            <p class="box-content-subheader">{{ document.descrizione }}</p>
+<a href="/project/{{ project.id }}?document_id={{ document.id }}">                    <p class="box-content-header">{{ document.nome }}</p>
+                </a>                                            
+                                          <p class="box-content-subheader">{{ document.descrizione }}</p>
                                         </div>
                                         <div class="box-progress-wrapper">
 
@@ -104,6 +130,7 @@
                                     </div>
                                 </div>
                             {% endfor %}
+
                         {% endif %}
 
 
@@ -186,35 +213,57 @@
 
 
 
-                    <div class="versions-section">
-                        <div class="projects-section-header">
-                            <p style="color:#666666;">Versions of: [name] </p>
-                            <div class="button-hold-versions">
-                                <button id="openModalButton2" class="plus-button-versions"></button>
-                            </div>
+                   <div class="versions-section">
+
+                   {% if selected_document %}
+    <div class="projects-section-header">
+        <p style="color:#666666;">Versions of: {{ name_document_selected }}</p>
+
+        <div class="button-hold-versions">
+            <button id="openModalButton2" class="plus-button-versions"></button>
+        </div>
+    </div>
+    <div class="messages">
+
+            {% for version in versions %}
+                <div class="message-box">
+                    <div class="message-content">
+                        <div class="message-header">
+                            <div class="name" style="color:#666666;">{{ loop.index }}. {{ version.title }}</div>
                         </div>
-                        <div class="messages">
-
-                            <div class="message-box">
-                                <div class="message-content">
-                                    <div class="message-header">
-                                        <div class="name" style="color:#666666;">1. [file_path]</div>
-
-                                    </div>
-                                    <p class="message-line">
-                                        [description changes made]
-                                    </p>
-                                    <p class="message-line time">
-                                        [datetime]
-                                    </p>
-                                </div>
-                            </div>
-
-
-
+                        <p class="message-line">
+                            {{ version.description }}
+                        </p>
+                        <p class="message-line time">
+                            {{ version.date.strftime('%Y-%m-%d' ) }}
+                        </p>
 
                     </div>
                 </div>
+            {% endfor %}
+
+    </div>
+                       {% else %}
+
+
+
+                      <div class="projects-section-header">
+            <p style="color:#666666;">No document selected</p>
+
+        </div>
+
+       <div class="icon-holder">
+  <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512">
+    <path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM80 64h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H80c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H80c-8.8 0-16-7.2-16-16s7.2-16 16-16zm54.2 253.8c-6.1 20.3-24.8 34.2-46 34.2H80c-8.8 0-16-7.2-16-16s7.2-16 16-16h8.2c7.1 0 13.3-4.6 15.3-11.4l14.9-49.5c3.4-11.3 13.8-19.1 25.6-19.1s22.2 7.7 25.6 19.1l11.6 38.6c7.4-6.2 16.8-9.7 26.8-9.7c15.9 0 30.4 9 37.5 23.2l4.4 8.8H304c8.8 0 16 7.2 16 16s-7.2 16-16 16H240c-6.1 0-11.6-3.4-14.3-8.8l-8.8-17.7c-1.7-3.4-5.1-5.5-8.8-5.5s-7.2 2.1-8.8 5.5l-8.8 17.7c-2.9 5.9-9.2 9.4-15.7 8.8s-12.1-5.1-13.9-11.3L144 349l-9.8 32.8z" style="fill:rgba(114,157,172,0.09)"/>
+  </svg>
+</div>
+
+
+
+                     {% endif %}
+
+
+</div>
             </div>
         </div>
 
@@ -332,6 +381,11 @@
                         </form>
                     </div>
                 </div>
+
+                <div class="selectDT">
+                    <label class="doctypelabel">Select the document you want to upload:</label>
+                    <select  id="selectDocType">
+
 
                 <div class="container-login100-form-btn">
 
