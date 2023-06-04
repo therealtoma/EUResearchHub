@@ -53,3 +53,29 @@ def upload_document(project_id):
         document.save(os.path.join(folderPath, str(docVersion.id) + '.pdf'))
 
     return redirect(url_for('views.project', project_id=project_id))
+
+@api.route('/upload_version/<int:project_id>/<int:document_id>', methods=['POST'])
+@login_required
+def upload_version(project_id, document_id):
+    '''
+    il pdf della versione va dentro alla cartella del progetto
+    nella cartella del progetto, ho le cartelle con gli id dei vari document type
+    nella cartella dei document types ci sono tanti pdf quante le versioni nominati con l'id della versione
+    '''
+    if request.files.get('docVersion'):
+        description = request.form.get('description')
+        title = request.form.get('title')
+        currentDirectory = os.path.dirname(os.path.realpath(__file__))
+        folderPath = os.path.join(currentDirectory, '../static/uploads/projects/' + str(project_id) + '/' + str(document_id) + '/')
+        if not os.path.exists(folderPath):
+            os.makedirs(folderPath)
+        document = request.files.get('docVersion')
+
+        # aggiungo la versione all'interno del database
+        docVersion = Document_Versions(title=title, description=description, fk_document=document_id)
+        db.session.add(docVersion)
+        db.session.commit()
+        # salvo il file nella cartella
+        document.save(os.path.join(folderPath, str(docVersion.id) + '.pdf'))
+
+    return redirect(url_for('views.project', project_id=project_id))
