@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.15)  4 JUN 2023 15:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.15)  4 JUN 2023 16:58
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -189,25 +189,62 @@ Package: dirtree 2012/12/11 v0.32 package wrapper for dirtree
 \DT@baselineskip=\dimen151
 )
 File: dirtree.tex 2012/12/11 v0.32 `dirtree' (jcc)
-) (./imta_core.sty
+)
+
+! LaTeX Error: Option clash for package xcolor.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.34 \usepackage
+                {longtable}
+The package xcolor has already been loaded with options:
+  []
+There has now been an attempt to load it with options
+  [table]
+Adding the global options:
+  ,table
+to your \documentclass declaration may fix this.
+Try typing  <return>  to proceed.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
+\LTleft=\skip54
+\LTright=\skip55
+\LTpre=\skip56
+\LTpost=\skip57
+\LTchunksize=\count267
+\LTcapwidth=\dimen152
+\LT@head=\box48
+\LT@firsthead=\box49
+\LT@foot=\box50
+\LT@lastfoot=\box51
+\LT@cols=\count268
+\LT@rows=\count269
+\c@LT@tables=\count270
+\c@LT@chunks=\count271
+\LT@p@ftn=\toks19
+)
+(./imta_core.sty
 (/usr/local/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count267
-\Gm@cntv=\count268
-\c@Gm@tempcnt=\count269
-\Gm@bindingoffset=\dimen152
-\Gm@wd@mp=\dimen153
-\Gm@odd@mp=\dimen154
-\Gm@even@mp=\dimen155
-\Gm@layoutwidth=\dimen156
-\Gm@layoutheight=\dimen157
-\Gm@layouthoffset=\dimen158
-\Gm@layoutvoffset=\dimen159
-\Gm@dimlist=\toks19
+\Gm@cnth=\count272
+\Gm@cntv=\count273
+\c@Gm@tempcnt=\count274
+\Gm@bindingoffset=\dimen153
+\Gm@wd@mp=\dimen154
+\Gm@odd@mp=\dimen155
+\Gm@even@mp=\dimen156
+\Gm@layoutwidth=\dimen157
+\Gm@layoutheight=\dimen158
+\Gm@layouthoffset=\dimen159
+\Gm@layoutvoffset=\dimen160
+\Gm@dimlist=\toks20
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
@@ -243,9 +280,9 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 (/usr/local/texlive/2020/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
-\@linkdim=\dimen160
-\Hy@linkcounter=\count270
-\Hy@pagecounter=\count271
+\@linkdim=\dimen161
+\Hy@linkcounter=\count275
+\Hy@pagecounter=\count276
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
@@ -258,7 +295,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count272
+\Hy@SavedSpaceFactor=\count277
 Package hyperref Info: Hyper figures OFF on input line 4547.
 Package hyperref Info: Link nesting OFF on input line 4552.
 Package hyperref Info: Hyper index ON on input line 4555.
@@ -266,14 +303,14 @@ Package hyperref Info: Plain pages OFF on input line 4562.
 Package hyperref Info: Backreferencing OFF on input line 4567.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4800.
-\c@Hy@tempcnt=\count273
+\c@Hy@tempcnt=\count278
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5159.
-\XeTeXLinkMargin=\dimen161
+\XeTeXLinkMargin=\dimen162
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -282,9 +319,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count274
-\Field@Width=\dimen162
-\Fld@charsize=\dimen163
+\Fld@menulength=\count279
+\Field@Width=\dimen163
+\Fld@charsize=\dimen164
 Package hyperref Info: Hyper figures OFF on input line 6430.
 Package hyperref Info: Link nesting OFF on input line 6435.
 Package hyperref Info: Hyper index ON on input line 6438.
@@ -294,9 +331,9 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6455.
 Package hyperref Info: PDF/A mode OFF on input line 6460.
 LaTeX Info: Redefining \ref on input line 6500.
 LaTeX Info: Redefining \pageref on input line 6504.
-\Hy@abspage=\count275
-\c@Item=\count276
-\c@Hfootnote=\count277
+\Hy@abspage=\count280
+\c@Item=\count281
+\c@Hfootnote=\count282
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -306,8 +343,8 @@ File: hpdftex.def 2020/01/14 v7.00d Hyperref driver for pdfTeX
 (/usr/local/texlive/2020/texmf-dist/tex/latex/atveryend/atveryend.sty
 Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
 )
-\Fld@listcount=\count278
-\c@bookmark@seq@number=\count279
+\Fld@listcount=\count283
+\c@bookmark@seq@number=\count284
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
@@ -318,38 +355,38 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 86.
 )
-\Hy@SectionHShift=\skip54
+\Hy@SectionHShift=\skip58
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/08/11 v1.3c Input encoding file
-\inpenc@prehook=\toks20
-\inpenc@posthook=\toks21
+\inpenc@prehook=\toks21
+\inpenc@posthook=\toks22
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
 s
-\f@nch@headwidth=\skip55
-\f@nch@O@elh=\skip56
-\f@nch@O@erh=\skip57
-\f@nch@O@olh=\skip58
-\f@nch@O@orh=\skip59
-\f@nch@O@elf=\skip60
-\f@nch@O@erf=\skip61
-\f@nch@O@olf=\skip62
-\f@nch@O@orf=\skip63
+\f@nch@headwidth=\skip59
+\f@nch@O@elh=\skip60
+\f@nch@O@erh=\skip61
+\f@nch@O@olh=\skip62
+\f@nch@O@orh=\skip63
+\f@nch@O@elf=\skip64
+\f@nch@O@erf=\skip65
+\f@nch@O@olf=\skip66
+\f@nch@O@orf=\skip67
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
 x
-\pgfutil@everybye=\toks22
-\pgfutil@tempdima=\dimen164
-\pgfutil@tempdimb=\dimen165
+\pgfutil@everybye=\toks23
+\pgfutil@tempdima=\dimen165
+\pgfutil@tempdimb=\dimen166
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
 sts.tex))
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box48
+\pgfutil@abb=\box52
 (/usr/local/texlive/2020/texmf-dist/tex/latex/ms/everyshi.sty
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
 ))
@@ -364,33 +401,33 @@ Package: pgf 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks23
-\pgfkeys@temptoks=\toks24
+\pgfkeys@pathtoks=\toks24
+\pgfkeys@temptoks=\toks25
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
 ode.tex
-\pgfkeys@tmptoks=\toks25
+\pgfkeys@tmptoks=\toks26
 ))
-\pgf@x=\dimen166
-\pgf@y=\dimen167
-\pgf@xa=\dimen168
-\pgf@ya=\dimen169
-\pgf@xb=\dimen170
-\pgf@yb=\dimen171
-\pgf@xc=\dimen172
-\pgf@yc=\dimen173
-\pgf@xd=\dimen174
-\pgf@yd=\dimen175
+\pgf@x=\dimen167
+\pgf@y=\dimen168
+\pgf@xa=\dimen169
+\pgf@ya=\dimen170
+\pgf@xb=\dimen171
+\pgf@yb=\dimen172
+\pgf@xc=\dimen173
+\pgf@yc=\dimen174
+\pgf@xd=\dimen175
+\pgf@yd=\dimen176
 \w@pgf@writea=\write3
 \r@pgf@reada=\read3
-\c@pgf@counta=\count280
-\c@pgf@countb=\count281
-\c@pgf@countc=\count282
-\c@pgf@countd=\count283
-\t@pgf@toka=\toks26
-\t@pgf@tokb=\toks27
-\t@pgf@tokc=\toks28
-\pgf@sys@id@count=\count284
+\c@pgf@counta=\count285
+\c@pgf@countb=\count286
+\c@pgf@countc=\count287
+\c@pgf@countd=\count288
+\t@pgf@toka=\toks27
+\t@pgf@tokb=\toks28
+\t@pgf@tokc=\toks29
+\pgf@sys@id@count=\count289
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2020/01/08 v3.1.5b (3.1.5b)
@@ -408,8 +445,8 @@ File: pgfsys-common-pdf.def 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
 code.tex
 File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfsyssoftpath@smallbuffer@items=\count285
-\pgfsyssoftpath@bigbuffer@items=\count286
+\pgfsyssoftpath@smallbuffer@items=\count290
+\pgfsyssoftpath@bigbuffer@items=\count291
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
 code.tex
@@ -421,12 +458,12 @@ Package: pgfcore 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen176
-\pgfmath@count=\count287
-\pgfmath@box=\box49
-\pgfmath@toks=\toks29
-\pgfmath@stack@operand=\toks30
-\pgfmath@stack@operation=\toks31
+\pgfmath@dimen=\dimen177
+\pgfmath@count=\count292
+\pgfmath@box=\box53
+\pgfmath@toks=\toks30
+\pgfmath@stack@operand=\toks31
+\pgfmath@stack@operation=\toks32
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
 tex
@@ -447,57 +484,57 @@ code.tex)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
 erarithmetics.code.tex)))
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count288
+\c@pgfmathroundto@lastzeros=\count293
 )) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
 de.tex
 File: pgfcorepoints.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@picminx=\dimen177
-\pgf@picmaxx=\dimen178
-\pgf@picminy=\dimen179
-\pgf@picmaxy=\dimen180
-\pgf@pathminx=\dimen181
-\pgf@pathmaxx=\dimen182
-\pgf@pathminy=\dimen183
-\pgf@pathmaxy=\dimen184
-\pgf@xx=\dimen185
-\pgf@xy=\dimen186
-\pgf@yx=\dimen187
-\pgf@yy=\dimen188
-\pgf@zx=\dimen189
-\pgf@zy=\dimen190
+\pgf@picminx=\dimen178
+\pgf@picmaxx=\dimen179
+\pgf@picminy=\dimen180
+\pgf@picmaxy=\dimen181
+\pgf@pathminx=\dimen182
+\pgf@pathmaxx=\dimen183
+\pgf@pathminy=\dimen184
+\pgf@pathmaxy=\dimen185
+\pgf@xx=\dimen186
+\pgf@xy=\dimen187
+\pgf@yx=\dimen188
+\pgf@yy=\dimen189
+\pgf@zx=\dimen190
+\pgf@zy=\dimen191
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
 ruct.code.tex
 File: pgfcorepathconstruct.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@path@lastx=\dimen191
-\pgf@path@lasty=\dimen192
+\pgf@path@lastx=\dimen192
+\pgf@path@lasty=\dimen193
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
 .code.tex
 File: pgfcorepathusage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@shorten@end@additional=\dimen193
-\pgf@shorten@start@additional=\dimen194
+\pgf@shorten@end@additional=\dimen194
+\pgf@shorten@start@additional=\dimen195
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
 de.tex
 File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfpic=\box50
-\pgf@hbox=\box51
-\pgf@layerbox@main=\box52
-\pgf@picture@serial@count=\count289
+\pgfpic=\box54
+\pgf@hbox=\box55
+\pgf@layerbox@main=\box56
+\pgf@picture@serial@count=\count294
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
 ate.code.tex
 File: pgfcoregraphicstate.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgflinewidth=\dimen195
+\pgflinewidth=\dimen196
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
 ations.code.tex
 File: pgfcoretransformations.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@pt@x=\dimen196
-\pgf@pt@y=\dimen197
-\pgf@pt@temp=\dimen198
+\pgf@pt@x=\dimen197
+\pgf@pt@y=\dimen198
+\pgf@pt@temp=\dimen199
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
 e.tex
@@ -514,14 +551,14 @@ File: pgfcorepathprocessing.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
 de.tex
 File: pgfcorearrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfarrowsep=\dimen199
+\pgfarrowsep=\dimen256
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
 e.tex
 File: pgfcoreshade.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@max=\dimen256
-\pgf@sys@shading@range@num=\count290
-\pgf@shadingcount=\count291
+\pgf@max=\dimen257
+\pgf@sys@shading@range@num=\count295
+\pgf@shadingcount=\count296
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
 e.tex
@@ -530,7 +567,7 @@ File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
 code.tex
 File: pgfcoreexternal.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfexternal@startupbox=\box53
+\pgfexternal@startupbox=\box57
 ))
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
 de.tex
@@ -551,7 +588,7 @@ File: pgfcorerdf.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
 e.tex
 File: pgfmoduleshapes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfnodeparttextbox=\box54
+\pgfnodeparttextbox=\box58
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
 tex
@@ -560,8 +597,8 @@ File: pgfmoduleplot.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
 -0-65.sty
 Package: pgfcomp-version-0-65 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@nodesepstart=\dimen257
-\pgf@nodesepend=\dimen258
+\pgf@nodesepstart=\dimen258
+\pgf@nodesepend=\dimen259
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
 -1-18.sty
@@ -576,10 +613,10 @@ Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
 Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen259
-\pgffor@skip=\dimen260
-\pgffor@stack=\toks32
-\pgffor@toks=\toks33
+\pgffor@iter=\dimen260
+\pgffor@skip=\dimen261
+\pgffor@stack=\toks33
+\pgffor@toks=\toks34
 ))
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
 e.tex
@@ -588,34 +625,34 @@ Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
 dlers.code.tex
 File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@plot@mark@count=\count292
-\pgfplotmarksize=\dimen261
+\pgf@plot@mark@count=\count297
+\pgfplotmarksize=\dimen262
 )
-\tikz@lastx=\dimen262
-\tikz@lasty=\dimen263
-\tikz@lastxsaved=\dimen264
-\tikz@lastysaved=\dimen265
-\tikz@lastmovetox=\dimen266
-\tikz@lastmovetoy=\dimen267
-\tikzleveldistance=\dimen268
-\tikzsiblingdistance=\dimen269
-\tikz@figbox=\box55
-\tikz@figbox@bg=\box56
-\tikz@tempbox=\box57
-\tikz@tempbox@bg=\box58
-\tikztreelevel=\count293
-\tikznumberofchildren=\count294
-\tikznumberofcurrentchild=\count295
-\tikz@fig@count=\count296
+\tikz@lastx=\dimen263
+\tikz@lasty=\dimen264
+\tikz@lastxsaved=\dimen265
+\tikz@lastysaved=\dimen266
+\tikz@lastmovetox=\dimen267
+\tikz@lastmovetoy=\dimen268
+\tikzleveldistance=\dimen269
+\tikzsiblingdistance=\dimen270
+\tikz@figbox=\box59
+\tikz@figbox@bg=\box60
+\tikz@tempbox=\box61
+\tikz@tempbox@bg=\box62
+\tikztreelevel=\count298
+\tikznumberofchildren=\count299
+\tikznumberofcurrentchild=\count300
+\tikz@fig@count=\count301
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
 e.tex
 File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfmatrixcurrentrow=\count297
-\pgfmatrixcurrentcolumn=\count298
-\pgf@matrix@numberofcolumns=\count299
+\pgfmatrixcurrentrow=\count302
+\pgfmatrixcurrentcolumn=\count303
+\pgf@matrix@numberofcolumns=\count304
 )
-\tikz@expandcount=\count300
+\tikz@expandcount=\count305
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarytopaths.code.tex
@@ -623,21 +660,21 @@ File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )))
 (/usr/local/texlive/2020/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2019/10/16 v2.13 Sectioning titles
-\ttl@box=\box59
-\beforetitleunit=\skip64
-\aftertitleunit=\skip65
-\ttl@plus=\dimen270
-\ttl@minus=\dimen271
-\ttl@toksa=\toks34
-\titlewidth=\dimen272
-\titlewidthlast=\dimen273
-\titlewidthfirst=\dimen274
+\ttl@box=\box63
+\beforetitleunit=\skip68
+\aftertitleunit=\skip69
+\ttl@plus=\dimen271
+\ttl@minus=\dimen272
+\ttl@toksa=\toks35
+\titlewidth=\dimen273
+\titlewidthlast=\dimen274
+\titlewidthfirst=\dimen275
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/titling/titling.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
-\thanksmarkwidth=\skip66
-\thanksmargin=\skip67
-\droptitle=\skip68
+\thanksmarkwidth=\skip70
+\thanksmargin=\skip71
+\droptitle=\skip72
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/sectsty/sectsty.sty
 Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
@@ -653,12 +690,12 @@ LaTeX Warning: Command \underline  has changed.
 
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
-\labelindent=\skip69
-\enit@outerparindent=\dimen275
-\enit@toks=\toks35
-\enit@inbox=\box60
-\enit@count@id=\count301
-\enitdp@description=\count302
+\labelindent=\skip73
+\enit@outerparindent=\dimen276
+\enit@toks=\toks36
+\enit@inbox=\box64
+\enit@count@id=\count306
+\enitdp@description=\count307
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/pifont.sty
 Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
@@ -683,14 +720,14 @@ Package: expl3 2020-03-06 L3 programming layer (loader)
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count303
-\l__pdf_internal_box=\box61
+\l__kernel_color_stack_int=\count308
+\l__pdf_internal_box=\box65
 ))
 Package: xparse 2020-03-06 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count304
-\g__xparse_grabber_int=\count305
-\l__xparse_m_args_int=\count306
-\l__xparse_v_nesting_int=\count307
+\l__xparse_current_arg_int=\count309
+\g__xparse_grabber_int=\count310
+\l__xparse_m_args_int=\count311
+\l__xparse_v_nesting_int=\count312
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/zref/zref-abspage.sty
 Package: zref-abspage 2020-03-03 v2.29 Module abspage for zref (HO)
 
@@ -700,104 +737,104 @@ Package zref Info: New property list: main on input line 763.
 Package zref Info: New property: default on input line 764.
 Package zref Info: New property: page on input line 765.
 )
-\c@abspage=\count308
+\c@abspage=\count313
 Package zref Info: New property: abspage on input line 66.
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/needspace/needspace.sty
 Package: needspace 2010/09/12 v1.3d reserve vertical space
 )
-\mdf@templength=\skip70
-\c@mdf@globalstyle@cnt=\count309
-\mdf@skipabove@length=\skip71
-\mdf@skipbelow@length=\skip72
-\mdf@leftmargin@length=\skip73
-\mdf@rightmargin@length=\skip74
-\mdf@innerleftmargin@length=\skip75
-\mdf@innerrightmargin@length=\skip76
-\mdf@innertopmargin@length=\skip77
-\mdf@innerbottommargin@length=\skip78
-\mdf@splittopskip@length=\skip79
-\mdf@splitbottomskip@length=\skip80
-\mdf@outermargin@length=\skip81
-\mdf@innermargin@length=\skip82
-\mdf@linewidth@length=\skip83
-\mdf@innerlinewidth@length=\skip84
-\mdf@middlelinewidth@length=\skip85
-\mdf@outerlinewidth@length=\skip86
-\mdf@roundcorner@length=\skip87
-\mdf@footenotedistance@length=\skip88
-\mdf@userdefinedwidth@length=\skip89
-\mdf@needspace@length=\skip90
-\mdf@frametitleaboveskip@length=\skip91
-\mdf@frametitlebelowskip@length=\skip92
-\mdf@frametitlerulewidth@length=\skip93
-\mdf@frametitleleftmargin@length=\skip94
-\mdf@frametitlerightmargin@length=\skip95
-\mdf@shadowsize@length=\skip96
-\mdf@extratopheight@length=\skip97
-\mdf@subtitleabovelinewidth@length=\skip98
-\mdf@subtitlebelowlinewidth@length=\skip99
-\mdf@subtitleaboveskip@length=\skip100
-\mdf@subtitlebelowskip@length=\skip101
-\mdf@subtitleinneraboveskip@length=\skip102
-\mdf@subtitleinnerbelowskip@length=\skip103
-\mdf@subsubtitleabovelinewidth@length=\skip104
-\mdf@subsubtitlebelowlinewidth@length=\skip105
-\mdf@subsubtitleaboveskip@length=\skip106
-\mdf@subsubtitlebelowskip@length=\skip107
-\mdf@subsubtitleinneraboveskip@length=\skip108
-\mdf@subsubtitleinnerbelowskip@length=\skip109
+\mdf@templength=\skip74
+\c@mdf@globalstyle@cnt=\count314
+\mdf@skipabove@length=\skip75
+\mdf@skipbelow@length=\skip76
+\mdf@leftmargin@length=\skip77
+\mdf@rightmargin@length=\skip78
+\mdf@innerleftmargin@length=\skip79
+\mdf@innerrightmargin@length=\skip80
+\mdf@innertopmargin@length=\skip81
+\mdf@innerbottommargin@length=\skip82
+\mdf@splittopskip@length=\skip83
+\mdf@splitbottomskip@length=\skip84
+\mdf@outermargin@length=\skip85
+\mdf@innermargin@length=\skip86
+\mdf@linewidth@length=\skip87
+\mdf@innerlinewidth@length=\skip88
+\mdf@middlelinewidth@length=\skip89
+\mdf@outerlinewidth@length=\skip90
+\mdf@roundcorner@length=\skip91
+\mdf@footenotedistance@length=\skip92
+\mdf@userdefinedwidth@length=\skip93
+\mdf@needspace@length=\skip94
+\mdf@frametitleaboveskip@length=\skip95
+\mdf@frametitlebelowskip@length=\skip96
+\mdf@frametitlerulewidth@length=\skip97
+\mdf@frametitleleftmargin@length=\skip98
+\mdf@frametitlerightmargin@length=\skip99
+\mdf@shadowsize@length=\skip100
+\mdf@extratopheight@length=\skip101
+\mdf@subtitleabovelinewidth@length=\skip102
+\mdf@subtitlebelowlinewidth@length=\skip103
+\mdf@subtitleaboveskip@length=\skip104
+\mdf@subtitlebelowskip@length=\skip105
+\mdf@subtitleinneraboveskip@length=\skip106
+\mdf@subtitleinnerbelowskip@length=\skip107
+\mdf@subsubtitleabovelinewidth@length=\skip108
+\mdf@subsubtitlebelowlinewidth@length=\skip109
+\mdf@subsubtitleaboveskip@length=\skip110
+\mdf@subsubtitlebelowskip@length=\skip111
+\mdf@subsubtitleinneraboveskip@length=\skip112
+\mdf@subsubtitleinnerbelowskip@length=\skip113
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/mdframed/md-frame-0.mdf
 File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 )
-\mdf@frametitlebox=\box62
-\mdf@footnotebox=\box63
-\mdf@splitbox@one=\box64
-\mdf@splitbox@two=\box65
-\mdf@splitbox@save=\box66
-\mdfsplitboxwidth=\skip110
-\mdfsplitboxtotalwidth=\skip111
-\mdfsplitboxheight=\skip112
-\mdfsplitboxdepth=\skip113
-\mdfsplitboxtotalheight=\skip114
-\mdfframetitleboxwidth=\skip115
-\mdfframetitleboxtotalwidth=\skip116
-\mdfframetitleboxheight=\skip117
-\mdfframetitleboxdepth=\skip118
-\mdfframetitleboxtotalheight=\skip119
-\mdffootnoteboxwidth=\skip120
-\mdffootnoteboxtotalwidth=\skip121
-\mdffootnoteboxheight=\skip122
-\mdffootnoteboxdepth=\skip123
-\mdffootnoteboxtotalheight=\skip124
-\mdftotallinewidth=\skip125
-\mdfboundingboxwidth=\skip126
-\mdfboundingboxtotalwidth=\skip127
-\mdfboundingboxheight=\skip128
-\mdfboundingboxdepth=\skip129
-\mdfboundingboxtotalheight=\skip130
-\mdf@freevspace@length=\skip131
-\mdf@horizontalwidthofbox@length=\skip132
-\mdf@verticalmarginwhole@length=\skip133
-\mdf@horizontalspaceofbox=\skip134
-\mdfsubtitleheight=\skip135
-\mdfsubsubtitleheight=\skip136
-\c@mdfcountframes=\count310
+\mdf@frametitlebox=\box66
+\mdf@footnotebox=\box67
+\mdf@splitbox@one=\box68
+\mdf@splitbox@two=\box69
+\mdf@splitbox@save=\box70
+\mdfsplitboxwidth=\skip114
+\mdfsplitboxtotalwidth=\skip115
+\mdfsplitboxheight=\skip116
+\mdfsplitboxdepth=\skip117
+\mdfsplitboxtotalheight=\skip118
+\mdfframetitleboxwidth=\skip119
+\mdfframetitleboxtotalwidth=\skip120
+\mdfframetitleboxheight=\skip121
+\mdfframetitleboxdepth=\skip122
+\mdfframetitleboxtotalheight=\skip123
+\mdffootnoteboxwidth=\skip124
+\mdffootnoteboxtotalwidth=\skip125
+\mdffootnoteboxheight=\skip126
+\mdffootnoteboxdepth=\skip127
+\mdffootnoteboxtotalheight=\skip128
+\mdftotallinewidth=\skip129
+\mdfboundingboxwidth=\skip130
+\mdfboundingboxtotalwidth=\skip131
+\mdfboundingboxheight=\skip132
+\mdfboundingboxdepth=\skip133
+\mdfboundingboxtotalheight=\skip134
+\mdf@freevspace@length=\skip135
+\mdf@horizontalwidthofbox@length=\skip136
+\mdf@verticalmarginwhole@length=\skip137
+\mdf@horizontalspaceofbox=\skip138
+\mdfsubtitleheight=\skip139
+\mdfsubsubtitleheight=\skip140
+\c@mdfcountframes=\count315
 
 ****** mdframed patching \endmdf@trivlist
 
 ****** -- success******
 
-\mdf@envdepth=\count311
-\c@mdf@env@i=\count312
-\c@mdf@env@ii=\count313
-\c@mdf@zref@counter=\count314
+\mdf@envdepth=\count316
+\c@mdf@env@i=\count317
+\c@mdf@env@ii=\count318
+\c@mdf@zref@counter=\count319
 Package zref Info: New property: mdf@pagevalue on input line 895.
 )
-\c@imtaQuestionCounter=\count315
-\c@imtaLogoCounter=\count316
-\c@subsubsubsection=\count317
+\c@imtaQuestionCounter=\count320
+\c@imtaLogoCounter=\count321
+\c@subsubsubsection=\count322
 )
 (./imta_extra.sty
 (/usr/local/texlive/2020/texmf-dist/tex/latex/minted/minted.sty
@@ -808,11 +845,11 @@ Package: fvextra 2019/02/04 v1.4 fvextra - extensions and patches for fancyvrb
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2020/01/13 v3.5 verbatim text (tvz,hv)
-\FV@CodeLineNo=\count318
+\FV@CodeLineNo=\count323
 \FV@InFile=\read4
-\FV@TabBox=\box67
-\c@FancyVerbLine=\count319
-\FV@StepNumber=\count320
+\FV@TabBox=\box71
+\c@FancyVerbLine=\count324
+\FV@StepNumber=\count325
 \FV@OutFile=\write4
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/upquote/upquote.sty
@@ -824,44 +861,44 @@ Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 ))
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count321
-\output=\toks36
-\linenoprevgraf=\count322
-\linenumbersep=\dimen276
-\linenumberwidth=\dimen277
-\c@linenumber=\count323
-\c@pagewiselinenumber=\count324
-\c@LN@truepage=\count325
-\c@internallinenumber=\count326
-\c@internallinenumbers=\count327
-\quotelinenumbersep=\dimen278
-\bframerule=\dimen279
-\bframesep=\dimen280
-\bframebox=\box68
+\linenopenalty=\count326
+\output=\toks37
+\linenoprevgraf=\count327
+\linenumbersep=\dimen277
+\linenumberwidth=\dimen278
+\c@linenumber=\count328
+\c@pagewiselinenumber=\count329
+\c@LN@truepage=\count330
+\c@internallinenumber=\count331
+\c@internallinenumbers=\count332
+\quotelinenumbersep=\dimen279
+\bframerule=\dimen280
+\bframesep=\dimen281
+\bframebox=\box72
 LaTeX Info: Redefining \\ on input line 3056.
 )
-\c@FV@TrueTabGroupLevel=\count328
-\c@FV@TrueTabCounter=\count329
-\FV@TabBox@Group=\box69
-\FV@TmpLength=\skip137
-\c@FV@HighlightLinesStart=\count330
-\c@FV@HighlightLinesStop=\count331
-\FV@LoopCount=\count332
-\FV@NCharsBox=\box70
-\FV@BreakIndent=\dimen281
-\FV@BreakIndentNChars=\count333
-\FV@BreakSymbolSepLeft=\dimen282
-\FV@BreakSymbolSepLeftNChars=\count334
-\FV@BreakSymbolSepRight=\dimen283
-\FV@BreakSymbolSepRightNChars=\count335
-\FV@BreakSymbolIndentLeft=\dimen284
-\FV@BreakSymbolIndentLeftNChars=\count336
-\FV@BreakSymbolIndentRight=\dimen285
-\FV@BreakSymbolIndentRightNChars=\count337
-\c@FancyVerbLineBreakLast=\count338
-\FV@LineBox=\box71
-\FV@LineIndentBox=\box72
-\FV@LineWidth=\dimen286
+\c@FV@TrueTabGroupLevel=\count333
+\c@FV@TrueTabCounter=\count334
+\FV@TabBox@Group=\box73
+\FV@TmpLength=\skip141
+\c@FV@HighlightLinesStart=\count335
+\c@FV@HighlightLinesStop=\count336
+\FV@LoopCount=\count337
+\FV@NCharsBox=\box74
+\FV@BreakIndent=\dimen282
+\FV@BreakIndentNChars=\count338
+\FV@BreakSymbolSepLeft=\dimen283
+\FV@BreakSymbolSepLeftNChars=\count339
+\FV@BreakSymbolSepRight=\dimen284
+\FV@BreakSymbolSepRightNChars=\count340
+\FV@BreakSymbolIndentLeft=\dimen285
+\FV@BreakSymbolIndentLeftNChars=\count341
+\FV@BreakSymbolIndentRight=\dimen286
+\FV@BreakSymbolIndentRightNChars=\count342
+\c@FancyVerbLineBreakLast=\count343
+\FV@LineBox=\box75
+\FV@LineIndentBox=\box76
+\FV@LineWidth=\dimen287
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/tools/shellesc.sty
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
@@ -885,34 +922,34 @@ runsystem(rm -- "imta_documentation.w18")...executed.
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/xstring/xstring.sty
 (/usr/local/texlive/2020/texmf-dist/tex/generic/xstring/xstring.tex
-\integerpart=\count339
-\decimalpart=\count340
+\integerpart=\count344
+\decimalpart=\count345
 )
 Package: xstring 2019/02/06 v1.83 String manipulations (CT)
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip138
-\fb@frw=\dimen287
-\fb@frh=\dimen288
-\FrameRule=\dimen289
-\FrameSep=\dimen290
+\OuterFrameSep=\skip142
+\fb@frw=\dimen288
+\fb@frh=\dimen289
+\FrameRule=\dimen290
+\FrameSep=\dimen291
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count341
-\float@exts=\toks37
-\float@box=\box73
-\@float@everytoks=\toks38
-\@floatcapt=\box74
+\c@float@type=\count346
+\float@exts=\toks38
+\float@box=\box77
+\@float@everytoks=\toks39
+\@floatcapt=\box78
 )
 \minted@appexistsfile=\read5
-\minted@bgbox=\box75
+\minted@bgbox=\box79
 \minted@code=\write5
-\c@minted@FancyVerbLineTemp=\count342
-\c@minted@pygmentizecounter=\count343
-\@float@every@listing=\toks39
-\c@listing=\count344
+\c@minted@FancyVerbLineTemp=\count347
+\c@minted@pygmentizecounter=\count348
+\@float@every@listing=\toks40
+\c@listing=\count349
 )
 runsystem(mkdir -p _minted-imta_documentation)...executed.
 
@@ -925,32 +962,29 @@ runsystem(which pygmentize && touch imta_documentation.aex)...executed.
 runsystem(rm imta_documentation.aex)...executed.
 
 
-(./imta_documentation.aux
-
-LaTeX Warning: Label `fig:imtaCode' multiply defined.
-
-)
+(./imta_documentation.aux)
 \openout1 = `imta_documentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 49
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 51
 .
- (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/t1phv.fd
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 
 
@@ -974,20 +1008,20 @@ LaTeX Warning: Font shape declaration has incorrect series value `mc'.
                Found on input line 46.
 
 )
-\AtBeginShipoutBox=\box76
+\AtBeginShipoutBox=\box80
  (/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count345
-\scratchdimen=\dimen291
-\scratchbox=\box77
-\nofMPsegments=\count346
-\nofMParguments=\count347
-\everyMPshowfont=\toks40
-\MPscratchCnt=\count348
-\MPscratchDim=\dimen292
-\MPnumerator=\count349
-\makeMPintoPDFobject=\count350
-\everyMPtoPDFconversion=\toks41
+\scratchcounter=\count350
+\scratchdimen=\dimen292
+\scratchbox=\box81
+\nofMPsegments=\count351
+\nofMParguments=\count352
+\everyMPshowfont=\toks41
+\MPscratchCnt=\count353
+\MPscratchDim=\dimen293
+\MPnumerator=\count354
+\makeMPintoPDFobject=\count355
+\everyMPtoPDFconversion=\toks42
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1005,8 +1039,8 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-LaTeX Info: Redefining \it@ocap on input line 49.
-LaTeX Info: Redefining \it@ccap on input line 49.
+LaTeX Info: Redefining \it@ocap on input line 51.
+LaTeX Info: Redefining \it@ccap on input line 51.
 
 isodate: babel.sty has been loaded
 *geometry* driver: auto-detecting
@@ -1043,7 +1077,7 @@ isodate: babel.sty has been loaded
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 49.
+Package hyperref Info: Link coloring OFF on input line 51.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
@@ -1054,11 +1088,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count351
+\c@section@level=\count356
 )
-LaTeX Info: Redefining \ref on input line 49.
-LaTeX Info: Redefining \pageref on input line 49.
-LaTeX Info: Redefining \nameref on input line 49.
+LaTeX Info: Redefining \ref on input line 51.
+LaTeX Info: Redefining \pageref on input line 51.
+LaTeX Info: Redefining \nameref on input line 51.
  (./imta_documentation.out) (./imta_documentation.out)
 \@outlinefile=\write6
 \openout6 = `imta_documentation.out'.
@@ -1098,45 +1132,45 @@ ABD: EveryShipout initializing macros
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 52.
+(Font)              <12> on input line 54.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 52.
+(Font)              <8> on input line 54.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 52.
+(Font)              <6> on input line 54.
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
 []\T1/phv/m/n/12 892614 $\OMS/cmsy/m/n/12 ^^A$ \T1/phv/m/n/12 To-ma-sin Al-ber-
 to 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
 \T1/phv/m/n/12 892539 $\OMS/cmsy/m/n/12 ^^A$ \T1/phv/m/n/12 Di-na-to Si-mo-ne 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
  
  []
 
 
-Overfull \hbox (6.66595pt too wide) in paragraph at lines 52--52
+Overfull \hbox (6.66595pt too wide) in paragraph at lines 54--54
  []
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 52.
+(Font)              <7> on input line 54.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 52.
-\imta@picWidth=\skip139
+(Font)              <5> on input line 54.
+\imta@picWidth=\skip143
 <logo_uni.jpg, id=179, 726.715pt x 351.3125pt>
 File: logo_uni.jpg Graphic file (type jpg)
 <use logo_uni.jpg>
-Package pdftex.def Info: logo_uni.jpg  used on input line 52.
+Package pdftex.def Info: logo_uni.jpg  used on input line 54.
 (pdftex.def)             Requested size: 153.6447pt x 61.73212pt.
-\c@imta@idx=\count352
-\imta@oldlinewidth=\skip140
-\imta@oldtextwidth=\skip141
+\c@imta@idx=\count357
+\imta@oldlinewidth=\skip144
+\imta@oldtextwidth=\skip145
 [1
 
 
@@ -1235,12 +1269,12 @@ Capitolo 1.
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 67.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 69.
 
 ! Undefined control sequence.
 <recently read> \cdo 
                      
-l.67 ...006] - Ca' Foscari Università di Venezia}
+l.69 ...006] - Ca' Foscari Università di Venezia}
                                                   .
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1249,12 +1283,12 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--78
+Underfull \hbox (badness 10000) in paragraph at lines 76--80
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
 
  []
 
@@ -1262,12 +1296,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 88--89
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 95--97
+Underfull \hbox (badness 10000) in paragraph at lines 97--99
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
 
  []
 
@@ -1352,7 +1386,7 @@ Capitolo 2.
 
 (./_minted-imta_documentation/191128D2FC40CABFA0C11C5CCC8F8A7E9B8E9EC2554118741
 6BA169D7FB2079F.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 133--135
+Underfull \hbox (badness 10000) in paragraph at lines 135--137
 
  []
 
@@ -1405,10 +1439,10 @@ nd PDF version <1.7>, but at most version <1.5> allowed
 <1.pdf, id=268, 614.295pt x 240.69925pt>
 File: 1.pdf Graphic file (type pdf)
 <use 1.pdf>
-Package pdftex.def Info: 1.pdf  used on input line 146.
+Package pdftex.def Info: 1.pdf  used on input line 148.
 (pdftex.def)             Requested size: 430.00356pt x 168.48831pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 148--149
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
 
  []
 
@@ -1419,14 +1453,14 @@ pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Schema a oggetti.pdf): PDF
 <Schema a oggetti.pdf, id=269, 1354.05875pt x 870.85347pt>
 File: Schema a oggetti.pdf Graphic file (type pdf)
 <use Schema a oggetti.pdf>
-Package pdftex.def Info: Schema a oggetti.pdf  used on input line 159.
+Package pdftex.def Info: Schema a oggetti.pdf  used on input line 161.
 (pdftex.def)             Requested size: 702.78308pt x 451.99597pt.
 [9 <./1.pdf>] [10pdfTeX warning (ext4): destination with the same identifier (n
 ame{figure.2.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.162 \newpage
+l.164 \newpage
                <./Schema a oggetti.pdf>]
 \openout5 = `imta_documentation.pyg'.
 
@@ -1438,7 +1472,7 @@ l.162 \newpage
 
 (./_minted-imta_documentation/48A6317E817CEB1546A05C30E2FCA0689B8E9EC2554118741
 6BA169D7FB2079F.pygtex)
-Overfull \hbox (3.61597pt too wide) in paragraph at lines 166--167
+Overfull \hbox (3.61597pt too wide) in paragraph at lines 168--169
 []\T1/phv/b/n/10 Utilizzo di ti-pi enum: \T1/phv/m/n/10 Per rap-pre-sen-ta-re l
 o sta-tus dei pro-get-ti, cree-re-mo un ti-po enu-me-ra-to [][][][][][].
  []
@@ -1484,14 +1518,14 @@ clusion: found PDF version <1.7>, but at most version <1.5> allowed
 <Schema logico.pdf, id=376, 1630.09pt x 943.12347pt>
 File: Schema logico.pdf Graphic file (type pdf)
 <use Schema logico.pdf>
-Package pdftex.def Info: Schema logico.pdf  used on input line 189.
+Package pdftex.def Info: Schema logico.pdf  used on input line 191.
 (pdftex.def)             Requested size: 702.78308pt x 406.6145pt.
 [11] [12pdfTeX warning (ext4): destination with the same identifier (name{figur
 e.2.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.192 \newpage
+l.194 \newpage
                <./Schema logico.pdf>]
 \openout5 = `imta_documentation.pyg'.
 
@@ -1547,7 +1581,7 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 (./_minted-imta_documentation/C574C049157E40CD633A729F785C20549B8E9EC2554118741
 6BA169D7FB2079F.pygtex)
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 2
-12.
+14.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
@@ -1569,7 +1603,7 @@ LaTeX Warning: Font shape declaration has incorrect series value `mc'.
 
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 213.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 215.
 \openout5 = `imta_documentation.pyg'.
 
 
@@ -1592,7 +1626,7 @@ LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ))
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 224.
+ mdframed uses option nobreak mdframed on input line 226.
 \openout5 = `imta_documentation.pyg'.
 
 
@@ -1609,7 +1643,7 @@ Package mdframed Info: mdframed inside a box
 (./_minted-imta_documentation/FFDE471A82CA5176F91FB56EE1C6480222603BBBF7FD3BD46
 9AD8E4D0FFCD994.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 233.
+ mdframed uses option nobreak mdframed on input line 235.
 \openout5 = `imta_documentation.pyg'.
 
 
@@ -1626,9 +1660,9 @@ Package mdframed Info: mdframed inside a box
 (./_minted-imta_documentation/13FB1E18EE6C1C221317825C6D5174E322603BBBF7FD3BD46
 9AD8E4D0FFCD994.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 242.
+ mdframed uses option nobreak mdframed on input line 244.
  [13]
-Package mdframed Info: Not enough space on this page on input line 242.
+Package mdframed Info: Not enough space on this page on input line 244.
 \openout5 = `imta_documentation.pyg'.
 
 
@@ -1640,7 +1674,7 @@ Package mdframed Info: Not enough space on this page on input line 242.
 (./_minted-imta_documentation/23490841F6A5B9CCE721F19A6B549DF122603BBBF7FD3BD46
 9AD8E4D0FFCD994.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 278.
+ mdframed uses option nobreak mdframed on input line 280.
 \openout5 = `imta_documentation.pyg'.
 
 
@@ -1667,7 +1701,7 @@ Package mdframed Info: mdframed inside a box
 (./_minted-imta_documentation/190F00072857469ABF512A9B4E92FC9622603BBBF7FD3BD46
 9AD8E4D0FFCD994.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 312.
+ mdframed uses option nobreak mdframed on input line 314.
 \openout5 = `imta_documentation.pyg'.
 
 
@@ -1694,10 +1728,10 @@ Package mdframed Info: mdframed inside a box
 (./_minted-imta_documentation/FFEE4887E32185A7BC42E64619D96C3922603BBBF7FD3BD46
 9AD8E4D0FFCD994.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 342.
+ mdframed uses option nobreak mdframed on input line 344.
 Package mdframed Info: You first box width is to small
  mdframed fixed it
-(mdframed)              on input line 342.
+(mdframed)              on input line 344.
  [15]
 \openout5 = `imta_documentation.pyg'.
 
@@ -1724,7 +1758,7 @@ Package mdframed Info: You first box width is to small
 
 (./_minted-imta_documentation/65C27ED3BBBACF16A4F06181B109D36B9B8E9EC2554118741
 6BA169D7FB2079F.pygtex)
-Overfull \hbox (8.3719pt too wide) in paragraph at lines 343--345
+Overfull \hbox (8.3719pt too wide) in paragraph at lines 345--347
 \T1/phv/m/n/10 Il trig-ger [][][][][][] vie-ne uti-liz-za-to per ga-ran-ti-re c
 he le email sia-no uni-che tra le ta-bel-le [][][][][][]
  []
@@ -1755,23 +1789,23 @@ he le email sia-no uni-che tra le ta-bel-le [][][][][][]
 (./_minted-imta_documentation/4806E594BD411E46D1A8160933D9B97C22603BBBF7FD3BD46
 9AD8E4D0FFCD994.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 358.
+ mdframed uses option nobreak mdframed on input line 360.
  [16]
-Package mdframed Info: Not enough space on this page on input line 358.
+Package mdframed Info: Not enough space on this page on input line 360.
 \openout4 = `imta_documentation.pyg'.
 
 
 (./_minted-imta_documentation/5F207220163CAD4DC0635807025BBE6922603BBBF7FD3BD46
 9AD8E4D0FFCD994.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 371.
+ mdframed uses option nobreak mdframed on input line 373.
 \openout4 = `imta_documentation.pyg'.
 
 
 (./_minted-imta_documentation/F2F55A702B57ADEC67B2C7048DC5D11422603BBBF7FD3BD46
 9AD8E4D0FFCD994.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 385.
+ mdframed uses option nobreak mdframed on input line 387.
 \openout5 = `imta_documentation.pyg'.
 
 
@@ -1788,7 +1822,7 @@ Package mdframed Info: mdframed inside a box
 (./_minted-imta_documentation/AE90B1A6D972A8B357E8ACC431D49D9A22603BBBF7FD3BD46
 9AD8E4D0FFCD994.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 395.
+ mdframed uses option nobreak mdframed on input line 397.
 \openout5 = `imta_documentation.pyg'.
 
 
@@ -1814,7 +1848,7 @@ Package mdframed Info: mdframed inside a box
 
 (./_minted-imta_documentation/48A6317E817CEB1546A05C30E2FCA0689B8E9EC2554118741
 6BA169D7FB2079F.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 401--402
+Underfull \hbox (badness 10000) in paragraph at lines 403--404
 
  []
 
@@ -1824,9 +1858,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 401--402
 (./_minted-imta_documentation/41419D14F460CB46F67A2A340C9970DD22603BBBF7FD3BD46
 9AD8E4D0FFCD994.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 406.
+ mdframed uses option nobreak mdframed on input line 408.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 406.
+ mdframed uses option nobreak mdframed on input line 408.
 \openout5 = `imta_documentation.pyg'.
 
 
@@ -1842,13 +1876,13 @@ Package mdframed Info: mdframed inside a box
 
 (./_minted-imta_documentation/B0038232BE369A3CE24491F6B2B695F79B8E9EC2554118741
 6BA169D7FB2079F.pygtex)
-Overfull \hbox (7.34868pt too wide) in paragraph at lines 410--411
+Overfull \hbox (7.34868pt too wide) in paragraph at lines 412--413
 [][][][][][][]\T1/phv/m/n/10 : que-sto in-di-ce vie-ne crea-to sul-la co-lon-na
  fk_projects del-la ta-bel-la [][][][][][].
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--411
+Underfull \hbox (badness 10000) in paragraph at lines 412--413
 
  []
 
@@ -1858,15 +1892,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 410--411
 (./_minted-imta_documentation/CDC7D32E09E3965F4E17C07FC8ED364622603BBBF7FD3BD46
 9AD8E4D0FFCD994.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 415.
+ mdframed uses option nobreak mdframed on input line 417.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 415.
+ mdframed uses option nobreak mdframed on input line 417.
 \openout5 = `imta_documentation.pyg'.
 
 
 (./_minted-imta_documentation/BECBDABD0BE10620695A7D806DFA45889B8E9EC2554118741
 6BA169D7FB2079F.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 419--420
+Underfull \hbox (badness 10000) in paragraph at lines 421--422
 
  []
 
@@ -1876,13 +1910,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 419--420
 (./_minted-imta_documentation/C7192783FD1ABD4397FBC51AE3BA65FE22603BBBF7FD3BD46
 9AD8E4D0FFCD994.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 427.
+ mdframed uses option nobreak mdframed on input line 429.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 427.
+ mdframed uses option nobreak mdframed on input line 429.
 <4.png, id=464, 9940.63812pt x 5916.1025pt>
 File: 4.png Graphic file (type png)
 <use 4.png>
-Package pdftex.def Info: 4.png  used on input line 432.
+Package pdftex.def Info: 4.png  used on input line 434.
 (pdftex.def)             Requested size: 397.55782pt x 236.6038pt.
  [18]
 \openout5 = `imta_documentation.pyg'.
@@ -1895,7 +1929,7 @@ Package pdftex.def Info: 4.png  used on input line 432.
 
 (./_minted-imta_documentation/1B02CB1B729C78B02E78294F5A6169879B8E9EC2554118741
 6BA169D7FB2079F.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 434--435
+Underfull \hbox (badness 10000) in paragraph at lines 436--437
 
  []
 
@@ -1905,9 +1939,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 434--435
 (./_minted-imta_documentation/6ABD3BFF535641DADC9E5E7528D0DAFC22603BBBF7FD3BD46
 9AD8E4D0FFCD994.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 452.
+ mdframed uses option nobreak mdframed on input line 454.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 452.
+ mdframed uses option nobreak mdframed on input line 454.
  [19 <./4.png>]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
@@ -1948,19 +1982,19 @@ Capitolo 3.
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 474--476
+Underfull \hbox (badness 10000) in paragraph at lines 476--478
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--478
+Underfull \hbox (badness 10000) in paragraph at lines 479--480
 
  []
 
 <5.png, id=480, 702.625pt x 606.265pt>
 File: 5.png Graphic file (type png)
 <use 5.png>
-Package pdftex.def Info: 5.png  used on input line 481.
+Package pdftex.def Info: 5.png  used on input line 483.
 (pdftex.def)             Requested size: 351.31163pt x 303.13176pt.
 [21
 
@@ -2027,7 +2061,7 @@ Package pdftex.def Info: 5.png  used on input line 481.
 (./_minted-imta_documentation/2DF1A8477C40A70E1136D4138C2A3E4E9B8E9EC2554118741
 6BA169D7FB2079F.pygtex)
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 512.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 514.
 \openout5 = `imta_documentation.pyg'.
 
 
@@ -2064,9 +2098,9 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <17.28> not available
 (./_minted-imta_documentation/9A23DC4F818F587A78923F58A91DF90D718E3DFA246731DED
 9DD2A5D2F86AF35.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 524.
+ mdframed uses option nobreak mdframed on input line 526.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 524.
+ mdframed uses option nobreak mdframed on input line 526.
  [22]
 \openout5 = `imta_documentation.pyg'.
 
@@ -2079,9 +2113,9 @@ Package mdframed Info: mdframed inside a box
 (./_minted-imta_documentation/730A1077C1EE79D851F31F496DBFAE79718E3DFA246731DED
 9DD2A5D2F86AF35.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 543.
+ mdframed uses option nobreak mdframed on input line 545.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 543.
+ mdframed uses option nobreak mdframed on input line 545.
 \openout5 = `imta_documentation.pyg'.
 
 
@@ -2093,18 +2127,18 @@ Package mdframed Info: mdframed inside a box
 (./_minted-imta_documentation/F6CBD92047B87B27803DE813A1AA000F718E3DFA246731DED
 9DD2A5D2F86AF35.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 559.
+ mdframed uses option nobreak mdframed on input line 561.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 559.
+ mdframed uses option nobreak mdframed on input line 561.
 \openout4 = `imta_documentation.pyg'.
 
 
 (./_minted-imta_documentation/075193943CDEA5B568D5B25E983AE74A718E3DFA246731DED
 9DD2A5D2F86AF35.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 577.
+ mdframed uses option nobreak mdframed on input line 579.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 577.
+ mdframed uses option nobreak mdframed on input line 579.
 \openout5 = `imta_documentation.pyg'.
 
 
@@ -2116,9 +2150,9 @@ Package mdframed Info: mdframed inside a box
 (./_minted-imta_documentation/0CE0E46FF81BD621E79C364E1FB8D41F718E3DFA246731DED
 9DD2A5D2F86AF35.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 585.
+ mdframed uses option nobreak mdframed on input line 587.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 585.
+ mdframed uses option nobreak mdframed on input line 587.
 \openout5 = `imta_documentation.pyg'.
 
 
@@ -2130,9 +2164,9 @@ Package mdframed Info: mdframed inside a box
 (./_minted-imta_documentation/0164D237D99CAF7A3B53D50BE7CF7903718E3DFA246731DED
 9DD2A5D2F86AF35.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 597.
+ mdframed uses option nobreak mdframed on input line 599.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 597.
+ mdframed uses option nobreak mdframed on input line 599.
 \openout5 = `imta_documentation.pyg'.
 
 
@@ -2154,9 +2188,9 @@ Package mdframed Info: mdframed inside a box
 (./_minted-imta_documentation/669ABB8269085C4A90D67D43DDBF5696718E3DFA246731DED
 9DD2A5D2F86AF35.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 609.
+ mdframed uses option nobreak mdframed on input line 611.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 609.
+ mdframed uses option nobreak mdframed on input line 611.
 \openout5 = `imta_documentation.pyg'.
 
 
@@ -2173,9 +2207,9 @@ Package mdframed Info: mdframed inside a box
 (./_minted-imta_documentation/EF273453C0E62BE2F2EDAB6697AE2852718E3DFA246731DED
 9DD2A5D2F86AF35.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 617.
+ mdframed uses option nobreak mdframed on input line 619.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 617.
+ mdframed uses option nobreak mdframed on input line 619.
 \openout5 = `imta_documentation.pyg'.
 
 
@@ -2186,7 +2220,7 @@ Package mdframed Info: mdframed inside a box
 
 (./_minted-imta_documentation/1E1EFD929B9591C4AEC07E8AA3F97BEA9B8E9EC2554118741
 6BA169D7FB2079F.pygtex)
-Overfull \hbox (0.62712pt too wide) in paragraph at lines 613--620
+Overfull \hbox (0.62712pt too wide) in paragraph at lines 615--622
 \T1/phv/m/n/10 La que-ry re-cu-pe-ra tut-te le ver-sio-ni as-so-cia-te al do-cu
 -men-to se-le-zio-na-to dal-la ta-bel-la [][][][][][]. 
  []
@@ -2286,23 +2320,49 @@ Capitolo 4.
 
 (./_minted-imta_documentation/A949594DFF0ADE0383515DE86D2D098C9B8E9EC2554118741
 6BA169D7FB2079F.pygtex)
-File: 4.png Graphic file (type png)
-<use 4.png>
-Package pdftex.def Info: 4.png  used on input line 668.
-(pdftex.def)             Requested size: 397.55782pt x 236.6038pt.
+<10.png, id=516, 1443.3925pt x 846.16125pt>
+File: 10.png Graphic file (type png)
+<use 10.png>
+Package pdftex.def Info: 10.png  used on input line 664.
+(pdftex.def)             Requested size: 227.62204pt x 133.43895pt.
+<11.png, id=517, 1443.3925pt x 846.16125pt>
+File: 11.png Graphic file (type png)
+<use 11.png>
+Package pdftex.def Info: 11.png  used on input line 665.
+(pdftex.def)             Requested size: 227.62204pt x 133.43895pt.
+<12.png, id=518, 1443.3925pt x 846.16125pt>
+File: 12.png Graphic file (type png)
+<use 12.png>
+Package pdftex.def Info: 12.png  used on input line 666.
+(pdftex.def)             Requested size: 227.62204pt x 133.43895pt.
+<13.png, id=519, 1443.3925pt x 846.16125pt>
+File: 13.png Graphic file (type png)
+<use 13.png>
+Package pdftex.def Info: 13.png  used on input line 667.
+(pdftex.def)             Requested size: 227.62204pt x 133.43895pt.
+<14.png, id=520, 1443.3925pt x 846.16125pt>
+File: 14.png Graphic file (type png)
+<use 14.png>
+Package pdftex.def Info: 14.png  used on input line 668.
+(pdftex.def)             Requested size: 227.62204pt x 133.43895pt.
+<15.png, id=521, 1443.3925pt x 846.16125pt>
+File: 15.png Graphic file (type png)
+<use 15.png>
+Package pdftex.def Info: 15.png  used on input line 669.
+(pdftex.def)             Requested size: 227.62204pt x 133.43895pt.
  [27
 
 
-]
+ <./10.png> <./11.png>]
 \openout4 = `imta_documentation.pyg'.
 
 
-(./_minted-imta_documentation/13EA1EAE9F587F64A8A6BDA0C9CAF36E2124F2E00100B5D54
+(./_minted-imta_documentation/D4AB619E3DE4B4189C912A4C5FDE56412124F2E00100B5D54
 A3AB33D231F4554.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 687.
+ mdframed uses option nobreak mdframed on input line 694.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 687.
+ mdframed uses option nobreak mdframed on input line 694.
 \openout5 = `imta_documentation.pyg'.
 
 
@@ -2321,12 +2381,12 @@ Package mdframed Info: mdframed inside a box
 \openout4 = `imta_documentation.pyg'.
 
 
-(./_minted-imta_documentation/84582D39B02982E88185CE5C5269867E2124F2E00100B5D54
+(./_minted-imta_documentation/1B8E01B88ADE725F9DB364D001FE11FB2124F2E00100B5D54
 A3AB33D231F4554.pygtex)
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 710.
+ mdframed uses option nobreak mdframed on input line 715.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 710.
+ mdframed uses option nobreak mdframed on input line 715.
 \openout5 = `imta_documentation.pyg'.
 
 
@@ -2336,7 +2396,8 @@ Package mdframed Info: mdframed inside a box
 
 
 (./_minted-imta_documentation/F1EF5A1F5BE1257112CB359D913EC0279B8E9EC2554118741
-6BA169D7FB2079F.pygtex) [28] [29]
+6BA169D7FB2079F.pygtex) [28 <./12.png> <./13.png> <./14.png> <./15.png>]
+[29]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -2376,767 +2437,36 @@ Capitolo 5.
 
 
 ]
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/3DF62976B3AE71068C93145D3B2EF8799B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 728.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/DB5C493B8794202BE3D4AA1BD5715F4F9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/62DA72964BAD71CD8DB38B1DBAB981789B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/408559F1EFF9C27F7CE39212BA26EE2A4EB0B6F3348B43F13
-14C7661E7616538.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/25D129B509387F980233F354E2C74B9C9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/560A1915F1DF2DB48AFFBC170F678E689B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/8666541C3CC69FFD1CD74D91E3E17CDF9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/35E89B40D3E4E449B9AA7E7C9971F3D09B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 767.
+<16.png, id=546, 695.59875pt x 701.62125pt>
+File: 16.png Graphic file (type png)
+<use 16.png>
+Package pdftex.def Info: 16.png  used on input line 738.
+(pdftex.def)             Requested size: 227.62204pt x 229.58725pt.
+<17.png, id=547, 1031.855pt x 589.20125pt>
+File: 17.png Graphic file (type png)
+<use 17.png>
+Package pdftex.def Info: 17.png  used on input line 739.
+(pdftex.def)             Requested size: 227.62204pt x 129.9753pt.
  [31
 
 
-]
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/664B0CBBB6A099F20F09316AC5399EC69B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/68B0A62C619B9DF8BF46D615E1E83A889B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/F47AE172199557C4DAA490D1C55EA43E9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/1020638B7E637FE62C699305C924A8E49B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/A77F586CC38332B29404904DAC38ECB44EB0B6F3348B43F13
-14C7661E7616538.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/286A7653536FA4580E8C78029CB385769B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/2EA1418AFF08E835D5923867568DEEF79B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/286A7653536FA4580E8C78029CB385769B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-File: logo_uni.jpg Graphic file (type jpg)
-<use logo_uni.jpg>
-Package pdftex.def Info: logo_uni.jpg  used on input line 833.
-(pdftex.def)             Requested size: 142.26378pt x 57.16243pt.
-File: logo_uni.jpg Graphic file (type jpg)
-<use logo_uni.jpg>
-Package pdftex.def Info: logo_uni.jpg  used on input line 834.
-(pdftex.def)             Requested size: 142.26378pt x 57.16243pt.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/00A0864DCA55AFC8ABBD29025937CEFC9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/00A0864DCA55AFC8ABBD29025937CEFC9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/E52B5B5CE46B50E508D3D5094AB4886D9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/90FE9BE05A4E473F1CA870FC072AF47E9B8E9EC2554118741
-6BA169D7FB2079F.pygtex) [32pdfTeX warning (ext4): destination with the same ide
-ntifier (name{figure.5.1}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.843 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-5.2}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.843 
-      ]
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/BC04344C719BA55BD46ADB2335E1734A9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/49FF2320126F165FE9604AF1FCD58CE99B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/5EF100EFB8B1C4DB18E43B53ACCD833E9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/0264278028E740360204D46FE25D9DE89B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/E63230B9F07A4D5BA232EC6C733FCAD09B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/63FF1C4DAF075FD14F9D4FA48BE4B94D9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/4235A0E7E76D8E6988762E054306CFAC9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/0B4ABBAF9B971F3AA9113B568056E0EE9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/24C3B0E23D428C08AEE556D38AC7ABA79B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 883.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/B73AB8E905B07CFF54C457DD4BF0D3789B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/567333A7EE7E3E28FB7F580EE66287C49B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 890.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/D58FB38A3823913CFDD9590A205B199F9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/408559F1EFF9C27F7CE39212BA26EE2A4EB0B6F3348B43F13
-14C7661E7616538.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/8C4AE2F5A8EE46E82AB9410D5AFFB74F9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/32C7698D5D5AA462BAC47A97773133F29B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 898.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/C72218497D2D10FBCA143D742372F5379B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/B9EEB1FD674F02E3DBC6FAA3EF6C86279B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/354A91680B660F92A0CA237A072C3EA99B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/38C9421FF0D0B20287687DD6D1247DF89B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 907.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/199256D702C955EBFB48654E3B55C5599B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/4FA237DD88B55E86FF96B1E5B3E84B009B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/DDC89A28F986E2D7830307C9E673097F9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/21645056613052693C834F693298FF479B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 916.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/8DDDF7275FF7FE883FCD2324B590A1089B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/C9FE94CB87F12DC7C4BBFD30DF18E3AD9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/FB9478DD7FF38C94FAA81BFBD563C9C79B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 929.
-Package mdframed Info: Not enough space on this page on input line 929.
- [33]
-Package mdframed Info: Not enough space on this page on input line 929.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/77F6B5E42B50B2D57419530DF436B2AD9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/B5208B3800C8F23B2BFCEE9C2E77F4D39B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 938.
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/9EDF2D6E5E84F63D3F8D87EFD2ADCAEB9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 943.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/2EA1418AFF08E835D5923867568DEEF79B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/F0C53B00320B3CD62A66868E5BB467F39B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/D32AB3BB74673A1C896FB95CC16067309B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 951.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/02B56A5F3CE7137F2D425E66B681E98C9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/D91E4D4C6F6875399DD4F5AD28422F1C9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/097E077FF5B1C8C1C75E4B2969202EAE9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/364B4480D54628460A8A0B1E5611F57E9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 957.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/216CDB23961D08873F1B0EFE0F1582CA9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/2849821729396389CF189EF82E9585879B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 965.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/A7D4EEA1809375690DC33B2D321DB4699B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/F21087740BB635D6E8C712CA9ED825489B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/E3BB9D0699DADAD140C59C64B15F2B159B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/3BA0FC972EAF19DFB5A81848688C53769B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 972.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/96F7231C58C1CA64E10D7EDFA9770AF99B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/404F240DF3FE0C9381FE2A95689F5F169B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/323F23C1DA95F4E618784B88AA18A3FA9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 981.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/9AE87AD8F7ECEE80740F73420D0F8E739B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/404F240DF3FE0C9381FE2A95689F5F169B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/96F7231C58C1CA64E10D7EDFA9770AF99B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/4235A0E7E76D8E6988762E054306CFAC9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/FA9163BCC64879BE157E9DB8E77D1BE99B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 990.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/B983CC6B658352EB8ADE1A50E8245B959B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/52C5BE88629AC3CE46EF6B46246F91039B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/021CF8089795889C6677441F1B1CF7149B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 998.
-Package mdframed Info: Not enough space on this page on input line 998.
- [34]
-Package mdframed Info: Not enough space on this page on input line 998.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/4235A0E7E76D8E6988762E054306CFAC9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/61CC35C85E1BBBDCB6932741F6FCB7509B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/90FE9BE05A4E473F1CA870FC072AF47E9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/DFE7E595069A35BF3CE0B05B217176179B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/BC04344C719BA55BD46ADB2335E1734A9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/90FE9BE05A4E473F1CA870FC072AF47E9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/9487626FAB920FF0B8584A519B3944D19B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/0D74C92F398568D96781FE746742DF149B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/90FE9BE05A4E473F1CA870FC072AF47E9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/CA733AF8CE7BB175CEA3CE95C7BF508A9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/D12552E73F277B7C73864F17D58662089B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/90FE9BE05A4E473F1CA870FC072AF47E9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/879A041B945E0F6E5759E4779C3C20349B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/BC04344C719BA55BD46ADB2335E1734A9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/C6E1A3FAF404E8788E8BC5A945DF97089B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/8611F7923134DC47AC5C54241D93DBD29B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/664B0CBBB6A099F20F09316AC5399EC69B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/8D3A1F18919FBB0E755CF60855F3FC169B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/9BDF8ABEADA438647501C4BF1C79F27F9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/62DA72964BAD71CD8DB38B1DBAB981789B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/722B1C5354539F43432E7E874F14399D9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/E7515E6049DA82E67FDF3B648A73D53E9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/F52AB0F24642B033CA2C943AD8F1308B718E3DFA246731DED
-9DD2A5D2F86AF35.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/8F08081E9796D0BFE567BD1BC77BF8029B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/E30D6339CC39088A5029A84626EA7F0A9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/1BC4680EE0382E8FDFD347F4C700F2AC9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/032DB7EA2955997A3C662AF9E3208FAA9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/42DDE64A7B27D2A6FCA643BA2EB194C09B8E9EC2554118741
-6BA169D7FB2079F.pygtex) [35]
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/3074FBE1BD95B3FA74610D13A09C77C59B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside float 
- mdframed uses option nobreak mdframed on input line 1090.
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 1090.
-Package mdframed Info: mdframed inside float 
- mdframed uses option nobreak mdframed on input line 1091.
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 1091.
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/5D5CADDA00B16CEB94ED61B4EBDC2E42718E3DFA246731DED
-9DD2A5D2F86AF35.pygtex)
-Package mdframed Info: mdframed inside float 
- mdframed uses option nobreak mdframed on input line 1100.
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 1100.
-Package mdframed Info: mdframed inside float 
- mdframed uses option nobreak mdframed on input line 1100.
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 1100.
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/06239DA0C5208DA6152B1CAFD4C0C0B59B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside float 
- mdframed uses option nobreak mdframed on input line 1118.
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 1118.
-Package mdframed Info: mdframed inside float 
- mdframed uses option nobreak mdframed on input line 1119.
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 1119.
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/97FCD080270EB5F6284AAAE812D376AD17CE4E353F7B02E68
-3DCDD88F5C954AA.pygtex)
-Package mdframed Info: mdframed inside float 
- mdframed uses option nobreak mdframed on input line 1127.
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 1127.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/E8721427B51896076E932659D75BE2699B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/E143AB1A22C56B48E48789625FCDEBDC9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Overfull \hbox (50.9753pt too wide) in paragraph at lines 1132--1133
-\T1/phv/m/n/10 com-mands ha-ve been in-tro-du-ced: [][][][][][] and [][][][][][
-]. 
- []
-
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/F8C8060814EAEC1CC521DB4D3F72AF769B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/FB8D185410AE3B00740A16F9ECBFF3049B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/2EF49A1AE2B90D1356E443EA38D0EF479B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/B983CC6B658352EB8ADE1A50E8245B959B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/021CF8089795889C6677441F1B1CF7149B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 1154.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/E30D6339CC39088A5029A84626EA7F0A9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/136D976FA4E93ECE9DB716CC25BDAA8E17CE4E353F7B02E68
-3DCDD88F5C954AA.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/8F08081E9796D0BFE567BD1BC77BF80217CE4E353F7B02E68
-3DCDD88F5C954AA.pygtex)
-\openout4 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/8B415DFF4E3B1ECD9C0D64719CB2D89D9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 1162.
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/1BC4680EE0382E8FDFD347F4C700F2AC9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/032DB7EA2955997A3C662AF9E3208FAA9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/C011D872916EE9436D44E53B47DCBFD29B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/897533A7859C4BECBDC27EEDE91B7F519B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/EEE4FF7D9896F03BA11ECD7A1A14F6FA9B8E9EC2554118741
-6BA169D7FB2079F.pygtex) [36pdfTeX warning (ext4): destination with the same ide
-ntifier (name{figure.5.3}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.1178     \item \imtaInlinecode
-                                {latex}{\imtaFrontMatter} resets the page co...
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5.4}) 
-has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.1178     \item \imtaInlinecode
-                                {latex}{\imtaFrontMatter} resets the page co...
-]
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/0D7D6D7C13B7DC7DCC5D0724737F9CF79B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/52B766C466DA4B788FDE375432F0FB9B9B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/6DA115B3C131DB8BB7751660417260399B8E9EC2554118741
-6BA169D7FB2079F.pygtex)
-\openout5 = `imta_documentation.pyg'.
-
-
-(./_minted-imta_documentation/F4B45B22514A316A85F6C6B3847DAE9E9B8E9EC2554118741
-6BA169D7FB2079F.pygtex) [37]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1190.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1190.
+ <./16.png> <./17.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 745.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 745.
  (./imta_documentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1190.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1190.
-
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 745.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 745.
 Package rerunfilecheck Info: File `imta_documentation.out' has not changed.
-(rerunfilecheck)             Checksum: 4015493A0018CDC17BFF7E861E4862F0;3477.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
+(rerunfilecheck)             Checksum: 341BA8F61B12D99F80B37793D45E1F9B;3439.
 runsystem(rm imta_documentation.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 24754 strings out of 480608
- 549048 string characters out of 5903630
- 865203 words of memory out of 5000000
- 39274 multiletter control sequences out of 15000+600000
- 586396 words of font info for 78 fonts, out of 8000000 for 9000
+ 24277 strings out of 480608
+ 499384 string characters out of 5903630
+ 826823 words of memory out of 5000000
+ 39157 multiletter control sequences out of 15000+600000
+ 572974 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,12n,64p,1174b,1009s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
@@ -3154,10 +2484,10 @@ dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2020/texmf-dist/fo
 nts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/typ
 e1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw
 /zapfding/uzdr.pfb>
-Output written on imta_documentation.pdf (37 pages, 11406660 bytes).
+Output written on imta_documentation.pdf (31 pages, 12284629 bytes).
 PDF statistics:
- 656 PDF objects out of 1000 (max. 8388607)
- 585 compressed objects within 6 object streams
- 107 named destinations out of 1000 (max. 500000)
- 405 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 622 PDF objects out of 1000 (max. 8388607)
+ 543 compressed objects within 6 object streams
+ 94 named destinations out of 1000 (max. 500000)
+ 433 words of extra memory for PDF output out of 10000 (max. 10000000)
 
