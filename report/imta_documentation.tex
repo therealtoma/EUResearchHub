@@ -63,7 +63,7 @@
 \chapter{Introduzione}
 
 \phantom{This text will be invisible}\\
-Questo documento descrive come abbiamo progettato e implementato EUResearchHub: una web application user-friendly per rendere possibile la valutazione interna dei progetti di ricerca proposti per il finanziamento da parte dell'Unione Europea.
+Questo documento descrive come abbiamo progettato e implementato EUResearchHub: una web application user-friendly per rendere possibile la valutazione interna dei progetti di ricerca proposti per il finanziamento da parte dell'Unione Europea per il progetto accademico del corso:\textit{ Basi di Dati $\cdo$ [CT0006] - Ca' Foscari Università di Venezia}.
 \begin{imtaQuote}
 Se vogliamo avere idee originali, dobbiamo investire nella ricerca. Non si tratta solo di investire nel settore privato, ma anche nel settore pubblico  $\cdot$ Elon Musk \end{imtaQuote}
 
@@ -73,69 +73,156 @@ Se vogliamo avere idee originali, dobbiamo investire nella ricerca. Non si tratt
 EUResearchHub è un sistema che mira a rendere efficiente la gestione e la valutazione dei progetti di ricerca, offrendo una piattaforma accattivante e funzionale sia per i ricercatori che per i valutatori. Abbiamo scelto questo tema principalmente per la sua rilevanza e attualità nel panorama della ricerca e dell'istruzione superiore.\\
 Nel corso degli anni, il contesto della ricerca scientifica è cambiato notevolmente. Con l'avvento dell'era digitale, la ricerca è diventata sempre più interconnessa e collaborativa, permettendo ai ricercatori di tutto il mondo di lavorare insieme per risolvere problemi complessi. Tuttavia, questo cambiamento ha anche portato ad un aumento della competizione per i finanziamenti di ricerca, soprattutto da parte dell'Unione Europea, che è uno dei principali finanziatori di progetti di ricerca a livello globale.\\
 Negli ultimi anni, l'Unione Europea ha lanciato diversi programmi di finanziamento, come Orizzonte 2020 e il suo successore, Orizzonte Europa, che hanno l'obiettivo di sostenere la ricerca e l'innovazione in diversi settori, come la salute, l'energia, l'ambiente e l'istruzione. Per accedere a questi fondi, le istituzioni di ricerca devono sottoporre i propri progetti a processi di valutazione rigorosi e competitivi.\\
-In questo contesto, è fondamentale che le istituzioni di ricerca dispongano di strumenti efficaci per gestire e valutare i progetti di ricerca internamente, al fine di aumentare le possibilità di ottenere finanziamenti dall'Unione Europea. EUResearchHub è stata concepita proprio per rispondere a questa necessità, fornendo una piattaforma che facilita la comunicazione e la collaborazione tra ricercatori e valutatori, permettendo loro di lavorare insieme in modo efficiente per migliorare la qualità dei progetti di ricerca proposti.\\
+In questo contesto, è fondamentale che le istituzioni di ricerca dispongano di strumenti efficaci per gestire e valutare i progetti di ricerca internamente, al fine di aumentare le possibilità di ottenere finanziamenti. EUResearchHub è stata concepita proprio per rispondere a questa necessità, fornendo una piattaforma che facilita la comunicazione e la collaborazione tra ricercatori e valutatori, permettendo loro di lavorare insieme in modo efficiente per migliorare la qualità dei progetti di ricerca proposti.\\
+
+
+\section{Funzionalità principali}
+\phantom{This text will be invisible}\\
+Nel progettare EUResearchHub, abbiamo posto particolare enfasi sull'offerta di funzionalità che consentano una gestione efficiente e trasparente dei progetti di ricerca, facilitando il processo di valutazione e promuovendo una comunicazione efficace tra ricercatori e valutatori tramite un sistema di messaggistica e storico dei documenti. \\
+A tal proposito è importante definire fin da subito definire due grandi aree. Una è quella riguardante il ricercatore e tutte le sue funzionalità mentre l’altra riguarda è legata al valutatore. \\
+In questa sezione, ci concentreremo sulle tre funzionalità chiave per ogni area: la gestione dei progetti di ricerca, il processo di valutazione, lo storico delle modifiche e l'interazione tra ricercatori e valutatori.
+
+%% Sectioning
+\subsection{Gestione dei progetti di ricerca}
+La gestione dei progetti di ricerca è una componente fondamentale per EuResearchHub. Il sistema è stato progettato per consentire ai ricercatori di creare e visualizzare facilmente nuovi progetti, inserendo informazioni pertinenti, come il titolo e la descrizione del progetto o aggiungere anche partecipanti al progetto.  Una volta creato il progetto, i ricercatori possono anche caricare documenti in formato PDF, come il piano di gestione dei dati, i materiali etici che verranno sottoposti ai valutatori durante processo di valutazione. I valutatori quindi non potranno aggiungere utenti al progetto, creare nuovi progetti e caricare documenti per gli stessi.\\
+\subsection{Processo di valutazione e storico modifiche}
+Una volta che i progetti di ricerca sono stati creati e sottomessi per la valutazione, i valutatori possono accedervi per valutarli. Il processo di valutazione è stato progettato per essere il più trasparente e approfondito ma allo stesso minimal possibile. I valutatori possono scaricare i documenti relativi al progetto, leggerli, analizzarli, e commentarli quindi creare un report di valutazione per ogni documento e caricarlo nuovamente sulla piattaforma per renderlo visibile ai ricercatori interessati. Questo report può includere commenti generali sul progetto, suggerimenti per miglioramenti e valutazioni specifiche per ogni documento allegato.\\
+Una caratteristica importante del sistema è la possibilità di tracciare lo storico delle modifiche dei documenti e quindi dei progetti sottomessi. Ogni volta che un ricercatore apporta modifiche ad un documento e lo carica nel sistema EUResearchHub registra una nuova versione, mantenendo una copia della versione precedente. Questo permette sia ai ricercatori che ai valutatori di monitorare l'evoluzione del progetto nel tempo e di comprendere come le modifiche apportate abbiano influito sulla valutazione finale del progetto.\\
+Lo storico delle modifiche è particolarmente utile nei casi in cui i valutatori richiedono modifiche ai progetti prima di approvarli. In questi casi, i ricercatori possono utilizzare lo storico delle versioni per confrontare le diverse versioni del progetto e identificare le aree in cui è necessario apportare miglioramenti. Per quanto concerne il processo di valutazione,  lo status come indicato potrà assumere il valori ma questi valori possono cambiare se tutti i documenti inseriti dal ricercatore sono stati valutati.  Entrambi gli utenti possono visionare la percentuale dei documenti valutati in corso e quanti ne mancano indicativamente tramite l'evaluation progress bar. 
+
+\subsection{Interazione tra ricercatori e valutatori}
+Insieme allo storico dei documenti la comunicazione tra ricercatori e valutatori è un aspetto cruciale per garantire un processo di valutazione efficace e monitorare il ciclo di vita di un progetto. EUResearchHub è dotata di una componente di messaggistica per ogni progetto che consente ai ricercatori e ai valutatori di interagire direttamente all'interno della piattaforma. Questa funzionalità consente ai ricercatori di richiedere chiarimenti sui report di valutazione, suggerimenti su come migliorare i loro progetti e informazioni aggiuntive sui requisiti specifici dei finanziamenti. Allo stesso tempo, i valutatori possono rispondere alle domande dei ricercatori in modo anonimo, garantendo l'obiettività e l'imparzialità del processo di valutazione.\\
+I valutatori possono utilizzare questa funzione per fornire feedback specifico e mirato sui documenti, ad esempio evidenziando passaggi che richiedono chiarimenti o suggerendo modifiche al testo. Questi messaggi possono essere utilizzati dai ricercatori per apportare miglioramenti ai loro progetti e dai valutatori per fare riferimento a punti specifici nei loro report di valutazione (ad esempio, "si veda la nota a pagina 4").\\
 
 
 \section{Obiettivi e scopo del documento}
 
-In questo documento, vogliamo presentare una panoramica delle funzionalità del sistema, spiegare come abbiamo progettato e modellato la base di dati partendo dalla raccolta ed analisi dei recquisiti fino alla progettazione fisica per poi passare a descrivere l'implementazione del back-end e del front-end ed infine concludere con il processo di sviluppo e il contributo individuale dei membri del gruppo di lavoro.\\
+In questo documento, si spiega come abbiamo progettato e modellato la base di dati partendo dalla raccolta ed analisi dei requisiti fino alla progettazione fisica con particolare enfasi sul controllo degli accessi e integrità dei dati per poi passare a descrivere l'implementazione del back-end e del front-end ed infine concludere con una panoramica generale del processo di sviluppo e il contributo individuale dei membri del gruppo di lavoro.\\
 
 
-\chapter{Funzionalità principali}
-\phantom{This text will be invisible}\\
-Nel progettare EUResearchHub, abbiamo posto particolare enfasi sull'offerta di funzionalità che consentano una gestione efficiente e trasparente dei progetti di ricerca, facilitando il processo di valutazione e promuovendo una comunicazione efficace tra ricercatori e valutatori tramite un sistema di messaggistica e storico dei documenti. \\
-A tal proposito è importante definire fin da subito definire due grandi aree. Una è quella riguardante il ricercatore e tutte le sue funzionalità mentre l’altra riguarda è legata al valutatore. \\
-In questo capitolo, ci concentreremo sulle tre funzionalità chiave per ogni area: la gestione dei progetti di ricerca, il processo di valutazione, lo storico delle modifiche e l'interazione tra ricercatori e valutatori.
-
-%% Sectioning
-\section{Gestione dei progetti di ricerca}
-La gestione dei progetti di ricerca è una componente fondamentale per EuResearchHub. Il sistema è stato progettato per consentire ai ricercatori di creare e visualizzare facilmente nuovi progetti, inserendo informazioni pertinenti, come il titolo e la descrizione del progetto.  Una volta creato il progetto, i ricercatori possono anche caricare documenti in formato PDF, come il piano di gestione dei dati, i materiali etici che verranno sottoposti ai valutatori durante processo di valutazione.\\
-\section{Processo di valutazione e storico modifiche}
-Una volta che i progetti di ricerca sono stati creati e sottomessi per la valutazione, i valutatori possono accedervi per valutarli. Il processo di valutazione è stato progettato per essere il più trasparente e approfondito ma allo stesso minimal possibile. I valutatori possono scaricare i documenti relativi al progetto, leggerli, analizzarli, e commentarli quindi creare un report di valutazione per ogni documento e caricarlo nuovamente sulla piattaforma per renderlo visibile ai ricercatori interessati. Questo report può includere commenti generali sul progetto, suggerimenti per miglioramenti e valutazioni specifiche per ogni documento allegato.\\
-Una caratteristica importante del sistema è la possibilità di tracciare lo storico delle modifiche dei documenti e quindi dei progetti sottomessi. Ogni volta che un ricercatore apporta modifiche ad un documento e lo carica nel sistema EUResearchHub registra una nuova versione, mantenendo una copia della versione precedente. Questo permette sia ai ricercatori che ai valutatori di monitorare l'evoluzione del progetto nel tempo e di comprendere come le modifiche apportate abbiano influito sulla valutazione finale del progetto.\\
-Lo storico delle modifiche è particolarmente utile nei casi in cui i valutatori richiedono modifiche ai progetti prima di approvarli. In questi casi, i ricercatori possono utilizzare lo storico delle versioni per confrontare le diverse versioni del progetto e identificare le aree in cui è necessario apportare miglioramenti.
-
-\section{Interazione tra ricercatori e valutatori}
-Insieme allo storico dei documenti la comunicazione tra ricercatori e valutatori è un aspetto cruciale per garantire un processo di valutazione efficace e monitorare il ciclo di vita di un progetto. EUResearchHub è dotata di una componente di messaggistica per ogni progetto che consente ai ricercatori e ai valutatori di interagire direttamente all'interno della piattaforma. Questa funzionalità consente ai ricercatori di richiedere chiarimenti sui report di valutazione, suggerimenti su come migliorare i loro progetti e informazioni aggiuntive sui requisiti specifici dei finanziamenti. Allo stesso tempo, i valutatori possono rispondere alle domande dei ricercatori in modo anonimo, garantendo l'obiettività e l'imparzialità del processo di valutazione.\\
-Un'altra funzionalità chiave per facilitare l'interazione tra ricercatori e valutatori è la possibilità di inserire commenti direttamente nei documenti PDF sottomessi per la valutazione creando così una nuova versione del documento. I valutatori possono utilizzare questa funzione per fornire feedback specifico e mirato sui documenti, ad esempio evidenziando passaggi che richiedono chiarimenti o suggerendo modifiche al testo. Questi commenti possono essere utilizzati dai ricercatori per apportare miglioramenti ai loro progetti e dai valutatori per fare riferimento a punti specifici nei loro report di valutazione (ad esempio, "si veda la nota a pagina 4").\\
 \chapter{Progettazione della base di dati}
 \phantom{This text will be invisible}\\
-L'efficacia di EUResearchHub per la valutazione interna dei progetti di ricerca dipende in gran parte dalla qualità e dall'efficienza della base di dati che ne supporta il funzionamento. In questo capitolo, ci concentreremo sulla progettazione e modellazione della base di dati, analizzando le varie fasi del processo, tra cui la raccolta e l'analisi dei requisiti, la progettazione concettuale, logica e fisica, e le considerazioni relative all'integrità dei dati, alla gestione dei ruoli e alle politiche di autorizzazione, e alle performance del sistema.
+L'efficacia di EUResearchHub per la valutazione interna dei progetti di ricerca dipende in gran parte dalla qualità e dall'efficienza della base di dati che ne supporta il funzionamento. In questo capitolo, ci concentreremo sulla progettazione e modellazione della base di dati, analizzando le varie fasi del processo, tra cui la raccolta e l'analisi dei requisiti, la progettazione concettuale, logica e fisica, e le considerazioni relative all'integrità dei dati, al controllo degli accessi e alle performance del sistema.
+
 \section{Raccolta ed analisi dei requisiti}
-La fase di raccolta ed analisi dei requisiti è stato uno dei più importanti pilastri per comprendere e definire le specifiche del sistema in una prima fase embrionale \footnote{Alcuni paragrafi, per evitare ripetizioni nel report, non si soffermano sul problema solo in maniera astratta (come dovrebbe essere ed è stata effettivamente la raccolta ed analisi dei requisiti) ma vanno già nel dettaglio mostrando come effettivamente le implementazioni sono state realizzate partendo dal presupposto che la base di dati fosse già realizzata.}. In questa fase, abbiamo identificato le esigenze degli utenti e le funzionalità che la base di dati deve supportare per garantire il corretto funzionamento di tutto il sistema. 
+La fase di raccolta ed analisi dei requisiti è stato uno dei più importanti pilastri per comprendere e definire le specifiche del sistema. In questa fase embrionale, abbiamo identificato le esigenze degli utenti e le funzionalità che la base di dati deve supportare per garantire il corretto funzionamento di tutto il sistema. 
 \subsection{Quadro generale}
 Come già accennato precedentemente EURsearchHub ha il compito di fornire una piattaforma di interazione tra ricercatori e valutatori per la valutazione interna dei progetti di ricerca. Il sistema deve quindi essere in grado di gestire progetti, documenti, messaggi e report di valutazione, oltre a fornire supporto per l'autenticazione e l'autorizzazione degli utenti.\\
-Analizzando attentamente il problema le entità chiave individuate sono:
+Quindi, analizzando attentamente il problema le entità chiave individuate sono:
 
 \begin{itemize}
     \item \imtaInlinecode{latex}{project}: contiene informazioni sui progetti di ricerca, come il titolo, lo stato (approvato, sottomesso per valutazione, richiede modifiche, non approvato), la descrizione e la data di creazione.
     \item \imtaInlinecode{latex}{evaluation_windows}: rappresenta le finestre temporali in cui i progetti possono essere valutati, con date di inizio e fine.
         \item \imtaInlinecode{latex}{messages}: contiene i messaggi scambiati tra ricercatori e valutatori riguardo ai progetti.
-
+        
     \item \imtaInlinecode{latex}{documents} e  \imtaInlinecode{latex}{document_versions}: gestiscono i documenti associati ai progetti e le loro diverse versioni.
 
-    \item \imtaInlinecode{latex}{document_types}: classifica i diversi tipi di documenti utilizzati nel sistema.
+    \item \imtaInlinecode{latex}{document_types}: classifica i diversi tipi di documenti utilizzati nel sistema. Si ipotizza che vi siano dei tipi di documento pre-stabiliti dall'ente che saranno poi i soli tipi di documenti che un ricercatore potrà andare a caricare. 
 
     \item \imtaInlinecode{latex}{users}: evaluators e researchers che contengono informazioni sugli utenti del sistema, come nome, cognome, password ed e-mail.
     
     
-    \item \imtaInlinecode{latex}{evaluation_reports}: archivia i report di valutazione generati dai valutatori per i progetti di ricerca.
+    \item \imtaInlinecode{latex}{evaluation_reports}: archivia i report di valutazione generati dai valutatori per i documenti dei progetti di ricerca.
 
 
     \end{itemize}
 
 
-\subsection{Integrità dei dati: trigger e vincoli}
-Definite le entità chiave risulta fondamentale inserire dei vincoli per garantire l'integrità e coerenza dei dati che andremo ad inserire. Nel nostro contesto del sistema di valutazione interna dei progetti di ricerca, assicurarsi che i dati siano accurati e coerenti è fondamentale per evitare errori nella valutazione e facilitare il processo decisionale.  Più in dettaglio i vincoli necessari individuati sono:\
+\subsection{Vincoli preliminari}
+Definite le entità chiave risulta fondamentale inserire dei vincoli per garantire l'integrità e coerenza dei dati che andremo ad inserire. Nel nostro contesto, assicurarsi che i dati siano accurati e coerenti è fondamentale per evitare errori nella valutazione e facilitare il processo decisionale.  Più in dettaglio i vincoli necessari individuati in questa prima fase sono stati:\\
+\begin{itemize}
+\item Vincolo sulla tabella \imtaInlinecode{latex}{evaluation_windows}: necessario per assicurarsi che la data di inizio sia sempre inferiore o uguale alla data di fine. Questo vincolo permette di prevenire la creazione di finestre di valutazione con date illogiche o errate, garantendo che le date siano coerenti e rispettino un ordine temporale corretto.
+
+\item Vincoli sulla lunghezza delle password per le due tipologie di users \imtaInlinecode{latex}{researchers} ed \imtaInlinecode{latex}{evaluators}: necessari a garantire che le password degli utenti abbiano una lunghezza minima di 8 caratteri. Questo requisito aumenta la sicurezza degli account, riducendo la probabilità di accessi non autorizzati attraverso attacchi brute-force o altre tecniche di hacking. Sebbene questo controllo possa essere fatto anche dal back-end implementarlo anche nella base di dati permette di centralizzare il vincolo.
+
+\item Vincoli sull'email per \imtaInlinecode{latex}{researchers} ed \imtaInlinecode{latex}{evaluators}: necessari per assicurarsi che gli indirizzi email siano unici, validi e rispettino il formato standard delle email. Questo vincolo previene l'inserimento di indirizzi email non validi o errati, garantendo una corretta comunicazione tra i ricercatori e i valutatori. 
+    \end{itemize}
+\subsection{Ruoli}
+Un altro step necessario per proseguire con la raccolta ed analisi dei requisiti è individuare i ruoli e le politiche di autorizzazione. Questo è fondamentale per garantire la sicurezza e la corretta separazione delle responsabilità all'interno di una web app. Nel caso di EUResearchHub, abbiamo definito tre ruoli principali: \imtaInlinecode{latex}{Admin}, \imtaInlinecode{latex}{Researcher} e \imtaInlinecode{latex}{Evaluator}. Ognuno di questi ruoli dovrà avere privilegi e restrizioni specifici per garantire che gli utenti possano accedere e modificare solo le informazioni pertinenti alle loro funzioni.\\
+Implementare ruoli ben definiti e separati ci permette di ottenere una maggiore sicurezza, una riduzione del rischio di abusi o accessi non autorizzati e una migliore organizzazione delle responsabilità all'interno del nostro sistema. \\
+Da una prima analisi del problema otteniamo il seguente diagramma di autorizzazioni:
+\begin{center}
+\includegraphics[scale = 0.7]{1.pdf}
+\end{center}
+Nel contesto descritto, non sembra necessario inserire ereditarietà o delega di permessi tra i ruoli, motivo per cui nel diagramma soprastante i nodi non sono legati tra di essi. Ogni ruolo ha responsabilità e permessi molto specifici e distinti, e non sembra esserci un caso d'uso in cui un ruolo avrebbe bisogno di ereditare i permessi di un altro ruolo.\\
+
+
+\section{Progettazione concettuale}
+
+Dopo l'analisi e raccolta dei requisiti il secondo pilastro necessario per la progettazione e modellazione del nostro database è la progettazione concettuale. Essa consente di strutturare gli elementi chiave del sistema prima identificati. Nel nostro caso, è stato utilizzato Lucidchart per sviluppare un modello ad oggetti che rappresenta le tabelle, le relazioni, i vincoli e le invarianti, fornendo una panoramica comprensiva e astratta dell'architettura del database.\\
+Nel modello concettuale, le tabelle rappresentano le entità principali del sistema, come i ricercatori, i valuatori, i progetti, i documenti e così via. Le relazioni tra queste entità sono state modellate con parzialità e molteplicità, indicando come le diverse entità interagiscono tra loro e quali sono le dipendenze tra di esse.\\
+Gli invarianti sono stati evidenziati infondo alle tabelle interessate per garantire l'integrità e la consistenza dei dati. Ad esempio, alcuni dei vincoli menzionati in precedenza, come il controllo sulla lunghezza delle password e il formato degli indirizzi email, sono stati inclusi nel modello per assicurare che i dati inseriti nel sistema rispettino le regole e standard.
+\subsection{Schema ad oggetti}
+\begin{sidewaysfigure}
+\centering
+\includegraphics[width=1.00\textwidth]{Schema a oggetti.pdf}
+\caption{Schema ad oggetti}
+\end{sidewaysfigure}
+\newpage
+\subsection{Giustificazione delle decisioni progettuali}
+Di seguito sono riportate le giustificazioni delle principali decisioni progettuali per garantire che il sistema fosse scalabile, efficiente e facile da mantenere:
+\begin{itemize}
+\item \textbf{Utilizzo di tipi enum:} Per rappresentare lo status dei progetti, creeremo un tipo enumerato \imtaInlinecode{latex}{enum_status}. Questo garantisce che solo i valori predefiniti possano essere inseriti nella colonna status della tabella \imtaInlinecode{latex}{projects}, garantendo la consistenza dei dati e facilitando le query sullo stato dei progetti.
+
+\item \textbf{Definita una relazione di sottoclasse:} Sono state definite due sottoclassi partizione \imtaInlinecode{latex}{researchers} e \imtaInlinecode{latex}{evaluators} che ereditano gli attributi da \imtaInlinecode{latex}{users} per evitare eventuali ridondanze e permettere durante la progettazione logica di effettuare l'implementazione corretta.
+
+\item \textbf{Suddivisione delle informazioni in tabelle separate:} Al fine di garantire la normalizzazione del database e ridurre la ridondanza dei dati, le informazioni sono state suddivise in tabelle separate. Ad esempio, le informazioni sui documenti e le loro versioni sono state divise nelle tabelle \imtaInlinecode{latex}{documents} e \imtaInlinecode{latex}{document_versions}, permettendo di gestire più versioni di uno stesso documento in modo efficiente. In maniera analoga anche le \imtaInlinecode{latex}{evaluation_windows} vengono salvate in una tabella separata da \imtaInlinecode{latex}{projects}.
+
+\item \textbf{Utilizzo di invarianti:} già accennate in precedenza.
+
+\end{itemize}
+
+
+\section{Progettazione logica}
+Ora analizziamo la fase intermedia della nostra modellazione: La progettazione logica. 
+In questa fase, abbiamo tradotto il modello concettuale ad oggetti in uno schema logico che è stato utilizzato poi durante la creazione del database. La progettazione logica è essenziale per diverse ragioni:
+\begin{enumerate}
+\item Consente di identificare e risolvere eventuali problemi nella struttura dei dati prima di passare alla progettazione fisica.
+\item Semplifica la mappatura tra il modello concettuale e il modello fisico, riducendo il rischio di errori e migliorando la coerenza dei dati.
+\item Fornisce un'opportunità per ottimizzare le prestazioni del database, ad esempio selezionando gli indici appropriati e creando viste materializzate per migliorare l'efficienza delle query che si andranno ad implementare durante la progettazione fisica.
+\end{enumerate}
+
+\subsection{Schema logico}
+\begin{sidewaysfigure}
+\centering
+\includegraphics[width=1.00\textwidth]{Schema logico.pdf}
+\caption{Schema logico}
+\end{sidewaysfigure}
+\newpage
+\subsection{Giustificazione delle decisioni progettuali}
+Di seguito sono riportate le giustificazioni di alcune delle decisioni chiave per questa fase:
+\begin{itemize}
+
+\item\textbf{ Tradotta la relazione di sottoclasse tramite partizionamento orizzontale:} Dalla gerarchia iniziale si è arrivati a suddividere le due sottoclassi partizione \imtaInlinecode{latex}{researchers} e \imtaInlinecode{latex}{evaluators}  in due tabelle a se stanti che ereditano gli attributi da \imtaInlinecode{latex}{users} poiché non si voleva complicare maggiormente la vista di tutti gli elementi della super classe tramite partizionamento verticale e neanche generalizzare troppo utilizzando una discriminante e ragruppando tutti gli attributi nella tabella unica \imtaInlinecode{latex}{users}.
+
+\item \textbf{Chiavi esterne e relazioni:} Sono state utilizzate chiavi esterne per stabilire relazioni tra le diverse tabelle, garantendo l'integrità referenziale e semplificando le query tra tabelle correlate. Ad esempio, la tabella \imtaInlinecode{latex}{documents} ha una chiave esterna che fa riferimento alla tabella \imtaInlinecode{latex}{projects}, indicando a quale progetto appartiene ciascun documento.
+
+\item \textbf{Utilizzo di tabelle intermedie per relazioni molti-a-molti:} Per gestire le relazioni molti-a-molti tra entità, sono state create tabelle intermedie, come \imtaInlinecode{latex}{researchers_projects} e \imtaInlinecode{latex}{evaluators_messages}. Queste tabelle consentono di associare più ricercatori a più progetti e più messaggi a più valutatori, garantendo la flessibilità del sistema e semplificando le query tra tabelle correlate.
+
+\item \textbf{Inserito \imtaInlinecode{latex}{id} univoco per ogni tabella:} Ogni tabella è caratterizzata da un ID univoco sotto forma di intero auto incrementato.
+
+\item \textbf{Inserito vincolo \imtaInlinecode{latex}{UNIQUE} sulle mail:} Ogni utente è caratterizzata da un email che deve essere univoco.
+
+
+\end{itemize}
+
+
+\section{Progettazione fisica}
+LA progettazione fisica presenta l'ultima stazione per completare questa prima parte di attività.  Vista l'analisi a 360° del database, e di come dovrebbe funzionare l'applicativo non resta che applicare le osservazioni fatte su DBeaver. I costrutti per la creazione si basano sul linguaggio PostgreSQL.
+\subsection{Istruzioni \texttt{SQL}}
+Per le istruzioni SQL di creazione della base di dati si veda allegato \imtaInlinecode{latex}{dump.sql}. 
+
+\subsection{Specifiche integrità dei dati}
+Definite le tabelle in SQL chiave risulta fondamentale inserire i vincoli individuati durante la raccolta ed analisi dei requisiti e aggiungerne nuovi individuati durante la progettazione.  
+Più in dettaglio i vincoli definitivi implementati in PosgreSQL sono stati:\\
 \phantom{This text will be invisible}\\
 Vincolo sulla tabella \imtaInlinecode{latex}{evaluation_windows}
 \begin{imtaCode}{PostgreSQL}
 ALTER TABLE "EUResearchHub".evaluation_windows
 ADD CONSTRAINT evaluation_windows_dates_check CHECK ("from" <= "to");
 \end{imtaCode}
-Il vincolo \imtaInlinecode{latex}{evaluation_windows_dates_check} è stato aggiunto per assicurarsi che la data di inizio (from) sia sempre inferiore o uguale alla data di fine (to). Questo vincolo previene la creazione di finestre di valutazione con date illogiche o errate, garantendo che le date siano coerenti e rispettino un ordine temporale corretto.\\
 \phantom{This text will be invisible}\\
-Vincoli sulla lunghezza delle password per le due tipologie di users \imtaInlinecode{latex}{researchers} ed \imtaInlinecode{latex}{evaluators}:
+Vincoli sulla lunghezza delle password per le due tipologie di users \imtaInlinecode{latex}{researchers} ed \imtaInlinecode{latex}{evaluators}
 \begin{imtaCode}{PostgreSQL}
 ALTER TABLE "EUResearchHub".researchers
 ADD CONSTRAINT researchers_password_length_check CHECK (LENGTH("password") >= 8);
@@ -143,7 +230,6 @@ ADD CONSTRAINT researchers_password_length_check CHECK (LENGTH("password") >= 8)
 ALTER TABLE "EUResearchHub".evaluators
 ADD CONSTRAINT evaluators_password_length_check CHECK (LENGTH("password") >= 8);
 \end{imtaCode}
-I vincoli \imtaInlinecode{latex}{researchers_password_length_check} ed \imtaInlinecode{latex}{evaluators_password_length_check} sono stati creati per garantire che le password degli utenti abbiano una lunghezza minima di 8 caratteri. Questo requisito aumenta la sicurezza degli account, riducendo la probabilità di accessi non autorizzati attraverso attacchi brute-force o altre tecniche di hacking.\\
 \phantom{This text will be invisible}\\
 Vincoli sull'email per \imtaInlinecode{latex}{researchers} ed \imtaInlinecode{latex}{evaluators}:
 \begin{imtaCode}{PostgreSQL}
@@ -153,7 +239,7 @@ ADD CONSTRAINT researchers_email_check CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za
 ALTER TABLE "EUResearchHub".evaluators
 ADD CONSTRAINT researchers_email_check CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z]{2,}$');
 \end{imtaCode}
-I vincoli \imtaInlinecode{latex}{researchers_email_check} ed \imtaInlinecode{latex}{evaluators_email_check} sono stati introdotti per assicurarsi che gli indirizzi email inseriti siano validi e rispettino il formato standard delle email. Questo vincolo previene l'inserimento di indirizzi email non validi o errati, garantendo una corretta comunicazione tra i ricercatori e i valutatori. Il vincolo utilizza una regex (espressione regolare). Le espressioni regolari sono potenti strumenti utilizzati per cercare e confrontare stringhe di testo basate su modelli specifici.  Per conprendere meglio il funzionamento di questa regex possiamo dividere la stringa in 4 parti: 
+Il vincolo utilizza una regex (espressione regolare). Le espressioni regolari sono potenti strumenti utilizzati per cercare e confrontare stringhe di testo basate su modelli specifici.  Per comprenderne meglio il funzionamento possiamo dividere la stringa in 4 parti: 
 
 \begin{enumerate}
 \item \textbf{\^[A-Za-z0-9.\_\%+-]+}: questa parte dell'espressione indica che l'indirizzo email deve iniziare (\^) con una sequenza di almeno un carattere (+) che può essere una lettera maiuscola o minuscola, un numero, un punto, un underscore, un simbolo di percentuale, un simbolo più o un simbolo meno.
@@ -223,36 +309,51 @@ CREATE TRIGGER check_projects_status_change
   WHEN (OLD.status <> NEW.status AND NEW.status IN ('approved', 'require changes', 'not approved'))
   EXECUTE FUNCTION check_project_status_change();
 \end{imtaCode}
-Il trigger \imtaInlinecode{latex}{check_projects_status_change} è stato sviluppato per garantire che lo stato di un progetto possa essere modificato solo se tutti i documenti associati al progetto sono stati valutati. La funzione associata viene eseguita prima dell'aggiornamento dello stato del progetto nella tabella \imtaInlinecode{latex}{projects}. Se la condizione non è soddisfatta, viene generato un errore e l'operazione di aggiornamento viene interrotta. Questo trigger assicura che i progetti non vengano approvati, richiedano modifiche o siano respinti finché non vengono completamente valutati, garantendo un processo di valutazione accurato e completo.
+Il trigger \imtaInlinecode{latex}{check_projects_status_change} è stato sviluppato per garantire che lo stato di un progetto possa essere modificato solo se tutti i documenti associati al progetto sono stati valutati. La funzione associata viene eseguita prima dell'aggiornamento dello stato del progetto nella tabella \imtaInlinecode{latex}{projects}. Se la condizione non è soddisfatta, viene generato un errore e l'operazione di aggiornamento viene interrotta. Questo trigger assicura che i progetti non vengano approvati, richiedano modifiche o siano respinti finché non vengono completamente valutati, garantendo un processo di valutazione accurato e completo.\\
+\phantom{This text will be invisible}\\
+Trigger sulle tabelle  \imtaInlinecode{latex}{researchers} e \imtaInlinecode{latex}{evaluators}:
+\begin{imtaCode}{PostgreSQL}
+CREATE FUNCTION check_unique_email()
+  RETURNS TRIGGER AS
+$$
+BEGIN
+  IF EXISTS (SELECT 1 FROM "EUResearchHub".researchers WHERE email = NEW.email) THEN
+    RAISE EXCEPTION 'Another user is usinng this email, please change it';
+  END IF;
+
+  IF EXISTS (SELECT 1 FROM "EUResearchHub".evaluators WHERE email = NEW.email AND id <> NEW.id) THEN
+    RAISE EXCEPTION 'Another user is usinng this email, please change it';
+  END IF;
+
+  RETURN NEW;
+END;
+$$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER check_unique_email_insert_update
+BEFORE INSERT OR UPDATE ON "EUResearchHub".evaluators
+FOR EACH ROW
+EXECUTE FUNCTION check_unique_email();
+CREATE TRIGGER check_unique_email_insert_update
+BEFORE INSERT OR UPDATE ON "EUResearchHub".researchers
+FOR EACH ROW
+EXECUTE FUNCTION check_unique_email();
+\end{imtaCode}
+Il trigger \imtaInlinecode{latex}{check_unique_email} viene utilizzato per garantire che le email siano uniche tra le tabelle \imtaInlinecode{latex}{researchers} e \imtaInlinecode{latex}{evaluators}. Ciò significa che un ricercatore non può essere anche un valutatore, in quanto il loro indirizzo email deve essere univoco in entrambe le tabelle.  Questo trigger, oltre a permettere di far rispettare la scelta della tipologia gerarchica di \imtaInlinecode{latex}{users} presa durante la progettazione concettuale risulta utile anche perché l'immagine del profilo durante lo sviluppo verrà salvata salvare come email.pdf. La funzione associata al trigger esegue i seguenti controlli:
+\begin{itemize}
+\item Verifica se l'email inserita esiste già nella tabella \imtaInlinecode{latex}{researchers}. Se l'email viene trovata, viene generata un'eccezione con un messaggio di errore appropriato. Questo assicura che un ricercatore non possa essere inserito come valutatore se la sua email è già presente nella tabella \imtaInlinecode{latex}{researchers}.
+\item Verifica se l'email inserita esiste già nella tabella \imtaInlinecode{latex}{evaluators}, escludendo la riga corrente dall'operazione di controllo. Questo è necessario per consentire l'aggiornamento di altre colonne nella tabella \imtaInlinecode{latex}{evaluators} senza generare un'eccezione di duplicazione email. Ad esempio, se un valutatore cambia il suo nome o cognome, l'aggiornamento dovrebbe essere consentito anche se l'email esiste già. \item Tuttavia, se l'email viene trovata su una riga diversa da quella corrente, viene generata un'eccezione per evitare la duplicazione dell'email tra i valutatori.
+\item Se nessuna corrispondenza viene trovata in entrambe le tabelle, l'email è considerata unica e il trigger restituisce la nuova riga per l'inserimento o l'aggiornamento.
+\end{itemize}
+
 
 \subsection{Gestione dei ruoli e politiche di autorizzazione}
-Un altro step necessario per proseguire con la raccolta ed analisi dei requisiti è la gestione dei ruoli e delle politiche di autorizzazione. Questo è fondamentale per garantire la sicurezza e la corretta separazione delle responsabilità all'interno di una web app. Nel caso di EUResearchHub, sono stati definiti tre ruoli principali: \textbf{Admin}, \textbf{Researcher} e \textbf{Evaluator}. Ognuno di questi ruoli ha privilegi e restrizioni specifici per garantire che gli utenti possano accedere e modificare solo le informazioni pertinenti alle loro funzioni.\\
-Abbiamo implementato ruoli ben definiti e separati per ottenere una maggiore sicurezza, una riduzione del rischio di abusi o accessi non autorizzati e una migliore organizzazione delle responsabilità all'interno del nostro sistema. \\
-Da una prima analisi del problema otteniamo il seguente diagramma di autorizzazioni:
-\begin{center}
-\includegraphics[scale = 0.7]{1.pdf}
-\end{center}
-Nel contesto descritto, non sembra necessario inserire ereditarietà o delega di permessi tra i ruoli, motivo per cui nel diagramma soprastante i nodi non sono legati tra di essi. Ogni ruolo ha responsabilità e permessi molto specifici e distinti, e non sembra esserci un caso d’uso in cui un ruolo avrebbe bisogno di ereditare i permessi di un altro ruolo.\\
-Approffondiamo ora i tre ruoli:\\
-L'utente \textbf{Admin} ha privilegi di superutente, il che significa che può accedere a tutte le tabelle e eseguire qualsiasi operazione sullo schema EUResearchHub. Questo ruolo è utile per la gestione e la manutenzione del sistema e dovrebbe essere limitato a un ristretto numero di utenti.
+Un altro step, già iniziato durante la raccolta ed analisi dei requisiti è la gestione dei ruoli e delle politiche di autorizzazione. Come già accennato nel caso di EUResearchHub, sono stati definiti tre ruoli principali: \textbf{Admin}, \textbf{Researcher} e \textbf{Evaluator}. \\
+Nello specifico i tre ruoli sono stati implementati come segue:\\
+L'utente \textbf{Admin} ha privilegi di superutente, il che significa che può accedere a tutte le tabelle e eseguire qualsiasi operazione sullo schema EUResearchHub. Questo ruolo è utile per la gestione e la manutenzione del sistema e sarà  limitato a un ristretto numero di utenti (ipoteticamente utenti incaricati e dipendenti dell'unione europea che si occupano di mantenere il servizio).
 \begin{imtaCode}{PostgreSQL}
 CREATE ROLE "Admin" SUPERUSER CREATEDB CREATEROLE NOINHERIT LOGIN NOREPLICATION BYPASSRLS PASSWORD '****';
-GRANT ALL ON SCHEMA "EUResearchHub" TO "Admin";
-GRANT CREATE, USAGE ON SCHEMA "EUResearchHub" TO "Admin";
-GRANT ALL ON TABLE "EUResearchHub".document_types TO "Admin";
-GRANT ALL ON TABLE "EUResearchHub".document_versions TO "Admin";
-GRANT ALL ON TABLE "EUResearchHub".documents TO "Admin";
-GRANT ALL ON TABLE "EUResearchHub".evaluation_reports TO "Admin";
-GRANT ALL ON TABLE "EUResearchHub".evaluation_windows TO "Admin";
-GRANT ALL ON TABLE "EUResearchHub".evaluators TO "Admin";
-GRANT ALL ON TABLE "EUResearchHub".evaluators_evaluation_reports TO "Admin";
-GRANT ALL ON TABLE "EUResearchHub".evaluators_messages TO "Admin";
-GRANT ALL ON TABLE "EUResearchHub".evaluators_projects TO "Admin";
-GRANT ALL ON TABLE "EUResearchHub".messages TO "Admin";
-GRANT ALL ON TABLE "EUResearchHub".projects TO "Admin";
-GRANT ALL ON TABLE "EUResearchHub".researchers TO "Admin";
-GRANT ALL ON TABLE "EUResearchHub".researchers_messages TO "Admin";
-GRANT ALL ON TABLE "EUResearchHub".researchers_projects TO "Admin";
+GRANT ALL PRIVILEGES ON SCHEMA "EUResearchHub" TO "Admin";
 \end{imtaCode}
 Il ruolo del \textbf{Researcher} consente l'accesso alle tabelle relative ai documenti, ai tipi di documento, ai progetti, ai messaggi e alle associazioni tra ricercatori e progetti. I ricercatori possono inserire e modificare le informazioni relative ai loro progetti e documenti, ma non possono accedere alle tabelle degli evaluatori.
 \begin{imtaCode}{PostgreSQL}
@@ -281,9 +382,8 @@ GRANT SELECT ON TABLE "EUResearchHub".researchers TO evaluator;
 GRANT SELECT ON TABLE "EUResearchHub".researchers_messages TO evaluator;
 GRANT SELECT ON TABLE "EUResearchHub".researchers_projects TO evaluator;
 \end{imtaCode}
-
-Per quanto utilizzare ruoli permetta di evitare inconsistenze, ci sono anche alcuni svantaggi, come la possibile complessità nella gestione dei privilegi e la necessità di aggiornare costantemente i ruoli e le politiche di autorizzazione in base alle esigenze del sistema.  \\
-Le politiche di autorizzazione, consentono di imporre ulteriori ma necessarie restrizioni sull'accesso ai dati, in particolare attraverso l'uso di \textbf{Row Level Security (RLS)}. RLS è una funzionalità che limita l'accesso alle righe di una tabella in base a una condizione specificata nella politica.\\
+Per quanto utilizzare ruoli permetta di evitare inconsistenze, ci sono anche alcune problematiche che possono sorgere se analizzato attentamente il problema. 
+Le politiche di autorizzazione, consentono di imporre ulteriori ma necessarie restrizioni sull'accesso ai dati, e risolvere i problemi accennati. In particolare attraverso l'uso di \textbf{Row Level Security (RLS)}. RLS si può limitare l'accesso alle righe di una tabella in base a una condizione specificata nella politica.\\
 Nel nostro caso, abbiamo forzato la Row Level Security sulla tabella \imtaInlinecode{latex}{projects} e creato la politica researcher\_project\_access\_policy. Questa politica limita l'accesso alle righe della tabella \imtaInlinecode{latex}{projects} ai soli ricercatori associati a un determinato progetto. In questo modo, i ricercatori possono vedere e modificare solo i progetti a cui sono associati, garantendo una maggiore sicurezza e protezione dei dati.
 \begin{imtaCode}{PostgreSQL}
 ALTER TABLE "EUResearchHub".projects FORCE ROW LEVEL SECURITY;
@@ -294,9 +394,10 @@ ALTER TABLE "EUResearchHub".projects FORCE ROW LEVEL SECURITY;
 \end{imtaCode}
 
 \subsection{Performance: indici e  materialized view }
-Anche la performance del database è un aspetto cruciale nell'analisi dei requisiti, poiché può influenzare direttamente l'esperienza utente e le prestazioni generali del sistema. Per ottimizzare le prestazioni del database, si possono utilizzare indici, materialized view e procedure. Di seguito viene analizzata l'implementazione degli indici e delle materialized view individuate ed implementate in EUResearchHub soffermandoci non solo sui vantaggi ma anche sui svantaggi che consapevolpente teniamo in considerazione:
+Anche la performance del database è un aspetto cruciale nell'analisi dei requisiti, poiché può influenzare direttamente l'esperienza utente e le prestazioni generali del sistema. Per ottimizzare le prestazioni del database, si possono utilizzare indici, materialized view e procedure. Di seguito viene analizzata l'implementazione degli indici e delle materialized view individuate ed implementate in EUResearchHub soffermandoci non solo sui vantaggi ma anche sui svantaggi che consapevolpente teniamo in considerazione.  Questa scelta risulta in realtà momentanea, solo dopo a webapp ultimata, si potrà effettivamente implementare la soluzione ideale definitiva tramite uno studio approfondito sulla distribuzione dei dati e log delle query ( \imtaInlinecode{latex}{ANALYZE} e \imtaInlinecode{latex}{EXPLAIN}). 
+Ad ogni modo si suppone che utilizzando le seguenti implementazioni si abbia un aumento della performance:
 \begin{itemize}
-\item \imtaInlinecode{latex}{projects_status_idx}: questo indice viene creato sulla colonna status della tabella \imtaInlinecode{latex}{projects}. Gli indici su colonne frequentemente utilizzate nelle clausole WHERE delle query possono velocizzare notevolmente le operazioni di ricerca. I vantaggi di questo indice includono un accesso più rapido ai dati per le query che filtrano i progetti in base allo stato (utile per i valutatori) e un miglioramento delle prestazioni delle query complesse che coinvolgono la tabella \imtaInlinecode{latex}{projects}. Gli svantaggi includono un maggiore utilizzo dello spazio su disco e un potenziale rallentamento delle operazioni di inserimento, aggiornamento e cancellazione, poiché l'indice deve essere mantenuto coerente con i dati nella tabella. Ipotizzando però che queste tipologie di operazioni avvengono raramente o in momenti specifici (i.e. inizio/fine di una finsetra di valutazione) si è deciso ad ogni modo di implementare questo indice per ottimizzare l'user experience nel resto del tempo.\\
+\item \imtaInlinecode{latex}{projects_status_idx}: questo indice viene creato sulla colonna status della tabella \imtaInlinecode{latex}{projects}. Gli indici su colonne frequentemente utilizzate nelle clausole WHERE delle query possono velocizzare notevolmente le operazioni di ricerca. I vantaggi di questo indice includono un accesso più rapido ai dati per le query che filtrano i progetti in base allo stato (utile per i valutatori) e un miglioramento delle prestazioni delle query complesse che coinvolgono la tabella \imtaInlinecode{latex}{projects}. Gli svantaggi includono un maggiore utilizzo dello spazio su disco e un potenziale rallentamento delle operazioni di inserimento, aggiornamento e cancellazione, poiché l'indice deve essere mantenuto coerente con i dati nella tabella. Ipotizzando però che queste tipologie di operazioni avvengono raramente o in momenti specifici (i.e. inizio/fine di una finestra di valutazione) si è deciso ad ogni modo di implementare questo indice per ottimizzare l'user experience nel resto del tempo.\\
 
 \begin{minipage}{\linewidth}
 \begin{imtaCode}{PostgreSQL}
@@ -314,44 +415,44 @@ CREATE INDEX messages_fk_projects_idx ON "EUResearchHub".messages (fk_projects);
 \end{minipage}
 
 
-\item \imtaInlinecode{latex}{projects_status_count}: questa materialized view memorizza il conteggio dei progetti raggruppati per stato. A differenza delle normali view, le materialized view memorizzano fisicamente i risultati delle query, rendendo più veloce l'accesso ai dati. I vantaggi di questa materialized view includono un accesso rapido al conteggio dei progetti per stato e un miglioramento delle prestazioni per le query che richiedono queste informazioni (nella home dei progetti, si veda la demo). Gli svantaggi includono un maggiore utilizzo dello spazio su disco e la necessità di aggiornare la materialized view ogni volta che i dati nella tabella \imtaInlinecode{latex}{projects} cambiano: indicamente alla fine di ogni finestra di valutazione. \\
+\item \imtaInlinecode{latex}{projects_status_count}: questa materialized view memorizza il conteggio dei progetti raggruppati per stato individuati utili nella pagina relativi a tutti i progetti. \\
 
 \begin{minipage}{\linewidth}
 \begin{imtaCode}{PostgreSQL}
 CREATE MATERIALIZED VIEW projects_status_count AS
 SELECT status, COUNT(*) as count
 FROM "EUResearchHub".projects
-GROUP BY status;\end{imtaCode}
+GROUP BY status;
+\end{imtaCode}
 \end{minipage}
 
+Per chiarezza si faccia riferimento alla seguente immagine:
+\begin{center}
+\includegraphics[scale = 0.7]{1.pdf}
+\end{center}
+I vantaggi di questa includono un accesso rapido al conteggio dei progetti per stato e un miglioramento delle prestazioni per le query che richiedono queste informazioni come nel caso sopra illustrato. Gli svantaggi includono un maggiore utilizzo dello spazio su disco e la necessità di aggiornare la materialized view ogni volta che i dati nella tabella \imtaInlinecode{latex}{projects} cambiano: indicamente alla fine di ogni finestra di valutazione.  Per fare fronte a questo ultimo problema abbiamo inserito un nuovo trigger \imtaInlinecode{latex}{refresh_project_status_count}, attivato solo a seguito di aggiornamento o inserimento di un nuovo status per ogni statement.  \\
+
+\begin{minipage}{\linewidth}
+\begin{imtaCode}{PostgreSQL}
+CREATE FUNCTION "EUResearchHub".refresh_project_status_count()
+ RETURNS trigger
+ LANGUAGE plpgsql
+AS $function$
+BEGIN
+  REFRESH MATERIALIZED VIEW projects_status_count;
+  RETURN NEW;
+END;
+$function$
+
+\end{imtaCode}
+\end{minipage}
+
+
+
 \end{itemize}
 
 
 
-\section{Progettazione concettuale}
-
-Dopo l'analisi e raccolta dei requisiti il secondo pilatro necessario per la progettazione e modellazione del nostro database è la progettazione concettuale. Essa consente di strutturare gli elementi chiave del sistema prima identificati. Nel nostro caso, è stato utilizzato Lucidchart per sviluppare un modello ad oggetti che rappresenta le tabelle, le relazioni, i vincoli e gli invarianti, fornendo una panoramica comprensiva e astratta dell'architettura del database.\\
-Nel modello concettuale, le tabelle rappresentano le entità principali del sistema, come i ricercatori, gli evaluatori, i progetti, i documenti e così via. Le relazioni tra queste entità sono state modellate con parzialità e molteplicità, indicando come le diverse entità interagiscono tra loro e quali sono le dipendenze tra di esse.\\
-Gli invarianti sono stati evidenziati infondo alle tabelle interessate per garantire l'integrità e la consistenza dei dati. Ad esempio, alcuni dei vincoli menzionati in precedenza, come il controllo sulla lunghezza delle password e il formato degli indirizzi email, sono stati inclusi nel modello per assicurare che i dati inseriti nel sistema rispettino determinate regole e standard.
-\subsection{Schema ad oggetti}
-\begin{sidewaysfigure}
-\centering
-\includegraphics[width=1.00\textwidth]{Schema a oggetti.pdf}
-\caption{Schema ad oggetti}
-\end{sidewaysfigure}
-\newpage
-\subsection{Giustificazione delle decisioni progettuali}
-Nella progettazione del modello concettuale, alcune decisioni chiave sono state prese per garantire che il sistema fosse scalabile, efficiente e facile da mantenere. Di seguito sono riportate le giustificazioni di alcune di queste decisioni:
-\begin{itemize}
-\item \textbf{Utilizzo di tipi enumerati:} Per rappresentare lo status dei progetti, è stato creato un tipo enumerato \imtaInlinecode{latex}{enum_status}. Questo garantisce che solo i valori predefiniti possano essere inseriti nella colonna status della tabella \imtaInlinecode{latex}{projects}, garantendo la consistenza dei dati e facilitando le query sullo stato dei progetti.
-
-\item \textbf{Definita una relazione di sottoclasse:} Sono state utilizzate due sottoclassi partizione \imtaInlinecode{latex}{researchers} e \imtaInlinecode{latex}{evaluators} che ereditano gli attributi da \imtaInlinecode{latex}{users} per evitare eventuali ridondanze e permettere durante la progettazione logica di effettuare l'implementazione corretta.
-
-\item \textbf{Suddivisione delle informazioni in tabelle separate:} Al fine di garantire la normalizzazione del database e ridurre la ridondanza dei dati, le informazioni sono state suddivise in tabelle separate. Ad esempio, le informazioni sui documenti e le loro versioni sono state divise nelle tabelle \imtaInlinecode{latex}{documents} e \imtaInlinecode{latex}{document_versions}, permettendo di gestire più versioni di uno stesso documento in modo efficiente. In maniera analoga anche le \imtaInlinecode{latex}{evaluation_windows} vengono salvate in una tabella separata da \imtaInlinecode{latex}{projects}.
-
-\item \textbf{Utilizzo di invariant:} vedi sezione 3.1.4
-
-\end{itemize}
 
 
 
@@ -359,41 +460,14 @@ Nella progettazione del modello concettuale, alcune decisioni chiave sono state 
 
 
 
-\section{Progettazione logica}
-Ora analizziamo la fase intermedia della nostra modellazione: La progettazione logica. 
-In questa fase, abbiamo tradotto il modello concettuale ad oggetti in uno schema logico che è stato utilizzato poi durante la creazione del database. La progettazione logica è essenziale per diverse ragioni:
-\begin{enumerate}
-\item Consente di identificare e risolvere eventuali problemi nella struttura dei dati prima di passare alla progettazione fisica.
-\item Semplifica la mappatura tra il modello concettuale e il modello fisico, riducendo il rischio di errori e migliorando la coerenza dei dati.
-\item Fornisce un'opportunità per ottimizzare le prestazioni del database, ad esempio selezionando gli indici appropriati e creando viste materializzate per migliorare l'efficienza delle query (già analizzate precedentemente).
-\end{enumerate}
-
-\subsection{Schema logico}
-\begin{sidewaysfigure}
-\centering
-\includegraphics[width=1.00\textwidth]{Schema logico.pdf}
-\caption{Schema logico}
-\end{sidewaysfigure}
-\newpage
-\subsection{Giustificazione delle decisioni progettuali}
-Anche nella traduzione alcune decisioni chiave sono state prese per garantire che il sistema fosse scalabile, efficiente e facile da mantenere. Di seguito sono riportate le giustificazioni di alcune di queste decisioni:
-\begin{itemize}
-
-\item\textbf{ Tradotta una relazione di sottoclasse tramite partizionamento orizzontale:} Dalla gerarchia iniziale si è arrivati a suddividere le due sottoclassi partizione \imtaInlinecode{latex}{researchers} e \imtaInlinecode{latex}{evaluators}  in due tabelle a se stanti che ereditano gli attributi da \imtaInlinecode{latex}{users} poiché non si voleva complicare maggiormente la vista di tutti gli elementi della super classe tramite partizionamento verticale e neanche generalizzare troppo utilizzando una discriminante e ragruppando tutti gli attributi nella tabella unica \imtaInlinecode{latex}{users}.
-
-\item \textbf{Chiavi esterne e relazioni:} Sono state utilizzate chiavi esterne per stabilire relazioni tra le diverse tabelle, garantendo l'integrità referenziale e semplificando le query tra tabelle correlate. Ad esempio, la tabella \imtaInlinecode{latex}{documents} ha una chiave esterna che fa riferimento alla tabella \imtaInlinecode{latex}{projects}, indicando a quale progetto appartiene ciascun documento.
-
-\item \textbf{Utilizzo di tabelle intermedie per relazioni molti-a-molti:} Per gestire le relazioni molti-a-molti tra entità, sono state create tabelle intermedie, come \imtaInlinecode{latex}{researchers_projects} e \imtaInlinecode{latex}{evaluators_messages}. Queste tabelle consentono di associare più ricercatori a più progetti e più messaggi a più valutatori, garantendo la flessibilità del sistema e semplificando le query tra tabelle correlate.
-
-\item \textbf{Inserito \imtaInlinecode{latex}{id} univoco per ogni tabella:} Ogni tabella è caratterizzata da un ID univoco sotto forma di UUID (Universally Unique Identifier) ovvero un identificativo alfanumerico di 16 cifre generato casualmente da Flask al momento di creazione del record.
-
-\end{itemize}
 
 
-\section{Progettazione fisica}
-LA progettazione fisica presenta l'ultima stazione per completare questa prima parte di attività.  Vista l'analisi a 360° del database, e di come dovrebbe funzionare l'applicativo non resta che applicare le osservazioni fatte su DBeaver. I costrutti per la creazione si basano sul linguaggio PostgreSQL.
-\subsection{Istruzioni \texttt{SQL}}
-Si veda allegato \imtaInlinecode{latex}{dump.sql}
+
+
+
+
+
+
 .
 \chapter{Implementazione back-end}
 \section{Flask e SQLAlchemy}

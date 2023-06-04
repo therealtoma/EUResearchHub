@@ -1,41 +1,43 @@
 \BOOKMARK [0][-]{chapter.1}{Introduzione}{}% 1
 \BOOKMARK [1][-]{section.1.1}{Contesto dell'applicazione}{chapter.1}% 2
-\BOOKMARK [1][-]{section.1.2}{Obiettivi e scopo del documento}{chapter.1}% 3
-\BOOKMARK [0][-]{chapter.2}{Funzionalit\340 principali}{}% 4
-\BOOKMARK [1][-]{section.2.1}{Gestione dei progetti di ricerca}{chapter.2}% 5
-\BOOKMARK [1][-]{section.2.2}{Processo di valutazione e storico modifiche}{chapter.2}% 6
-\BOOKMARK [1][-]{section.2.3}{Interazione tra ricercatori e valutatori}{chapter.2}% 7
-\BOOKMARK [0][-]{chapter.3}{Progettazione della base di dati}{}% 8
-\BOOKMARK [1][-]{section.3.1}{Raccolta ed analisi dei requisiti}{chapter.3}% 9
-\BOOKMARK [2][-]{subsection.3.1.1}{Quadro generale}{section.3.1}% 10
-\BOOKMARK [2][-]{subsection.3.1.2}{Integrit\340 dei dati: trigger e vincoli}{section.3.1}% 11
-\BOOKMARK [2][-]{subsection.3.1.3}{Gestione dei ruoli e politiche di autorizzazione}{section.3.1}% 12
-\BOOKMARK [2][-]{subsection.3.1.4}{Performance: indici e materialized view }{section.3.1}% 13
-\BOOKMARK [1][-]{section.3.2}{Progettazione concettuale}{chapter.3}% 14
-\BOOKMARK [2][-]{subsection.3.2.1}{Schema ad oggetti}{section.3.2}% 15
-\BOOKMARK [2][-]{subsection.3.2.2}{Giustificazione delle decisioni progettuali}{section.3.2}% 16
-\BOOKMARK [1][-]{section.3.3}{Progettazione logica}{chapter.3}% 17
-\BOOKMARK [2][-]{subsection.3.3.1}{Schema logico}{section.3.3}% 18
-\BOOKMARK [2][-]{subsection.3.3.2}{Giustificazione delle decisioni progettuali}{section.3.3}% 19
-\BOOKMARK [1][-]{section.3.4}{Progettazione fisica}{chapter.3}% 20
-\BOOKMARK [2][-]{subsection.3.4.1}{Istruzioni SQL}{section.3.4}% 21
-\BOOKMARK [0][-]{chapter.4}{Implementazione back-end}{}% 22
-\BOOKMARK [1][-]{section.4.1}{Flask e SQLAlchemy}{chapter.4}% 23
-\BOOKMARK [1][-]{section.4.2}{Expression Language e ORM}{chapter.4}% 24
-\BOOKMARK [1][-]{section.4.3}{Sicurezza}{chapter.4}% 25
-\BOOKMARK [2][-]{subsection.4.3.1}{Protezione da XSS}{section.4.3}% 26
-\BOOKMARK [2][-]{subsection.4.3.2}{Protezione da SQL Injection}{section.4.3}% 27
-\BOOKMARK [2][-]{subsection.4.3.3}{Meccanismi di sicurezza aggiuntivi}{section.4.3}% 28
-\BOOKMARK [1][-]{section.4.4}{Approfondimento delle tecnologiche specifiche}{chapter.4}% 29
-\BOOKMARK [2][-]{subsection.4.4.1}{libreria1 }{section.4.4}% 30
-\BOOKMARK [2][-]{subsection.4.4.2}{libreria2 }{section.4.4}% 31
-\BOOKMARK [0][-]{chapter.5}{Implementazione front-end}{}% 32
-\BOOKMARK [1][-]{section.5.1}{Brand identity}{chapter.5}% 33
-\BOOKMARK [1][-]{section.5.2}{Demo}{chapter.5}% 34
-\BOOKMARK [1][-]{section.5.3}{Approfondimento delle tecnologiche specifiche}{chapter.5}% 35
-\BOOKMARK [2][-]{subsection.5.3.1}{framework1 }{section.5.3}% 36
-\BOOKMARK [2][-]{subsection.5.3.2}{css }{section.5.3}% 37
-\BOOKMARK [2][-]{subsection.5.3.3}{javascript }{section.5.3}% 38
-\BOOKMARK [0][-]{chapter.6}{Collaborazione e contributo individuale}{}% 39
-\BOOKMARK [1][-]{section.6.1}{Planning}{chapter.6}% 40
-\BOOKMARK [1][-]{section.6.2}{Descrizione del ruolo di ciascun membro del gruppo}{chapter.6}% 41
+\BOOKMARK [1][-]{section.1.2}{Funzionalit\340 principali}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.2.1}{Gestione dei progetti di ricerca}{section.1.2}% 4
+\BOOKMARK [2][-]{subsection.1.2.2}{Processo di valutazione e storico modifiche}{section.1.2}% 5
+\BOOKMARK [2][-]{subsection.1.2.3}{Interazione tra ricercatori e valutatori}{section.1.2}% 6
+\BOOKMARK [1][-]{section.1.3}{Obiettivi e scopo del documento}{chapter.1}% 7
+\BOOKMARK [0][-]{chapter.2}{Progettazione della base di dati}{}% 8
+\BOOKMARK [1][-]{section.2.1}{Raccolta ed analisi dei requisiti}{chapter.2}% 9
+\BOOKMARK [2][-]{subsection.2.1.1}{Quadro generale}{section.2.1}% 10
+\BOOKMARK [2][-]{subsection.2.1.2}{Vincoli preliminari}{section.2.1}% 11
+\BOOKMARK [2][-]{subsection.2.1.3}{Ruoli}{section.2.1}% 12
+\BOOKMARK [1][-]{section.2.2}{Progettazione concettuale}{chapter.2}% 13
+\BOOKMARK [2][-]{subsection.2.2.1}{Schema ad oggetti}{section.2.2}% 14
+\BOOKMARK [2][-]{subsection.2.2.2}{Giustificazione delle decisioni progettuali}{section.2.2}% 15
+\BOOKMARK [1][-]{section.2.3}{Progettazione logica}{chapter.2}% 16
+\BOOKMARK [2][-]{subsection.2.3.1}{Schema logico}{section.2.3}% 17
+\BOOKMARK [2][-]{subsection.2.3.2}{Giustificazione delle decisioni progettuali}{section.2.3}% 18
+\BOOKMARK [1][-]{section.2.4}{Progettazione fisica}{chapter.2}% 19
+\BOOKMARK [2][-]{subsection.2.4.1}{Istruzioni SQL}{section.2.4}% 20
+\BOOKMARK [2][-]{subsection.2.4.2}{Specifiche integrit\340 dei dati}{section.2.4}% 21
+\BOOKMARK [2][-]{subsection.2.4.3}{Gestione dei ruoli e politiche di autorizzazione}{section.2.4}% 22
+\BOOKMARK [2][-]{subsection.2.4.4}{Performance: indici e materialized view }{section.2.4}% 23
+\BOOKMARK [0][-]{chapter.3}{Implementazione back-end}{}% 24
+\BOOKMARK [1][-]{section.3.1}{Flask e SQLAlchemy}{chapter.3}% 25
+\BOOKMARK [1][-]{section.3.2}{Expression Language e ORM}{chapter.3}% 26
+\BOOKMARK [1][-]{section.3.3}{Sicurezza}{chapter.3}% 27
+\BOOKMARK [2][-]{subsection.3.3.1}{Protezione da XSS}{section.3.3}% 28
+\BOOKMARK [2][-]{subsection.3.3.2}{Protezione da SQL Injection}{section.3.3}% 29
+\BOOKMARK [2][-]{subsection.3.3.3}{Meccanismi di sicurezza aggiuntivi}{section.3.3}% 30
+\BOOKMARK [1][-]{section.3.4}{Approfondimento delle tecnologiche specifiche}{chapter.3}% 31
+\BOOKMARK [2][-]{subsection.3.4.1}{libreria1 }{section.3.4}% 32
+\BOOKMARK [2][-]{subsection.3.4.2}{libreria2 }{section.3.4}% 33
+\BOOKMARK [0][-]{chapter.4}{Implementazione front-end}{}% 34
+\BOOKMARK [1][-]{section.4.1}{Brand identity}{chapter.4}% 35
+\BOOKMARK [1][-]{section.4.2}{Demo}{chapter.4}% 36
+\BOOKMARK [1][-]{section.4.3}{Approfondimento delle tecnologiche specifiche}{chapter.4}% 37
+\BOOKMARK [2][-]{subsection.4.3.1}{framework1 }{section.4.3}% 38
+\BOOKMARK [2][-]{subsection.4.3.2}{css }{section.4.3}% 39
+\BOOKMARK [2][-]{subsection.4.3.3}{javascript }{section.4.3}% 40
+\BOOKMARK [0][-]{chapter.5}{Collaborazione e contributo individuale}{}% 41
+\BOOKMARK [1][-]{section.5.1}{Planning}{chapter.5}% 42
+\BOOKMARK [1][-]{section.5.2}{Descrizione del ruolo di ciascun membro del gruppo}{chapter.5}% 43

@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{FUNCTION}\PYG{+w}{ }\PYG{n}{check\PYGZus{}unique\PYGZus{}email}\PYG{p}{()}
+\PYG{+w}{  }\PYG{k}{RETURNS}\PYG{+w}{ }\PYG{k}{TRIGGER}\PYG{+w}{ }\PYG{k}{AS}
+\PYG{l+s}{\PYGZdl{}}\PYG{l+s}{\PYGZdl{}}
+\PYG{k}{BEGIN}
+\PYG{+w}{  }\PYG{k}{IF}\PYG{+w}{ }\PYG{k}{EXISTS}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{SELECT}\PYG{+w}{ }\PYG{l+m+mf}{1}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{l+m+mf}{.}\PYG{n}{researchers}\PYG{+w}{ }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{email}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{NEW}\PYG{l+m+mf}{.}\PYG{n}{email}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{THEN}
+\PYG{+w}{    }\PYG{k}{RAISE}\PYG{+w}{ }\PYG{k}{EXCEPTION}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Another user is usinng this email, please change it\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{END}\PYG{+w}{ }\PYG{k}{IF}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{k}{IF}\PYG{+w}{ }\PYG{k}{EXISTS}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{SELECT}\PYG{+w}{ }\PYG{l+m+mf}{1}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{l+m+mf}{.}\PYG{n}{evaluators}\PYG{+w}{ }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{email}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{NEW}\PYG{l+m+mf}{.}\PYG{n}{email}\PYG{+w}{ }\PYG{k}{AND}\PYG{+w}{ }\PYG{n}{id}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZgt{}}\PYG{+w}{ }\PYG{k}{NEW}\PYG{l+m+mf}{.}\PYG{n}{id}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{THEN}
+\PYG{+w}{    }\PYG{k}{RAISE}\PYG{+w}{ }\PYG{k}{EXCEPTION}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Another user is usinng this email, please change it\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{END}\PYG{+w}{ }\PYG{k}{IF}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{k}{RETURN}\PYG{+w}{ }\PYG{k}{NEW}\PYG{p}{;}
+\PYG{k}{END}\PYG{p}{;}
+\PYG{l+s}{\PYGZdl{}}\PYG{l+s}{\PYGZdl{}}
+\PYG{k}{LANGUAGE}\PYG{+w}{ }\PYG{n}{plpgsql}\PYG{p}{;}
+
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TRIGGER}\PYG{+w}{ }\PYG{n}{check\PYGZus{}unique\PYGZus{}email\PYGZus{}insert\PYGZus{}update}
+\PYG{k}{BEFORE}\PYG{+w}{ }\PYG{k}{INSERT}\PYG{+w}{ }\PYG{k}{OR}\PYG{+w}{ }\PYG{k}{UPDATE}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{l+m+mf}{.}\PYG{n}{evaluators}
+\PYG{k}{FOR}\PYG{+w}{ }\PYG{k}{EACH}\PYG{+w}{ }\PYG{k}{ROW}
+\PYG{k}{EXECUTE}\PYG{+w}{ }\PYG{k}{FUNCTION}\PYG{+w}{ }\PYG{n}{check\PYGZus{}unique\PYGZus{}email}\PYG{p}{();}
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TRIGGER}\PYG{+w}{ }\PYG{n}{check\PYGZus{}unique\PYGZus{}email\PYGZus{}insert\PYGZus{}update}
+\PYG{k}{BEFORE}\PYG{+w}{ }\PYG{k}{INSERT}\PYG{+w}{ }\PYG{k}{OR}\PYG{+w}{ }\PYG{k}{UPDATE}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{l+m+mf}{.}\PYG{n}{researchers}
+\PYG{k}{FOR}\PYG{+w}{ }\PYG{k}{EACH}\PYG{+w}{ }\PYG{k}{ROW}
+\PYG{k}{EXECUTE}\PYG{+w}{ }\PYG{k}{FUNCTION}\PYG{+w}{ }\PYG{n}{check\PYGZus{}unique\PYGZus{}email}\PYG{p}{();}
+\end{Verbatim}
