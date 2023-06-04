@@ -314,67 +314,68 @@
         </div>
 
         <div id="modalContainer2" class="modal-container">
-            <div id="uploadArea2" class="upload-area">
-                <!-- Header -->
-                <div class="upload-area__header">
-                    <h1 class="upload-area__title">  Upload your file </h1>
-                    <p class="upload-area__paragraph">
-                        File should be a document or image
-                        <strong class="upload-area__tooltip">
-                            <span class="upload-area__tooltip-data2"></span> <!-- Data Will be Comes From Js -->
-                        </strong>
-                    </p>
-                </div>
-                <!-- End Header -->
+            <form method="post" enctype="multipart/form-data" action="/api/upload_version/{{ session['project_id'] }}/{{ request.args.get('document_id') }}">
+                <div id="uploadArea2" class="upload-area">
+                    <!-- Header -->
+                    <div class="upload-area__header">
+                        <h1 class="upload-area__title">  Upload your file </h1>
+                        <p class="upload-area__paragraph">
+                            File should be a document or image
+                            <strong class="upload-area__tooltip">
+                                <span class="upload-area__tooltip-data2"></span> <!-- Data Will be Comes From Js -->
+                            </strong>
+                        </p>
+                    </div>
+                    <!-- End Header -->
 
-                <!-- Drop Zone -->
-                <div id="dropZoon2" class="upload-area__drop-zoon drop-zoon">
-                    <span class="drop-zoon__icon">
-                      <i class='bx bxs-file-image'></i>
-                    </span>
-                    <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
-                    <span id="loadingText2" class="drop-zoon__loading-text">Please Wait</span>
-                    <img src="" alt="Preview Image" id="previewImage2" class="drop-zoon__preview-image" draggable="false">
-                    <input type="file" id="fileInput2" class="drop-zoon__file-input" accept="image/*">
-                </div>
-                <!-- End Drop Zone -->
+                    <!-- Drop Zone -->
+                    <div id="dropZoon2" class="upload-area__drop-zoon drop-zoon">
+                        <span class="drop-zoon__icon">
+                          <i class='bx bxs-file-image'></i>
+                        </span>
+                        <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
+                        <span id="loadingText2" class="drop-zoon__loading-text">Please Wait</span>
+                        <img src="" alt="Preview Image" id="previewImage2" class="drop-zoon__preview-image" draggable="false">
+                        <input type="file" name="docVersion" id="fileInput2" class="drop-zoon__file-input" accept="application/pdf">
+                    </div>
+                    <!-- End Drop Zone -->
 
-                <!-- File Details -->
-                <div id="fileDetails2" class="upload-area__file-details file-details">
-                    <h3 class="file-details__title">Uploaded File</h3>
+                    <!-- File Details -->
+                    <div id="fileDetails2" class="upload-area__file-details file-details">
+                        <h3 class="file-details__title">Uploaded File</h3>
 
-                    <div id="uploadedFile2" class="uploaded-file">
-                        <div class="uploaded-file__icon-container">
-                            <i class='bx bxs-file-blank uploaded-file__icon'></i>
-                            <span class="uploaded-file__icon-text2"></span> <!-- Data Will be Comes From Js -->
-                        </div>
+                        <div id="uploadedFile2" class="uploaded-file">
+                            <div class="uploaded-file__icon-container">
+                                <i class='bx bxs-file-blank uploaded-file__icon'></i>
+                                <span class="uploaded-file__icon-text2"></span> <!-- Data Will be Comes From Js -->
+                            </div>
 
-                        <div id="uploadedFileInfo2" class="uploaded-file__info">
-                            <span class="uploaded-file__name2">Proejct 1</span>
-                            <span class="uploaded-file__counter2">0%</span>
+                            <div id="uploadedFileInfo2" class="uploaded-file__info">
+                                <span class="uploaded-file__name2">Proejct 1</span>
+                                <span class="uploaded-file__counter2">0%</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div id="uploadedDescription-container2" class="uploadedDescription-container">
-                    <div id="uploadedDescription2" class="uploaded-description">
-                        <form  class="login100-form-description validate-form" method="post">
-                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                            <input class="input-description" type="text" required name="description" placeholder="Inser your description here">
+                    <div id="uploadedDescription-container2" class="uploadedDescription-container">
+                        <div id="uploadedDescription2" class="uploaded-description">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                <input type="text" required name="title" placeholder="title">
+                                <input class="input-description" type="text" required name="description" placeholder="Insert your description here">
 
-                        </form>
+                        </div>
                     </div>
-                </div>
 
-                <div class="container-login100-form-btn">
+                    <div class="container-login100-form-btn">
 
-                    <button class="login100-form-btn upload-button" type="submit">
-                        <strong>Upload</strong>
-                    </button>
+                        <button class="login100-form-btn upload-button" type="submit">
+                            <strong>Upload</strong>
+                        </button>
+                    </div>
+                    <!-- End File Details -->
                 </div>
-                <!-- End File Details -->
-            </div>
-            <!-- End Upload Area -->
+                <!-- End Upload Area -->
+            </form>
         </div>
         <!-- partial -->
         <script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
