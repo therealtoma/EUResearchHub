@@ -1,10 +1,7 @@
-
 import time
-
 from flask import Blueprint, render_template, request, redirect, url_for, flash, get_flashed_messages, session, abort
 from flask_login import login_required, current_user
-
-
+from sqlalchemy import func
 from app.models.database import *
 
 views = Blueprint('views', __name__)
@@ -14,10 +11,6 @@ views = Blueprint('views', __name__)
 @login_required
 def home():
     return render_template('index.html')
-
-
-from sqlalchemy import func
-
 
 @views.route('/projects')
 @login_required
@@ -236,11 +229,13 @@ def project(project_id):
     docs = []
     for doc in documents:
         doc_type = Document_Types.query.filter_by(id=doc.fk_document_type).first()
+        # ho bisogno di doc_version.max_id per quel documento
+        doc_version = db.session.query(func.max(Document_Versions.id)).filter_by(fk_document=doc.id).first()
         docs.append({
             'id': doc_type.id,
             'nome': doc_type.nome,
             'descrizione': doc_type.descrizione,
-            'file_path': doc.file_path
+            'file_path': doc.file_path + '/' + str(doc_version[0]) + '.pdf'
         })
 
     # Get the view_document data
