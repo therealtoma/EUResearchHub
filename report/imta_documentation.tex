@@ -431,7 +431,7 @@ GROUP BY status;
 
 Per chiarezza si faccia riferimento alla seguente immagine:
 \begin{center}
-\includegraphics[scale = 0.04]{4.png}
+\includegraphics[width=12cm]{4.png}
 \end{center}
 I vantaggi di questa includono un accesso rapido al conteggio dei progetti per stato e un miglioramento delle prestazioni per le query che richiedono queste informazioni come nel caso sopra illustrato. Gli svantaggi includono un maggiore utilizzo dello spazio su disco e la necessità di aggiornare la materialized view ogni volta che i dati nella tabella \imtaInlinecode{latex}{projects} cambiano: indicamente alla fine di ogni finestra di valutazione.  Per fare fronte a questo ultimo problema abbiamo individuato due soluzioni: aggiornare la materialized view al termine di un evaluation window o a seguito di ogni aggiornamento che la potrebbe influenzare. Abbiamo deciso di optare per la seconda opzione e quindi abbiamo inserito un nuovo trigger \imtaInlinecode{latex}{refresh_project_status_count}, attivato solo a seguito di aggiornamento o inserimento di un nuovo status per ogni statement.  \\
 
@@ -453,9 +453,6 @@ FOR EACH STATEMENT
 EXECUTE FUNCTION refresh_project_status_count()
 \end{imtaCode}
 \end{minipage}
-
-
-
 \end{itemize}
 
 
