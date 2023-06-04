@@ -28,6 +28,7 @@
     \usepackage{rotating}
 \usepackage[italian]{babel}
 \usepackage[italian]{isodate}
+\usepackage{dirtree}
 
 \usepackage{imta_core}
 \usepackage{imta_extra}
@@ -79,20 +80,20 @@ In questo contesto, è fondamentale che le istituzioni di ricerca dispongano di 
 \section{Funzionalità principali}
 \phantom{This text will be invisible}\\
 Nel progettare EUResearchHub, abbiamo posto particolare enfasi sull'offerta di funzionalità che consentano una gestione efficiente e trasparente dei progetti di ricerca, facilitando il processo di valutazione e promuovendo una comunicazione efficace tra ricercatori e valutatori tramite un sistema di messaggistica e storico dei documenti. \\
-A tal proposito è importante definire fin da subito definire due grandi aree. Una è quella riguardante il ricercatore e tutte le sue funzionalità mentre l’altra riguarda è legata al valutatore. \\
+A tal proposito è importante definire fin da subito definire due grandi aree. Una è quella riguardante il ricercatore e tutte le sue funzionalità mentre l’altra è legata al valutatore. \\
 In questa sezione, ci concentreremo sulle tre funzionalità chiave per ogni area: la gestione dei progetti di ricerca, il processo di valutazione, lo storico delle modifiche e l'interazione tra ricercatori e valutatori.
 
 %% Sectioning
 \subsection{Gestione dei progetti di ricerca}
-La gestione dei progetti di ricerca è una componente fondamentale per EuResearchHub. Il sistema è stato progettato per consentire ai ricercatori di creare e visualizzare facilmente nuovi progetti, inserendo informazioni pertinenti, come il titolo e la descrizione del progetto o aggiungere anche partecipanti al progetto.  Una volta creato il progetto, i ricercatori possono anche caricare documenti in formato PDF, come il piano di gestione dei dati, i materiali etici che verranno sottoposti ai valutatori durante processo di valutazione. I valutatori quindi non potranno aggiungere utenti al progetto, creare nuovi progetti e caricare documenti per gli stessi.\\
+La gestione dei progetti di ricerca è una componente fondamentale per EuResearchHub. Il sistema è stato progettato per consentire ai ricercatori di creare e visualizzare facilmente nuovi progetti, inserendo informazioni pertinenti, come il titolo e la descrizione del progetto o aggiungere anche partecipanti al progetto.  Una volta creato il progetto, i ricercatori possono anche caricare documenti in formato PDF, come il piano di gestione dei dati, i materiali etici che verranno sottoposti ai valutatori durante processo di valutazione. I valutatori quindi non potranno aggiungere utenti al progetto o creare nuovi progetti e caricare documenti per gli stessi.\\
 \subsection{Processo di valutazione e storico modifiche}
 Una volta che i progetti di ricerca sono stati creati e sottomessi per la valutazione, i valutatori possono accedervi per valutarli. Il processo di valutazione è stato progettato per essere il più trasparente e approfondito ma allo stesso minimal possibile. I valutatori possono scaricare i documenti relativi al progetto, leggerli, analizzarli, e commentarli quindi creare un report di valutazione per ogni documento e caricarlo nuovamente sulla piattaforma per renderlo visibile ai ricercatori interessati. Questo report può includere commenti generali sul progetto, suggerimenti per miglioramenti e valutazioni specifiche per ogni documento allegato.\\
 Una caratteristica importante del sistema è la possibilità di tracciare lo storico delle modifiche dei documenti e quindi dei progetti sottomessi. Ogni volta che un ricercatore apporta modifiche ad un documento e lo carica nel sistema EUResearchHub registra una nuova versione, mantenendo una copia della versione precedente. Questo permette sia ai ricercatori che ai valutatori di monitorare l'evoluzione del progetto nel tempo e di comprendere come le modifiche apportate abbiano influito sulla valutazione finale del progetto.\\
-Lo storico delle modifiche è particolarmente utile nei casi in cui i valutatori richiedono modifiche ai progetti prima di approvarli. In questi casi, i ricercatori possono utilizzare lo storico delle versioni per confrontare le diverse versioni del progetto e identificare le aree in cui è necessario apportare miglioramenti. Per quanto concerne il processo di valutazione,  lo status come indicato potrà assumere il valori ma questi valori possono cambiare se tutti i documenti inseriti dal ricercatore sono stati valutati.  Entrambi gli utenti possono visionare la percentuale dei documenti valutati in corso e quanti ne mancano indicativamente tramite l'evaluation progress bar. 
+Lo storico delle modifiche è particolarmente utile nei casi in cui i valutatori richiedono modifiche ai progetti prima di approvarli. In questi casi, i ricercatori possono utilizzare lo storico delle versioni per confrontare le diverse versioni del progetto e identificare le aree in cui è necessario apportare miglioramenti. Per quanto concerne il processo di valutazione,  lo status potrà assumere diversi valori (sumbmitted for evaluation, required changes ...) ma questi valori possono cambiare solo se tutti i documenti inseriti dal ricercatore sono stati valutati.  Entrambi gli utenti possono visionare la percentuale dei documenti valutati in corso e indicativamente quanti ne mancano tramite l'evaluation progress bar. 
 
 \subsection{Interazione tra ricercatori e valutatori}
 Insieme allo storico dei documenti la comunicazione tra ricercatori e valutatori è un aspetto cruciale per garantire un processo di valutazione efficace e monitorare il ciclo di vita di un progetto. EUResearchHub è dotata di una componente di messaggistica per ogni progetto che consente ai ricercatori e ai valutatori di interagire direttamente all'interno della piattaforma. Questa funzionalità consente ai ricercatori di richiedere chiarimenti sui report di valutazione, suggerimenti su come migliorare i loro progetti e informazioni aggiuntive sui requisiti specifici dei finanziamenti. Allo stesso tempo, i valutatori possono rispondere alle domande dei ricercatori in modo anonimo, garantendo l'obiettività e l'imparzialità del processo di valutazione.\\
-I valutatori possono utilizzare questa funzione per fornire feedback specifico e mirato sui documenti, ad esempio evidenziando passaggi che richiedono chiarimenti o suggerendo modifiche al testo. Questi messaggi possono essere utilizzati dai ricercatori per apportare miglioramenti ai loro progetti e dai valutatori per fare riferimento a punti specifici nei loro report di valutazione (ad esempio, "si veda la nota a pagina 4").\\
+I valutatori possono utilizzare questa funzione per fornire feedback specifico e mirato sui documenti, ad esempio evidenziando passaggi che richiedono chiarimenti o suggerendo modifiche al testo. Questi messaggi possono essere utilizzati dai ricercatori per apportare miglioramenti ai loro progetti e dai valutatori per fare riferimento a punti specifici nei loro report di valutazione (ad esempio, "si veda la nota a pagina 4") e possono essere utilizzati anche come strumento organizzativo/manageriale per i ricercatori del progetto.\\
 
 
 \section{Obiettivi e scopo del documento}
@@ -108,7 +109,7 @@ L'efficacia di EUResearchHub per la valutazione interna dei progetti di ricerca 
 La fase di raccolta ed analisi dei requisiti è stato uno dei più importanti pilastri per comprendere e definire le specifiche del sistema. In questa fase embrionale, abbiamo identificato le esigenze degli utenti e le funzionalità che la base di dati deve supportare per garantire il corretto funzionamento di tutto il sistema. 
 \subsection{Quadro generale}
 Come già accennato precedentemente EURsearchHub ha il compito di fornire una piattaforma di interazione tra ricercatori e valutatori per la valutazione interna dei progetti di ricerca. Il sistema deve quindi essere in grado di gestire progetti, documenti, messaggi e report di valutazione, oltre a fornire supporto per l'autenticazione e l'autorizzazione degli utenti.\\
-Quindi, analizzando attentamente il problema le entità chiave individuate sono:
+Quindi, analizzando attentamente il problema, le entità chiave individuate sono:
 
 \begin{itemize}
     \item \imtaInlinecode{latex}{project}: contiene informazioni sui progetti di ricerca, come il titolo, lo stato (approvato, sottomesso per valutazione, richiede modifiche, non approvato), la descrizione e la data di creazione.
@@ -208,13 +209,13 @@ Di seguito sono riportate le giustificazioni di alcune delle decisioni chiave pe
 
 
 \section{Progettazione fisica}
-LA progettazione fisica presenta l'ultima stazione per completare questa prima parte di attività.  Vista l'analisi a 360° del database, e di come dovrebbe funzionare l'applicativo non resta che applicare le osservazioni fatte su DBeaver. I costrutti per la creazione si basano sul linguaggio PostgreSQL.
+La progettazione fisica presenta l'ultima stazione per completare questo capitolo.  Vista l'analisi a 360° del database, e di come dovrebbe funzionare l'applicativo non resta che applicare le osservazioni fatte su DBeaver. I costrutti per la creazione si basano sul linguaggio PostgreSQL.
 \subsection{Istruzioni \texttt{SQL}}
 Per le istruzioni SQL di creazione della base di dati si veda allegato \imtaInlinecode{latex}{dump.sql}. 
 
 \subsection{Specifiche integrità dei dati}
-Definite le tabelle in SQL chiave risulta fondamentale inserire i vincoli individuati durante la raccolta ed analisi dei requisiti e aggiungerne nuovi individuati durante la progettazione.  
-Più in dettaglio i vincoli definitivi implementati in PosgreSQL sono stati:\\
+Definite le tabelle in SQL chiave risulta fondamentale implementare i vincoli individuati durante la raccolta ed analisi dei requisiti e aggiungerne nuovi individuati durante la progettazione.  
+Più in dettaglio, i vincoli definitivi implementati in PosgreSQL sono stati:\\
 \phantom{This text will be invisible}\\
 Vincolo sulla tabella \imtaInlinecode{latex}{evaluation_windows}
 \begin{imtaCode}{PostgreSQL}
@@ -239,7 +240,7 @@ ADD CONSTRAINT researchers_email_check CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za
 ALTER TABLE "EUResearchHub".evaluators
 ADD CONSTRAINT researchers_email_check CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z]{2,}$');
 \end{imtaCode}
-Il vincolo utilizza una regex (espressione regolare). Le espressioni regolari sono potenti strumenti utilizzati per cercare e confrontare stringhe di testo basate su modelli specifici.  Per comprenderne meglio il funzionamento possiamo dividere la stringa in 4 parti: 
+L'utilità del vincolo è gia stata spiegata ma risulta interessante, in questo caso, spigarne i tecnicismi. Il vincolo utilizza una regex (espressione regolare). Per comprenderne meglio il funzionamento possiamo dividere la stringa in 4 parti: 
 
 \begin{enumerate}
 \item \textbf{\^[A-Za-z0-9.\_\%+-]+}: questa parte dell'espressione indica che l'indirizzo email deve iniziare (\^) con una sequenza di almeno un carattere (+) che può essere una lettera maiuscola o minuscola, un numero, un punto, un underscore, un simbolo di percentuale, un simbolo più o un simbolo meno.
@@ -339,7 +340,7 @@ BEFORE INSERT OR UPDATE ON "EUResearchHub".researchers
 FOR EACH ROW
 EXECUTE FUNCTION check_unique_email();
 \end{imtaCode}
-Il trigger \imtaInlinecode{latex}{check_unique_email} viene utilizzato per garantire che le email siano uniche tra le tabelle \imtaInlinecode{latex}{researchers} e \imtaInlinecode{latex}{evaluators}. Ciò significa che un ricercatore non può essere anche un valutatore, in quanto il loro indirizzo email deve essere univoco in entrambe le tabelle.  Questo trigger, oltre a permettere di far rispettare la scelta della tipologia gerarchica di \imtaInlinecode{latex}{users} presa durante la progettazione concettuale risulta utile anche perché l'immagine del profilo durante lo sviluppo verrà salvata salvare come email.pdf. La funzione associata al trigger esegue i seguenti controlli:
+Il trigger \imtaInlinecode{latex}{check_unique_email} viene utilizzato per garantire che le email siano uniche tra le tabelle \imtaInlinecode{latex}{researchers} e \imtaInlinecode{latex}{evaluators}. Ciò significa che un ricercatore non può essere anche un valutatore, in quanto il loro indirizzo email deve essere univoco in entrambe le tabelle.  Questo trigger, oltre a permettere di far rispettare la scelta della tipologia gerarchica di \imtaInlinecode{latex}{users} presa durante la progettazione concettuale risulta utile anche perché l'immagine del profilo durante lo sviluppo verrà salvata salvate come \imtaInlinecode{latex}{email.pdf}. La funzione associata al trigger esegue i seguenti controlli:
 \begin{itemize}
 \item Verifica se l'email inserita esiste già nella tabella \imtaInlinecode{latex}{researchers}. Se l'email viene trovata, viene generata un'eccezione con un messaggio di errore appropriato. Questo assicura che un ricercatore non possa essere inserito come valutatore se la sua email è già presente nella tabella \imtaInlinecode{latex}{researchers}.
 \item Verifica se l'email inserita esiste già nella tabella \imtaInlinecode{latex}{evaluators}, escludendo la riga corrente dall'operazione di controllo. Questo è necessario per consentire l'aggiornamento di altre colonne nella tabella \imtaInlinecode{latex}{evaluators} senza generare un'eccezione di duplicazione email. Ad esempio, se un valutatore cambia il suo nome o cognome, l'aggiornamento dovrebbe essere consentito anche se l'email esiste già. \item Tuttavia, se l'email viene trovata su una riga diversa da quella corrente, viene generata un'eccezione per evitare la duplicazione dell'email tra i valutatori.
@@ -348,7 +349,7 @@ Il trigger \imtaInlinecode{latex}{check_unique_email} viene utilizzato per garan
 
 
 \subsection{Gestione dei ruoli e politiche di autorizzazione}
-Un altro step, già iniziato durante la raccolta ed analisi dei requisiti è la gestione dei ruoli e delle politiche di autorizzazione. Come già accennato nel caso di EUResearchHub, sono stati definiti tre ruoli principali: \textbf{Admin}, \textbf{Researcher} e \textbf{Evaluator}. \\
+Un altro step, già iniziato durante la raccolta ed analisi dei requisiti e che finalmente possiamo implementare è la gestione dei ruoli e delle politiche di autorizzazione. Come già accennato nel caso di EUResearchHub, sono stati definiti tre ruoli: \textbf{Admin}, \textbf{Researcher} e \textbf{Evaluator}. \\
 Nello specifico i tre ruoli sono stati implementati come segue:\\
 L'utente \textbf{Admin} ha privilegi di superutente, il che significa che può accedere a tutte le tabelle e eseguire qualsiasi operazione sullo schema EUResearchHub. Questo ruolo è utile per la gestione e la manutenzione del sistema e sarà  limitato a un ristretto numero di utenti (ipoteticamente utenti incaricati e dipendenti dell'unione europea che si occupano di mantenere il servizio).
 \begin{imtaCode}{PostgreSQL}
@@ -394,7 +395,7 @@ ALTER TABLE "EUResearchHub".projects FORCE ROW LEVEL SECURITY;
 \end{imtaCode}
 
 \subsection{Performance: indici e  materialized view }
-Anche la performance del database è un aspetto cruciale nell'analisi dei requisiti, poiché può influenzare direttamente l'esperienza utente e le prestazioni generali del sistema. Per ottimizzare le prestazioni del database, si possono utilizzare indici, materialized view e procedure. Di seguito viene analizzata l'implementazione degli indici e delle materialized view individuate ed implementate in EUResearchHub soffermandoci non solo sui vantaggi ma anche sui svantaggi che consapevolpente teniamo in considerazione.  Questa scelta risulta in realtà momentanea, solo dopo a webapp ultimata, si potrà effettivamente implementare la soluzione ideale definitiva tramite uno studio approfondito sulla distribuzione dei dati e log delle query ( \imtaInlinecode{latex}{ANALYZE} e \imtaInlinecode{latex}{EXPLAIN}). 
+Anche la performance del database è un aspetto cruciale durante la progettazione fisica, poiché può influenzare direttamente l'esperienza utente e le prestazioni generali del sistema. Per ottimizzare le prestazioni del database, si possono utilizzare indici, materialized view e procedure. Di seguito viene analizzata l'implementazione degli indici e delle materialized view individuate ed implementate in EUResearchHub soffermandoci non solo sui vantaggi ma anche sui svantaggi che consapevolpente, abbiamo tenuto in considerazione.  Questa scelta risulta in realtà momentanea; solo a webapp ultimata, si potrà effettivamente implementare la soluzione ideale definitiva tramite uno studio approfondito sulla distribuzione dei dati e log delle query ( \imtaInlinecode{latex}{ANALYZE} e \imtaInlinecode{latex}{EXPLAIN}). 
 Ad ogni modo si suppone che utilizzando le seguenti implementazioni si abbia un aumento della performance:
 \begin{itemize}
 \item \imtaInlinecode{latex}{projects_status_idx}: questo indice viene creato sulla colonna status della tabella \imtaInlinecode{latex}{projects}. Gli indici su colonne frequentemente utilizzate nelle clausole WHERE delle query possono velocizzare notevolmente le operazioni di ricerca. I vantaggi di questo indice includono un accesso più rapido ai dati per le query che filtrano i progetti in base allo stato (utile per i valutatori) e un miglioramento delle prestazioni delle query complesse che coinvolgono la tabella \imtaInlinecode{latex}{projects}. Gli svantaggi includono un maggiore utilizzo dello spazio su disco e un potenziale rallentamento delle operazioni di inserimento, aggiornamento e cancellazione, poiché l'indice deve essere mantenuto coerente con i dati nella tabella. Ipotizzando però che queste tipologie di operazioni avvengono raramente o in momenti specifici (i.e. inizio/fine di una finestra di valutazione) si è deciso ad ogni modo di implementare questo indice per ottimizzare l'user experience nel resto del tempo.\\
@@ -428,9 +429,9 @@ GROUP BY status;
 
 Per chiarezza si faccia riferimento alla seguente immagine:
 \begin{center}
-\includegraphics[scale = 0.7]{1.pdf}
+\includegraphics[scale = 0.04]{4.png}
 \end{center}
-I vantaggi di questa includono un accesso rapido al conteggio dei progetti per stato e un miglioramento delle prestazioni per le query che richiedono queste informazioni come nel caso sopra illustrato. Gli svantaggi includono un maggiore utilizzo dello spazio su disco e la necessità di aggiornare la materialized view ogni volta che i dati nella tabella \imtaInlinecode{latex}{projects} cambiano: indicamente alla fine di ogni finestra di valutazione.  Per fare fronte a questo ultimo problema abbiamo inserito un nuovo trigger \imtaInlinecode{latex}{refresh_project_status_count}, attivato solo a seguito di aggiornamento o inserimento di un nuovo status per ogni statement.  \\
+I vantaggi di questa includono un accesso rapido al conteggio dei progetti per stato e un miglioramento delle prestazioni per le query che richiedono queste informazioni come nel caso sopra illustrato. Gli svantaggi includono un maggiore utilizzo dello spazio su disco e la necessità di aggiornare la materialized view ogni volta che i dati nella tabella \imtaInlinecode{latex}{projects} cambiano: indicamente alla fine di ogni finestra di valutazione.  Per fare fronte a questo ultimo problema abbiamo individuato due soluzioni: aggiornare la materialized view al termine di un evaluation window o a seguito di ogni aggiornamento che la potrebbe influenzare. Abbiamo deciso di optare per la seconda opzione e quindi abbiamo inserito un nuovo trigger \imtaInlinecode{latex}{refresh_project_status_count}, attivato solo a seguito di aggiornamento o inserimento di un nuovo status per ogni statement.  \\
 
 \begin{minipage}{\linewidth}
 \begin{imtaCode}{PostgreSQL}
@@ -443,7 +444,11 @@ BEGIN
   RETURN NEW;
 END;
 $function$
-
+CREATE TRIGGER refresh_project_status_count_insert 
+AFTER INSERT OR UPDATE
+ON "EUResearchHub".projects 
+FOR EACH STATEMENT
+EXECUTE FUNCTION refresh_project_status_count()
 \end{imtaCode}
 \end{minipage}
 
@@ -458,35 +463,253 @@ $function$
 
 
 
-
-
-
-
-
-
-
-
-
-
 .
-\chapter{Implementazione back-end}
-\section{Flask e SQLAlchemy}
-\section{Expression Language e ORM}
-\section{Sicurezza}
-\subsection{Protezione da XSS}
-\subsection{Protezione da SQL Injection}
-\subsection{Meccanismi di sicurezza aggiuntivi}
-\section{Approfondimento delle tecnologiche specifiche}
-\subsection{\texttt{libreria1} }
-\subsection{\texttt{libreria2} }
+\chapter{Sviluppo back-end}
+
+\section{Scelta di Flask come framework}
+Nella fase di progettazione del back-end di EUResearchHu,  abbiamo preso in considerazione diversi framework per lo sviluppo dell'applicazione web. Dopo un'attenta valutazione, abbiamo scelto Flask come framework principale per diverse ragioni.
+Flask è un micro-framework leggero e flessibile scritto in Python che fornisce un set di strumenti essenziali per lo sviluppo di applicazioni web. 
+Inoltre, Flask offre una vasta gamma di estensioni che consentono di estendere le funzionalità di base del framework per adattarsi alle esigenze specifiche del nostro progetto. Ad esempio, abbiamo utilizzato Flask-WTF per gestire i moduli e i token CSRF, semplificando la gestione della sicurezza dei form e delle richieste.
+\section{Architettura dell'applicazione}
+Per comprendere appieno il ruolo del back-end nel contesto dell'applicazione complessiva, è fondamentale analizzare l'architettura dell'applicazione nel suo insieme.
+L'applicazione segue un'architettura a tre livelli, composta da front-end, back-end e database. \\
+\subsection{Ruolo del back-end nell'architettura complessiva}
+Il back-end svolge un ruolo centrale nel coordinare le richieste provenienti dal front-end e l'interazione con il database. Nel nostro caso riceve le richieste HTTP provenienti dal front-end e le elabora in modo appropriato. Ciò include l'elaborazione dei parametri delle richieste, la validazione dei dati in ingresso e il reindirizzamento delle richieste verso le funzioni di gestione corrispondenti.\\
+\subsection{Organizzazione delle directory e dei file del progetto}
+Il  sistema è organizzato in una struttura di directory ben definita, che favorisce una suddivisione logica dei file e delle risorse. Di seguito è riportato il dettaglio dell'albero delle directory principali:
+\begin{center}
+\includegraphics[scale = 0.5]{5.png}
+\end{center}
+\subsection{Principali componenti del back-end}
+Come possiamo notare back-end del nostro progetto è costituito da diversi moduli e file di configurazione che lavorano in sinergia per fornire le funzionalità richieste. Ecco una panoramica delle principali componenti del back-end elencante della figura soprastante:
+\begin{itemize}
+\item \imtaInlinecode{latex}{init.py}: Questo file è il punto di ingresso dell'applicazione Flask. Viene utilizzato per inizializzare l'applicazione e configurarla prima dell'avvio del server.
+
+\item \imtaInlinecode{latex}{config.py}: Questo file contiene la configurazione dell'applicazione, come la chiave segreta per la gestione delle sessioni, le impostazioni del database e altre variabili di configurazione.
+
+\item \imtaInlinecode{latex}{models/database.py}: Questo modulo definisce le classi di modello che rappresentano le tabelle del database. Utilizziamo SQLAlchemy per semplificare l'interazione con il database PostgreSQL.
+
+\item \imtaInlinecode{latex}{routes/auth.py}: Questo modulo contiene le route e le funzioni associate per la gestione dell'autenticazione e dell'autorizzazione degli utenti, come il login, la registrazione e il logout.
+
+\item \imtaInlinecode{latex}{routes/views.py}: Questo modulo contiene le route e le funzioni associate per la gestione delle pagine e delle funzionalità principali dell'applicazione, come la visualizzazione dei progetti e l'interazione con i documenti.
+
+\item \imtaInlinecode{latex}{static/}: Questa directory contiene i file statici dell'applicazione, come fogli di stile CSS, script JavaScript e risorse come immagini e font.
+
+\item \imtaInlinecode{latex}{templates/}: Questa directory contiene i template HTML utilizzati per generare le pagine dinamiche dell'applicazione.
+
+\item \imtaInlinecode{latex}{utils/utils.py}: Questo modulo contiene funzioni di utilità che vengono utilizzate in diverse parti del back-end, ad esempio per la gestione delle operazioni di upload e manipolazione dei documenti.
+
+\item \imtaInlinecode{latex}{main.py}: Questo file è il punto di avvio dell'applicazione. Viene utilizzato per eseguire il server Flask e rendere l'applicazione disponibile per le richieste in entrata.
+\end{itemize}
+In particolare, facciamo notare la cartella \imtaInlinecode{latex}{uploads} che gioca un ruolo fondamentale nella gestione dei documenti e delle versioni. All'interno di questa cartella, sono presenti due sotto-cartelle principali:
+\begin{itemize}
+\item \imtaInlinecode{latex}{uploads/profile_images}: Questa cartella contiene le immagini del profilo degli utenti registrati. Ogni immagine è salvata con il nome dell'utente corrispondente, consentendo un accesso rapido e diretto.
+
+\item \imtaInlinecode{latex}{uploads/projects}: Questa cartella contiene i documenti associati ai progetti. È organizzata in base all'ID del progetto e contiene sotto-cartelle per ogni tipo di documento. All'interno di ciascuna cartella di tipo documento, sono presenti le diverse versioni del documento corrispondente.
+\end{itemize}
+La gestione dei documenti PDF avviene attraverso operazioni di upload, salvataggio e recupero dei file dal sistema di file. Le versioni dei documenti sono gestite creando una nuova cartella per ogni versione all'interno della corrispondente cartella di tipo documento. In questo modo, possiamo conservare una cronologia delle diverse versioni del documento e consentire agli utenti di accedere alla versione desiderata.
+
+\section{Interazione con il DBMS \texttt{PostgreSQL}}
+
+Per interagire con il database PostgreSQL,  come già accennato,  l'applicazione utilizza la libreria SQLAlchemy, che fornisce un'astrazione del livello di database e semplifica le operazioni di connessione, query e gestione dei dati.
+Nel file di configurazione dell'applicazione (\imtaInlinecode{latex}{config.py}), è specificata l'URL del database PostgreSQL tramite la variabile \imtaInlinecode{latex}{SQLALCHEMY_DATABASE_URI}. Questo URL contiene le informazioni necessarie per la connessione al database, come l'host, la porta, il nome del database, l'utente e la password.
+L'applicazione utilizza la configurazione del database per stabilire una connessione al database PostgreSQL utilizzando SQLAlchemy. Durante l'inizializzazione dell'applicazione, viene chiamato il metodo \imtaInlinecode{latex}{db.init_app(app)} per collegare l'istanza del database SQLAlchemy all'applicazione Flask.
+\subsection{Utilizzo di \texttt{SQLAlchemy} per l'interazione con il database}
+Abbiamo optato per l'utilizzo di SQLAlchemy poiché cosi facendo l'interazione con il database PostgreSQL risulta fortemente semplificata. Il file \imtaInlinecode{latex}{database.py} definisce modelli di dati Python utilizzando classi che estendono la classe  \imtaInlinecode{latex}{db.Model} di SQLAlchemy. Ogni classe di modello rappresenta una tabella nel database.
+Ad esempio, la classe Projects rappresenta la tabella \imtaInlinecode{latex}{projects} nel database e contiene attributi che corrispondono alle colonne della tabella. L'ORM di SQLAlchemy gestisce automaticamente la mappatura tra gli oggetti delle classi di modello e le righe della tabella del database.
+Oltre a ciò SQLAlchemy risulta utile per EUResearchHub poiché permette di eseguire operazioni CRUD (Create, Read, Update, Delete) sul database utilizzando metodi e query forniti dalla libreria. Ad esempio, è possibile utilizzare il metodo:\\
+\begin{minipage}{\linewidth}
+\begin{imtaCode}{python}
+ db.session.query(Projects).filter_by(id=project_id).first() 
+     \end{imtaCode}
+\end{minipage}
+ per ottenere un oggetto Projects corrispondente a un determinato ID del progetto.
+\subsection{Esecuzione delle query principali e gestione dei risultati}
+In questa sezione, vengono illustrate alcune delle principali query eseguite per ottenere i dati necessari per il sistema. 
+\begin{enumerate}
+\item Query per ottenere i progetti da visualizzare nella pagina \imtaInlinecode{latex}{projects}:\\
+\begin{minipage}{\linewidth}
+\begin{imtaCode}{python}
+if user_type == 'evaluator':
+    projects2show = Projects.query.all()
+    project_counts = ProjectsStatusCount.query.all()
+    for row in project_counts:
+        counts_by_status[row.status.value] = row.count
+elif user_type == 'researcher':
+    projects2show = db.session.query(Projects).join(Researchers_Projects).filter (Researchers_Projects. fk_researchers == user.id).all()
+    project_counts = db.session.query(Projects.status, func.count()).join(Researchers_Projects).filter(Researchers_Projects. fk_researchers == user.id).group_by(Projects.status).all()
+    aux = {status.value: count for status, count in project_counts}
+    counts_by_status = {**counts_by_status, **aux}
+     \end{imtaCode}
+\end{minipage}
+In base al tipo di utente (evaluator o researcher), vengono eseguite query differenti per ottenere i progetti da visualizzare. Per gli evaluator, vengono ottenuti tutti i progetti e viene eseguita una query per contare il numero di progetti per ogni stato data dalla materialized views \imtaInlinecode{latex}{ProjectsStatusCount}. Per i researcher, vengono ottenuti solo i progetti associati a quel researcher e viene eseguita una query per contare il numero di progetti per ogni stato specifico del researcher.
+
+\item   Query per ottenere le immagini del profilo dei ricercatori associati a ogni progetto:\\
+\begin{minipage}{\linewidth}
+\begin{imtaCode}{python}
+researcher_profile_pictures = []
+for project in projects2show:
+    project_id = project.id
+    profile_pictures = db.session.query(Researchers.profile_picture) \
+        .join(Researchers_Projects) \
+        .filter(Researchers_Projects.fk_projects == project_id) \
+        .all()
+    researcher_profile_pictures.append(profile_pictures)
+Questa query viene eseguita per ogni progetto presente nella lista \imtaInlinecode{latex}{projects2show}. Per ciascun progetto, viene ottenuta la lista delle immagini del profilo dei ricercatori associati a quel progetto. Le immagini vengono quindi aggiunte a una lista per essere utilizzate nella generazione della pagina \imtaInlinecode{latex}{projects}.
+     \end{imtaCode}
+\end{minipage}
+\item Query per ottenere la percentuale di documenti valutati per ogni progetto:\\
+\begin{minipage}{\linewidth}
+\begin{imtaCode}{python}
+evaluation_percentages = {}
+for project in projects2show:
+    project_id = project.id
+    total_documents = Documents.query.filter_by(fk_project=project_id).count()
+    evaluated_documents = Evaluation_Reports.query.join(Documents).filter(
+        Documents.fk_project == project_id).count()
+
+    if total_documents > 0:
+        evaluation_percentage = int((evaluated_documents / total_documents) * 100)
+    else:
+        evaluation_percentage = 100
+
+    evaluation_percentages[project_id] = evaluation_percentage
+         \end{imtaCode}
+\end{minipage}
+Questa query viene eseguita per ogni progetto presente nella lista \imtaInlinecode{latex}{projects2show}. Per ciascun progetto, viene calcolata la percentuale di documenti valutati rispetto al numero totale di documenti associati a quel progetto. I risultati vengono memorizzati in un dizionario dove la chiave è l'ID del progetto e il valore è la percentuale di valutazione.
+
+\item Query per ottenere i messaggi associati a un progetto specifico:\\
+\begin{minipage}{\linewidth}
+\begin{imtaCode}{python}
+messages = Messages.query.filter_by(fk_projects=project_id).all()
+         \end{imtaCode}
+\end{minipage}
+Questa query viene eseguita nella pagina \imtaInlinecode{latex}{project} per ottenere tutti i messaggi associati a un determinato progetto. I messaggi vengono quindi utilizzati per mostrare una cronologia delle conversazioni relative al progetto.
+
+\item Query per ottenere i ricercatori e i valutatori associati a ciascun messaggio di un progetto:\\
+\begin{minipage}{\linewidth}
+\begin{imtaCode}{python}
+for message in messages:
+    researcher = Researchers.query.join(Researchers_Messages).filter_by(fk_messages = message. id) .first()
+    evaluator = Evaluators.query.join(Evaluators_Messages).filter_by(fk_messages = message. id) .first()
+    researchers.append(researcher)
+    evaluators.append(evaluator)
+             \end{imtaCode}
+\end{minipage}
+Questa query viene eseguita nella pagina  \imtaInlinecode{latex}{project} per ottenere i ricercatori e i valutatori associati a ciascun messaggio di un progetto. La query viene eseguita per ogni messaggio e si basa sulle tabelle di associazione  \imtaInlinecode{latex}{Researchers_Messages} e  \imtaInlinecode{latex}{Evaluators_Messages} per ottenere i ricercatori e i valutatori corrispondenti.
+
+\item Query per ottenere i tipi di documento associati a un progetto:\\
+\begin{minipage}{\linewidth}
+\begin{imtaCode}{python}
+documents = Documents.query.filter_by(fk_project=project_id).all()
+docs = []
+for doc in documents:
+    doc_type = Document_Types.query.filter_by(id=doc.fk_document_type).first()
+    docs.append(doc_type)
+             \end{imtaCode}
+\end{minipage}
+Questa query viene eseguita nella pagina  \imtaInlinecode{latex}{project} per ottenere i tipi di documento associati a un progetto. La query recupera tutti i documenti associati al progetto e per ciascun documento ottiene il tipo di documento corrispondente dalla tabella  \imtaInlinecode{latex}{Document_Types}.
+
+\item Query per ottenere le versioni di un documento selezionato: \\
+\begin{minipage}{\linewidth}
+\begin{imtaCode}{python}
+versions = Document_Versions.query.filter_by(fk_document=document.id).all()
+         \end{imtaCode}
+\end{minipage}
+Questa query viene eseguita nella pagina  \imtaInlinecode{latex}{project} quando viene selezionato un documento specifico. La query recupera tutte le versioni associate al documento selezionato dalla tabella  \imtaInlinecode{latex}{Document_Versions}.
+
+
+\end{enumerate}
+
+\section{Sicurezza del back-end}
+
+
+
+\subsection{Utilizzo di \texttt{Flask-WTF} per gestire i moduli e i token \texttt{CSRF}}
+Nel sistema, viene utilizzato il modulo Flask-WTF per gestire i moduli e i token CSRF (Cross-Site Request Forgery). Flask-WTF semplifica la gestione dei moduli HTML fornendo funzionalità di validazione e protezione contro attacchi CSRF. La protezione CSRF è implementata utilizzando l'estensione CSRFProtect fornita da Flask-WTF.
+\subsection{Meccanismi di autenticazione e autorizzazione}
+Per garantire sicurezza, vengono implementati meccanismi di autenticazione e autorizzazione per consentire l'accesso agli utenti registrati.
+La route /login gestisce il processo di accesso. Quando un utente invia un modulo di accesso con un'email e una password valide, il codice effettua una verifica delle credenziali e autentica l'utente se i dati sono corretti. Vengono effettuate query al database per controllare se l'email appartiene a un valutatore o a un ricercatore, quindi viene utilizzata la funzione \imtaInlinecode{latex}{check_password_hash} per confrontare la password fornita con la password memorizzata nel database. Se l'autenticazione ha successo, l'utente viene loggato utilizzando \imtaInlinecode{latex}{login_user(user)} e reindirizzato alla pagina dei progetti e utilizzando una nuova connessiona allla base di dati secondo il tipo di utente..
+\subsection{Salting e hashing delle password degli utenti}
+La funzione  \imtaInlinecode{latex}{generate_password_hash} del modulo  \imtaInlinecode{latex}{werkzeug.security} viene utilizzata per generare un hash della password. L'hash viene quindi memorizzato nel campo password del modello di dati per il valutatore o il ricercatore.
+Durante il processo di accesso, la funzione  \imtaInlinecode{latex}{check_password_hash} viene utilizzata per confrontare la password fornita dall'utente con l'hash memorizzato nel database. Questo approccio aumenta la sicurezza delle password degli utenti evitando di memorizzarle in forma di testo semplice.
+\subsection{Protezione da \texttt{SQL Injection} }
+Per prevenire attacchi di SQL Injection, viene utilizzato l'Object Relational Mapping (ORM) fornito da SQLAlchemy per eseguire query parametrizzate al database. 
+
 
 \chapter{Implementazione front-end}
-\section{Brand identity}
-\section{Demo}
-\section{Approfondimento delle tecnologiche specifiche}
-\subsection{\texttt{framework1} }
-\subsection{\texttt{css} }
-\subsection{\texttt{javascript} }
+Il frontend gioca un ruolo fondamentale per EUResearchHub. In questo capitolo, esploreremo l'importanza dell'interfaccia utente e dell'esperienza utente all'interno del contesto ella nostra applicazione. L'interfaccia utente e l'esperienza utente svolgono un ruolo cruciale nell'efficacia e nella facilità d'uso della web application. La corretta progettazione del frontend garantisce che i ricercatori e i valutatori possano interagire in modo intuitivo e efficiente con il sistema, facilitando la gestione dei progetti di ricerca e migliorando l'efficacia complessiva del processo di valutazione.\\
+l progetto EUResearchHub è stato sviluppato utilizzando una serie di tecnologie front-end per garantire un'esperienza utente fluida e interattiva. Nel processo di sviluppo, sono state impiegate le seguenti tecnologie: HTML, CSS e JavaScript.
+\begin{itemize}
+\item \imtaInlinecode{latex}{ HTML (HyperText Markup Language)} è stato utilizzato per definire la struttura e la disposizione degli elementi sulla pagina web. Questo linguaggio di markup ci ha permesso di organizzare il contenuto in modo logico e gerarchico, rendendo più facile la creazione di una struttura coerente e accessibile.
+
+\item \imtaInlinecode{latex}{CSS (Cascading Style Sheets)} è stato utilizzato per definire lo stile e l'aspetto visivo del sito web. Abbiamo utilizzato fogli di stile CSS per personalizzare il design, definendo colori, tipografia, layout e animazioni. In particolare, nel file HTML fornito sono state definite alcune regole CSS per gestire l'animazione di un'icona e il posizionamento degli elementi.
+
+\item \imtaInlinecode{latex}{JavaScript} è stato utilizzato per aggiungere interattività e funzionalità dinamiche al sito web. Questo linguaggio di scripting ci ha permesso di gestire eventi, manipolare il contenuto della pagina in tempo reale e comunicare con il server per ottenere o inviare dati. Nel file HTML fornito, JavaScript è utilizzato per gestire il click su alcuni pulsanti, come il pulsante di logout e il pulsante di invio del messaggio.
+\end{itemize}
+
+Oltre alle tecnologie front-end di base, sono stati utilizzati anche alcuni strumenti aggiuntivi e framework per semplificare lo sviluppo. Tra questi:
+\begin{itemize}
+\item \imtaInlinecode{latex}{Bootstrap}: un framework CSS che fornisce una serie di componenti predefiniti e stili predefiniti, rendendoci più rapido e semplice il processo di creazione di un'interfaccia responsiva e ben progettata.
+\item \imtaInlinecode{latex}{jQuery}: una libreria JavaScript leggera e veloce che semplifica l'interazione con il DOM (Document Object Model) e fornisce una vasta gamma di funzionalità per la gestione degli eventi, l'animazione e le richieste AJAX.
+\item \imtaInlinecode{latex}{Vue.js}: un framework JavaScript progressivo per la creazione di interfacce utente dinamiche. Vue.js ci ha permesso di facilitare la gestione dello stato dell'applicazione e la creazione di componenti riutilizzabili, migliorando l'organizzazione e la manutenibilità del codice.
+\end{itemize}
+
+\section{Design finale}
+
+\section{Integrazione tra front-end e back-end}
+
+L'integrazione tra il frontend e il backend nel progetto EUResearchHub avviene attraverso richieste HTTP effettuate dal client al server. Il frontend comunica con il backend per inviare e ricevere dati, consentendo all'utente di interagire con l'applicazione e visualizzare i risultati delle operazioni.
+Le richieste HTTP vengono gestite attraverso un'architettura API (Application Programming Interface), che definisce il modo in cui il frontend e il backend comunicano tra loro. Nel caso di EUResearchHub, vengono utilizzate diverse API per consentire all'utente di eseguire azioni come l'autenticazione, la ricerca di progetti di ricerca e l'invio di messaggi.
+Ad esempio, per la gestione dell'autenticazione, il frontend invia una richiesta HTTP POST al server contenente le credenziali dell'utente (come nome utente e password). Il backend verifica le credenziali, autentica l'utente e genera un token di accesso che viene restituito al frontend. Il token di accesso viene quindi utilizzato nelle successive richieste per verificare l'autenticazione dell'utente.
+Durante queste interazioni, possono verificarsi situazioni di errore. Per gestire gli errori, il backend può generare messaggi di errore che vengono restituiti al frontend. Ad esempio, se si verifica un'eccezione durante l'esecuzione di un trigger o se il token di login o CSRF (Cross-Site Request Forgery) non è valido, il backend può generare un messaggio di errore e restituirlo al frontend. 
+Esempio eccezione trigger per errata modifica dello status di un progetto:
+\begin{center}
+\includegraphics[scale = 0.04]{4.png}
+\end{center}
+Scendendo più nel dettaglio, descriviamo il flusso di due richieste d'esempio e come vengono gestite nel backend.\\
+\begin{minipage}{\linewidth}
+\begin{imtaCode}{javascript}
+$.ajax({
+                    url: '/api/get_doc_types',
+                    type: 'POST',
+                    datatype: 'json',
+                    beforeSend: function(xhr) {
+                        xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+                    },
+                    success: (data) => {
+                        $('#selectDocType').empty()
+                        data.forEach(item => {
+                            $('#selectDocType').append(`<option class="inputdoctype" value="${item.id}">${item.name}</option>`)
+                        })
+                    }
+                })
+             \end{imtaCode}
+\end{minipage}\\
+In questo primo esempio una richiesta AJAX viene utilizzata per ottenere i tipi di documento da visualizzare in un'interfaccia modale. Quando l'utente fa clic su un pulsante per aprire la modale, viene scatenata una funzione che effettua una richiesta AJAX al percorso \imtaInlinecode{latex}{/api/get_doc_types} sul server. Questa richiesta viene inviata tramite il metodo POST e viene specificato che il tipo di dati atteso è JSON. Prima di inviare la richiesta, viene impostato l'header \imtaInlinecode{latex}{X-CSRF-Token} con il valore del token CSRF presente nel meta tag della pagina.
+Nel backend, il server riceve la richiesta al percorso \imtaInlinecode{latex}{/api/get_doc_types} e restituisce i tipi di documento come dati JSON. Nel successo della richiesta AJAX, i dati ricevuti vengono utilizzati per popolare una select box nel frontend con gli elementi appropriati.\\
+\begin{minipage}{\linewidth}
+\begin{imtaCode}{javascript}
+var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/add_participant", true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader("X-CSRFToken", csrfToken);  // Include the CSRF token in the request headers
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 ) {
+        console.log(xhr.responseText);
+        window.location.reload();  // Reload the page after the AJAX request completes
+    }
+};
+    xhr.send(JSON.stringify({
+        projectId: projectId,
+        email: email
+    }));
+
+
+}
+             \end{imtaCode}
+\end{minipage}
+In questo secondo esempio, invece, la funzione \imtaInlinecode{latex}{addParticipant} viene utilizzata per inviare una richiesta AJAX per aggiungere un partecipante a un progetto. Viene creato un oggetto XMLHttpRequest e viene impostato il metodo, l'URL di destinazione e l'intestazione \imtaInlinecode{latex}{Content-Type} per indicare che i dati inviati sono in formato JSON. Viene inoltre incluso il token CSRF nell'intestazione 'X-CSRFToken'. La risposta alla richiesta viene gestita nella funzione onreadystatechange, che controlla lo stato della richiesta e, se è completata (readyState === 4), esegue un'azione (in questo caso, viene stampata la risposta sulla console e la pagina viene ricaricata con eventuali messaggi di errore (i.e. utente già nel progetto o mail non esistente)).
 
 \chapter{Collaborazione e contributo individuale}
 \section{Planning}

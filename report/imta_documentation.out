@@ -21,23 +21,23 @@
 \BOOKMARK [2][-]{subsection.2.4.2}{Specifiche integrit\340 dei dati}{section.2.4}% 21
 \BOOKMARK [2][-]{subsection.2.4.3}{Gestione dei ruoli e politiche di autorizzazione}{section.2.4}% 22
 \BOOKMARK [2][-]{subsection.2.4.4}{Performance: indici e materialized view }{section.2.4}% 23
-\BOOKMARK [0][-]{chapter.3}{Implementazione back-end}{}% 24
-\BOOKMARK [1][-]{section.3.1}{Flask e SQLAlchemy}{chapter.3}% 25
-\BOOKMARK [1][-]{section.3.2}{Expression Language e ORM}{chapter.3}% 26
-\BOOKMARK [1][-]{section.3.3}{Sicurezza}{chapter.3}% 27
-\BOOKMARK [2][-]{subsection.3.3.1}{Protezione da XSS}{section.3.3}% 28
-\BOOKMARK [2][-]{subsection.3.3.2}{Protezione da SQL Injection}{section.3.3}% 29
-\BOOKMARK [2][-]{subsection.3.3.3}{Meccanismi di sicurezza aggiuntivi}{section.3.3}% 30
-\BOOKMARK [1][-]{section.3.4}{Approfondimento delle tecnologiche specifiche}{chapter.3}% 31
-\BOOKMARK [2][-]{subsection.3.4.1}{libreria1 }{section.3.4}% 32
-\BOOKMARK [2][-]{subsection.3.4.2}{libreria2 }{section.3.4}% 33
-\BOOKMARK [0][-]{chapter.4}{Implementazione front-end}{}% 34
-\BOOKMARK [1][-]{section.4.1}{Brand identity}{chapter.4}% 35
-\BOOKMARK [1][-]{section.4.2}{Demo}{chapter.4}% 36
-\BOOKMARK [1][-]{section.4.3}{Approfondimento delle tecnologiche specifiche}{chapter.4}% 37
-\BOOKMARK [2][-]{subsection.4.3.1}{framework1 }{section.4.3}% 38
-\BOOKMARK [2][-]{subsection.4.3.2}{css }{section.4.3}% 39
-\BOOKMARK [2][-]{subsection.4.3.3}{javascript }{section.4.3}% 40
+\BOOKMARK [0][-]{chapter.3}{Sviluppo back-end}{}% 24
+\BOOKMARK [1][-]{section.3.1}{Scelta di Flask come framework}{chapter.3}% 25
+\BOOKMARK [1][-]{section.3.2}{Architettura dell'applicazione}{chapter.3}% 26
+\BOOKMARK [2][-]{subsection.3.2.1}{Ruolo del back-end nell'architettura complessiva}{section.3.2}% 27
+\BOOKMARK [2][-]{subsection.3.2.2}{Organizzazione delle directory e dei file del progetto}{section.3.2}% 28
+\BOOKMARK [2][-]{subsection.3.2.3}{Principali componenti del back-end}{section.3.2}% 29
+\BOOKMARK [1][-]{section.3.3}{Interazione con il DBMS PostgreSQL}{chapter.3}% 30
+\BOOKMARK [2][-]{subsection.3.3.1}{Utilizzo di SQLAlchemy per l'interazione con il database}{section.3.3}% 31
+\BOOKMARK [2][-]{subsection.3.3.2}{Esecuzione delle query principali e gestione dei risultati}{section.3.3}% 32
+\BOOKMARK [1][-]{section.3.4}{Sicurezza del back-end}{chapter.3}% 33
+\BOOKMARK [2][-]{subsection.3.4.1}{Utilizzo di Flask-WTF per gestire i moduli e i token CSRF}{section.3.4}% 34
+\BOOKMARK [2][-]{subsection.3.4.2}{Meccanismi di autenticazione e autorizzazione}{section.3.4}% 35
+\BOOKMARK [2][-]{subsection.3.4.3}{Salting e hashing delle password degli utenti}{section.3.4}% 36
+\BOOKMARK [2][-]{subsection.3.4.4}{Protezione da SQL Injection }{section.3.4}% 37
+\BOOKMARK [0][-]{chapter.4}{Implementazione front-end}{}% 38
+\BOOKMARK [1][-]{section.4.1}{Design finale}{chapter.4}% 39
+\BOOKMARK [1][-]{section.4.2}{Integrazione tra front-end e back-end}{chapter.4}% 40
 \BOOKMARK [0][-]{chapter.5}{Collaborazione e contributo individuale}{}% 41
 \BOOKMARK [1][-]{section.5.1}{Planning}{chapter.5}% 42
 \BOOKMARK [1][-]{section.5.2}{Descrizione del ruolo di ciascun membro del gruppo}{chapter.5}% 43

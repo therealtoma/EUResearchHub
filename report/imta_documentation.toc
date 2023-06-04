@@ -24,23 +24,23 @@
 \contentsline {subsection}{\numberline {2.4.2}Specifiche integrità dei dati}{13}{subsection.2.4.2}%
 \contentsline {subsection}{\numberline {2.4.3}Gestione dei ruoli e politiche di autorizzazione}{16}{subsection.2.4.3}%
 \contentsline {subsection}{\numberline {2.4.4}Performance: indici e materialized view }{18}{subsection.2.4.4}%
-\contentsline {chapter}{\numberline {3}Implementazione back-end}{20}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Flask e SQLAlchemy}{21}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Expression Language e ORM}{21}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Sicurezza}{21}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Protezione da XSS}{21}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Protezione da SQL Injection}{21}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Meccanismi di sicurezza aggiuntivi}{21}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}Approfondimento delle tecnologiche specifiche}{21}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}\texttt {libreria1} }{21}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}\texttt {libreria2} }{21}{subsection.3.4.2}%
-\contentsline {chapter}{\numberline {4}Implementazione front-end}{22}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Brand identity}{23}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Demo}{23}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Approfondimento delle tecnologiche specifiche}{23}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}\texttt {framework1} }{23}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}\texttt {css} }{23}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}\texttt {javascript} }{23}{subsection.4.3.3}%
-\contentsline {chapter}{\numberline {5}Collaborazione e contributo individuale}{24}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Planning}{25}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Descrizione del ruolo di ciascun membro del gruppo}{25}{section.5.2}%
+\contentsline {chapter}{\numberline {3}Sviluppo back-end}{20}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Scelta di Flask come framework}{21}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Architettura dell'applicazione}{21}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Ruolo del back-end nell'architettura complessiva}{21}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Organizzazione delle directory e dei file del progetto}{21}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Principali componenti del back-end}{22}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Interazione con il DBMS \texttt {PostgreSQL}}{22}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Utilizzo di \texttt {SQLAlchemy} per l'interazione con il database}{23}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Esecuzione delle query principali e gestione dei risultati}{23}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Sicurezza del back-end}{25}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Utilizzo di \texttt {Flask-WTF} per gestire i moduli e i token \texttt {CSRF}}{25}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Meccanismi di autenticazione e autorizzazione}{25}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Salting e hashing delle password degli utenti}{25}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Protezione da \texttt {SQL Injection} }{25}{subsection.3.4.4}%
+\contentsline {chapter}{\numberline {4}Implementazione front-end}{26}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Design finale}{27}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Integrazione tra front-end e back-end}{27}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Collaborazione e contributo individuale}{30}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Planning}{31}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Descrizione del ruolo di ciascun membro del gruppo}{31}{section.5.2}%
