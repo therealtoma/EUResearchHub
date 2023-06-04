@@ -1,7 +1,8 @@
 from re import match
-from sqlalchemy import text
-from flask import Blueprint, jsonify
-from app.models.database import db, Documents, Document_Types
+from flask import Blueprint, jsonify, render_template, redirect, url_for, request
+from flask_login import login_required
+from app.models.database import db, Documents, Document_Types, Document_Versions
+import os
 api = Blueprint('api', __name__)
 
 def check_email(s):
@@ -9,6 +10,7 @@ def check_email(s):
     return match(pattern, s)
 
 @api.route('/get_doc_types', methods=['POST'])
+@login_required
 def get_doc_types():
     d = Document_Types.query.all()
     doc_types = []
@@ -19,3 +21,35 @@ def get_doc_types():
         })
 
     return jsonify(doc_types)
+
+@api.route('/upload_document/<int:project_id>', methods=['POST'])
+@login_required
+def upload_document(project_id):
+    '''
+    il pdf va dentro la cartella del progetto
+    nella cartella del progetto tante cartelle con l'id del doc_type
+    all'interno di quelle cartelle tanti pdf con l'id del doc version
+    '''
+    # caricare il file nella cartella specifica
+    if request.files.get('document'):
+        docType = request.form.get('docType')
+        currentDirectory = os.path.dirname(os.path.realpath(__file__))
+        folderPath = os.path.join(currentDirectory, '../static/uploads/projects/' + str(project_id) + '/' + docType + '/')
+        if not os.path.exists(folderPath):
+            os.makedirs(folderPath)
+        document = request.files.get('document')
+
+        # aggiungo il documento al database
+        docDB = Documents(file_path=os.path.join(str(project_id), '/', docType), fk_document_type=docType, fk_project=project_id)
+        db.session.add(docDB)
+        db.session.commit()
+
+        # aggiungo la version al database
+        docVersion = Document_Versions(title='First commit', description=None, fk_document=docDB.id)
+        db.session.add(docVersion)
+        db.session.commit()
+
+        # salvo il file
+        document.save(os.path.join(folderPath, str(docVersion.id) + '.pdf'))
+
+    return redirect(url_for('views.project', project_id=project_id))
