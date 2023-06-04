@@ -236,10 +236,16 @@ def project(project_id):
     docs = []
     for doc in documents:
         doc_type = Document_Types.query.filter_by(id=doc.fk_document_type).first()
-        docs.append(doc_type)
+        docs.append({
+            'id': doc_type.id,
+            'nome': doc_type.nome,
+            'descrizione': doc_type.descrizione,
+            'file_path': doc.file_path
+        })
 
     # Get the view_document data
-    if document_id:
+    if request.args.get('document_id'):
+        document_id = request.args.get('document_id')
         document = Documents.query.get_or_404(document_id)
 
         nome_tipo_documento = Document_Types.query.filter_by(id=document.fk_document_type).first()
