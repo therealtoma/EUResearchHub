@@ -307,6 +307,7 @@
 
                         </select>
                     </div>
+
                     <button type="submit">Upload</button>
                     <!-- End File Details -->
                 </div>
@@ -386,23 +387,32 @@
             const openModalButton2 = document.getElementById('openModalButton2');
             const modalContainer = document.getElementById('modalContainer');
             const modalContainer2 = document.getElementById('modalContainer2');
-            openModalButton.addEventListener('click', function() {
+            $(openModalButton).on('click', () => {
+                modalContainer.style.display = 'block'
+            })
+            $(document).ready(function() {
                 $.ajax({
-                    url: '/api/get_doc_types',
+                    url: '/api/get_doc_types/{{ session['project_id'] }}',
                     type: 'POST',
                     datatype: 'json',
                     beforeSend: function(xhr) {
                         xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
                     },
                     success: (data) => {
-                        $('#selectDocType').empty()
-                        data.forEach(item => {
-                            $('#selectDocType').append(`<option class="inputdoctype" value="${item.id}">${item.name}</option>`)
-                        })
+                        if(data.length > 0) {
+                            $('#selectDocType').empty()
+                            data.forEach(item => {
+                                $('#selectDocType').append(`<option class="inputdoctype" value="${item.id}">${item.name}</option>`)
+                            })
+                        }
+                        else {
+                            $('.new-document-box').hide()
+                        }
                     }
                 })
-                modalContainer.style.display = 'block';
             });
+
+
 
             openModalButton2.addEventListener('click', function() {
                 modalContainer2.style.display = 'block';

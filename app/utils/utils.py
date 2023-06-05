@@ -2,6 +2,7 @@ from re import match
 from flask import Blueprint, jsonify, render_template, redirect, url_for, request
 from flask_login import login_required
 from app.models.database import db, Documents, Document_Types, Document_Versions
+from sqlalchemy.sql import exists
 import os
 api = Blueprint('api', __name__)
 
@@ -9,12 +10,24 @@ def check_email(s):
     pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
     return match(pattern, s)
 
-@api.route('/get_doc_types', methods=['POST'])
+@api.route('/get_doc_types/<int:project_id>', methods=['POST'])
 @login_required
-def get_doc_types():
-    d = Document_Types.query.all()
+def get_doc_types(project_id):
+    '''
+    restituire solo i doc type che non sono ancora stati caricati in quel progetto
+    la query da eseguire è questa:
+
+    SELECT dt.id, dt.nome
+    FROM document_types dt LEFT JOIN documents d ON dt.id = d.fk_document_type ADN d.fk_project = project_id
+    WHERE d.fk_document_type IS NULL;
+
+    '''
+
+    unused_types = db.session.query(Document_Types).filter(
+        ~exists().where((Documents.fk_document_type == Document_Types.id) & (Documents.fk_project == project_id))
+    ).all()
     doc_types = []
-    for type in d:
+    for type in unused_types:
         doc_types.append({
             'id': type.id,
             'name': type.nome
