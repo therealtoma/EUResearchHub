@@ -107,12 +107,76 @@
                     <a download href="../static/uploads/projects/{{ project.id }}{{ document.file_path }}">Download</a>
                 </div>
                 <br>
-                <div class="days-left" style="color: #729DAC;">
-                    [ev. report]
-                </div>
+                {% if session['user_type'] == 'evaluator' %}
+                    <div class="days-left" style="color: #729DAC;">
+                        <button id="openModalButton3">Upload report</button>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
+        <div id="modalContainer3" class="modal-container">
+            <form method="post" enctype="multipart/form-data" action="/api/upload_report/{{ session['project_id'] }}/{{ document.id }}">
+                <div id="uploadArea3" class="upload-area">
+                    <!-- Header -->
+                    <div class="upload-area__header">
+                        <h1 class="upload-area__title">  Upload your file </h1>
+                        <p class="upload-area__paragraph">
+                            File should be a document or image
+                            <strong class="upload-area__tooltip">
+                                <span class="upload-area__tooltip-data2"></span> <!-- Data Will be Comes From Js -->
+                            </strong>
+                        </p>
+                    </div>
+                    <!-- End Header -->
+
+                    <!-- Drop Zone -->
+                    <div id="dropZoon3" class="upload-area__drop-zoon drop-zoon">
+                        <span class="drop-zoon__icon">
+                          <i class='bx bxs-file-image'></i>
+                        </span>
+                        <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
+                        <span id="loadingText3" class="drop-zoon__loading-text">Please Wait</span>
+                        <img src="" alt="Preview Image" id="previewImage2" class="drop-zoon__preview-image" draggable="false">
+                        <input type="file" name="docVersion" id="fileInput3" class="drop-zoon__file-input" accept="application/pdf">
+                    </div>
+                    <!-- End Drop Zone -->
+
+                    <!-- File Details -->
+                    <div id="fileDetails2" class="upload-area__file-details file-details">
+                        <h3 class="file-details__title">Uploaded File</h3>
+
+                        <div id="uploadedFile3" class="uploaded-file">
+                            <div class="uploaded-file__icon-container">
+                                <i class='bx bxs-file-blank uploaded-file__icon'></i>
+                                <span class="uploaded-file__icon-text2"></span> <!-- Data Will be Comes From Js -->
+                            </div>
+
+                            <div id="uploadedFileInfo3" class="uploaded-file__info">
+                                <span class="uploaded-file__name2">Proejct 1</span>
+                                <span class="uploaded-file__counter2">0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="uploadedDescription-container3" class="uploadedDescription-container">
+                        <div id="uploadedDescription3" class="uploaded-description">
+                                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                <input type="text" required name="comment" placeholder="Add a comment">
+                        </div>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+
+                        <button class="login100-form-btn upload-button" type="submit">
+                            <strong>Upload</strong>
+                        </button>
+                    </div>
+                    <!-- End File Details -->
+                </div>
+                <!-- End Upload Area -->
+            </form>
+        </div>
 {% endfor %}
 
 
@@ -378,6 +442,7 @@
                 <!-- End Upload Area -->
             </form>
         </div>
+
         <!-- partial -->
         <script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
         <script src="../static/functions.js"></script>
@@ -385,11 +450,19 @@
         <script>
             const openModalButton = document.getElementById('openModalButton');
             const openModalButton2 = document.getElementById('openModalButton2');
+            const openModalButton3 = document.getElementById('openModalButton3')
             const modalContainer = document.getElementById('modalContainer');
             const modalContainer2 = document.getElementById('modalContainer2');
+            const modalContainer3 = document.getElementById('modalContainer3')
+
             $(openModalButton).on('click', () => {
                 modalContainer.style.display = 'block'
             })
+
+            $(openModalButton3).on('click', () => {
+                modalContainer3.style.display = 'block'
+            })
+
             $(document).ready(function() {
                 $.ajax({
                     url: '/api/get_doc_types/{{ session['project_id'] }}',
