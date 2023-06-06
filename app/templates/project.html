@@ -137,8 +137,8 @@
                         </span>
                         <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
                         <span id="loadingText3" class="drop-zoon__loading-text">Please Wait</span>
-                        <img src="" alt="Preview Image" id="previewImage2" class="drop-zoon__preview-image" draggable="false">
-                        <input type="file" name="docVersion" id="fileInput3" class="drop-zoon__file-input" accept="application/pdf">
+                        <img src="" alt="Preview Image" id="previewImage3" class="drop-zoon__preview-image" draggable="false">
+                        <input type="file" name="report" id="fileInput3" class="drop-zoon__file-input" accept="application/pdf">
                     </div>
                     <!-- End Drop Zone -->
 
@@ -502,6 +502,12 @@
                     modalContainer2.style.display = 'none';
                 }
             });
+
+            window.addEventListener('click', function(event){
+                if(event.target === modalContainer3){
+                    modalContainer3.style.display = 'none';
+                }
+            })
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
 
