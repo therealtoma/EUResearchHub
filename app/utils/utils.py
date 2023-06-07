@@ -109,7 +109,7 @@ def upload_report(project_id, document_id):
         report = request.files.get('report')
 
         # aggiungo il report all'interno del database
-        evReport = Evaluation_Reports(comment=comment, fk_document=document_id)
+        evReport = Evaluation_Reports(comment=comment, fk_document=document_id, file_path=str(project_id) + '/' + str(document_id))
         db.session.add(evReport)
         db.session.commit()
 

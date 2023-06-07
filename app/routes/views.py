@@ -3,6 +3,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash,
 from flask_login import login_required, current_user
 from sqlalchemy import func
 from app.models.database import *
+import os
 
 views = Blueprint('views', __name__)
 
@@ -231,11 +232,16 @@ def project(project_id):
         doc_type = Document_Types.query.filter_by(id=doc.fk_document_type).first()
         # ho bisogno di doc_version.max_id per quel documento
         doc_version = db.session.query(func.max(Document_Versions.id)).filter_by(fk_document=doc.id).first()
+
+        # controllo se esiste un evaluation report per quel documento
+        ev_rep = Evaluation_Reports.query.filter_by(fk_document=doc.id).all()
+
         docs.append({
             'id': doc_type.id,
             'nome': doc_type.nome,
             'descrizione': doc_type.descrizione,
-            'file_path': doc.file_path + '/' + str(doc_version[0]) + '.pdf'
+            'file_path': doc.file_path + '/' + str(doc_version[0]) + '.pdf',
+            'ev_rep': ev_rep
         })
 
     # Get the view_document data
