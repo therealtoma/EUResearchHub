@@ -233,8 +233,13 @@ def project(project_id):
         # ho bisogno di doc_version.max_id per quel documento
         doc_version = db.session.query(func.max(Document_Versions.id)).filter_by(fk_document=doc.id).first()
 
+        doc_id = db.session.query(Document_Versions.fk_document).filter_by(id=doc_version[0]).first()
+        ev_doc_type = db.session.query(Documents.fk_document_type).filter_by(id=doc_id[0]).first()
         # controllo se esiste un evaluation report per quel documento
-        ev_rep = Evaluation_Reports.query.filter_by(fk_document=doc.id).all()
+        if(os.path.exists(os.path.join(os.path.dirname(__file__), '../static/uploads/projects/' + str(project_id) + '/' + str(ev_doc_type[0]) + '/evaluation_report.pdf'))):
+            ev_rep = str(project_id) + '/' +  str(ev_doc_type[0]) + '/evaluation_report.pdf'
+        else:
+            ev_rep = None
 
         docs.append({
             'id': doc_type.id,
