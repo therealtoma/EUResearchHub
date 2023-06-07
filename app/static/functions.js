@@ -5,12 +5,14 @@ const uploadArea2 = document.querySelector('#uploadArea2')
 // Select Drop-Zoon Area
 const dropZoon = document.querySelector('#dropZoon');
 const dropZoon2 = document.querySelector('#dropZoon2');
+const dropZoon3 = document.querySelector('#dropZoon3')
 // Loading Text
 const loadingText = document.querySelector('#loadingText');
 const loadingText2 = document.querySelector('#loadingText2');
 // Slect File Input
 const fileInput = document.querySelector('#fileInput');
 const fileInput2 = document.querySelector('#fileInput2');
+const fileInput3 = document.querySelector('#fileInput3');
 fileInput.setAttribute('accept', 'image/*, application/pdf');
 // Select Preview Image
 const previewImage = document.querySelector('#previewImage');
@@ -106,6 +108,10 @@ dropZoon2.addEventListener('click', function (event) {
     // Click The (fileInput)
     fileInput2.click();
 });
+
+dropZoon3.addEventListener('click', function (event) {
+  fileInput3.click()
+})
 
 // When (fileInput) has (change) Event
 fileInput.addEventListener('change', function (event) {

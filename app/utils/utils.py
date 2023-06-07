@@ -1,7 +1,7 @@
 from re import match
 from flask import Blueprint, jsonify, render_template, redirect, url_for, request
 from flask_login import login_required
-from app.models.database import db, Documents, Document_Types, Document_Versions
+from app.models.database import db, Documents, Document_Types, Document_Versions, Evaluation_Reports
 from sqlalchemy.sql import exists
 import os
 api = Blueprint('api', __name__)
@@ -92,3 +92,28 @@ def upload_version(project_id, document_id):
         document.save(os.path.join(folderPath, str(docVersion.id) + '.pdf'))
 
     return redirect(url_for('views.project', project_id=project_id))
+
+@api.route('/upload_report/<int:project_id>/<int:document_id>', methods=['POST'])
+@login_required
+def upload_report(project_id, document_id):
+    '''
+    ricevo un pdf che rappresenta l'evaluation report
+    salvo il pdf all'interno della cartella del documento relativo a quel progetto
+    '''
+    if request.files.get('report'):
+        comment = request.form.get('comment')
+        currentDirectory = os.path.dirname(os.path.realpath(__file__))
+        folderPath = os.path.join(currentDirectory, '../static/uploads/projects/' + str(project_id) + '/' + str(document_id) + '/')
+        if not os.path.exists(folderPath):
+            os.makedirs(folderPath)
+        report = request.files.get('report')
+
+        # aggiungo il report all'interno del database
+        evReport = Evaluation_Reports(comment=comment, fk_document=document_id, file_path=str(project_id) + '/' + str(document_id))
+        db.session.add(evReport)
+        db.session.commit()
+
+        # salvo il file nella cartella
+        report.save(os.path.join(folderPath, 'evaluation_report.pdf'))
+
+        return redirect(url_for('views.project', project_id=project_id))
