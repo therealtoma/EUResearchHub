@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{FUNCTION}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{l+m+mf}{.}\PYG{n}{refresh\PYGZus{}project\PYGZus{}status\PYGZus{}count}\PYG{p}{()}
+\PYG{+w}{ }\PYG{k}{RETURNS}\PYG{+w}{ }\PYG{k}{trigger}
+\PYG{+w}{ }\PYG{k}{LANGUAGE}\PYG{+w}{ }\PYG{n}{plpgsql}
+\PYG{k}{AS}\PYG{+w}{ }\PYG{l+s}{\PYGZdl{}}\PYG{l+s+dl}{function}\PYG{l+s}{\PYGZdl{}}
+\PYG{k}{BEGIN}
+\PYG{+w}{  }\PYG{k}{REFRESH}\PYG{+w}{ }\PYG{k}{MATERIALIZED}\PYG{+w}{ }\PYG{k}{VIEW}\PYG{+w}{ }\PYG{n}{projects\PYGZus{}status\PYGZus{}count}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{RETURN}\PYG{+w}{ }\PYG{k}{NEW}\PYG{p}{;}
+\PYG{k}{END}\PYG{p}{;}
+\PYG{l+s}{\PYGZdl{}}\PYG{l+s+dl}{function}\PYG{l+s}{\PYGZdl{}}
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TRIGGER}\PYG{+w}{ }\PYG{n}{refresh\PYGZus{}project\PYGZus{}status\PYGZus{}count\PYGZus{}insert}
+\PYG{k}{AFTER}\PYG{+w}{ }\PYG{k}{INSERT}\PYG{+w}{ }\PYG{k}{OR}\PYG{+w}{ }\PYG{k}{UPDATE}
+\PYG{k}{ON}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{l+m+mf}{.}\PYG{n}{projects}
+\PYG{k}{FOR}\PYG{+w}{ }\PYG{k}{EACH}\PYG{+w}{ }\PYG{k}{STATEMENT}
+\PYG{k}{EXECUTE}\PYG{+w}{ }\PYG{k}{FUNCTION}\PYG{+w}{ }\PYG{n}{refresh\PYGZus{}project\PYGZus{}status\PYGZus{}count}\PYG{p}{()}
+\end{Verbatim}

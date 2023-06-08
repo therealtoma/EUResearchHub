@@ -34,10 +34,11 @@
 \BOOKMARK [2][-]{subsection.3.4.1}{Utilizzo di Flask-WTF per gestire i moduli e i token CSRF}{section.3.4}% 34
 \BOOKMARK [2][-]{subsection.3.4.2}{Meccanismi di autenticazione e autorizzazione}{section.3.4}% 35
 \BOOKMARK [2][-]{subsection.3.4.3}{Salting e hashing delle password degli utenti}{section.3.4}% 36
-\BOOKMARK [2][-]{subsection.3.4.4}{Protezione da SQL Injection }{section.3.4}% 37
-\BOOKMARK [0][-]{chapter.4}{Implementazione front-end}{}% 38
-\BOOKMARK [1][-]{section.4.1}{Design finale}{chapter.4}% 39
-\BOOKMARK [1][-]{section.4.2}{Integrazione tra front-end e back-end}{chapter.4}% 40
-\BOOKMARK [0][-]{chapter.5}{Contributo al progetto}{}% 41
-\BOOKMARK [1][-]{section.5.1}{Processo di sviluppo}{chapter.5}% 42
-\BOOKMARK [1][-]{section.5.2}{Analitiche Github}{chapter.5}% 43
+\BOOKMARK [2][-]{subsection.3.4.4}{Protezione da SQL Injection e XSS }{section.3.4}% 37
+\BOOKMARK [2][-]{subsection.3.4.5}{Sicurezza delle transazioni }{section.3.4}% 38
+\BOOKMARK [0][-]{chapter.4}{Implementazione front-end}{}% 39
+\BOOKMARK [1][-]{section.4.1}{Design finale}{chapter.4}% 40
+\BOOKMARK [1][-]{section.4.2}{Integrazione tra front-end e back-end}{chapter.4}% 41
+\BOOKMARK [0][-]{chapter.5}{Contributo al progetto}{}% 42
+\BOOKMARK [1][-]{section.5.1}{Processo di sviluppo}{chapter.5}% 43
+\BOOKMARK [1][-]{section.5.2}{Analitiche Github}{chapter.5}% 44

@@ -37,10 +37,11 @@
 \contentsline {subsection}{\numberline {3.4.1}Utilizzo di \texttt {Flask-WTF} per gestire i moduli e i token \texttt {CSRF}}{25}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}Meccanismi di autenticazione e autorizzazione}{25}{subsection.3.4.2}%
 \contentsline {subsection}{\numberline {3.4.3}Salting e hashing delle password degli utenti}{25}{subsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.4.4}Protezione da \texttt {SQL Injection} }{25}{subsection.3.4.4}%
-\contentsline {chapter}{\numberline {4}Implementazione front-end}{26}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Design finale}{27}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Integrazione tra front-end e back-end}{28}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Contributo al progetto}{30}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Processo di sviluppo}{31}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Analitiche Github}{31}{section.5.2}%
+\contentsline {subsection}{\numberline {3.4.4}Protezione da \texttt {SQL Injection e XSS} }{25}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5}Sicurezza delle transazioni }{25}{subsection.3.4.5}%
+\contentsline {chapter}{\numberline {4}Implementazione front-end}{28}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Design finale}{29}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Integrazione tra front-end e back-end}{30}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Contributo al progetto}{32}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Processo di sviluppo}{33}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Analitiche Github}{33}{section.5.2}%

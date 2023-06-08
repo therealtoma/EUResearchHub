@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{var}\PYG{+w}{ }\PYG{n+nx}{xhr}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o+ow}{new}\PYG{+w}{ }\PYG{n+nx}{XMLHttpRequest}\PYG{p}{();}
+\PYG{n+nx}{xhr}\PYG{p}{.}\PYG{n+nx}{open}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}POST\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}/add\PYGZus{}participant\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kc}{true}\PYG{p}{);}
+\PYG{n+nx}{xhr}\PYG{p}{.}\PYG{n+nx}{setRequestHeader}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Content\PYGZhy{}Type\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}application/json\PYGZsq{}}\PYG{p}{);}
+\PYG{n+nx}{xhr}\PYG{p}{.}\PYG{n+nx}{setRequestHeader}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}X\PYGZhy{}CSRFToken\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{csrfToken}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{// Include the CSRF token in the request headers}
+\PYG{n+nx}{xhr}\PYG{p}{.}\PYG{n+nx}{onreadystatechange}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kd}{function}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{xhr}\PYG{p}{.}\PYG{n+nx}{readyState}\PYG{+w}{ }\PYG{o}{===}\PYG{+w}{ }\PYG{l+m+mf}{4}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n+nx}{console}\PYG{p}{.}\PYG{n+nx}{log}\PYG{p}{(}\PYG{n+nx}{xhr}\PYG{p}{.}\PYG{n+nx}{responseText}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n+nb}{window}\PYG{p}{.}\PYG{n+nx}{location}\PYG{p}{.}\PYG{n+nx}{reload}\PYG{p}{();}\PYG{+w}{ }\PYG{c+c1}{// Reload the page after the AJAX request completes}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+\PYG{n+nx}{xhr}\PYG{p}{.}\PYG{n+nx}{send}\PYG{p}{(}\PYG{n+nb}{JSON}\PYG{p}{.}\PYG{n+nx}{stringify}\PYG{p}{(\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{projectId}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nx}{projectId}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nx}{email}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nx}{email}
+\PYG{p}{\PYGZcb{}));}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

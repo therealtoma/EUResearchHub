@@ -632,8 +632,108 @@ La route /login gestisce il processo di accesso. Quando un utente invia un modul
 \subsection{Salting e hashing delle password degli utenti}
 La funzione  \imtaInlinecode{latex}{generate_password_hash} del modulo  \imtaInlinecode{latex}{werkzeug.security} viene utilizzata per generare un hash della password. L'hash viene quindi memorizzato nel campo password del modello di dati per il valutatore o il ricercatore.
 Durante il processo di accesso, la funzione  \imtaInlinecode{latex}{check_password_hash} viene utilizzata per confrontare la password fornita dall'utente con l'hash memorizzato nel database. Questo approccio aumenta la sicurezza delle password degli utenti evitando di memorizzarle in forma di testo semplice.
-\subsection{Protezione da \texttt{SQL Injection} }
-Per prevenire attacchi di SQL Injection, viene utilizzato l'Object Relational Mapping (ORM) fornito da SQLAlchemy per eseguire query parametrizzate al database. 
+\subsection{Protezione da \texttt{SQL Injection e XSS} }
+Per prevenire attacchi di SQL Injection, viene utilizzato l'Object Relational Mapping (ORM) fornito da SQLAlchemy per eseguire query parametrizzate al database.  In contrario per prevenire XSS tutti gli input vengono sanitizzati prima di essere salvati utilizzando la libreria  \imtaInlinecode{latex}{Markupsafe} e \imtaInlinecode{latex}{Bleach} la pulizia dei dati provenienti dai form.  Funzioni chiave per questa fase sono state: \imtaInlinecode{latex}{escape} e \imtaInlinecode{latex}{clean}.
+
+\subsection{Sicurezza delle transazioni }
+Per mantenere il sistema stabile e coerente sono state implementate anche alcune transazioni grazie all'ausilio di SQLAlchemy e i contest manager  \imtaInlinecode{latex}{db.session.begin()}, \imtaInlinecode{latex}{db.session.rollback()} e \imtaInlinecode{latex}{db.session.commit()}.
+
+\begin{itemize}
+\item Transazione di Creazione Progetto:\\
+
+\begin{minipage}{\linewidth}
+\begin{imtaCode}{python}
+@views.route('/create_project', methods=['POST'])
+@login_required
+def create_project():
+    try:
+        with db.session.begin():
+            title = request.form.get('title')
+            description = request.form.get('description')
+            sanitized_title = clean(title)
+            sanitized_description = clean(description)
+            max_evaluation_id = db.session.query(func.max(Evaluation_Windows.id))
+            new_project = Projects(title=sanitized_title, description=sanitized_description, status=EnumStatus.submitted_for_evaluation, fk_evaluation_window=max_evaluation_id)
+            project_creator = Researchers_Projects(fk_researchers=current_user.id, fk_projects=new_project.id)
+            db.session.add(new_project)
+            db.session.add(project_creator)
+        db.session.commit()      
+        return redirect(url_for('views.project', project_id=new_project.id))
+    except Exception as e:
+        db.session.rollback()
+        flash('Si è verificato un errore durante la creazione del progetto.', 'error')
+        return redirect(url_for('views.projects'))
+         \end{imtaCode}
+\end{minipage}
+
+\item Transazione di Aggiornamento Stato Progetto:\\
+
+
+\begin{minipage}{\linewidth}
+\begin{imtaCode}{python}
+@views.route('/update_project_status', methods=['POST'])
+@login_required
+def update_project_status():
+    try:
+        with db.session.begin():
+            project_id = request.form.get('project_id')
+            new_status = request.form.get('new_status')
+            project = Projects.query.get(project_id)
+            if project:
+                total_documents = Documents.query.filter_by(fk_project=project_id). count()
+                evaluated_documents = Evaluation_Reports.query.filter_by(fk_project=project_id). count()
+                if total_documents != evaluated_documents:
+                    flash('Non tutti i documenti sono stati valutati.', 'error')
+                else:
+                    project.status = new_status
+        db.session.commit()
+        return redirect(url_for('views.project', project_id=project_id))
+    except Exception as e:
+        db.session.rollback()
+        flash('Si è verificato un errore durante l\'aggiornamento dello stato del progetto.', 'error')
+        return redirect(url_for('views.project', project_id=project_id))
+         \end{imtaCode}
+\end{minipage}
+
+\item Transazione di Aggiunta Partecipante:\\
+\begin{minipage}{\linewidth}
+\begin{imtaCode}{python}
+@views.route('/add_participant', methods=['POST'])
+@login_required
+def add_participant():
+    try:
+        with db.session.begin():
+            data = request.get_json()
+            project_id = data.get('projectId')
+            email = data.get('email')
+            sanitized_project_id = clean(project_id)
+            sanitized_email = clean(email)
+            project = Projects.query.get(sanitized_project_id)
+            researcher = Researchers.query.filter_by(email=sanitized_email).first()
+            if not project or not researcher:
+                flash('Il progetto o il ricercatore non esistono.', 'error')
+                return redirect(url_for('views.projects'))
+            researcher_project = Researchers_Projects.query.filter_by(
+                fk_projects=sanitized_project_id,
+                fk_researchers=researcher.id
+            ).first()
+            if researcher_project:
+                flash('Il ricercatore è già stato aggiunto a questo progetto.', 'error')
+                return redirect(url_for('views.projects'))
+            new_researcher = Researchers_Projects(
+                fk_researchers=researcher.id,
+                fk_projects=sanitized_project_id
+            )
+            db.session.add(new_researcher)
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        flash('Si è verificato un errore durante l\'aggiunta del partecipante.', 'error')
+    return redirect(url_for('views.projects'))
+         \end{imtaCode}
+\end{minipage}
+\end{itemize}
+
 
 
 \chapter{Implementazione front-end}
