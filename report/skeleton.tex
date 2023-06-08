@@ -1,0 +1,54 @@
+\documentclass{article} % for short documents
+%\documentclass{report} % for longer documents
+
+
+%% Defining the language for the document
+\usepackage[english]{babel}
+\usepackage[english]{isodate}
+
+\usepackage{imta_core}
+\usepackage{imta_extra}
+
+
+%% Addtionnal packages can be loaded here
+% \usepackage{biblatex} % for a complete and flexible bibliography
+
+
+\cleanlookdateon % formats date according to the loaded language from now on
+
+%% General informations
+\author{<author>}
+%\imtaAuthorShort{<author's initials>}
+%\imtaSuperviser{<superviser>}
+\date{\noexpand\today} % automatically print today's date, can be redefined using \date{<date>}
+\title{<title>}
+\subtitle{<subtitle>}
+%\imtaVersion{<version>}
+
+%Add extra other companies' logo
+%If needed, options can be passed to the underlying \includegraphics by calling \imtaAddPartnerLogo[<options>]{<path>}
+%\imtaAddPartnerLogo{<logo_path>}
+
+
+\imtaSetIMTStyle % Sets font and headers/footers according to the IMT Atlantue style guidelines
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%% BEGINNING %%%%%%%%%% 
+\begin{document}
+
+% front cover
+\imtaMaketitlepage
+
+
+
+% <content>
+
+
+
+% back cover
+\imtaMakeCover
+
+\end{document}
+%%%%%%%%%% END %%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%% 

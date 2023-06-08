@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{FUNCTION}\PYG{+w}{ }\PYG{n}{check\PYGZus{}document\PYGZus{}version\PYGZus{}date}\PYG{p}{()}
+\PYG{k}{RETURNS}\PYG{+w}{ }\PYG{k}{TRIGGER}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{l+s}{\PYGZdl{}}\PYG{l+s}{\PYGZdl{}}
+\PYG{k}{DECLARE}
+\PYG{+w}{  }\PYG{n}{previous\PYGZus{}version\PYGZus{}date}\PYG{+w}{ }\PYG{n+nb}{TIMESTAMP}\PYG{p}{;}
+\PYG{k}{BEGIN}
+\PYG{+w}{  }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}date\PYGZdq{}}\PYG{+w}{ }\PYG{k}{INTO}\PYG{+w}{ }\PYG{n}{previous\PYGZus{}version\PYGZus{}date}
+\PYG{+w}{  }\PYG{k}{FROM}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{l+m+mf}{.}\PYG{n}{document\PYGZus{}versions}
+\PYG{+w}{  }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{fk\PYGZus{}document}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{NEW}\PYG{l+m+mf}{.}\PYG{n}{fk\PYGZus{}document}
+\PYG{+w}{  }\PYG{k}{ORDER}\PYG{+w}{ }\PYG{k}{BY}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}date\PYGZdq{}}\PYG{+w}{ }\PYG{k}{DESC}
+\PYG{+w}{  }\PYG{k}{LIMIT}\PYG{+w}{ }\PYG{l+m+mf}{1}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{k}{IF}\PYG{+w}{ }\PYG{n}{previous\PYGZus{}version\PYGZus{}date}\PYG{+w}{ }\PYG{k}{IS}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{+w}{ }\PYG{k}{AND}\PYG{+w}{ }\PYG{n}{previous\PYGZus{}version\PYGZus{}date}\PYG{+w}{ }\PYG{o}{\PYGZgt{}=}\PYG{+w}{ }\PYG{k}{NEW}\PYG{l+m+mf}{.}\PYG{l+s+sName}{\PYGZdq{}date\PYGZdq{}}\PYG{+w}{ }\PYG{k}{THEN}
+\PYG{+w}{    }\PYG{k}{RAISE}\PYG{+w}{ }\PYG{k}{EXCEPTION}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}New document version date must be greater than the previous version date\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{END}\PYG{+w}{ }\PYG{k}{IF}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{k}{RETURN}\PYG{+w}{ }\PYG{k}{NEW}\PYG{p}{;}
+\PYG{k}{END}\PYG{p}{;}
+\PYG{l+s}{\PYGZdl{}}\PYG{l+s}{\PYGZdl{}}\PYG{+w}{ }\PYG{k}{LANGUAGE}\PYG{+w}{ }\PYG{n}{plpgsql}\PYG{p}{;}
+
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TRIGGER}\PYG{+w}{ }\PYG{n}{check\PYGZus{}document\PYGZus{}versions\PYGZus{}date}
+\PYG{+w}{  }\PYG{k}{BEFORE}\PYG{+w}{ }\PYG{k}{INSERT}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{l+m+mf}{.}\PYG{n}{document\PYGZus{}versions}
+\PYG{+w}{  }\PYG{k}{FOR}\PYG{+w}{ }\PYG{k}{EACH}\PYG{+w}{ }\PYG{k}{ROW}
+\PYG{+w}{  }\PYG{k}{EXECUTE}\PYG{+w}{ }\PYG{k}{FUNCTION}\PYG{+w}{ }\PYG{n}{check\PYGZus{}document\PYGZus{}version\PYGZus{}date}\PYG{p}{();}
+\end{Verbatim}

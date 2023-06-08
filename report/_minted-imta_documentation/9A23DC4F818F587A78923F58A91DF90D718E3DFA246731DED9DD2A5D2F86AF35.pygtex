@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+ \PYG{n}{db}\PYG{o}{.}\PYG{n}{session}\PYG{o}{.}\PYG{n}{query}\PYG{p}{(}\PYG{n}{Projects}\PYG{p}{)}\PYG{o}{.}\PYG{n}{filter\PYGZus{}by}\PYG{p}{(}\PYG{n+nb}{id}\PYG{o}{=}\PYG{n}{project\PYGZus{}id}\PYG{p}{)}\PYG{o}{.}\PYG{n}{first}\PYG{p}{()}
+\end{Verbatim}

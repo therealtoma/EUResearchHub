@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{evaluation\PYGZus{}percentages} \PYG{o}{=} \PYG{p}{\PYGZob{}\PYGZcb{}}
+\PYG{k}{for} \PYG{n}{project} \PYG{o+ow}{in} \PYG{n}{projects2show}\PYG{p}{:}
+    \PYG{n}{project\PYGZus{}id} \PYG{o}{=} \PYG{n}{project}\PYG{o}{.}\PYG{n}{id}
+    \PYG{n}{total\PYGZus{}documents} \PYG{o}{=} \PYG{n}{Documents}\PYG{o}{.}\PYG{n}{query}\PYG{o}{.}\PYG{n}{filter\PYGZus{}by}\PYG{p}{(}\PYG{n}{fk\PYGZus{}project}\PYG{o}{=}\PYG{n}{project\PYGZus{}id}\PYG{p}{)}\PYG{o}{.}\PYG{n}{count}\PYG{p}{()}
+    \PYG{n}{evaluated\PYGZus{}documents} \PYG{o}{=} \PYG{n}{Evaluation\PYGZus{}Reports}\PYG{o}{.}\PYG{n}{query}\PYG{o}{.}\PYG{n}{join}\PYG{p}{(}\PYG{n}{Documents}\PYG{p}{)}\PYG{o}{.}\PYG{n}{filter}\PYG{p}{(}
+        \PYG{n}{Documents}\PYG{o}{.}\PYG{n}{fk\PYGZus{}project} \PYG{o}{==} \PYG{n}{project\PYGZus{}id}\PYG{p}{)}\PYG{o}{.}\PYG{n}{count}\PYG{p}{()}
+
+    \PYG{k}{if} \PYG{n}{total\PYGZus{}documents} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{:}
+        \PYG{n}{evaluation\PYGZus{}percentage} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{((}\PYG{n}{evaluated\PYGZus{}documents} \PYG{o}{/} \PYG{n}{total\PYGZus{}documents}\PYG{p}{)} \PYG{o}{*} \PYG{l+m+mi}{100}\PYG{p}{)}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{n}{evaluation\PYGZus{}percentage} \PYG{o}{=} \PYG{l+m+mi}{100}
+
+    \PYG{n}{evaluation\PYGZus{}percentages}\PYG{p}{[}\PYG{n}{project\PYGZus{}id}\PYG{p}{]} \PYG{o}{=} \PYG{n}{evaluation\PYGZus{}percentage}
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{ROLE}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}Admin\PYGZdq{}}\PYG{+w}{ }\PYG{n}{SUPERUSER}\PYG{+w}{ }\PYG{n}{CREATEDB}\PYG{+w}{ }\PYG{n}{CREATEROLE}\PYG{+w}{ }\PYG{n}{NOINHERIT}\PYG{+w}{ }\PYG{n}{LOGIN}\PYG{+w}{ }\PYG{n}{NOREPLICATION}\PYG{+w}{ }\PYG{n}{BYPASSRLS}\PYG{+w}{ }\PYG{k}{PASSWORD}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}****\PYGZsq{}}\PYG{p}{;}
+\PYG{k}{GRANT}\PYG{+w}{ }\PYG{k}{ALL}\PYG{+w}{ }\PYG{k}{PRIVILEGES}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{k}{SCHEMA}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{+w}{ }\PYG{k}{TO}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}Admin\PYGZdq{}}\PYG{p}{;}
+\end{Verbatim}

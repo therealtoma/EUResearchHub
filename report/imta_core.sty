@@ -1,0 +1,619 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% File Name:        imta_core
+%
+% Description:      Overall layout and colours of the IMT Atlantique
+%                   LaTeX Template.
+%
+% Note:             The babel package should be loaded first if used 
+%                   in combination.
+%
+% Limitations:      /
+%
+% Errors:           None known
+%
+% Dependencies:     anyfontsize
+%                   enumitem
+%                   fancyhdr
+%                   fontenc
+%                   geometry
+%                   graphicx
+%                   hyperref
+%                   inputenc
+%                   mdframed
+%                   pifont
+%                   secsty
+%                   tikz
+%                   titling
+%                   titlesec
+%
+% Author:           A. Foucault - armand.foucault@telecom-bretagne.eu
+% Contributors:     B. Porteboeuf - benoit.porteboeuf@telecom-bretagne.eu
+%
+% University:       IMT Atlantique, Brest (France)
+%
+% TeX Environment:  TeXLive + pdfLaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Revision List:
+% Version    Author   Date         Changes
+% 1.0.0      AF       15.10.2017   First Draft
+% 1.0.1      BP       31.10.2017   Original preamble .tex file changed
+%                                  to a .sty package
+% 1.1.0      BP       31.10.2017   Original imta.sty package split into
+%                                  imta_core.sty and imta_extra.sty
+% 1.1.1      AF       02.11.2017   \imtaLogoTikz command introduced
+% 1.1.2      BP       03.11.2017   \imtaMakeCover command added
+% 1.1.3      BP       05.12.2017   chapter styling has now basic 
+% 1.1.4                            multilingual support
+% 1.1.5      BP       14.12.2017   \imtaAuthorShort command added
+% 1.2.0      BP       16.12.2017   Multiple partners' logo support thanks
+%                                  to the \imtaAddPartnerLogo command
+% 1.2.1      BP       17.02.2018   Hyphenation enabled
+% 1.2.2      AF       21.02.2018   \itemize customization introduced
+% 1.2.3      AF       04.03.2018   \imtaLogoTikz rendering improved
+% 1.2.4      BP       13.03.2018   Added support for \includegraphics options
+%                                  in \imtaAddPartnerLogo
+% 1.2.5      BP       16.04.2018   Fixed bug in \imtaAddPartnerLogo when 
+%                                  specifying a width relative to \textwidth 
+%                                  or \linewidth
+% 1.2.6      BP       18.06.2018   The geometry and hyperref packages import
+%                                  checks for pre-existent import (avoiding 
+%                                  options clash) - geometry is locally 
+%                                  enforced on back cover
+% 1.2.7      BP       08.07.2018   \leftmark command in header replaced by 
+%                                  \imtaUpperSectionTitle to avoid bugs when
+%                                  using starred sections or chapters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\NeedsTeXFormat{LaTeX2e}
+
+
+
+%%%%%%%%%% PACKAGES %%%%%%%%%%
+
+% Document geometry management
+\@ifpackageloaded{geometry}{\relax}{\RequirePackage[a4paper, margin=2cm, top=3cm]{geometry}}
+
+% Images management
+\RequirePackage{graphicx}
+
+% Output font management
+\RequirePackage[T1]{fontenc}
+
+% Cross-referencing
+\@ifpackageloaded{hyperref}{\relax}{\RequirePackage[hidelinks]{hyperref}}
+
+% Document encoding management
+\RequirePackage[utf8]{inputenc}
+
+% Fancy headers and footers
+\RequirePackage{fancyhdr}
+
+% Pictures drawing
+\RequirePackage{tikz}
+
+% For title style customization
+\RequirePackage{titlesec}
+
+% Metadata access
+\RequirePackage{titling}
+
+% Arbitrary font size
+%\RequirePackage{anyfontsize} % Superfluous?
+
+% Section styling
+\RequirePackage{sectsty}
+
+% Import \setitemize for list customization
+\RequirePackage{enumitem}
+
+% Import fancy characters for list bullet customization
+\RequirePackage{pifont}
+
+% Fancy frames and boxes
+\RequirePackage{mdframed}
+
+
+
+%%%%%%%%%% COLORS %%%%%%%%%%
+
+% The three colors of IMTA: green, light blue, and dark blue, plus the gray
+\definecolor{imtaGreen}{RGB}{114, 157, 172}
+\definecolor{imtaLightBlue}{RGB}{219, 246, 253}
+\definecolor{imtaDarkBlue}{RGB}{12, 35, 64}
+\definecolor{imtaGray}{RGB}{87, 87, 87}
+
+\definecolor{imtaQuoteBackground}{RGB}{245, 245, 245}
+
+
+
+%%%%%%%%%% GENERAL SETTINGS %%%%%%%%%%
+
+\raggedbottom
+
+% Itemize customization
+\setitemize[1]{label=\textcolor{imtaLightBlue}{\small\ding{228}}}
+\setitemize[2]{label=\textbullet}
+
+% Enumerate customization
+\setenumerate[1]{font=\bf\color{imtaLightBlue}}
+\setenumerate[2]{font=\color{imtaDarkBlue}}
+
+
+%%%%%%%%%% PACKAGES SETTINGS %%%%%%%%%%
+
+
+% fancyhdr
+% Define the header and footer
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[L]{\thetitle}
+\fancyhead[R]{\imtaTheAuthorShort}
+\fancyfoot[C]{\thepage}
+
+\makeatletter
+    % upper section number / title are defined
+    \gdef\imtaUpperSectionTitle{\thetitle}
+    \gdef\imtaUpperSectionNumber{\relax}
+\makeatother
+
+
+
+%%%%%%%%%% COMMANDS %%%%%%%%%%
+
+% Some variables are defined to avoid possible errors
+\title{\relax}
+\author{\relax}
+\date{\~}
+
+% \subtitle
+% Command for the cover's subtitle
+\newcommand{\subtitleValue}{}
+\newcommand{\subtitle}[1]{%
+    \renewcommand{\subtitleValue}{#1}
+}
+
+% \imtaTheAuthorShort
+% Command for the short version of the author
+\def\imtaTheAuthorShort{\theauthor}
+\def\imtaAuthorShort#1{\def\imtaTheAuthorShort{#1}}
+
+
+% \imtaSuperviser
+% Command to set the supervisers names as \imtaTheSuperviser
+\def\imtaSuperviser#1{\def\imtaTheSuperviser{#1}}
+\def\imtaTheSuperviser{\relax}
+
+
+% \imtaVersion
+% Command to set the document's version as \imtaTheVersion
+\def\imtaVersion#1{\def\imtaTheVersion{#1}}
+\def\imtaTheVersion{\relax}
+
+
+
+% \imtaQuestion
+% Output "Question" followed by the current question number
+% The \imtaQuestionReset command should be called after each new section or subsection,
+% in order to resest the question counter
+\newcounter{imtaQuestionCounter}
+\newcommand{\imtaQuestion}{%
+    \stepcounter{imtaQuestionCounter}%
+    \subsection*{Question \arabic{imtaQuestionCounter}}%
+}
+
+
+% \imtaQuestionReset
+% Reset the question counter
+\newcommand{\imtaQuestionReset}{%
+    \setcounter{imtaQuestionCounter}{0}%
+}
+
+
+% \imtaAddPartnerLogo
+% Enables the printing of a partner's logo on the main title page, next to IMT's
+% Its largest dimension is set to the corresponding dimension of the IMT Atlantique's logo.
+% Argument: relative path to the resource
+\newcounter{imtaLogoCounter}     \setcounter{imtaLogoCounter}{0}
+\newcommand{\imtaAddPartnerLogo}[2][\relax]{%
+    % The logo counter is increased and the path is stored in a new command (emulates an array)
+    \global\addtocounter{imtaLogoCounter}{1}
+    \global\expandafter\def\csname imtaPartnerLogo\theimtaLogoCounter\endcsname{#2}
+    % The \includegraphics options are also saved
+    \global\expandafter\def\csname imtaPartnerLogo\theimtaLogoCounter Options\endcsname{#1}}
+
+% \imtaPartnerLogo
+% Prints the path of the resource associated with the given number, in 0..\imtaLogoCounter
+\def\imtaPartnerLogo#1{\csname imtaPartnerLogo#1\endcsname}
+\def\imtaPartnerLogoOptions#1{\csname imtaPartnerLogo#1Options\endcsname}
+
+
+
+% \imtaLogo
+% Include the IMTA logo according to the given width
+\newcommand\imtaLogo[1]{%
+    \includegraphics[width = #1, trim = 1.4cm 2cm 1.5cm 1.25cm, clip]{logo_uni.jpg}
+}
+
+
+% \imtaLogoTikz
+% Outputs the IMT Atlantique logo using tikz according to the given width
+\newcommand{\imtaLogoTikz}[1]{%
+    \resizebox{#1}{!}{%
+        \begin{tikzpicture}[every node/.style={inner sep=0,outer sep=0}]
+%            \draw (-1,1) -- (8,1);
+%            \draw (-1,0) -- (8,0);
+%            \draw (-1,-1) -- (8,-1);
+%            \draw (-1,-2) -- (8,-2);
+%            \draw (-1,-3) -- (8,-3);
+%            \draw (-1,-4) -- (8,-4);
+%            \draw (-1,-5) -- (8,-5);
+%            \draw (-1,1) -- (-1,-5);
+%            \draw (0,1) -- (0,-5);
+%            \draw (1,1) -- (1,-5);
+%            \draw (2,1) -- (2,-5);
+%            \draw (3,1) -- (3,-5);
+%            \draw (4,1) -- (4,-5);
+%            \draw (5,1) -- (5,-5);
+%            \draw (6,1) -- (6,-5);
+%            \draw (7,1) -- (7,-5);
+%            \draw (8,1) -- (8,-5);
+    
+            \fill[imtaLightBlue] (0,0) -- (2,0) -- (3,-1) -- (4,0) -- (4,-1) -- %
+                                          (5,0) -- (7,0) -- (5,-2) -- (5,-1) -- (4,-1) -- %
+                                          (4,-2) -- (2,-2) -- (2,0) -- (0,-2) -- (0,0);
+            \node [anchor=west] at (-0.145,-2.68) {
+                \fontsize{20}{23}
+                \fontfamily{phv}\selectfont \textbf{IMT Atlantique}};
+            \node [anchor=north west] at (-0.145,-3.13) {
+                \fontsize{15}{18}
+                \fontfamily{phv}\selectfont Bretagne-Pays de la Loire};
+            \node [anchor=south west] at (-0.145,-4.18) {
+                \fontsize{15}{18}
+                \fontfamily{phv}\selectfont École Mines-Télécom};
+        \end{tikzpicture}  
+    }
+}
+
+
+
+% \imtaMaketitlepage
+% Output the title page, with regards for the IMT Atlantique official style
+% This is a twocolumns robust titlepage command
+\makeatletter
+
+% \imtaGetEltSize
+% Gets the 1/10th of the smallest dimension of the paper used
+\def\imtaGetEltSize{%
+    \ifdim \paperwidth < \paperheight
+        \paperwidth/10
+    \else
+        \paperheight/10
+    \fi%
+}
+
+% \imtaMaketitlepage
+% Generates the title page
+\newcommand\imtaMaketitlepage{%
+    \clearpage
+    \if@twocolumn
+        \onecolumn % we force it to a one column environment
+        \imtaTitleLayout
+        \twocolumn
+    \else
+        \imtaTitleLayout
+    \fi
+}
+
+% \imtaTitleLayout
+% Corresponds to the actual layout used for the cover by \imtaMaketitlepage
+\def\imtaTitleLayout{%
+    % Geometry and pagestyle
+    \thispagestyle{empty}
+    \pagenumbering{gobble}
+    \newgeometry{top = .5cm, bottom = 1.5cm, left = 2cm, right = 1cm}
+    % Drawing the triangles
+    \begin{flushright}
+        \begin{tikzpicture}
+            \filldraw[draw=imtaGreen,fill=imtaGreen] (-3\imtaGetEltSize,0) -- (0,-3\imtaGetEltSize) -- (0\imtaGetEltSize,0) -- cycle;
+            \filldraw[draw=imtaLightBlue,fill=imtaLightBlue] (-2.24\imtaGetEltSize,-3\imtaGetEltSize) -- (0,-5.24\imtaGetEltSize) -- (0,-3\imtaGetEltSize) -- cycle;
+            \filldraw[draw=imtaDarkBlue,fill=imtaDarkBlue] (-5.24\imtaGetEltSize,0) -- (-2.24\imtaGetEltSize,-3\imtaGetEltSize) -- (-5.24\imtaGetEltSize,-3\imtaGetEltSize) -- cycle;
+            
+            \node (date) [draw=none, text width=\textwidth, align=left, minimum height = 2\imtaGetEltSize, 
+            anchor=south west] at (-\textwidth, -6\imtaGetEltSize) {
+                \vfill
+                \large\fontfamily{phv}\selectfont\thedate\linebreak
+                \large\fontfamily{phv}\selectfont\theauthor\linebreak
+                \if\imtaTheSuperviser\relax\relax
+                    \relax
+                \else
+                    \linebreak
+                    \large\fontfamily{phv}\imtaTheSuperviser\linebreak
+                \fi};
+        \end{tikzpicture}
+    \end{flushright}
+    % Printing the title and other relevant informations
+    \begingroup
+    \begin{minipage}{.92\textwidth}
+        \textcolor{imtaGreen}{\fontsize{25}{40}\fontseries{b}\fontfamily{phv}\selectfont\thetitle} \vspace*{.5cm}\\
+        \textcolor{imtaGreen}{\Large\fontfamily{phv}\selectfont\subtitleValue}
+        \begin{flushright}
+            \vspace{.5cm}
+            \fontfamily{phv}\selectfont\normalsize\imtaTheVersion
+        \end{flushright}
+    \end{minipage}
+    \vfill
+    % Displaying the school's logo
+    \begin{flushleft}
+        \begin{minipage}{.92\textwidth}
+            \newlength\imta@picWidth
+            \begin{minipage}{5.6cm}
+                \imtaLogo{5.4cm}
+            \end{minipage}%
+            % Adding any potential user-defined partner's logo
+            \newcounter{imta@idx}   \setcounter{imta@idx}{0}%
+            \newlength\imta@oldlinewidth
+            \newlength\imta@oldtextwidth
+            \loop
+                \addtocounter{imta@idx}{1}
+                \ifnum\value{imtaLogoCounter}>0%
+                    \edef\imta@thelogo{\imtaPartnerLogo{\theimta@idx}} % Expansion is enforced
+                    \edef\imta@thelogooptions{\imtaPartnerLogoOptions{\theimta@idx}} % Expansion is enforced
+                    % Default dimensions are based on the IMT Atlantique logo
+                    \if\imta@thelogooptions\relax\relax
+                        \edef\imta@thelogooptions{width=5.3cm, height=3cm, keepaspectratio}
+                    \fi
+                    % Because of the behavior of \includegraphics, we need to be very careful about our expansions of macros here
+                    \settowidth\imta@picWidth{\expandafter\includegraphics\expandafter[\imta@thelogooptions]{\imta@thelogo}}
+                    % In order for the user to be able to use relative widths, we need to store the current values and redefine them in the minipage environment
+                    \setlength\imta@oldlinewidth{\linewidth}
+                    \setlength\imta@oldtextwidth{\textwidth}
+                    \hfill
+                    \begin{minipage}{\imta@picWidth}
+                        \setlength\linewidth{\imta@oldlinewidth}
+                        \setlength\textwidth{\imta@oldtextwidth}
+                        \expandafter\includegraphics\expandafter[\imta@thelogooptions]{\imta@thelogo}
+                    \end{minipage}
+%                    \hfill
+                \fi
+                \ifnum\value{imta@idx}<\value{imtaLogoCounter}
+                    \repeat
+        \end{minipage}
+    \end{flushleft}
+    \endgroup
+    \cleardoublepage
+    \restoregeometry
+    \pagenumbering{arabic}
+    \setcounter{page}{2}
+}
+
+\makeatother
+
+
+
+% \imtaMakeCover
+% Generates a standard back cover which ends on the left side
+\makeatletter
+\newcommand{\imtaMakeCover}{%
+    \clearpage
+    \if@twocolumn
+        \clearpage
+        \onecolumn
+    \fi
+    
+    \if@twoside
+        \ifodd\c@page
+            \shipout\null % We force the left page
+        \fi
+    \fi
+    \newpage \thispagestyle{empty}
+    \newgeometry{margin=2cm, top=3cm}
+    \begingroup
+    \fontfamily{phv}\selectfont
+    \footnotesize
+    \begin{center}
+        \begin{minipage}{.85\textwidth}
+            \vspace*{.73\textheight}
+            \centerline{\imtaLogoTikz{4cm}}
+            \vspace*{1.25cm}
+            %    \newline
+            \begin{flushleft}
+                IMT Atlantique Bretagne - Pays de la Loire - \href{www.imt-atlantique.fr}{www.imt-atlantique.fr}\\
+            \end{flushleft}
+            \begin{minipage}{.28\textwidth}
+                Campus de Brest\\
+                Technopôle Brest-Iroise\\
+                CS 83818\\
+                29238 Brest Cedex 03\\
+                T +33 (0)2 29 00 11 11\\
+                F +33 (0)2 29 00 10 00
+            \end{minipage}
+            \hfill
+            \begin{minipage}{.34\textwidth}
+                Campus de Nantes\\
+                4, rue Alfred Kastler - La Chantrerie\\
+                CS 20722\\
+                44307 Nantes Cedex 03\\
+                T +33 (0)2 51 85 81 00\\
+                F +33 (0)2 51 85 81 99
+            \end{minipage}
+            \hfill
+            \begin{minipage}{.28\textwidth}
+                Campus de Rennes\\
+                2, rue de la Châtaigneraie\\
+                CS 17607\\
+                35576 Cesson Sévigné Cedex\\
+                T +33 (0)2 99 12 70 00\\
+                F +33 (0)2 99 12 70 08
+            \end{minipage}
+        \end{minipage}
+    \end{center}
+    \endgroup
+    \restoregeometry
+}
+\makeatother
+
+
+% \imtaSetIMTStyle
+% Set a styling that conforms to the official report template
+\makeatletter
+\newcommand{\imtaSetIMTStyle}{%
+    % Set global font to Helvetica
+    \usepackage{helvet}
+    \renewcommand{\familydefault}{\sfdefault}
+
+    % Set heading style
+    \sectionfont{\bf\LARGE\color{imtaGreen}}
+    \subsectionfont{\bf\Large\color{imtaGray}}
+    \subsubsectionfont{\bf\large\color{imtaGray}}
+    \paragraphfont{\color{imtaGray}}
+    \subparagraphfont{\color{imtaGray}}
+
+    % Set header and footer style
+    \pagestyle{fancy}
+    \fancyhead{}
+    \fancyfoot{}
+    \fancyhead[L]{\if\imtaUpperSectionNumber\relax\relax
+                    \imtaUpperSectionTitle
+                  \else
+                     \@ifundefined{chapter}{\relax}{\chaptername{}} \imtaUpperSectionNumber \imtaUpperSectionTitle
+                  \fi}%\nouppercase\leftmark}
+    \fancyfoot[R]{\thepage}
+}
+\makeatother
+
+
+% \subsubsubsection
+% We introduce another layer with the \subsubsubsection command
+\setcounter{secnumdepth}{4}                              % We increase the counters' level of visibility to 4
+\newcommand\subsubsubsection{}                           % We create a new command
+\titleclass{\subsubsubsection}{straight}[\subsubsection] % Make it a title command
+\newcounter{subsubsubsection}[subsubsection]             % We create a new counter that inherits from subsubsection
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}} % The complete counter is updated
+\titlespacing{\subsubsubsection}{0pt}{2em}{1em}                                % Spacing is updated
+\titleformat{\subsubsubsection}[hang]{\normalsize\it}                % Layout is updated
+{\thesubsubsubsection.}{1em}{\normalsize\it}[\normalsize] % Formatting is updated
+
+% Adjusting Table Of Contents levels for the \subsubsubsection
+\makeatletter
+    \setcounter{tocdepth}{6} % We increase the level of visibility in the TOC
+    \def\toclevel@subsubsubsection{4}
+    \def\l@subsubsubsection{\@dottedtocline{5}{11em}{5em}}
+    \def\toclevel@paragraph{5}
+    \def\l@paragraph{\@dottedtocline{5}{14em}{6em}}
+    \def\toclevel@subparagraph{6}
+    \def\l@subparagraph{\@dottedtocline{6}{17em}{7em}}
+\makeatother
+
+
+% \chapter
+% \chapter is redefined to support other features
+ \makeatletter
+     \newif\if@chapterdefined % A new \if statement is created to allow easier checking for the existance of \chapter
+     \@ifundefined{chapter}{\global \@chapterdefinedfalse}{\global \@chapterdefinedtrue}
+     
+     % \imtaChapterFigure
+     % A TikzFigure is defined for chapter pages
+     \def\imtaChapterFigure{
+         \vspace*{\fill}
+         \begin{flushright}
+             \begin{tikzpicture}
+             \filldraw[draw=imtaLightBlue,fill=imtaLightBlue] (-5.24\imtaGetEltSize,-5.24\imtaGetEltSize) -- (0,0) -- (0,-5.24\imtaGetEltSize) -- cycle;
+             \filldraw[draw=imtaDarkBlue,fill=imtaDarkBlue] (0,0) -- (-2.54\imtaGetEltSize,-2.54\imtaGetEltSize) -- (0,-2.54\imtaGetEltSize) -- cycle;
+             \filldraw[draw=imtaGreen,fill=imtaGreen] (-2.54\imtaGetEltSize,-5.24\imtaGetEltSize) -- (0,-5.24\imtaGetEltSize) -- (0,-2.54\imtaGetEltSize) -- cycle;
+             \end{tikzpicture}
+         \end{flushright}
+         \normalsize    
+     }
+     
+     % The chapter command is redefined when relevant.
+     % It becomes more robust to oneside/twoside and onecolumn/twocolumn options and imports a figure
+     \if@chapterdefined        
+        
+         \let\imtaOldChapter\chapter % The reference command is saved and a new one is redefined, based on the old. 
+         % It is VERY important to catch the star version as well, otherwise it will not compile
+         \renewcommand*{\chapter}{\@ifstar{\imtaStarChapter}{\@dblarg\imtaNoStarChapter}}
+         
+         \newcommand*\imtaStarChapter[1]{%
+             \if@twocolumn % We want to make sure the chapter page is always on a one column full page
+                 \onecolumn 
+                 \cleardoublepage 
+                 \newgeometry{top = 4cm, bottom = 1cm, left = 2cm, right = 1cm}
+                 \begin{minipage}{.92\textwidth}
+                 \imtaOldChapter*{#1}
+                 \end{minipage}
+                 \imtaChapterFigure
+                 % upper section number / title are defined
+                 \gdef\imtaUpperSectionNumber{\relax}
+                 \gdef\imtaUpperSectionTitle{#1}
+                 \clearpage \newpage \restoregeometry \twocolumn                
+             \else
+             \cleardoublepage 
+             \newgeometry{top = 4cm, bottom = 1cm, left = 2cm, right = 1cm}
+             \begin{minipage}{.92\textwidth}
+             \imtaOldChapter*{#1}
+             \end{minipage}
+             \imtaChapterFigure
+             % upper section number / title are defined
+             \gdef\imtaUpperSectionNumber{\relax}
+             \gdef\imtaUpperSectionTitle{#1}
+             \clearpage \newpage \restoregeometry
+             \fi    
+         }
+         
+         \def\imtaNoStarChapter[#1]#2{%
+             \if@twocolumn % We want to make sure the chapter page is always on a one column full page
+                 \onecolumn
+                 \cleardoublepage 
+                 \newgeometry{top = 4cm, bottom = 1cm, left = 2cm, right = 1cm}
+                 \begin{minipage}{.92\textwidth}
+                 \imtaOldChapter[{#1}]{#2}
+                 \end{minipage}
+                 \imtaChapterFigure
+                 \clearpage \newpage \restoregeometry \twocolumn
+             \else
+                 \cleardoublepage 
+                 \newgeometry{top = 4cm, bottom = 1cm, left = 2cm, right = 1cm}
+                 \begin{minipage}{.92\textwidth}
+                 \imtaOldChapter[{#1}]{#2}
+                 \end{minipage}
+                 \imtaChapterFigure
+                 \clearpage \newpage \restoregeometry
+             \fi
+         }
+     
+         % Finally, the chapter formatting is updated
+         \titleformat
+             {\chapter} % command
+             [display] % shape
+             {\bf\Huge} % format
+             {\chaptername{} \thechapter} % label
+             {1em} % sep
+             {\hspace{2em}\bf\Huge\thispagestyle{empty}} % before-code
+             [{}] % after-code ; does not accept \if statements
+     \else
+         % upper section number / title are defined
+         \let\imtaCoreOldSection\section
+         \renewcommand{\section}{\@ifstar{\imtaCoreStarSection}{\@dblarg\imtaCoreNoStarSection}}
+         \newcommand\imtaCoreStarSection[1]{%
+             \imtaCoreOldSection*{#1}  \gdef\imtaUpperSectionTitle{#1} \gdef\imtaUpperSectionNumber{\relax}}
+         \def\imtaCoreNoStarSection[#1]#2{%
+             \imtaCoreOldSection[{#1}]{#2} \gdef\imtaUpperSectionTitle{#1} \gdef\imtaUpperSectionNumber{\thesection. }}
+         \fi
+ \makeatother
+
+
+\newenvironment{imtaQuote}{%
+    \begin{quote}
+        \begin{mdframed}[backgroundcolor=imtaQuoteBackground, linewidth=0pt]
+            \textcolor{imtaLightBlue}{\Large \ding{125}}
+            \itshape\rmfamily\selectfont
+}{%
+            \textcolor{imtaLightBlue}{\Large \ding{126}}
+        \end{mdframed}
+    \end{quote}
+}
+
+%%%%%%%%%% END %%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%% 

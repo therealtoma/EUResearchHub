@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{ALTER}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{l+m+mf}{.}\PYG{n}{evaluation\PYGZus{}windows}
+\PYG{k}{ADD}\PYG{+w}{ }\PYG{k}{CONSTRAINT}\PYG{+w}{ }\PYG{n}{evaluation\PYGZus{}windows\PYGZus{}dates\PYGZus{}check}\PYG{+w}{ }\PYG{k}{CHECK}\PYG{+w}{ }\PYG{p}{(}\PYG{l+s+sName}{\PYGZdq{}from\PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}to\PYGZdq{}}\PYG{p}{);}
+\end{Verbatim}

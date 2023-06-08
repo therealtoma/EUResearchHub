@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nx}{\PYGZdl{}}\PYG{p}{.}\PYG{n+nx}{ajax}\PYG{p}{(\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{url}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}/api/get\PYGZus{}doc\PYGZus{}types\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nx}{type}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}POST\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nx}{datatype}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}json\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nx}{beforeSend}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kd}{function}\PYG{p}{(}\PYG{n+nx}{xhr}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n+nx}{xhr}\PYG{p}{.}\PYG{n+nx}{setRequestHeader}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}X\PYGZhy{}CSRF\PYGZhy{}Token\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{\PYGZdl{}}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}meta[name=\PYGZdq{}csrf\PYGZhy{}token\PYGZdq{}]\PYGZsq{}}\PYG{p}{).}\PYG{n+nx}{attr}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}content\PYGZsq{}}\PYG{p}{))}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{},}
+\PYG{+w}{    }\PYG{n+nx}{success}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nx}{data}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n+nx}{\PYGZdl{}}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZsh{}selectDocType\PYGZsq{}}\PYG{p}{).}\PYG{n+nx}{empty}\PYG{p}{()}\PYG{+w}{ }\PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{forEach}\PYG{p}{(}\PYG{n+nx}{item}\PYG{+w}{ }\PYG{p}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n+nx}{\PYGZdl{}}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZsh{}selectDocType\PYGZsq{}}\PYG{p}{).}\PYG{n+nx}{append}\PYG{p}{(}\PYG{l+s+sb}{`\PYGZlt{}option class=\PYGZdq{}inputdoctype\PYGZdq{} value=\PYGZdq{}}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{item}\PYG{p}{.}\PYG{n+nx}{id}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{\PYGZdq{}\PYGZgt{}}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{item}\PYG{p}{.}\PYG{n+nx}{name}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{\PYGZlt{}/option\PYGZgt{}`}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{})}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{})}
+\end{Verbatim}

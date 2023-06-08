@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{\PYGZbs{}begin}\PYG{n+nb}{\PYGZob{}}imtaConsole\PYG{n+nb}{\PYGZcb{}}
+    pwd
+    grep \PYGZhy{}R \PYGZdq{}lorem\PYGZdq{} *
+\PYG{k}{\PYGZbs{}end}\PYG{n+nb}{\PYGZob{}}imtaConsole\PYG{n+nb}{\PYGZcb{}}
+\end{Verbatim}
