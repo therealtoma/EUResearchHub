@@ -237,8 +237,7 @@
                 <div class="messages">
                     {% for message in messages %}
                         <div class="message-box">
-                            <img src="../static/uploads/profile_images/
-                                    {% if researchers[loop.index0] %}{{ researchers[loop.index0].profile_picture }}{% elif evaluators[loop.index0] %}default.jpg{% endif %}"
+                            <img src="../static/uploads/profile_images/{% if researchers[loop.index0] %}{{ researchers[loop.index0].profile_picture }}{% elif evaluators[loop.index0] %}default.jpg{% endif %}"
                                  alt="profile image">
 
 
