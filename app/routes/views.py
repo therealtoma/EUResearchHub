@@ -252,7 +252,8 @@ def project(project_id):
     # Get the view_document data
     if request.args.get('document_id'):
         document_id = request.args.get('document_id')
-        document = Documents.query.get_or_404(document_id)
+        document = Documents.query.filter_by(fk_document_type=document_id, fk_project=project_id).first()
+        #document = Documents.query.get_or_404(document_id)
 
         nome_tipo_documento = Document_Types.query.filter_by(id=document.fk_document_type).first()
         versions = Document_Versions.query.filter_by(fk_document=document.id).all()

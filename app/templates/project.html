@@ -237,8 +237,7 @@
                 <div class="messages">
                     {% for message in messages %}
                         <div class="message-box">
-                            <img src="../static/uploads/profile_images/
-                                    {% if researchers[loop.index0] %}{{ researchers[loop.index0].profile_picture }}{% elif evaluators[loop.index0] %}default.jpg{% endif %}"
+                            <img src="../static/uploads/profile_images/{% if researchers[loop.index0] %}{{ researchers[loop.index0].profile_picture }}{% elif evaluators[loop.index0] %}default.jpg{% endif %}"
                                  alt="profile image">
 
 
@@ -483,13 +482,25 @@
         const modalContainer2 = document.getElementById('modalContainer2');
         const modalContainer3 = document.getElementById('modalContainer3')
 
-        $(openModalButton).on('click', () => {
-            modalContainer.style.display = 'block'
-        })
+        if(openModalButton) {
+            $(openModalButton).on('click', () => {
+                modalContainer.style.display = 'block'
+            })
 
-        $(openModalButton3).on('click', () => {
-            modalContainer3.style.display = 'block'
-        })
+        }
+
+        if(openModalButton2) {
+            openModalButton2.addEventListener('click', function () {
+                modalContainer2.style.display = 'block';
+            });
+        }
+
+        if(openModalButton3) {
+            $(openModalButton3).on('click', () => {
+                modalContainer3.style.display = 'block'
+            })
+        }
+
 
         $(document).ready(function () {
             $.ajax({
@@ -515,9 +526,7 @@
         });
 
 
-        openModalButton2.addEventListener('click', function () {
-            modalContainer2.style.display = 'block';
-        });
+
         // Hide the modal when the user clicks outside of it
         window.addEventListener('click', function (event) {
             if (event.target === modalContainer) {
