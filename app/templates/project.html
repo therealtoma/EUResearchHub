@@ -98,18 +98,18 @@
                             <!-- Progress content goes here -->
                         </div>
                         <div class="project-box-footer">
-                            <div class="days-left" style="color: #729DAC;">
-                                <a download
-                                   href="../static/uploads/projects/{{ project.id }}{{ document.file_path }}">Download</a>
+                            <div class="days-left hover-days-left">
+                                <a style="text-decoration: none;" class="days-left" download
+                                   href="../static/uploads/projects/{{ project.id }}{{ document.file_path }}"><button class="days-left">Download</button></a>
                             </div>
                             <br>
                             {% if session['user_type'] == 'evaluator' %}
-                            <div class="days-left" style="color: #729DAC;">
-                                <button id="openModalButton3">Upload report</button>
+                            <div class="days-left hover-days-left">
+                                <button class="days-left" id="openModalButton3">Upload report</button>
                             </div>
                             {% else %}
                             {% if document.ev_rep %}
-                            <div class="days-left" style="color: #729DAC;">
+                            <div class="days-left" >
                                 <a href="../static/uploads/projects/{{ document.ev_rep }}" download>Download Ev. Report</a>
                             </div>
                             {% endif %}
@@ -164,7 +164,7 @@
                             <div id="uploadedDescription-container3" class="uploadedDescription-container">
                                 <div id="uploadedDescription3" class="uploaded-description">
                                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                                    <input type="text" required name="comment" placeholder="Add a comment">
+                                    <input class="input-comment" type="text" required name="comment" placeholder="Add a comment">
                                 </div>
                             </div>
                             <div class="container-login100-form-btn">
@@ -234,7 +234,7 @@
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <input class="message-holder" type="text" name="message" placeholder="Type anything..." required>
                 <button type="submit" class="submit-button">
-                    <svg style="height:35px" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    <svg style="height:35px; margin-right:15px" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg"
                          stroke="#666666">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -384,13 +384,13 @@
                 <div id="uploadedDescription-container2" class="uploadedDescription-container">
                     <div id="uploadedDescription2" class="uploaded-description">
                         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                        <input type="text" required name="title" placeholder="title">
+                        <input class="input-title2" type="text" required name="title" placeholder="Title">
                         <input class="input-description" type="text" required name="description"
                                placeholder="Insert your description here">
                     </div>
                 </div>
                 <div class="container-login100-form-btn">
-                    <button class="login100-form-btn upload-button" type="submit">
+                    <button style="margin-top:20px !important;" class="login100-form-btn upload-button" type="submit">
                         <strong>Upload</strong>
                     </button>
                 </div>

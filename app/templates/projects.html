@@ -115,7 +115,7 @@
                                 {% endif %}
                             </div>
                             {% if user_type == 'evaluator' %}
-                            <div class="days-left" style="color: #729DAC;">
+                            <div class="days-left">
                                 <select id="status-select-{{ loop.index }}" onchange="changeStatus({{ loop.index }})" data-project-id="{{ project.id }}">
                                     <option value="submitted_for_evaluation" {% if project.status.value == 'submitted for evaluation' %}selected{% endif %}>submitted for evaluation</option>
                                     <option value="approved" {% if project.status.value == 'approved' %}selected{% endif %}>approved</option>
@@ -124,7 +124,7 @@
                                 </select>
                             </div>
                             {% elif user_type == 'researcher' %}
-                            <div class="days-left" style="color: #729DAC;">
+                            <div style="text-decoration: none" class="days-left">
                                 {{ project.status.value }}
                             </div>
                             {% endif %}
@@ -149,8 +149,8 @@
                             <textarea class="input-description-projects" id="description" name="description" required placeholder="Insert your description"></textarea>
                             <!-- Add any other fields you need for the project form -->
                             <div class="modal-buttons" >
-                                <button type="submit" class="create-button">Create</button>
                                 <button type="submit" class="cancel-button">Cancel</button>
+                                <button type="submit" class="create-button">Create</button>
                             </div>
                         </form>
                     </div>
