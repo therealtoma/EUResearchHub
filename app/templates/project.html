@@ -7,12 +7,10 @@
         align-items: center;
         height: 16vh; /* Adjust the height as needed */
     }
-
     .icon-holder svg {
         height: 4em; /* Adjust the size of the icon as needed */
         animation: beat 1s infinite;
     }
-
     @keyframes beat {
         0% {
             transform: scale(1);
@@ -31,24 +29,22 @@
     <link rel="stylesheet" href="../static/style.css">
     <link rel="stylesheet" href="../static/style_profile.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap">
     <link rel="stylesheet" href="../static/style_upload.css">
-
     <link rel="stylesheet" type="text/css" href="../static/css/util.css">
-
     <link rel="stylesheet" type="text/css" href="../static/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
 </head>
 <body>
 <div class="app-container">
     <div class="app-header">
         <div class="app-header-left">
             <span class="app-icon"></span>
-            <p class="app-name">EUResearchHub</p>
+            <a style="text-decoration:none;" href={{url_for("views.projects")}}>
+                <p class="app-name">EUResearchHub</p>
+            </a>
         </div>
         <div class="app-header-right">
             <button class="notification-btn" onclick="location.href='{{ url_for('auth.logout') }}'">
@@ -59,7 +55,6 @@
                 </svg>
             </button>
             <button class="profile-btn">
-
                 <img src="../static/uploads/profile_images/{{ profile_picture }}"/>
                 <span> {{ name }} {{ surname }} </span>
             </button>
@@ -75,13 +70,10 @@
     <div class="app-content">
         <div class="app-sidebar">
         </div>
-
         <!-- COLONNA SINISTRA -->
-
         <div class="projects-section">
             <div class="projects-section-header">
                 <p style="color:#666666;">{{ project.title }}</p>
-
             </div>
             <div class="projects-section-line">
                 <div class="projects-status">
@@ -89,138 +81,117 @@
                         <span class="status-type">{{ project.description }}</span>
                     </div>
                 </div>
-
             </div>
             <div class="project-boxes jsListView">
                 {% if documents %}
-                    {% for document in documents %}
-                        <div class="project-box-wrapper">
-                            <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
-                                <div class="project-box-content-header">
-
-
-                                    <a href="/project/{{ project.id }}?document_id={{ document.id }}"><p
-                                            class="box-content-header">{{ document.nome }}</p>
-                                    </a>
-                                    <p class="box-content-subheader">{{ document.descrizione }}</p>
-                                </div>
-                                <div class="box-progress-wrapper">
-                                    <!-- Progress content goes here -->
-                                </div>
-                                <div class="project-box-footer">
-                                    <div class="days-left" style="color: #729DAC;">
-                                        <a download
-                                           href="../static/uploads/projects/{{ project.id }}{{ document.file_path }}">Download</a>
-                                    </div>
-                                    <br>
-                                    {% if session['user_type'] == 'evaluator' %}
-                                        <div class="days-left" style="color: #729DAC;">
-                                            <button id="openModalButton3">Upload report</button>
-                                        </div>
-                                    {% else %}
-                                        {% if document.ev_rep %}
-                                            <div class="days-left" style="color: #729DAC;">
-                                                <a href="../static/uploads/projects/{{ document.ev_rep }}" download>Download Ev. Report</a>
-                                            </div>
-                                        {% endif %}
-                                    {% endif %}
-                                </div>
-                            </div>
+                {% for document in documents %}
+                <div class="project-box-wrapper">
+                    <div class="project-box" style="background-color: rgba(114,157,172,0.09)">
+                        <div class="project-box-content-header">
+                            <a href="/project/{{ project.id }}?document_id={{ document.id }}">
+                                <p
+                                        class="box-content-header">{{ document.nome }}</p>
+                            </a>
+                            <p class="box-content-subheader">{{ document.descrizione }}</p>
                         </div>
-                        <div id="modalContainer3" class="modal-container">
-                            <form method="post" enctype="multipart/form-data"
-                                  action="/api/upload_report/{{ session['project_id'] }}/{{ document.id }}">
-                                <div id="uploadArea3" class="upload-area">
-                                    <!-- Header -->
-                                    <div class="upload-area__header">
-                                        <h1 class="upload-area__title"> Upload your file </h1>
-                                        <p class="upload-area__paragraph">
-                                            File should be a document or image
-                                            <strong class="upload-area__tooltip">
-                                                <span class="upload-area__tooltip-data2"></span>
-                                                <!-- Data Will be Comes From Js -->
-                                            </strong>
-                                        </p>
-                                    </div>
-                                    <!-- End Header -->
-
-                                    <!-- Drop Zone -->
-                                    <div id="dropZoon3" class="upload-area__drop-zoon drop-zoon">
-                        <span class="drop-zoon__icon">
-                          <i class='bx bxs-file-image'></i>
-                        </span>
-                                        <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
-                                        <span id="loadingText3" class="drop-zoon__loading-text">Please Wait</span>
-                                        <img src="" alt="Preview Image" id="previewImage3"
-                                             class="drop-zoon__preview-image" draggable="false">
-                                        <input type="file" name="report" id="fileInput3" class="drop-zoon__file-input"
-                                               accept="application/pdf">
-                                    </div>
-                                    <!-- End Drop Zone -->
-
-                                    <!-- File Details -->
-                                    <div id="fileDetails2" class="upload-area__file-details file-details">
-                                        <h3 class="file-details__title">Uploaded File</h3>
-
-                                        <div id="uploadedFile3" class="uploaded-file">
-                                            <div class="uploaded-file__icon-container">
-                                                <i class='bx bxs-file-blank uploaded-file__icon'></i>
-                                                <span class="uploaded-file__icon-text2"></span>
-                                                <!-- Data Will be Comes From Js -->
-                                            </div>
-
-                                            <div id="uploadedFileInfo3" class="uploaded-file__info">
-                                                <span class="uploaded-file__name2">Proejct 1</span>
-                                                <span class="uploaded-file__counter2">0%</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div id="uploadedDescription-container3" class="uploadedDescription-container">
-                                        <div id="uploadedDescription3" class="uploaded-description">
-                                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                                            <input type="text" required name="comment" placeholder="Add a comment">
-                                        </div>
-                                    </div>
-
-                                    <div class="container-login100-form-btn">
-
-                                        <button class="login100-form-btn upload-button" type="submit">
-                                            <strong>Upload</strong>
-                                        </button>
-                                    </div>
-                                    <!-- End File Details -->
-                                </div>
-                                <!-- End Upload Area -->
-                            </form>
+                        <div class="box-progress-wrapper">
+                            <!-- Progress content goes here -->
                         </div>
-                    {% endfor %}
-
-
-
-
-
-
-                {% endif %}
-
-
-                {% if session['user_type'] == 'researcher' %}
-                    <div class="new-document-box-wrapper">
-                        <div class="new-document-box">
-                            <div class="button-hold">
-                                <button id="openModalButton" class="plus-button"></button>
+                        <div class="project-box-footer">
+                            <div class="days-left" style="color: #729DAC;">
+                                <a download
+                                   href="../static/uploads/projects/{{ project.id }}{{ document.file_path }}">Download</a>
                             </div>
+                            <br>
+                            {% if session['user_type'] == 'evaluator' %}
+                            <div class="days-left" style="color: #729DAC;">
+                                <button id="openModalButton3">Upload report</button>
+                            </div>
+                            {% else %}
+                            {% if document.ev_rep %}
+                            <div class="days-left" style="color: #729DAC;">
+                                <a href="../static/uploads/projects/{{ document.ev_rep }}" download>Download Ev. Report</a>
+                            </div>
+                            {% endif %}
+                            {% endif %}
                         </div>
                     </div>
+                </div>
+                <div id="modalContainer3" class="modal-container">
+                    <form method="post" enctype="multipart/form-data"
+                          action="/api/upload_report/{{ session['project_id'] }}/{{ document.id }}">
+                        <div id="uploadArea3" class="upload-area">
+                            <!-- Header -->
+                            <div class="upload-area__header">
+                                <h1 class="upload-area__title"> Upload your file </h1>
+                                <p class="upload-area__paragraph">
+                                    File should be a document or image
+                                    <strong class="upload-area__tooltip">
+                                        <span class="upload-area__tooltip-data2"></span>
+                                        <!-- Data Will be Comes From Js -->
+                                    </strong>
+                                </p>
+                            </div>
+                            <!-- End Header -->
+                            <!-- Drop Zone -->
+                            <div id="dropZoon3" class="upload-area__drop-zoon drop-zoon">
+                                    <span class="drop-zoon__icon">
+                                    <i class='bx bxs-file-image'></i>
+                                    </span>
+                                <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
+                                <span id="loadingText3" class="drop-zoon__loading-text">Please Wait</span>
+                                <img src="" alt="Preview Image" id="previewImage3"
+                                     class="drop-zoon__preview-image" draggable="false">
+                                <input type="file" name="report" id="fileInput3" class="drop-zoon__file-input"
+                                       accept="application/pdf">
+                            </div>
+                            <!-- End Drop Zone -->
+                            <!-- File Details -->
+                            <div id="fileDetails2" class="upload-area__file-details file-details">
+                                <h3 class="file-details__title">Uploaded File</h3>
+                                <div id="uploadedFile3" class="uploaded-file">
+                                    <div class="uploaded-file__icon-container">
+                                        <i class='bx bxs-file-blank uploaded-file__icon'></i>
+                                        <span class="uploaded-file__icon-text2"></span>
+                                        <!-- Data Will be Comes From Js -->
+                                    </div>
+                                    <div id="uploadedFileInfo3" class="uploaded-file__info">
+                                        <span class="uploaded-file__name2">Proejct 1</span>
+                                        <span class="uploaded-file__counter2">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="uploadedDescription-container3" class="uploadedDescription-container">
+                                <div id="uploadedDescription3" class="uploaded-description">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                    <input type="text" required name="comment" placeholder="Add a comment">
+                                </div>
+                            </div>
+                            <div class="container-login100-form-btn">
+                                <button class="login100-form-btn upload-button" type="submit">
+                                    <strong>Upload</strong>
+                                </button>
+                            </div>
+                            <!-- End File Details -->
+                        </div>
+                        <!-- End Upload Area -->
+                    </form>
+                </div>
+                {% endfor %}
                 {% endif %}
-
+                {% if session['user_type'] == 'researcher' %}
+                <div class="new-document-box-wrapper">
+                    <div class="new-document-box">
+                        <div class="button-hold">
+                            <button id="openModalButton" class="plus-button"></button>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
             </div>
         </div>
-
         <!-- COLONNA DESTRA -->
-
         <div class="alignment">
-
             <div class="messages-section">
                 <button class="messages-close">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -236,38 +207,29 @@
                 </div>
                 <div class="messages">
                     {% for message in messages %}
-                        <div class="message-box">
-                            <img src="../static/uploads/profile_images/{% if researchers[loop.index0] %}{{ researchers[loop.index0].profile_picture }}{% elif evaluators[loop.index0] %}default.jpg{% endif %}"
-                                 alt="profile image">
-
-
-                            <div class="message-content">
-                                <div class="message-header">
-                                    <div class="name" style="color:#666666;"> {% if researchers[loop.index0] %}
-                                        {{ researchers[loop.index0].name }} {{ researchers[loop.index0].surname }}
+                    <div class="message-box">
+                        <img src="../static/uploads/profile_images/{% if researchers[loop.index0] %}{{ researchers[loop.index0].profile_picture }}{% elif evaluators[loop.index0] %}default.jpg{% endif %}"
+                             alt="profile image">
+                        <div class="message-content">
+                            <div class="message-header">
+                                <div class="name" style="color:#666666;"> {% if researchers[loop.index0] %}
+                                    {{ researchers[loop.index0].name }} {{ researchers[loop.index0].surname }}
                                     {% elif evaluators[loop.index0] %}
-                                        Unknown
+                                    Unknown
                                     {% endif %}
-                                    </div>
                                 </div>
-                                <p class="message-line">
-                                    {{ message.text }}
-                                </p>
-                                <p class="message-line time">
-                                    {{ message.date.strftime('%Y-%m-%d %H:%M:%S') }}
-                                </p>
                             </div>
+                            <p class="message-line">
+                                {{ message.text }}
+                            </p>
+                            <p class="message-line time">
+                                {{ message.date.strftime('%Y-%m-%d %H:%M:%S') }}
+                            </p>
                         </div>
-
+                    </div>
                     {% endfor %}
-
-
                 </div>
-
-
             </div>
-
-
             <form action="" class="message-label hide-submit message-sender" method="POST">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <input class="message-holder" type="text" name="message" placeholder="Type anything..." required>
@@ -283,64 +245,46 @@
                     </svg>
                 </button>
             </form>
-
-
             <div class="versions-section">
-
                 {% if selected_document %}
-                    <div class="projects-section-header">
-                        <p style="color:#666666;">Versions of: {{ name_document_selected }}</p>
-
-                        <div class="button-hold-versions">
-                            <button id="openModalButton2" class="plus-button-versions"></button>
+                <div class="projects-section-header">
+                    <p style="color:#666666;">Versions of: {{ name_document_selected }}</p>
+                    <div class="button-hold-versions">
+                        <button id="openModalButton2" class="plus-button-versions"></button>
+                    </div>
+                </div>
+                <div class="messages">
+                    {% for version in versions %}
+                    <div class="message-box">
+                        <div class="message-content">
+                            <div class="message-header">
+                                <div class="name"
+                                     style="color:#666666;">{{ loop.index }}. {{ version.title }}</div>
+                            </div>
+                            <p class="message-line">
+                                {{ version.description }}
+                            </p>
+                            <p class="message-line time">
+                                {{ version.date.strftime('%Y-%m-%d' ) }}
+                            </p>
                         </div>
                     </div>
-                    <div class="messages">
-
-                        {% for version in versions %}
-                            <div class="message-box">
-                                <div class="message-content">
-                                    <div class="message-header">
-                                        <div class="name"
-                                             style="color:#666666;">{{ loop.index }}. {{ version.title }}</div>
-                                    </div>
-                                    <p class="message-line">
-                                        {{ version.description }}
-                                    </p>
-                                    <p class="message-line time">
-                                        {{ version.date.strftime('%Y-%m-%d' ) }}
-                                    </p>
-
-                                </div>
-                            </div>
-                        {% endfor %}
-
-                    </div>
+                    {% endfor %}
+                </div>
                 {% else %}
-
-
-
-                    <div class="projects-section-header">
-                        <p style="color:#666666;">No document selected</p>
-
-                    </div>
-
-                    <div class="icon-holder">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512">
-                            <path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM80 64h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H80c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H80c-8.8 0-16-7.2-16-16s7.2-16 16-16zm54.2 253.8c-6.1 20.3-24.8 34.2-46 34.2H80c-8.8 0-16-7.2-16-16s7.2-16 16-16h8.2c7.1 0 13.3-4.6 15.3-11.4l14.9-49.5c3.4-11.3 13.8-19.1 25.6-19.1s22.2 7.7 25.6 19.1l11.6 38.6c7.4-6.2 16.8-9.7 26.8-9.7c15.9 0 30.4 9 37.5 23.2l4.4 8.8H304c8.8 0 16 7.2 16 16s-7.2 16-16 16H240c-6.1 0-11.6-3.4-14.3-8.8l-8.8-17.7c-1.7-3.4-5.1-5.5-8.8-5.5s-7.2 2.1-8.8 5.5l-8.8 17.7c-2.9 5.9-9.2 9.4-15.7 8.8s-12.1-5.1-13.9-11.3L144 349l-9.8 32.8z"
-                                  style="fill:rgba(114,157,172,0.09)"/>
-                        </svg>
-                    </div>
-
-
-
+                <div class="projects-section-header">
+                    <p style="color:#666666;">No document selected</p>
+                </div>
+                <div class="icon-holder">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512">
+                        <path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM80 64h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H80c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H80c-8.8 0-16-7.2-16-16s7.2-16 16-16zm54.2 253.8c-6.1 20.3-24.8 34.2-46 34.2H80c-8.8 0-16-7.2-16-16s7.2-16 16-16h8.2c7.1 0 13.3-4.6 15.3-11.4l14.9-49.5c3.4-11.3 13.8-19.1 25.6-19.1s22.2 7.7 25.6 19.1l11.6 38.6c7.4-6.2 16.8-9.7 26.8-9.7c15.9 0 30.4 9 37.5 23.2l4.4 8.8H304c8.8 0 16 7.2 16 16s-7.2 16-16 16H240c-6.1 0-11.6-3.4-14.3-8.8l-8.8-17.7c-1.7-3.4-5.1-5.5-8.8-5.5s-7.2 2.1-8.8 5.5l-8.8 17.7c-2.9 5.9-9.2 9.4-15.7 8.8s-12.1-5.1-13.9-11.3L144 349l-9.8 32.8z"
+                              style="fill:rgba(114,157,172,0.09)"/>
+                    </svg>
+                </div>
                 {% endif %}
-
-
             </div>
         </div>
     </div>
-
     <div id="modalContainer" class="modal-container">
         <form enctype="multipart/form-data" method="post" action="/api/upload_document/{{ session['project_id'] }}">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
@@ -356,11 +300,10 @@
                     </p>
                 </div>
                 <!-- End Header -->
-
                 <!-- Drop Zone -->
                 <div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
                         <span class="drop-zoon__icon">
-                          <i class='bx bxs-file-image'></i>
+                        <i class='bx bxs-file-image'></i>
                         </span>
                     <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
                     <span id="loadingText" class="drop-zoon__loading-text">Please Wait</span>
@@ -370,37 +313,32 @@
                            accept="image/*">
                 </div>
                 <!-- End Drop Zone -->
-
                 <!-- File Details -->
                 <div id="fileDetails" class="upload-area__file-details file-details">
                     <h3 class="file-details__title">Uploaded File</h3>
-
                     <div id="uploadedFile" class="uploaded-file">
                         <div class="uploaded-file__icon-container">
                             <i class='bx bxs-file-blank uploaded-file__icon'></i>
                             <span class="uploaded-file__icon-text"></span> <!-- Data Will be Comes From Js -->
                         </div>
-
                         <div id="uploadedFileInfo" class="uploaded-file__info">
                             <span class="uploaded-file__name">Proejct 1</span>
                             <span class="uploaded-file__counter">0%</span>
                         </div>
-
                     </div>
                 </div>
                 <div class="selectDT">
                     <label class="doctypelabel">Select the document you want to upload:</label>
                     <select required name="docType" id="selectDocType">
-
                     </select>
                 </div>
-
-                <button type="submit">Upload</button>
+                <button style="margin-top:20px !important;" class="login100-form-btn upload-button" type="submit">
+                    <strong>Upload</strong>
+                </button>
                 <!-- End File Details -->
             </div>
         </form>
     </div>
-
     <div id="modalContainer2" class="modal-container">
         <form method="post" enctype="multipart/form-data"
               action="/api/upload_version/{{ session['project_id'] }}/{{ request.args.get('document_id') }}">
@@ -416,11 +354,10 @@
                     </p>
                 </div>
                 <!-- End Header -->
-
                 <!-- Drop Zone -->
                 <div id="dropZoon2" class="upload-area__drop-zoon drop-zoon">
                         <span class="drop-zoon__icon">
-                          <i class='bx bxs-file-image'></i>
+                        <i class='bx bxs-file-image'></i>
                         </span>
                     <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
                     <span id="loadingText2" class="drop-zoon__loading-text">Please Wait</span>
@@ -430,36 +367,29 @@
                            accept="application/pdf">
                 </div>
                 <!-- End Drop Zone -->
-
                 <!-- File Details -->
                 <div id="fileDetails2" class="upload-area__file-details file-details">
                     <h3 class="file-details__title">Uploaded File</h3>
-
                     <div id="uploadedFile2" class="uploaded-file">
                         <div class="uploaded-file__icon-container">
                             <i class='bx bxs-file-blank uploaded-file__icon'></i>
                             <span class="uploaded-file__icon-text2"></span> <!-- Data Will be Comes From Js -->
                         </div>
-
                         <div id="uploadedFileInfo2" class="uploaded-file__info">
                             <span class="uploaded-file__name2">Proejct 1</span>
                             <span class="uploaded-file__counter2">0%</span>
                         </div>
                     </div>
                 </div>
-
                 <div id="uploadedDescription-container2" class="uploadedDescription-container">
                     <div id="uploadedDescription2" class="uploaded-description">
                         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         <input type="text" required name="title" placeholder="title">
                         <input class="input-description" type="text" required name="description"
                                placeholder="Insert your description here">
-
                     </div>
                 </div>
-
                 <div class="container-login100-form-btn">
-
                     <button class="login100-form-btn upload-button" type="submit">
                         <strong>Upload</strong>
                     </button>
@@ -469,11 +399,9 @@
             <!-- End Upload Area -->
         </form>
     </div>
-
     <!-- partial -->
     <script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="../static/functions.js"></script>
-
     <script>
         const openModalButton = document.getElementById('openModalButton');
         const openModalButton2 = document.getElementById('openModalButton2');
@@ -482,13 +410,25 @@
         const modalContainer2 = document.getElementById('modalContainer2');
         const modalContainer3 = document.getElementById('modalContainer3')
 
-        $(openModalButton).on('click', () => {
-            modalContainer.style.display = 'block'
-        })
+        if(openModalButton) {
+            $(openModalButton).on('click', () => {
+                modalContainer.style.display = 'block'
+            })
 
-        $(openModalButton3).on('click', () => {
-            modalContainer3.style.display = 'block'
-        })
+        }
+
+        if(openModalButton2) {
+            openModalButton2.addEventListener('click', function () {
+                modalContainer2.style.display = 'block';
+            });
+        }
+
+        if(openModalButton3) {
+            $(openModalButton3).on('click', () => {
+                modalContainer3.style.display = 'block'
+            })
+        }
+
 
         $(document).ready(function () {
             $.ajax({
@@ -506,7 +446,7 @@
                         })
                     } else {
                         {% if session['user_type'] == 'researcher' %}
-                            $('.new-document-box').hide()
+                        $('.new-document-box').hide()
                         {% endif %}
                     }
                 }
@@ -514,9 +454,7 @@
         });
 
 
-        openModalButton2.addEventListener('click', function () {
-            modalContainer2.style.display = 'block';
-        });
+
         // Hide the modal when the user clicks outside of it
         window.addEventListener('click', function (event) {
             if (event.target === modalContainer) {
@@ -537,6 +475,5 @@
         })
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
-
 </body>
 </html>

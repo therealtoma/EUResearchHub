@@ -78,7 +78,7 @@ textarea {
     font-size: 14px;
     height: 3rem;
     padding: 10px;
-    border: 2px dashed var(--clr-light-blue);
+    border: 1px solid var(--clr-light-blue);
     border-radius: 15px;
 }
 
@@ -86,19 +86,19 @@ textarea {
     height: 6rem;
     font-size: 14px;
     padding: 10px;
-    border: 2px dashed var(--clr-light-blue);
+    border: 1px solid var(--clr-light-blue);
     border-radius: 15px;
     margin-bottom: 50px;
 }
 
 .input-description-projects:focus{
-    border: 2px dashed var(--clr-light-blue) !important;
+    border: 2px solid var(--clr-light-blue) !important;
     border-radius: 15px;
     outline: none;
 }
 
 .input-title:focus{
-    border: 2px dashed var(--clr-light-blue) !important;
+    border: 2px solid var(--clr-light-blue) !important;
     border-radius: 15px;
     outline: none;
 }
@@ -112,7 +112,7 @@ textarea {
 .selectDT{
 
     margin: 0 auto;
-    width: 70% !important;
+    width: 90% !important;
     color: #729DAC;
     background-color: rgba(255, 255, 255, 0.6);
     font-size: 24px;

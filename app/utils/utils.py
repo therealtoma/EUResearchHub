@@ -84,8 +84,10 @@ def upload_version(project_id, document_id):
             os.makedirs(folderPath)
         document = request.files.get('docVersion')
 
+        docId = Documents.query.filter_by(fk_document_type=document_id, fk_project=project_id).first().id
+
         # aggiungo la versione all'interno del database
-        docVersion = Document_Versions(title=title, description=description, fk_document=document_id)
+        docVersion = Document_Versions(title=title, description=description, fk_document=docId)
         db.session.add(docVersion)
         db.session.commit()
         # salvo il file nella cartella

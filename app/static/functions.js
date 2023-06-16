@@ -56,62 +56,69 @@ toolTipData.innerHTML = [...imagesTypes].join(', .');
 toolTipData2.innerHTML = [...imagesTypes2].join(', .');
 
 // When (drop-zoon) has (dragover) Event
-dropZoon.addEventListener('dragover', function (event) {
-    event.preventDefault();
-    dropZoon.classList.add('drop-zoon--over');
-});
-dropZoon2.addEventListener('dragover', function (event) {
-    // Prevent Default Behavior
-    event.preventDefault();
-    // Add Class (drop-zoon--over) On (drop-zoon)
-    dropZoon2.classList.add('drop-zoon--over');
-});
+if(dropZoon) {
 
-// When (drop-zoon) has (dragleave) Event
-dropZoon.addEventListener('dragleave', function (event) {
-    // Remove Class (drop-zoon--over) from (drop-zoon)
-    dropZoon.classList.remove('drop-zoon--over');
-});
-dropZoon2.addEventListener('dragleave', function (event) {
-    // Remove Class (drop-zoon--over) from (drop-zoon)
-    dropZoon2.classList.remove('drop-zoon--over');
-});
+    dropZoon.addEventListener('dragover', function (event) {
+        event.preventDefault();
+        dropZoon.classList.add('drop-zoon--over');
+    });
+    dropZoon.addEventListener('dragleave', function (event) {
+        // Remove Class (drop-zoon--over) from (drop-zoon)
+        dropZoon.classList.remove('drop-zoon--over');
+    });
+    dropZoon.addEventListener('drop', function (event) {
+        event.preventDefault();
+        // Remove Class (drop-zoon--over) from (drop-zoon)
+        dropZoon.classList.remove('drop-zoon--over');
+        // Select The Dropped File
+        const file = event.dataTransfer.files[0];
+        // Call Function uploadFile(), And Send To Her The Dropped File :)
+        uploadFile(file);
+    });
+    dropZoon.addEventListener('click', function (event) {
+        // Click The (fileInput)
+        fileInput.click();
+    });
+}
+if(dropZoon2) {
+    dropZoon2.addEventListener('dragover', function (event) {
+        // Prevent Default Behavior
+        event.preventDefault();
+        // Add Class (drop-zoon--over) On (drop-zoon)
+        dropZoon2.classList.add('drop-zoon--over');
+    });
 
-// When (drop-zoon) has (drop) Event
-dropZoon.addEventListener('drop', function (event) {
-    event.preventDefault();
-    // Remove Class (drop-zoon--over) from (drop-zoon)
-    dropZoon.classList.remove('drop-zoon--over');
-    // Select The Dropped File
-    const file = event.dataTransfer.files[0];
-    // Call Function uploadFile(), And Send To Her The Dropped File :)
-    uploadFile(file);
-});
-dropZoon2.addEventListener('drop', function (event) {
-    // Prevent Default Behavior
-    event.preventDefault();
-    // Remove Class (drop-zoon--over) from (drop-zoon)
-    dropZoon2.classList.remove('drop-zoon--over');
-    // Select The Dropped File
-    const file = event.dataTransfer.files[0];
-    // Call Function uploadFile(), And Send To Her The Dropped File :)
-    uploadFile2(file);
-});
+    // When (drop-zoon) has (dragleave) Event
+    dropZoon2.addEventListener('dragleave', function (event) {
+        // Remove Class (drop-zoon--over) from (drop-zoon)
+        dropZoon2.classList.remove('drop-zoon--over');
+    });
+
+    // When (drop-zoon) has (drop) Event
+    dropZoon2.addEventListener('drop', function (event) {
+        // Prevent Default Behavior
+        event.preventDefault();
+        // Remove Class (drop-zoon--over) from (drop-zoon)
+        dropZoon2.classList.remove('drop-zoon--over');
+        // Select The Dropped File
+        const file = event.dataTransfer.files[0];
+        // Call Function uploadFile(), And Send To Her The Dropped File :)
+        uploadFile2(file);
+    });
 
 
-// When (drop-zoon) has (click) Event
-dropZoon.addEventListener('click', function (event) {
-    // Click The (fileInput)
-    fileInput.click();
-});
-dropZoon2.addEventListener('click', function (event) {
-    // Click The (fileInput)
-    fileInput2.click();
-});
+    // When (drop-zoon) has (click) Event
 
-dropZoon3.addEventListener('click', function (event) {
-  fileInput3.click()
-})
+    dropZoon2.addEventListener('click', function (event) {
+        // Click The (fileInput)
+        fileInput2.click();
+    });
+}
+if(dropZoon3) {
+    dropZoon3.addEventListener('click', function (event) {
+      fileInput3.click()
+    })
+}
 
 // When (fileInput) has (change) Event
 fileInput.addEventListener('change', function (event) {
@@ -126,6 +133,35 @@ fileInput2.addEventListener('change', function (event) {
     // Call Function uploadFile(), And Send To Her The Chosen File :)
     uploadFile2(file);
 });
+function pdfToImage(file, imageCallback, completeCallback) {
+  const fileReader = new FileReader();
+  fileReader.onload = function() {
+    const typedarray = new Uint8Array(this.result);
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.worker.min.js';
+
+    pdfjsLib.getDocument(typedarray).promise.then(function(pdf) {
+      pdf.getPage(1).then(function(page) {
+        const viewport = page.getViewport({ scale: 1 });
+        const canvas = document.createElement('canvas');
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        const context = canvas.getContext('2d');
+
+        const renderContext = {
+          canvasContext: context,
+          viewport: viewport
+        };
+
+        page.render(renderContext).promise.then(function() {
+          const imageData = canvas.toDataURL('image/png');
+          imageCallback(imageData);
+          completeCallback();
+        });
+      });
+    });
+  };
+  fileReader.readAsArrayBuffer(file);
+}
 
 function uploadFile(file) {
     const fileReader = new FileReader();
@@ -142,7 +178,6 @@ function uploadFile(file) {
                 const image = new Image();
                 image.src = imageData;
                 image.onload = function() {
-                    console.log('Object URL created:', image.src);
                     previewImage.setAttribute('src', image.src);
                     previewImage.style.display = 'block'; // Aggiungi questa linea per mostrare l'anteprima dell'immagine
                 };
@@ -196,7 +231,6 @@ function uploadFile2(file) {
                 const image2 = new Image();
                 image2.src = imageData;
                 image2.onload = function() {
-                    console.log('Object URL created:', image2.src);
                     previewImage2.setAttribute('src', image2.src);
                     previewImage2.style.display = 'block'; // Aggiungi questa linea per mostrare l'anteprima dell'immagine
                 };
