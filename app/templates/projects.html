@@ -14,7 +14,7 @@
             <div class="app-header">
                 <div class="app-header-left">
                     <span class="app-icon"></span>
-                    <p class="app-name">EUResearchHub</p>
+                    <a style="text-decoration:none;" href={{url_for("views.projects")}}><p class="app-name">EUResearchHub</p></a>
 
                          {% with messages = get_flashed_messages() %}
                     {% if messages %}

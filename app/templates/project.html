@@ -48,7 +48,7 @@
     <div class="app-header">
         <div class="app-header-left">
             <span class="app-icon"></span>
-            <p class="app-name">EUResearchHub</p>
+            <a style="text-decoration:none;" href={{url_for("views.projects")}}><p class="app-name">EUResearchHub</p></a>
         </div>
         <div class="app-header-right">
             <button class="notification-btn" onclick="location.href='{{ url_for('auth.logout') }}'">
@@ -395,7 +395,9 @@
                     </select>
                 </div>
 
-                <button type="submit">Upload</button>
+                <button style="margin-top:20px !important;" class="login100-form-btn upload-button" type="submit">
+                        <strong>Upload</strong>
+                </button>
                 <!-- End File Details -->
             </div>
         </form>
