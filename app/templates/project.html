@@ -105,7 +105,7 @@
                             <br>
                             {% if session['user_type'] == 'evaluator' %}
                             <div class="days-left hover-days-left">
-                                <button class="days-left" id="openModalButton3">Upload report</button>
+                                <button class="days-left" onClick="setReportFormAction({{session['project_id']}},{{document.id}})">Upload report</button>
                             </div>
                             {% else %}
                             {% if document.ev_rep %}
@@ -118,7 +118,7 @@
                     </div>
                 </div>
                 <div id="modalContainer3" class="modal-container">
-                    <form method="post" enctype="multipart/form-data"
+                    <form method="post" enctype="multipart/form-data" id="reportForm"
                           action="/api/upload_report/{{ session['project_id'] }}/{{ document.id }}">
                         <div id="uploadArea3" class="upload-area">
                             <!-- Header -->

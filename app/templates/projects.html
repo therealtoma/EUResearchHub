@@ -143,14 +143,14 @@
                 <div class="modal-wrapper" style="display: none;">
                     <div class="modal">
                         <h2>Create New Project</h2>
-                        <form action="/create_project" method="post" enctype="multipart/form-data">
+                        <form id="create-project-form" action="/create_project" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                             <input class="input-title" type="text" id="title" name="title" required placeholder="Insert your title">
                             <textarea class="input-description-projects" id="description" name="description" required placeholder="Insert your description"></textarea>
                             <!-- Add any other fields you need for the project form -->
                             <div class="modal-buttons" >
-                                <button type="submit" class="cancel-button">Cancel</button>
-                                <button type="submit" class="create-button">Create</button>
+                                <button id="cancel-button" class="cancel-button">Cancel</button>
+                                <button id="submit-button" type="submit" class="create-button">Create</button>
                             </div>
                         </form>
                     </div>
@@ -160,6 +160,7 @@
         </div>
     </div>
 </div>
+<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
 <script>
     function toggleParticipantAdd(projectId) {
         var addField = document.getElementById('add-participant-field-' + projectId);
@@ -226,20 +227,31 @@
     // Add an event listener to the "Add New Project" button
     // Add event listeners to the modal buttons for cancellation and form submission
     var modalWrapper = document.querySelector('.modal-wrapper');
-    var cancelButton = document.querySelector('.cancel-button');
-    var createButton = document.querySelector('.create-button');
+    //var cancelButton = document.querySelector('.cancel-button');
+    //var createButton = document.querySelector('.create-button');
+
+    const cancelButton = $('#cancel-button')
+    const createButton = $('#create-button')
+
     var newProjectWrapper = document.getElementById('new-project-wrapper');
 
+    cancelButton.on('click', () => {
+        $('#create-project-form')[0].reset()
+        modalWrapper.style.display = 'none'
+    })
+/*
     cancelButton.addEventListener('click', function() {
         modalWrapper.style.display = 'none';
     });
+*/
 
+    /*
     createButton.addEventListener('click', function(event) {
         event.preventDefault();
         modalWrapper.style.display = 'none';
         // Handle form submission or AJAX request
     });
-
+*/
     newProjectWrapper.addEventListener('click', function() {
         modalWrapper.style.display = 'block';
     });

@@ -330,5 +330,10 @@ function fileValidate(fileType, fileSize) {
     }
 }
 
+function setReportFormAction(projectId, docId) {
+    $('#reportForm').attr('action', "/api/upload_report/" + projectId + "/" + docId)
+    const modalContainer3 = document.getElementById('modalContainer3')
+    modalContainer3.style.display = 'block'
+}
 
 // :)
