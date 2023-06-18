@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{INDEX}\PYG{+w}{ }\PYG{n}{messages\PYGZus{}fk\PYGZus{}projects\PYGZus{}idx}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{l+m+mf}{.}\PYG{n}{messages}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{fk\PYGZus{}projects}\PYG{p}{);}
+\end{Verbatim}

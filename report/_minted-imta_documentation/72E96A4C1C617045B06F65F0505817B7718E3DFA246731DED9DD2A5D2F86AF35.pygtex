@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nd}{@views}\PYG{o}{.}\PYG{n}{route}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}/update\PYGZus{}project\PYGZus{}status\PYGZsq{}}\PYG{p}{,} \PYG{n}{methods}\PYG{o}{=}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}POST\PYGZsq{}}\PYG{p}{])}
+\PYG{n+nd}{@login\PYGZus{}required}
+\PYG{k}{def} \PYG{n+nf}{update\PYGZus{}project\PYGZus{}status}\PYG{p}{():}
+    \PYG{k}{try}\PYG{p}{:}
+        \PYG{k}{with} \PYG{n}{db}\PYG{o}{.}\PYG{n}{session}\PYG{o}{.}\PYG{n}{begin}\PYG{p}{():}
+            \PYG{n}{project\PYGZus{}id} \PYG{o}{=} \PYG{n}{request}\PYG{o}{.}\PYG{n}{form}\PYG{o}{.}\PYG{n}{get}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}project\PYGZus{}id\PYGZsq{}}\PYG{p}{)}
+            \PYG{n}{new\PYGZus{}status} \PYG{o}{=} \PYG{n}{request}\PYG{o}{.}\PYG{n}{form}\PYG{o}{.}\PYG{n}{get}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}new\PYGZus{}status\PYGZsq{}}\PYG{p}{)}
+            \PYG{n}{project} \PYG{o}{=} \PYG{n}{Projects}\PYG{o}{.}\PYG{n}{query}\PYG{o}{.}\PYG{n}{get}\PYG{p}{(}\PYG{n}{project\PYGZus{}id}\PYG{p}{)}
+            \PYG{k}{if} \PYG{n}{project}\PYG{p}{:}
+                \PYG{n}{total\PYGZus{}documents} \PYG{o}{=} \PYG{n}{Documents}\PYG{o}{.}\PYG{n}{query}\PYG{o}{.}\PYG{n}{filter\PYGZus{}by}\PYG{p}{(}\PYG{n}{fk\PYGZus{}project}\PYG{o}{=}\PYG{n}{project\PYGZus{}id}\PYG{p}{)}\PYG{o}{.} \PYG{n}{count}\PYG{p}{()}
+                \PYG{n}{evaluated\PYGZus{}documents} \PYG{o}{=} \PYG{n}{Evaluation\PYGZus{}Reports}\PYG{o}{.}\PYG{n}{query}\PYG{o}{.}\PYG{n}{filter\PYGZus{}by}\PYG{p}{(}\PYG{n}{fk\PYGZus{}project}\PYG{o}{=}\PYG{n}{project\PYGZus{}id}\PYG{p}{)}\PYG{o}{.} \PYG{n}{count}\PYG{p}{()}
+                \PYG{k}{if} \PYG{n}{total\PYGZus{}documents} \PYG{o}{!=} \PYG{n}{evaluated\PYGZus{}documents}\PYG{p}{:}
+                    \PYG{n}{flash}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Non tutti i documenti sono stati valutati.\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}error\PYGZsq{}}\PYG{p}{)}
+                \PYG{k}{else}\PYG{p}{:}
+                    \PYG{n}{project}\PYG{o}{.}\PYG{n}{status} \PYG{o}{=} \PYG{n}{new\PYGZus{}status}
+        \PYG{n}{db}\PYG{o}{.}\PYG{n}{session}\PYG{o}{.}\PYG{n}{commit}\PYG{p}{()}
+        \PYG{k}{return} \PYG{n}{redirect}\PYG{p}{(}\PYG{n}{url\PYGZus{}for}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}views.project\PYGZsq{}}\PYG{p}{,} \PYG{n}{project\PYGZus{}id}\PYG{o}{=}\PYG{n}{project\PYGZus{}id}\PYG{p}{))}
+    \PYG{k}{except} \PYG{n+ne}{Exception} \PYG{k}{as} \PYG{n}{e}\PYG{p}{:}
+        \PYG{n}{db}\PYG{o}{.}\PYG{n}{session}\PYG{o}{.}\PYG{n}{rollback}\PYG{p}{()}
+        \PYG{n}{flash}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Si è verificato un errore durante l}\PYG{l+s+se}{\PYGZbs{}\PYGZsq{}}\PYG{l+s+s1}{aggiornamento dello stato del progetto.\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}error\PYGZsq{}}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n}{redirect}\PYG{p}{(}\PYG{n}{url\PYGZus{}for}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}views.project\PYGZsq{}}\PYG{p}{,} \PYG{n}{project\PYGZus{}id}\PYG{o}{=}\PYG{n}{project\PYGZus{}id}\PYG{p}{))}
+\end{Verbatim}

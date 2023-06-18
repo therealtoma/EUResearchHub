@@ -48,7 +48,7 @@ body {
   background-color: var(--clr-white);
   border: 2px solid var(--clr-light-blue);
   border-radius: 24px;
-  padding: 2rem 1.875rem 5rem 1.875rem;
+  padding: 2rem 1.875rem 3rem 1.875rem;
   margin: 0.625rem;
   text-align: center;
 
@@ -329,16 +329,49 @@ body {
   width: 100%;
 }
 
-.input-description{
-  border: 2px dashed var(--clr-light-blue);
+.input-comment{
+  font-size: 13px;
+  margin-top: 10px;
+  border: 1px solid var(--clr-light-blue);
   border-radius: 15px;
-  height: 100%;
+  height: 70%;
   width: 100%;
-  padding: 10px;
+  padding: 5px;
+}
+
+.input-comment:focus{
+    border: 2px solid var(--clr-light-blue) !important;
+    border-radius: 15px;
+    outline: none;
+}
+
+.input-title2{
+  font-size: 13px;
+  border: 1px solid var(--clr-light-blue);
+  border-radius: 15px;
+  height: 50%;
+  width: 100%;
+  padding: 5px;
+}
+
+.input-title2:focus{
+    border: 2px solid var(--clr-light-blue) !important;
+    border-radius: 15px;
+    outline: none;
+}
+
+.input-description{
+  font-size: 13px;
+  margin-top: 10px;
+  border: 1px solid var(--clr-light-blue);
+  border-radius: 15px;
+  height: 60%;
+  width: 100%;
+  padding: 5px;
 }
 
 .input-description:focus{
-    border: 2px dashed var(--clr-light-blue) !important;
+    border: 2px solid var(--clr-light-blue) !important;
     border-radius: 15px;
     outline: none;
 }

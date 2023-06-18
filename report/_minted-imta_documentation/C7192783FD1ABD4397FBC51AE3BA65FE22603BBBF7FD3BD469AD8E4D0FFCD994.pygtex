@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{MATERIALIZED}\PYG{+w}{ }\PYG{k}{VIEW}\PYG{+w}{ }\PYG{n}{projects\PYGZus{}status\PYGZus{}count}\PYG{+w}{ }\PYG{k}{AS}
+\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{status}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{COUNT}\PYG{p}{(}\PYG{o}{*}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{as}\PYG{+w}{ }\PYG{n}{count}
+\PYG{k}{FROM}\PYG{+w}{ }\PYG{l+s+sName}{\PYGZdq{}EUResearchHub\PYGZdq{}}\PYG{l+m+mf}{.}\PYG{n}{projects}
+\PYG{k}{GROUP}\PYG{+w}{ }\PYG{k}{BY}\PYG{+w}{ }\PYG{n}{status}\PYG{p}{;}
+\end{Verbatim}

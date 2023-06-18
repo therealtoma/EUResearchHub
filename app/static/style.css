@@ -78,7 +78,7 @@ textarea {
     font-size: 14px;
     height: 3rem;
     padding: 10px;
-    border: 2px dashed var(--clr-light-blue);
+    border: 1px solid var(--clr-light-blue);
     border-radius: 15px;
 }
 
@@ -86,19 +86,19 @@ textarea {
     height: 6rem;
     font-size: 14px;
     padding: 10px;
-    border: 2px dashed var(--clr-light-blue);
+    border: 1px solid var(--clr-light-blue);
     border-radius: 15px;
     margin-bottom: 50px;
 }
 
 .input-description-projects:focus{
-    border: 2px dashed var(--clr-light-blue) !important;
+    border: 2px solid var(--clr-light-blue) !important;
     border-radius: 15px;
     outline: none;
 }
 
 .input-title:focus{
-    border: 2px dashed var(--clr-light-blue) !important;
+    border: 2px solid var(--clr-light-blue) !important;
     border-radius: 15px;
     outline: none;
 }
@@ -112,7 +112,7 @@ textarea {
 .selectDT{
 
     margin: 0 auto;
-    width: 70% !important;
+    width: 100% !important;
     color: #729DAC;
     background-color: rgba(255, 255, 255, 0.6);
     font-size: 24px;
@@ -197,7 +197,7 @@ textarea {
 
 /* Create Button */
 .create-button {
-    margin-right: 10px;
+    margin-left: 10px;
     background-color: var(--app-container);
     color: var(--main-color);
     border: 2px solid !important;
@@ -646,6 +646,7 @@ form.hide-submit input[type="submit"] {
 }
 
 .message-label{
+    border-top: 0.5px solid #666666;
     background-color: var(--main-color);
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
@@ -985,6 +986,7 @@ form.hide-submit input[type="submit"] {
 /* DOCUMENT-VERSIONS-BUTTON */
 
 .button-hold-versions{
+    margin-left: 3px;
     margin-right: 20px!important;
     position: absolute !important;
     top: 75% !important;
@@ -1275,15 +1277,22 @@ bottom: 0;
 
 
 .days-left {
+        text-align: center;
+        color: #729DAC !important;
         background-color: rgba(255, 255, 255, 0.6);
         font-size: 12px;
         border-radius: 20px;
         flex-shrink: 0;
         padding: 6px 16px;
         font-weight: 700;
+        cursor:pointer;
 }
 
-.days-left select {
+.days-left:hover{
+    text-decoration: underline;
+}
+
+.days-left select{
         background-color: transparent;
         border: none;
         font-size: 12px;
@@ -1292,8 +1301,12 @@ bottom: 0;
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
+        cursor:pointer;
 }
 
+.days-left:hover select{
+    text-decoration: none;
+}
 
 .mode-switch.active .moon {
     fill: var(--main-color);

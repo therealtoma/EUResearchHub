@@ -1,0 +1,108 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{mac}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{c} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{):}
+    \PYG{c+c1}{\PYGZsh{} multiply\PYGZhy{}accumulate function}
+    \PYG{k}{return} \PYG{n}{a}\PYG{o}{*}\PYG{n}{b} \PYG{o}{+} \PYG{n}{c}
+
+
+
+
+
+    \PYGZbs{}\PYG{n}{item} \PYGZbs{}\PYG{n}{imtaInlinecode}\PYG{p}{\PYGZob{}}\PYG{n}{latex}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{n}{evaluation\PYGZus{}windows}\PYG{p}{\PYGZcb{}:} \PYG{n}{rappresenta} \PYG{n}{le} \PYG{n}{finestre} \PYG{n}{temporali} \PYG{o+ow}{in} \PYG{n}{cui} \PYG{n}{i} \PYG{n}{progetti} \PYG{n}{possono} \PYG{n}{essere} \PYG{n}{valutati}\PYG{p}{,} \PYG{n}{con} \PYG{n}{date} \PYG{n}{di} \PYG{n}{inizio} \PYG{n}{e} \PYG{n}{fine}\PYG{o}{.}
+        \PYGZbs{}\PYG{n}{item} \PYGZbs{}\PYG{n}{imtaInlinecode}\PYG{p}{\PYGZob{}}\PYG{n}{latex}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{n}{messages}\PYG{p}{\PYGZcb{}:} \PYG{n}{contiene} \PYG{n}{i} \PYG{n}{messaggi} \PYG{n}{scambiati} \PYG{n}{tra} \PYG{n}{ricercatori} \PYG{n}{e} \PYG{n}{valutatori} \PYG{n}{riguardo} \PYG{n}{ai} \PYG{n}{progetti}\PYG{o}{.}
+
+    \PYGZbs{}\PYG{n}{item} \PYGZbs{}\PYG{n}{imtaInlinecode}\PYG{p}{\PYGZob{}}\PYG{n}{latex}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{n}{documents}\PYG{p}{\PYGZcb{}} \PYG{n}{e}  \PYGZbs{}\PYG{n}{imtaInlinecode}\PYG{p}{\PYGZob{}}\PYG{n}{latex}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{n}{document\PYGZus{}versions}\PYG{p}{\PYGZcb{}:} \PYG{n}{gestiscono} \PYG{n}{i} \PYG{n}{documenti} \PYG{n}{associati} \PYG{n}{ai} \PYG{n}{progetti} \PYG{n}{e} \PYG{n}{le} \PYG{n}{loro} \PYG{n}{diverse} \PYG{n}{versioni}\PYG{o}{.}
+
+    \PYGZbs{}\PYG{n}{item} \PYGZbs{}\PYG{n}{imtaInlinecode}\PYG{p}{\PYGZob{}}\PYG{n}{latex}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{n}{document\PYGZus{}types}\PYG{p}{\PYGZcb{}:} \PYG{n}{classifica} \PYG{n}{i} \PYG{n}{diversi} \PYG{n}{tipi} \PYG{n}{di} \PYG{n}{documenti} \PYG{n}{utilizzati} \PYG{n}{nel} \PYG{n}{sistema}\PYG{o}{.}
+
+    \PYGZbs{}\PYG{n}{item} \PYGZbs{}\PYG{n}{imtaInlinecode}\PYG{p}{\PYGZob{}}\PYG{n}{latex}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{n}{users}\PYG{p}{\PYGZcb{}:} \PYG{n}{contengono} \PYG{n}{informazioni} \PYG{n}{sugli} \PYG{n}{utenti} \PYG{k}{del} \PYG{n}{sistema}\PYG{p}{,} \PYG{n}{come} \PYG{n}{nome}\PYG{p}{,} \PYG{n}{cognome}\PYG{p}{,} \PYG{n}{password} \PYG{n}{ed} \PYG{n}{e}\PYG{o}{\PYGZhy{}}\PYG{n}{mail}\PYG{o}{.}
+
+
+    \PYGZbs{}\PYG{n}{item} \PYGZbs{}\PYG{n}{imtaInlinecode}\PYG{p}{\PYGZob{}}\PYG{n}{latex}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{n}{evaluation\PYGZus{}reports}\PYG{p}{\PYGZcb{}:} \PYG{n}{archivia} \PYG{n}{i} \PYG{n}{report} \PYG{n}{di} \PYG{n}{valutazione} \PYG{n}{generati} \PYG{n}{dai} \PYG{n}{valutatori} \PYG{n}{per} \PYG{n}{i} \PYG{n}{progetti} \PYG{n}{di} \PYG{n}{ricerca}\PYG{o}{.}
+
+
+    \PYGZbs{}\PYG{n}{end}\PYG{p}{\PYGZob{}}\PYG{n}{itemize}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{subsection}\PYG{p}{\PYGZob{}}\PYG{n}{Gestione} \PYG{n}{dei} \PYG{n}{ruoli} \PYG{n}{e} \PYG{n}{politiche} \PYG{n}{di} \PYG{n}{autorizzazione}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{subsection}\PYG{p}{\PYGZob{}}\PYG{n}{Performance}\PYG{p}{:} \PYG{n}{indici}\PYG{p}{,} \PYG{n}{materialized} \PYG{n}{view} \PYG{n}{e} \PYG{n}{procedure} \PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{section}\PYG{p}{\PYGZob{}}\PYG{n}{Progettazione} \PYG{n}{concettuale}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{subsection}\PYG{p}{\PYGZob{}}\PYG{n}{Schema} \PYG{n}{ad} \PYG{n}{oggetti}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{subsection}\PYG{p}{\PYGZob{}}\PYG{n}{Giustificazione} \PYG{n}{delle} \PYG{n}{decisioni} \PYG{n}{progettuali}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{section}\PYG{p}{\PYGZob{}}\PYG{n}{Progettazione} \PYG{n}{logica}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{subsection}\PYG{p}{\PYGZob{}}\PYG{n}{Schema} \PYG{n}{logico}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{subsection}\PYG{p}{\PYGZob{}}\PYG{n}{Giustificazione} \PYG{n}{delle} \PYG{n}{decisioni} \PYG{n}{progettuali}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{section}\PYG{p}{\PYGZob{}}\PYG{n}{Progettazione} \PYG{n}{fisica}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{subsection}\PYG{p}{\PYGZob{}}\PYG{n}{Istruzioni} \PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{SQL}\PYG{p}{\PYGZcb{}\PYGZcb{}}
+
+
+\PYGZbs{}\PYG{n}{chapter}\PYG{p}{\PYGZob{}}\PYG{n}{Implementazione} \PYG{n}{back}\PYG{o}{\PYGZhy{}}\PYG{n}{end}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{section}\PYG{p}{\PYGZob{}}\PYG{n}{Flask} \PYG{n}{e} \PYG{n}{SQLAlchemy}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{section}\PYG{p}{\PYGZob{}}\PYG{n}{Expression} \PYG{n}{Language} \PYG{n}{e} \PYG{n}{ORM}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{section}\PYG{p}{\PYGZob{}}\PYG{n}{Sicurezza}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{subsection}\PYG{p}{\PYGZob{}}\PYG{n}{Protezione} \PYG{n}{da} \PYG{n}{XSS}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{subsection}\PYG{p}{\PYGZob{}}\PYG{n}{Protezione} \PYG{n}{da} \PYG{n}{SQL} \PYG{n}{Injection}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{subsection}\PYG{p}{\PYGZob{}}\PYG{n}{Meccanismi} \PYG{n}{di} \PYG{n}{sicurezza} \PYG{n}{aggiuntivi}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{section}\PYG{p}{\PYGZob{}}\PYG{n}{Approfondimento} \PYG{n}{delle} \PYG{n}{tecnologiche} \PYG{n}{specifiche}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{subsection}\PYG{p}{\PYGZob{}}\PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{libreria1}\PYG{p}{\PYGZcb{}} \PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{subsection}\PYG{p}{\PYGZob{}}\PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{libreria2}\PYG{p}{\PYGZcb{}} \PYG{p}{\PYGZcb{}}
+
+\PYGZbs{}\PYG{n}{chapter}\PYG{p}{\PYGZob{}}\PYG{n}{Implementazione} \PYG{n}{front}\PYG{o}{\PYGZhy{}}\PYG{n}{end}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{section}\PYG{p}{\PYGZob{}}\PYG{n}{Brand} \PYG{n}{identity}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{section}\PYG{p}{\PYGZob{}}\PYG{n}{Demo}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{section}\PYG{p}{\PYGZob{}}\PYG{n}{Approfondimento} \PYG{n}{delle} \PYG{n}{tecnologiche} \PYG{n}{specifiche}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{subsection}\PYG{p}{\PYGZob{}}\PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{framework1}\PYG{p}{\PYGZcb{}} \PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{subsection}\PYG{p}{\PYGZob{}}\PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{css}\PYG{p}{\PYGZcb{}} \PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{subsection}\PYG{p}{\PYGZob{}}\PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{javascript}\PYG{p}{\PYGZcb{}} \PYG{p}{\PYGZcb{}}
+
+\PYGZbs{}\PYG{n}{chapter}\PYG{p}{\PYGZob{}}\PYG{n}{Collaborazione} \PYG{n}{e} \PYG{n}{contributo} \PYG{n}{individuale}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{section}\PYG{p}{\PYGZob{}}\PYG{n}{Planning}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{section}\PYG{p}{\PYGZob{}}\PYG{n}{Descrizione} \PYG{k}{del} \PYG{n}{ruolo} \PYG{n}{di} \PYG{n}{ciascun} \PYG{n}{membro} \PYG{k}{del} \PYG{n}{gruppo}\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{In} \PYG{n}{order} \PYG{n}{to} \PYG{n}{use} \PYG{n}{this} \PYG{n}{template}\PYG{p}{,} \PYG{n}{you} \PYG{n}{simply} \PYG{n}{need} \PYG{n}{to} \PYG{n}{have} \PYG{n}{a} \PYGZbs{}\PYG{n}{TeX}\PYG{p}{\PYGZob{}\PYGZcb{}} \PYG{n}{distribution} \PYG{n}{installed}\PYG{p}{,} \PYG{n}{copy} \PYG{n}{this} \PYG{n}{file} \PYG{o+ow}{in} \PYG{n}{your} \PYG{n}{working} \PYG{n}{directory} \PYG{o+ow}{and} \PYG{n}{add} \PYG{n}{the} \PYGZbs{}\PYG{n}{imtaInlinecode}\PYG{p}{\PYGZob{}}\PYG{n}{latex}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYGZbs{}\PYG{n}{usepackage}\PYG{p}{\PYGZob{}}\PYG{n}{imta\PYGZus{}core}\PYG{p}{\PYGZcb{}\PYGZcb{}} \PYG{n}{command} \PYG{o+ow}{in} \PYG{n}{the} \PYG{n}{preamble} \PYG{n}{of} \PYG{n}{your} \PYG{n}{top} \PYG{n}{document}\PYG{o}{.}
+\PYG{n}{The} \PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{babel}\PYG{p}{\PYGZcb{}} \PYG{n}{package} \PYG{n}{should} \PYG{n}{be} \PYG{n}{loaded} \PYG{n}{first} \PYG{n}{when} \PYG{n}{used} \PYG{o+ow}{in} \PYG{n}{combination} \PYG{k}{with} \PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{imta}\PYGZbs{}\PYG{n}{\PYGZus{}core}\PYG{p}{\PYGZcb{}}\PYG{o}{.}
+
+\PYG{n}{If} \PYG{n}{you} \PYG{n}{would} \PYG{n}{prefer} \PYG{n}{to} \PYG{n}{properly} \PYG{n}{install} \PYG{n}{the} \PYG{n}{package} \PYG{n}{once} \PYG{n}{it} \PYG{k}{for} \PYG{n+nb}{all} \PYG{n}{instead} \PYG{n}{of} \PYG{n}{having} \PYG{n}{multiple} \PYG{n}{copies}\PYG{p}{,} \PYG{n}{you} \PYG{n}{can} \PYG{n}{do} \PYG{n}{so} \PYG{n}{by} \PYG{n}{manually} \PYG{n}{installing} \PYG{n}{it}\PYG{o}{.}
+\PYG{n}{Since} \PYG{n}{this} \PYG{n}{can} \PYG{n}{be} \PYG{n}{a} \PYG{n}{little} \PYG{n}{bit} \PYG{n}{tedious} \PYG{k}{for} \PYG{n}{a} \PYG{n}{new} \PYGZbs{}\PYG{n}{LaTeX}\PYG{p}{\PYGZob{}\PYGZcb{}} \PYG{n}{user}\PYG{p}{,} \PYG{n}{we} \PYG{n}{introduced} \PYG{n}{a} \PYG{n}{custom} \PYG{n}{Python} \PYG{n}{script}\PYG{o}{.}
+\PYG{n}{Simply} \PYG{n}{run} \PYG{n}{the} \PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{imta}\PYGZbs{}\PYG{n}{\PYGZus{}install}\PYG{o}{.}\PYG{n}{py}\PYG{p}{\PYGZcb{}} \PYG{n}{script} \PYG{o+ow}{and} \PYG{n}{everything} \PYG{n}{should} \PYG{n}{be} \PYG{n}{alright}\PYG{o}{.}
+\PYG{n}{This} \PYG{n}{script} \PYG{n}{supports} \PYG{n}{Python} \PYG{l+m+mi}{2} \PYG{o+ow}{and} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{o+ow}{and} \PYG{n}{both} \PYG{n}{Mik}\PYGZbs{}\PYG{n}{TeX}\PYG{p}{\PYGZob{}\PYGZcb{}} \PYG{o+ow}{and} \PYGZbs{}\PYG{n}{TeX}\PYG{p}{\PYGZob{}\PYGZcb{}}\PYG{n}{Live} \PYG{n}{environments}\PYG{o}{.}
+
+\PYG{n}{Note} \PYG{n}{that} \PYG{n}{this} \PYG{n}{template} \PYG{o+ow}{is} \PYG{n}{compatible} \PYG{k}{with} \PYG{n}{at} \PYG{n}{least} \PYGZbs{}\PYG{n}{TeX} \PYG{n}{Live} \PYG{o+ow}{and} \PYG{n}{MiK}\PYGZbs{}\PYG{n}{TeX} \PYG{n}{distributions}\PYG{p}{,} \PYG{n}{although} \PYG{n}{we} \PYG{n}{have} \PYG{n}{noticed} \PYG{n}{some} \PYG{n}{issues} \PYG{n}{might} \PYG{n}{happen} \PYG{n}{when} \PYG{n}{trying} \PYG{n}{to} \PYG{n}{resolve} \PYG{n}{dependencies} \PYG{k}{with} \PYG{n}{the} \PYG{n}{latter}\PYG{o}{.}
+\PYG{n}{If} \PYG{n}{so}\PYG{p}{,} \PYG{n}{then} \PYG{k}{try} \PYG{n}{to} \PYG{n}{update} \PYG{n}{your} \PYG{n}{distribution} \PYG{n}{using} \PYG{n}{your} \PYG{n}{Mik}\PYGZbs{}\PYG{n}{TeX} \PYG{n}{manager}\PYG{o}{.}
+\PYGZbs{}\PYG{n}{footnote}\PYG{p}{\PYGZob{}}\PYG{n}{See} \PYGZbs{}\PYG{n}{textit}\PYG{p}{\PYGZob{}}\PYGZbs{}\PYG{n}{href}\PYG{p}{\PYGZob{}}\PYG{n}{https}\PYG{p}{:}\PYG{o}{//}\PYG{n}{tex}\PYG{o}{.}\PYG{n}{stackexchange}\PYG{o}{.}\PYG{n}{com}\PYG{o}{/}\PYG{n}{a}\PYG{o}{/}\PYG{l+m+mi}{359851}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{n}{General} \PYG{n}{Guide} \PYG{n}{to} \PYG{n}{Installing} \PYG{n}{Packages} \PYG{k}{with} \PYG{n}{MikTeX} \PYG{n}{Package} \PYG{n}{Manager}\PYG{p}{\PYGZcb{}\PYGZcb{}} \PYG{n}{on} \PYGZbs{}\PYG{n}{TeX} \PYG{n}{Stack} \PYG{n}{Exchange} \PYG{k}{for} \PYG{n}{more} \PYG{n}{details}\PYG{o}{.}\PYG{p}{\PYGZcb{}}
+
+
+\PYG{n}{The} \PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{imta}\PYGZbs{}\PYG{n}{\PYGZus{}core}\PYG{p}{\PYGZcb{}} \PYG{n}{package} \PYG{n}{provides} \PYG{n}{a} \PYGZbs{}\PYG{n}{LaTeX}\PYG{p}{\PYGZob{}\PYGZcb{}} \PYG{n}{template} \PYG{n}{that} \PYG{n}{satisfies} \PYG{n}{the} \PYG{n}{IMT} \PYG{n}{Atlantique} \PYG{n}{corporate} \PYG{n}{identity} \PYG{n}{rules}\PYG{o}{.}
+\PYGZbs{}\PYG{n}{footnote}\PYG{p}{\PYGZob{}}\PYG{n}{See} \PYGZbs{}\PYG{n}{textit}\PYG{p}{\PYGZob{}}\PYGZbs{}\PYG{n}{href}\PYG{p}{\PYGZob{}}\PYG{n}{https}\PYG{p}{:}\PYG{o}{//}\PYG{n}{intranet}\PYG{o}{.}\PYG{n}{imt}\PYG{o}{\PYGZhy{}}\PYG{n}{atlantique}\PYG{o}{.}\PYG{n}{fr}\PYG{o}{/}\PYG{n}{wp}\PYG{o}{\PYGZhy{}}\PYG{n}{content}\PYG{o}{/}\PYG{n}{uploads}\PYG{o}{/}\PYG{l+m+mi}{2017}\PYG{o}{/}\PYG{l+m+mi}{01}\PYG{o}{/}\PYG{n}{imt\PYGZus{}atlantique\PYGZus{}chartegraphique}\PYG{o}{.}\PYG{n}{pdf}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{n}{Charte} \PYG{n}{Graphique}\PYG{p}{\PYGZcb{}\PYGZcb{}} \PYG{n}{on} \PYG{n}{the} \PYG{n}{IMT} \PYG{n}{Atlantique}\PYG{l+s+s1}{\PYGZsq{}s intranet for more details.\PYGZcb{}}
+\PYG{n}{For} \PYG{n}{slightly} \PYG{n}{more} \PYG{n}{advanced} \PYG{o+ow}{or} \PYG{n}{specific} \PYG{n}{features}\PYG{p}{,} \PYG{n}{you} \PYG{n}{might} \PYG{n}{want} \PYG{n}{to} \PYG{n}{refer} \PYG{n}{to} \PYG{n}{the} \PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{imta}\PYGZbs{}\PYG{n}{\PYGZus{}extra}\PYG{p}{\PYGZcb{}} \PYG{n}{package}\PYG{o}{.}
+
+\PYG{n}{Since} \PYG{n}{it} \PYG{o+ow}{is} \PYG{n}{a} \PYG{n}{package}\PYG{p}{,} \PYG{n}{it} \PYG{n}{can} \PYG{n}{be} \PYG{n}{used} \PYG{k}{for} \PYG{n}{a} \PYG{n}{variety} \PYG{n}{of} \PYG{n}{classes} \PYG{o+ow}{and} \PYG{n}{geometry}\PYG{o}{.}
+\PYG{n}{It} \PYG{n}{has} \PYG{n}{been} \PYG{n}{primarily} \PYG{n}{designed} \PYG{n}{to} \PYG{n}{be} \PYG{n}{used} \PYG{o+ow}{in} \PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{article}\PYG{p}{\PYGZcb{}} \PYG{o+ow}{and} \PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{report}\PYG{p}{\PYGZcb{}} \PYG{n}{documents}\PYG{p}{,} \PYG{n}{either} \PYG{k}{with} \PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{oneside}\PYG{p}{\PYGZcb{}}\PYG{o}{/}\PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{twoside}\PYG{p}{\PYGZcb{}} \PYG{o+ow}{or} \PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{onecolumn}\PYG{p}{\PYGZcb{}}\PYG{o}{/}\PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{twocolumn}\PYG{p}{\PYGZcb{}} \PYG{n}{geometries}\PYG{o}{.}
+\PYG{n}{If} \PYG{n}{you} \PYG{n}{are} \PYG{o+ow}{not} \PYG{n}{sure} \PYG{n}{how} \PYG{n}{to} \PYG{n}{start}\PYG{p}{,} \PYG{n}{we} \PYG{n}{invite} \PYG{n}{you} \PYG{n}{to} \PYG{n}{have} \PYG{n}{a} \PYG{n}{look} \PYG{n}{at} \PYG{n}{the} \PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{skeleton}\PYG{p}{\PYGZcb{}} \PYG{n}{file} \PYG{n}{provided} \PYG{k}{with} \PYG{n}{this} \PYG{n}{template}\PYG{o}{.}
+
+\PYG{n}{The} \PYGZbs{}\PYG{n}{imtaInlinecode}\PYG{p}{\PYGZob{}}\PYG{n}{latex}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYGZbs{}\PYG{n}{imtaQuestion}\PYG{p}{\PYGZcb{}} \PYG{n}{command} \PYG{n}{outputs} \PYG{o+ow}{and} \PYG{n}{formats} \PYG{n}{a} \PYG{n}{question} \PYG{n}{counter}\PYG{o}{.}
+\PYG{n}{It}\PYG{l+s+s1}{\PYGZsq{}s meant to be used in reports for assignment with questions.}
+\PYG{n}{The} \PYG{n}{counter} \PYG{n}{should} \PYG{n}{be} \PYG{n}{reset} \PYG{k}{with} \PYG{n}{the} \PYGZbs{}\PYG{n}{imtaInlinecode}\PYG{p}{\PYGZob{}}\PYG{n}{latex}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYGZbs{}\PYG{n}{imtaQuestionReset}\PYG{p}{\PYGZcb{}}\PYG{o}{.}
+\PYG{n}{This} \PYG{n}{couple} \PYG{n}{of} \PYG{n}{commands} \PYG{o+ow}{is} \PYG{n}{meant} \PYG{n}{to} \PYG{n}{be} \PYG{n}{used} \PYG{k}{for} \PYG{n}{sectioning} \PYG{n}{when} \PYG{n}{the} \PYG{n}{assignment} \PYG{n}{does} \PYG{o+ow}{not} \PYG{n}{use} \PYG{n}{a} \PYG{n}{more} \PYG{n}{explicit} \PYG{n}{titling}\PYG{o}{.}
+
+
+\PYG{n}{The} \PYGZbs{}\PYG{n}{imtaInlinecode}\PYG{p}{\PYGZob{}}\PYG{n}{bash}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{n}{imta\PYGZus{}core}\PYG{p}{\PYGZcb{}} \PYG{n}{package} \PYG{n}{offers} \PYG{n}{a} \PYG{n}{one}\PYG{o}{\PYGZhy{}}\PYG{n}{level}\PYG{o}{\PYGZhy{}}\PYG{n}{deeper} \PYG{n}{section} \PYG{n}{than} \PYG{n}{the} \PYG{n}{usual} \PYG{n}{deepest} \PYGZbs{}\PYG{n}{imtaInlinecode}\PYG{p}{\PYGZob{}}\PYG{n}{latex}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYGZbs{}\PYG{n}{subsubsection}\PYG{p}{\PYGZcb{}}\PYG{o}{.}
+\PYG{n}{This} \PYG{n}{provides} \PYG{n}{an} \PYG{n}{alternative} \PYG{n}{to} \PYG{n}{the} \PYG{n}{usual} \PYGZbs{}\PYG{n}{imtaInlinecode}\PYG{p}{\PYGZob{}}\PYG{n}{latex}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYGZbs{}\PYG{n}{paragraph}\PYG{p}{\PYGZcb{}}\PYG{o}{.}
+
+
+\PYG{n}{The} \PYGZbs{}\PYG{n}{imtaInlinecode}\PYG{p}{\PYGZob{}}\PYG{n}{latex}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYGZbs{}\PYG{n}{chapter}\PYG{p}{\PYGZcb{}} \PYG{n}{command} \PYG{n}{has} \PYG{n}{been} \PYG{n}{redefined} \PYG{n}{to} \PYG{n+nb}{print} \PYG{n}{the} \PYG{n}{word} \PYG{l+s+s2}{\PYGZdq{}chapter\PYGZdq{}} \PYG{o+ow}{in} \PYG{n}{front} \PYG{n}{of} \PYG{n}{the} \PYG{n}{figure}\PYG{o}{.}
+\PYG{n}{This} \PYG{n}{command} \PYG{o+ow}{is} \PYG{n}{compatible} \PYG{k}{with} \PYG{n}{several} \PYG{n}{languages}\PYGZbs{}\PYG{n}{footnote}\PYG{p}{\PYGZob{}}\PYG{n}{This} \PYG{n}{functionality} \PYG{n}{currently} \PYG{n}{supports} \PYG{n}{english}\PYG{p}{,} \PYG{n}{french}\PYG{p}{,} \PYG{n}{german}\PYG{p}{,} \PYG{n}{portuguese} \PYG{o+ow}{and} \PYG{n}{spanish}\PYG{o}{.}\PYG{p}{\PYGZcb{}} \PYG{n}{but} \PYG{n}{requires} \PYG{n}{the} \PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{babel}\PYG{p}{\PYGZcb{}} \PYG{n}{package} \PYG{n}{to} \PYG{n}{be} \PYG{n}{loaded} \PYG{n}{first}\PYG{o}{.}
+\PYG{n}{The} \PYG{n}{default} \PYG{n}{language} \PYG{o+ow}{is} \PYG{n}{english}\PYG{o}{.}
+
+\PYG{n}{This} \PYG{n}{command} \PYG{n}{also} \PYG{n}{prints} \PYG{n}{a} \PYG{n}{small} \PYG{n}{design} \PYG{n}{on} \PYG{n}{the} \PYG{n}{bottom} \PYG{n}{right} \PYG{n}{corner} \PYG{n}{of} \PYG{n}{the} \PYG{n}{page} \PYG{o+ow}{and} \PYG{n}{updates} \PYG{n}{the} \PYG{n}{upper} \PYG{n}{section} \PYG{n}{title}\PYG{o}{.}
+\PYG{n}{In} \PYG{n}{case} \PYG{n}{the} \PYG{n}{document} \PYG{o+ow}{is} \PYG{o+ow}{in} \PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{twoside}\PYG{p}{\PYGZcb{}} \PYG{n}{mode}\PYG{p}{,} \PYG{n}{it} \PYG{n}{ensures} \PYG{n}{the} \PYG{n}{chapter} \PYG{n}{page} \PYG{o+ow}{is} \PYG{n}{on} \PYG{n}{the} \PYG{n}{right} \PYG{n}{by} \PYG{n}{inserting} \PYG{n}{a} \PYG{n}{blank} \PYG{n}{page} \PYG{k}{if} \PYG{n}{necessary}\PYG{o}{.}
+\PYG{n}{In} \PYG{n}{case} \PYG{n}{the} \PYG{n}{document} \PYG{o+ow}{is} \PYG{o+ow}{in} \PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{twocolumn}\PYG{p}{\PYGZcb{}} \PYG{n}{mode}\PYG{p}{,} \PYG{n}{it} \PYG{n}{also} \PYG{n}{temporarily} \PYG{n}{restores} \PYG{n}{a} \PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{onecolumn}\PYG{p}{\PYGZcb{}} \PYG{n}{geometry} \PYG{n}{to} \PYG{n+nb}{print} \PYG{n}{the} \PYG{n}{chapter} \PYG{n}{page}\PYG{o}{.}
+
+
+
+\PYG{n}{The} \PYG{n}{core} \PYG{n}{package} \PYG{n}{defines} \PYG{n}{four} \PYG{n}{colors}\PYG{p}{,} \PYG{n}{including} \PYG{n}{the} \PYG{n}{three} \PYG{n}{colors} \PYG{n}{of} \PYG{n}{the} \PYG{n}{IMT} \PYG{n}{Atlantique}\PYG{p}{,} \PYG{o+ow}{and} \PYG{n}{a} \PYG{n}{uniform} \PYG{o+ow}{and} \PYG{n}{arbitrary} \PYG{n}{gray}\PYG{o}{.}
+\PYG{n}{These} \PYG{n}{are} \PYG{n}{defined} \PYG{k}{as} \PYG{n}{follows}\PYG{p}{:}
+
+\PYGZbs{}\PYG{n}{begin}\PYG{p}{\PYGZob{}}\PYG{n}{imtaCode}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{n}{latex}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{definecolor}\PYG{p}{\PYGZob{}}\PYG{n}{imtaGreen}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{n}{RGB}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{l+m+mi}{164}\PYG{p}{,} \PYG{l+m+mi}{210}\PYG{p}{,} \PYG{l+m+mi}{51}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{definecolor}\PYG{p}{\PYGZob{}}\PYG{n}{imtaLightBlue}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{n}{RGB}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{184}\PYG{p}{,} \PYG{l+m+mi}{222}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{definecolor}\PYG{p}{\PYGZob{}}\PYG{n}{imtaDarkBlue}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{n}{RGB}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{l+m+mi}{12}\PYG{p}{,} \PYG{l+m+mi}{35}\PYG{p}{,} \PYG{l+m+mi}{64}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{definecolor}\PYG{p}{\PYGZob{}}\PYG{n}{imtaGray}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{n}{RGB}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{l+m+mi}{87}\PYG{p}{,} \PYG{l+m+mi}{87}\PYG{p}{,} \PYG{l+m+mi}{87}\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

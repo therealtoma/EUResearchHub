@@ -84,8 +84,10 @@ def upload_version(project_id, document_id):
             os.makedirs(folderPath)
         document = request.files.get('docVersion')
 
+        docId = Documents.query.filter_by(fk_document_type=document_id, fk_project=project_id).first().id
+
         # aggiungo la versione all'interno del database
-        docVersion = Document_Versions(title=title, description=description, fk_document=document_id)
+        docVersion = Document_Versions(title=title, description=description, fk_document=docId)
         db.session.add(docVersion)
         db.session.commit()
         # salvo il file nella cartella
@@ -108,8 +110,11 @@ def upload_report(project_id, document_id):
             os.makedirs(folderPath)
         report = request.files.get('report')
 
+        # document_id è l'id del doc_type. Io ho bisogni dell'id del documento. Posso ottenerlo combinando project_id e doctype.document_id
+        docId = Documents.query.filter_by(fk_document_type = document_id, fk_project = project_id).first().id
+
         # aggiungo il report all'interno del database
-        evReport = Evaluation_Reports(comment=comment, fk_document=document_id, file_path=str(project_id) + '/' + str(document_id))
+        evReport = Evaluation_Reports(comment=comment, fk_document=docId, file_path=str(project_id) + '/' + str(document_id))
         db.session.add(evReport)
         db.session.commit()
 

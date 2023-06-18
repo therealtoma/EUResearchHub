@@ -4,6 +4,9 @@ from flask_login import login_required, current_user
 from sqlalchemy import func
 from app.models.database import *
 import os
+from flask import render_template, request, redirect, url_for, flash, Markup
+from markupsafe import escape
+from bleach import clean
 
 views = Blueprint('views', __name__)
 
@@ -99,11 +102,13 @@ def update_project_status():
 
     project_id = request.form.get('project_id')
     new_status = request.form.get('new_status')
+
     print("adsfsajdfgaksdf")
     project = Projects.query.get(project_id)
     if project:
         flash('Cannot change the status of a project if not all documents have been evaluated.', 'error')
-
+        sanitized_status = escape(new_status)
+        project.status = sanitized_status
         project.status = new_status
         db.session.commit()
     else:
@@ -124,9 +129,11 @@ def add_participant():
     email = data.get('email')
     print(project_id)
     print(email)
+    sanitized_project_id = escape(project_id)
+    sanitized_email = escape(email)
     # Check if the project and the researcher with the provided email exist
-    project = Projects.query.get(project_id)
-    researcher = Researchers.query.filter_by(email=email).first()
+    project = Projects.query.get(sanitized_project_id)
+    researcher = Researchers.query.filter_by(email=sanitized_email).first()
 
     if not project or not researcher:
         flash('Project or researcher does not exist.', 'error')
@@ -134,14 +141,14 @@ def add_participant():
 
 
     # Check if the researcher is already added to the project
-    researcher_project = Researchers_Projects.query.filter_by(fk_projects=project_id,
+    researcher_project = Researchers_Projects.query.filter_by(fk_projects=sanitized_project_id,
                                                               fk_researchers=researcher.id).first()
     if researcher_project:
         # If the researcher is already added, return an error
         flash('Researcher is already added to this project.', 'error')
 
     # Create a new record
-    new_researcher = Researchers_Projects(fk_researchers=researcher.id, fk_projects=project_id)
+    new_researcher = Researchers_Projects(fk_researchers=researcher.id, fk_projects=sanitized_project_id)
 
     # Add the new record to the session and commit it to the database
     db.session.add(new_researcher)
@@ -159,11 +166,12 @@ def create_project():
     # Extract the project details from the form data
     title = request.form.get('title')
     description = request.form.get('description')
-
+    sanitized_title = clean(title)
+    sanitized_description = clean(description)
     max_evaluation_id = db.session.query(func.max(Evaluation_Windows.id)) # trovo l'ultima evaluation window disponibile
 
     # creo e aggiungo il progetto al database
-    new_project = Projects(title=title, description=description, status=EnumStatus.submitted_for_evaluation, fk_evaluation_window = max_evaluation_id)
+    new_project = Projects(title=sanitized_title, description=sanitized_description, status=EnumStatus.submitted_for_evaluation, fk_evaluation_window = max_evaluation_id)
 
     db.session.add(new_project)
     db.session.commit()
@@ -185,9 +193,9 @@ def project(project_id):
 
         message_text = request.form.get('message')
         user_type = session['user_type']
-
+        sanitized_message_text = clean(message_text)
         # Create a new message object
-        message = Messages(text=message_text, fk_projects=project_id)
+        message = Messages(text=sanitized_message_text, fk_projects=project_id)
         db.session.add(message)
         db.session.commit()
 
@@ -252,7 +260,8 @@ def project(project_id):
     # Get the view_document data
     if request.args.get('document_id'):
         document_id = request.args.get('document_id')
-        document = Documents.query.get_or_404(document_id)
+        document = Documents.query.filter_by(fk_document_type=document_id, fk_project=project_id).first()
+        #document = Documents.query.get_or_404(document_id)
 
         nome_tipo_documento = Document_Types.query.filter_by(id=document.fk_document_type).first()
         versions = Document_Versions.query.filter_by(fk_document=document.id).all()

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+pwd
+grep \PYGZhy{}R \PYGZdq{}lorem\PYGZdq{} *
+\end{Verbatim}

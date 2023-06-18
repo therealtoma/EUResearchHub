@@ -1,270 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>EUResearchHub</title>
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-
-        <link rel="stylesheet" href="../static/style.css">
-        <script src="../static/functions.js"></script>
-    </head>
-    <body>
-        <div class="app-container">
-            <div class="app-header">
-                <div class="app-header-left">
-                    <span class="app-icon"></span>
-                    <p class="app-name">EUResearchHub</p>
-
-                         {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                        <div class="text-center p-t-12">
-                            {% for message in messages %}
-                                {% if 'success' in message %}
-                                    <span class="txt1" style="color: green;">{{ message }}</span>
-                                {% else %}
-                                    <span class="txt1" style="color: red;">{{ message }}</span>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                {% endwith %}
-
-
-
-                </div>
-                <div class="app-header-right">
-                  <button class="notification-btn" onclick="location.href='{{ url_for('auth.logout') }}'">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-                <defs/>
-                <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>
+<head>
+    <meta charset="UTF-8">
+    <title>EUResearchHub</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/functions.js"></script>
+</head>
+<body>
+<div class="app-container">
+    <div class="app-header">
+        <div class="app-header-left">
+            <span class="app-icon"></span>
+            <a style="text-decoration:none;" href={{url_for("views.projects")}}>
+                <p class="app-name">EUResearchHub</p>
+            </a>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="text-center p-t-12">
+                {% for message in messages %}
+                {% if 'success' in message %}
+                <span class="txt1" style="color: green;">{{ message }}</span>
+                {% else %}
+                <span class="txt1" style="color: red;">{{ message }}</span>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+        </div>
+        <div class="app-header-right">
+            <button class="notification-btn" onclick="location.href='{{ url_for('auth.logout') }}'">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                    <defs/>
+                    <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>
+                </svg>
+            </button>
+            <button class="profile-btn">
+                <img src="../static/uploads/profile_images/{{ profile_picture }}" />
+                <span> {{ name }} {{ surname }} </span>
+            </button>
+        </div>
+        <button class="messages-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
             </svg>
         </button>
-
-                    <button class="profile-btn">
-                    <img src="../static/uploads/profile_images/{{ profile_picture }}" />
-                    <span> {{ name }} {{ surname }} </span>
-                    </button>
-                </div>
-                <button class="messages-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle">
-                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-                    </svg>
-                </button>
-            </div>
-            <div class="app-content">
-                <div class="app-sidebar">
-
-                </div>
-                <div class="projects-section">
-                    <div class="projects-section-header">
-                        <p style="color:#666666;">Projects </p>
-                        <p style="color:#666666;" class="time">Evaluation Window: {{ from_date }} - {{ to_date }}</p>
-                    </div>
-                    <div class="projects-section-line">
-    <div class="projects-status">
-        <div class="item-status">
-            <span style="color:#666666;" class="status-number">{{ counts_by_status['approved'] }}</span>
-            <span class="status-type">Approved</span>
-        </div>
-        <div class="item-status">
-            <span style="color:#666666;" class="status-number">{{ counts_by_status['require changes'] }}</span>
-            <span class="status-type">Require changes</span>
-        </div>
-        <div class="item-status">
-            <span style="color:#666666;" class="status-number">{{ counts_by_status['submitted for evaluation'] }}</span>
-            <span class="status-type">Submitted for evaluation</span>
-        </div>
-        <div class="item-status">
-            <span style="color:#666666;" class="status-number">{{ counts_by_status['not approved'] }}</span>
-            <span class="status-type">Not Approved</span>
-        </div>
     </div>
-    <div class="view-actions">
-
-
-                        </div>
+    <div class="app-content">
+        <div class="app-sidebar">
+        </div>
+        <div class="projects-section">
+            <div class="projects-section-header">
+                <p style="color:#666666;">Projects </p>
+                <p style="color:#666666;" class="time">Evaluation Window: {{ from_date }} - {{ to_date }}</p>
+            </div>
+            <div class="projects-section-line">
+                <div class="projects-status">
+                    <div class="item-status">
+                        <span style="color:#666666;" class="status-number">{{ counts_by_status['approved'] }}</span>
+                        <span class="status-type">Approved</span>
                     </div>
-                    <div class="project-boxes jsGridView">
-                        {% for project in projects %}
-                        <div class="project-box-wrapper">
-                            <div class="project-box" style="background-color: rgba(114,157,172,0.09);">
-                                <div class="project-box-header">
-                                    <span>{{ project.date.strftime("%Y-%m-%d") }}</span>
-                                    <div class="more-wrapper">
-
-                                    </div>
-                                </div>
-                                <div class="project-box-content-header">
-                                    <a href="/project/{{ project.id }}" class="box-content-header">{{ project.title }}</a>
-                                    <p class="box-content-subheader">{{ project.description }}</p>
-                                </div>
-                                <div class="box-progress-wrapper">
-                                    <p class="box-progress-header">Evaluation progress</p>
-                                    <div class="box-progress-bar">
-                                        <span class="box-progress" style="width: {{ evaluation_percentages[project.id]}}%; background-color: #729DAC"></span>
-                                    </div>
-                                    <p class="box-progress-percentage">{{ evaluation_percentages[project.id]}}%</p>
-                                </div>
-                                <div class="project-box-footer">
-                                    <div class="participants">
-                                         {% for pp in researcher_profile_pictures[loop.index0] %}
-                                        <img src="../static/uploads/profile_images/{{ pp[0] }}" alt="participant">
-                                        {% endfor %}
-                                        {% if user_type == 'researcher' %}
+                    <div class="item-status">
+                        <span style="color:#666666;" class="status-number">{{ counts_by_status['require changes'] }}</span>
+                        <span class="status-type">Require changes</span>
+                    </div>
+                    <div class="item-status">
+                        <span style="color:#666666;" class="status-number">{{ counts_by_status['submitted for evaluation'] }}</span>
+                        <span class="status-type">Submitted for evaluation</span>
+                    </div>
+                    <div class="item-status">
+                        <span style="color:#666666;" class="status-number">{{ counts_by_status['not approved'] }}</span>
+                        <span class="status-type">Not Approved</span>
+                    </div>
+                </div>
+                <div class="view-actions">
+                </div>
+            </div>
+            <div class="project-boxes jsGridView">
+                {% for project in projects %}
+                <div class="project-box-wrapper">
+                    <div class="project-box" style="background-color: rgba(114,157,172,0.09);">
+                        <div class="project-box-header">
+                            <span>{{ project.date.strftime("%Y-%m-%d") }}</span>
+                            <div class="more-wrapper">
+                            </div>
+                        </div>
+                        <div class="project-box-content-header">
+                            <a href="/project/{{ project.id }}" class="box-content-header">{{ project.title }}</a>
+                            <p class="box-content-subheader">{{ project.description }}</p>
+                        </div>
+                        <div class="box-progress-wrapper">
+                            <p class="box-progress-header">Evaluation progress</p>
+                            <div class="box-progress-bar">
+                                <span class="box-progress" style="width: {{ evaluation_percentages[project.id]}}%; background-color: #729DAC"></span>
+                            </div>
+                            <p class="box-progress-percentage">{{ evaluation_percentages[project.id]}}%</p>
+                        </div>
+                        <div class="project-box-footer">
+                            <div class="participants">
+                                {% for pp in researcher_profile_pictures[loop.index0] %}
+                                <img src="../static/uploads/profile_images/{{ pp[0] }}" alt="participant">
+                                {% endfor %}
+                                {% if user_type == 'researcher' %}
                                 <button class="add-participant" style="color: #729DAC;" onclick="toggleParticipantAdd({{ project.id }})">
-    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-        <path d="M12 5v14M5 12h14" />
-    </svg>
-</button>
-<div class="add-participant-field" id="add-participant-field-{{ project.id }}" style="display: none;">
-    <input type="text" id="participant-email-{{ project.id }}" placeholder="Enter email">
-    <button onclick="addParticipant({{ project.id }})">Add</button>
-</div>
-
-                                        {% endif %}
-                                    </div>
-
-                                {% if user_type == 'evaluator' %}
-                                <div class="days-left" style="color: #729DAC;">
-                                    <select id="status-select-{{ loop.index }}" onchange="changeStatus({{ loop.index }})" data-project-id="{{ project.id }}">
-                                        <option value="submitted_for_evaluation" {% if project.status.value == 'submitted for evaluation' %}selected{% endif %}>submitted for evaluation</option>
-                                        <option value="approved" {% if project.status.value == 'approved' %}selected{% endif %}>approved</option>
-                                        <option value="require_changes" {% if project.status.value == 'require changes' %}selected{% endif %}>required changes</option>
-                                        <option value="not_approved" {% if project.status.value == 'not approved' %}selected{% endif %}>not approved</option>
-                                    </select>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
+                                        <path d="M12 5v14M5 12h14" />
+                                    </svg>
+                                </button>
+                                <div class="add-participant-field" id="add-participant-field-{{ project.id }}" style="display: none;">
+                                    <input type="text" id="participant-email-{{ project.id }}" placeholder="Enter email">
+                                    <button onclick="addParticipant({{ project.id }})">Add</button>
                                 </div>
-                                {% elif user_type == 'researcher' %}
-                                <div class="days-left" style="color: #729DAC;">
-                                        {{ project.status.value }}
-                                    </div>
-
-                                                      {% endif %}
-                                    </div>
-
+                                {% endif %}
                             </div>
-                        </div>
-
-                        {% endfor %}
-                        {% if user_type == 'researcher' %}
-<div class="new-project-box-wrapper" id="new-project-wrapper">
-                            <div class="new-project-box">
-                                 <div class="button-hold">
-                                    <button class="plus-button"></button>
-                                </div>
+                            {% if user_type == 'evaluator' %}
+                            <div class="days-left">
+                                <select id="status-select-{{ loop.index }}" onchange="changeStatus({{ loop.index }})" data-project-id="{{ project.id }}">
+                                    <option value="submitted_for_evaluation" {% if project.status.value == 'submitted for evaluation' %}selected{% endif %}>submitted for evaluation</option>
+                                    <option value="approved" {% if project.status.value == 'approved' %}selected{% endif %}>approved</option>
+                                    <option value="require_changes" {% if project.status.value == 'require changes' %}selected{% endif %}>required changes</option>
+                                    <option value="not_approved" {% if project.status.value == 'not approved' %}selected{% endif %}>not approved</option>
+                                </select>
                             </div>
+                            {% elif user_type == 'researcher' %}
+                            <div style="text-decoration: none" class="days-left">
+                                {{ project.status.value }}
+                            </div>
+                            {% endif %}
                         </div>
-
-<div class="modal-wrapper" style="display: none;">
-    <div class="modal">
-        <h2>Create New Project</h2>
-        <form action="/create_project" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-
-
-            <input class="input-title" type="text" id="title" name="title" required placeholder="Insert your title">
-
-
-            <textarea class="input-description-projects" id="description" name="description" required placeholder="Insert your description"></textarea>
-
-            <!-- Add any other fields you need for the project form -->
-
-            <div class="modal-buttons" >
-                <button type="submit" class="create-button">Create</button>
-                <button type="submit" class="cancel-button">Cancel</button>
-            </div>
-        </form>
-    </div>
-</div>
-
-
-
-                        {% endif %}
                     </div>
                 </div>
+                {% endfor %}
+                {% if user_type == 'researcher' %}
+                <div class="new-project-box-wrapper" id="new-project-wrapper">
+                    <div class="new-project-box">
+                        <div class="button-hold">
+                            <button class="plus-button"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-wrapper" style="display: none;">
+                    <div class="modal">
+                        <h2>Create New Project</h2>
+                        <form id="create-project-form" action="/create_project" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <input class="input-title" type="text" id="title" name="title" required placeholder="Insert your title">
+                            <textarea class="input-description-projects" id="description" name="description" required placeholder="Insert your description"></textarea>
+                            <!-- Add any other fields you need for the project form -->
+                            <div class="modal-buttons" >
+                                <button id="cancel-button" class="cancel-button">Cancel</button>
+                                <button id="submit-button" type="submit" class="create-button">Create</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                {% endif %}
             </div>
         </div>
-
-        <script>
-function toggleParticipantAdd(projectId) {
-    var addField = document.getElementById('add-participant-field-' + projectId);
-    if (addField.style.display === "none") {
-        addField.style.display = "block";
-    } else {
-        addField.style.display = "none";
-    }
-}
-
-function addParticipant(projectId) {
-    var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-    var email = document.getElementById('participant-email-' + projectId).value;
-    if (!email) {
-        alert("Please enter an email address.");
-        return;
+    </div>
+</div>
+<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script>
+    function toggleParticipantAdd(projectId) {
+        var addField = document.getElementById('add-participant-field-' + projectId);
+        if (addField.style.display === "none") {
+            addField.style.display = "block";
+        } else {
+            addField.style.display = "none";
+        }
     }
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/add_participant", true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader("X-CSRFToken", csrfToken);  // Include the CSRF token in the request headers
-xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 ) {
-        console.log(xhr.responseText);
-        window.location.reload();  // Reload the page after the AJAX request completes
+    function addParticipant(projectId) {
+        var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        var email = document.getElementById('participant-email-' + projectId).value;
+        if (!email) {
+            alert("Please enter an email address.");
+            return;
+        }
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/add_participant", true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.setRequestHeader("X-CSRFToken", csrfToken);  // Include the CSRF token in the request headers
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 ) {
+                console.log(xhr.responseText);
+                window.location.reload();  // Reload the page after the AJAX request completes
+            }
+        };
+        xhr.send(JSON.stringify({
+            projectId: projectId,
+            email: email
+        }));
+
+
     }
-};
-    xhr.send(JSON.stringify({
-        projectId: projectId,
-        email: email
-    }));
-
-
-}
 
 
 
-function changeStatus(projectIndex) {
-    var selectElement = document.getElementById("status-select-" + projectIndex);
-    var selectedStatus = selectElement.value;
-    var projectId = selectElement.dataset.projectId;  // Retrieve the project ID using the dataset property
-   var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    function changeStatus(projectIndex) {
+        var selectElement = document.getElementById("status-select-" + projectIndex);
+        var selectedStatus = selectElement.value;
+        var projectId = selectElement.dataset.projectId;  // Retrieve the project ID using the dataset property
+        var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-    // Make an AJAX request to update the project status
-var xhr = new XMLHttpRequest();
-xhr.open("POST", "/update_project_status", true);
-xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-xhr.setRequestHeader("X-CSRFToken", csrfToken);  // Include the CSRF token in the request headers
-xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4) {
-        console.log(xhr.responseText);
-        window.location.reload();  // Reload the page after the AJAX request completes
+        // Make an AJAX request to update the project status
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/update_project_status", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.setRequestHeader("X-CSRFToken", csrfToken);  // Include the CSRF token in the request headers
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                console.log(xhr.responseText);
+                window.location.reload();  // Reload the page after the AJAX request completes
+            }
+        };
+
+        xhr.send("project_id=" + projectId + "&new_status=" + selectedStatus);
+
+
     }
-};
-
-xhr.send("project_id=" + projectId + "&new_status=" + selectedStatus);
 
 
-}
-
-
-// Add an event listener to the "Add New Project" button
-// Add event listeners to the modal buttons for cancellation and form submission
+    // Add an event listener to the "Add New Project" button
+    // Add event listeners to the modal buttons for cancellation and form submission
     var modalWrapper = document.querySelector('.modal-wrapper');
-    var cancelButton = document.querySelector('.cancel-button');
-    var createButton = document.querySelector('.create-button');
+    //var cancelButton = document.querySelector('.cancel-button');
+    //var createButton = document.querySelector('.create-button');
+
+    const cancelButton = $('#cancel-button')
+    const createButton = $('#create-button')
+
     var newProjectWrapper = document.getElementById('new-project-wrapper');
 
+    cancelButton.on('click', () => {
+        $('#create-project-form')[0].reset()
+        modalWrapper.style.display = 'none'
+    })
+/*
     cancelButton.addEventListener('click', function() {
         modalWrapper.style.display = 'none';
     });
+*/
 
+    /*
     createButton.addEventListener('click', function(event) {
         event.preventDefault();
         modalWrapper.style.display = 'none';
         // Handle form submission or AJAX request
     });
-
+*/
     newProjectWrapper.addEventListener('click', function() {
         modalWrapper.style.display = 'block';
     });
@@ -274,11 +261,6 @@ xhr.send("project_id=" + projectId + "&new_status=" + selectedStatus);
             modalWrapper.style.display = 'none';
         }
     });
-
-
-
-
-
-    </script>
-    </body>
+</script>
+</body>
 </html>
