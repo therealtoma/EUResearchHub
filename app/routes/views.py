@@ -102,15 +102,18 @@ def update_project_status():
 
     project_id = request.form.get('project_id')
     new_status = request.form.get('new_status')
+    valid_update = request.form.get('valid_update')
 
-    print("adsfsajdfgaksdf")
     project = Projects.query.get(project_id)
     if project:
-        flash('Cannot change the status of a project if not all documents have been evaluated.', 'error')
-        sanitized_status = escape(new_status)
-        project.status = sanitized_status
-        project.status = new_status
-        db.session.commit()
+        if valid_update == '1':
+            sanitized_status = escape(new_status)
+            project.status = sanitized_status
+            project.status = new_status
+            db.session.commit()
+            flash('Project status updated successfully.', 'success')
+        else:
+            flash('Cannot change the status of a project if not all documents have been evaluated.', 'error')
     else:
         flash('Project not found.', 'error')
 

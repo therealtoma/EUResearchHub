@@ -15,19 +15,18 @@
             <a style="text-decoration:none;" href={{url_for("views.projects")}}>
                 <p class="app-name">EUResearchHub</p>
             </a>
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
             <div class="text-center p-t-12">
+            {% with messages = get_flashed_messages() %}
+                {{messages}}
                 {% for message in messages %}
-                {% if 'success' in message %}
-                <span class="txt1" style="color: green;">{{ message }}</span>
-                {% else %}
-                <span class="txt1" style="color: red;">{{ message }}</span>
-                {% endif %}
+                    {% if 'success' in message %}
+                        <span class="txt1" style="color: green;">{{ message }}</span>
+                    {% else %}
+                        <span class="txt1" style="color: red;">{{ message }}</span>
+                    {% endif %}
                 {% endfor %}
-            </div>
-            {% endif %}
             {% endwith %}
+            </div>
         </div>
         <div class="app-header-right">
             <button class="notification-btn" onclick="location.href='{{ url_for('auth.logout') }}'">
@@ -201,10 +200,20 @@
 
 
     function changeStatus(projectIndex) {
-        var selectElement = document.getElementById("status-select-" + projectIndex);
-        var selectedStatus = selectElement.value;
-        var projectId = selectElement.dataset.projectId;  // Retrieve the project ID using the dataset property
+        var selectElement = $("#status-select-" + projectIndex);
+        const perc = selectElement.parent().parent().parent()[0].childNodes[5].childNodes[5].innerHTML.length
+        var selectedStatus = ""
+        var validUpdate = 1
+        if(perc === 4) {
+            selectedStatus = $(selectElement).val();
+        }
+        else {
+            selectedStatus = "submitted_for_evaluation"
+            validUpdate = 0
+        }
+        var projectId = $(selectElement).data('projectId')  // Retrieve the project ID using the dataset property
         var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
 
         // Make an AJAX request to update the project status
         var xhr = new XMLHttpRequest();
@@ -213,14 +222,13 @@
         xhr.setRequestHeader("X-CSRFToken", csrfToken);  // Include the CSRF token in the request headers
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4) {
-                console.log(xhr.responseText);
+                $(selectElement).val(selectedStatus)
+                console.log(xhr.responseText)
                 window.location.reload();  // Reload the page after the AJAX request completes
             }
         };
 
-        xhr.send("project_id=" + projectId + "&new_status=" + selectedStatus);
-
-
+        xhr.send("project_id=" + projectId + "&new_status=" + selectedStatus + "&valid_update=" + validUpdate);
     }
 
 
