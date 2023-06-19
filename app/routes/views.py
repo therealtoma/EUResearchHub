@@ -117,7 +117,7 @@ def update_project_status():
     else:
         flash('Project not found.', 'error')
 
-    return redirect(url_for('views.projects'))
+    return render_template(url_for('views.projects'))
 
 
 

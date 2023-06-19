@@ -17,7 +17,6 @@
             </a>
             <div class="text-center p-t-12">
             {% with messages = get_flashed_messages() %}
-                {{messages}}
                 {% for message in messages %}
                     {% if 'success' in message %}
                         <span class="txt1" style="color: green;">{{ message }}</span>
