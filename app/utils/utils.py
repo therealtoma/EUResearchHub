@@ -1,8 +1,9 @@
 from re import match
 from flask import Blueprint, jsonify, render_template, redirect, url_for, request
 from flask_login import login_required
-from app.models.database import db, Documents, Document_Types, Document_Versions, Evaluation_Reports
+from app.models.database import db, Documents, Document_Types, Document_Versions, Evaluation_Reports, Evaluation_Windows
 from sqlalchemy.sql import exists
+from datetime import datetime, timedelta
 import os
 api = Blueprint('api', __name__)
 
@@ -122,3 +123,10 @@ def upload_report(project_id, document_id):
         report.save(os.path.join(folderPath, 'evaluation_report.pdf'))
 
         return redirect(url_for('views.project', project_id=project_id))
+
+
+def scheduled_ev_win():
+    ev_win = Evaluation_Windows(evaluation_windows_from=datetime.now(),
+                               evaluation_windows_to=datetime.now() + timedelta(days=30))
+    db.session.add(ev_win)
+    db.session.commit()
