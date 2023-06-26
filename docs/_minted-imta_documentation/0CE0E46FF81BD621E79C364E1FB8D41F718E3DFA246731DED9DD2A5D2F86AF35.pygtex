@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n}{messages} \PYG{o}{=} \PYG{n}{Messages}\PYG{o}{.}\PYG{n}{query}\PYG{o}{.}\PYG{n}{filter\PYGZus{}by}\PYG{p}{(}\PYG{n}{fk\PYGZus{}projects}\PYG{o}{=}\PYG{n}{project\PYGZus{}id}\PYG{p}{)}\PYG{o}{.}\PYG{n}{all}\PYG{p}{()}
-\end{Verbatim}

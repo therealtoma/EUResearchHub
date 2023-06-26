@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{def} \PYG{n+nf}{mac}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{c} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{):}
-    \PYG{c+c1}{\PYGZsh{} multiply\PYGZhy{}accumulate function}
-    \PYG{k}{return} \PYG{n}{a}\PYG{o}{*}\PYG{n}{b} \PYG{o}{+} \PYG{n}{c}
-\end{Verbatim}

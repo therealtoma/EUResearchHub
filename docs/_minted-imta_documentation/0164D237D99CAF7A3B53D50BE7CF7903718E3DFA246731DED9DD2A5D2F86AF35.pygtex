@@ -1,7 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{for} \PYG{n}{message} \PYG{o+ow}{in} \PYG{n}{messages}\PYG{p}{:}
-    \PYG{n}{researcher} \PYG{o}{=} \PYG{n}{Researchers}\PYG{o}{.}\PYG{n}{query}\PYG{o}{.}\PYG{n}{join}\PYG{p}{(}\PYG{n}{Researchers\PYGZus{}Messages}\PYG{p}{)}\PYG{o}{.}\PYG{n}{filter\PYGZus{}by}\PYG{p}{(}\PYG{n}{fk\PYGZus{}messages} \PYG{o}{=} \PYG{n}{message}\PYG{o}{.} \PYG{n+nb}{id}\PYG{p}{)} \PYG{o}{.}\PYG{n}{first}\PYG{p}{()}
-    \PYG{n}{evaluator} \PYG{o}{=} \PYG{n}{Evaluators}\PYG{o}{.}\PYG{n}{query}\PYG{o}{.}\PYG{n}{join}\PYG{p}{(}\PYG{n}{Evaluators\PYGZus{}Messages}\PYG{p}{)}\PYG{o}{.}\PYG{n}{filter\PYGZus{}by}\PYG{p}{(}\PYG{n}{fk\PYGZus{}messages} \PYG{o}{=} \PYG{n}{message}\PYG{o}{.} \PYG{n+nb}{id}\PYG{p}{)} \PYG{o}{.}\PYG{n}{first}\PYG{p}{()}
-    \PYG{n}{researchers}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{researcher}\PYG{p}{)}
-    \PYG{n}{evaluators}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{evaluator}\PYG{p}{)}
-\end{Verbatim}

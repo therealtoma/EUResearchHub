@@ -1,7 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n}{documents} \PYG{o}{=} \PYG{n}{Documents}\PYG{o}{.}\PYG{n}{query}\PYG{o}{.}\PYG{n}{filter\PYGZus{}by}\PYG{p}{(}\PYG{n}{fk\PYGZus{}project}\PYG{o}{=}\PYG{n}{project\PYGZus{}id}\PYG{p}{)}\PYG{o}{.}\PYG{n}{all}\PYG{p}{()}
-\PYG{n}{docs} \PYG{o}{=} \PYG{p}{[]}
-\PYG{k}{for} \PYG{n}{doc} \PYG{o+ow}{in} \PYG{n}{documents}\PYG{p}{:}
-    \PYG{n}{doc\PYGZus{}type} \PYG{o}{=} \PYG{n}{Document\PYGZus{}Types}\PYG{o}{.}\PYG{n}{query}\PYG{o}{.}\PYG{n}{filter\PYGZus{}by}\PYG{p}{(}\PYG{n+nb}{id}\PYG{o}{=}\PYG{n}{doc}\PYG{o}{.}\PYG{n}{fk\PYGZus{}document\PYGZus{}type}\PYG{p}{)}\PYG{o}{.}\PYG{n}{first}\PYG{p}{()}
-    \PYG{n}{docs}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{doc\PYGZus{}type}\PYG{p}{)}
-\end{Verbatim}
