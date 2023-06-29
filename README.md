@@ -54,10 +54,3 @@ For comprehensive documentation of the web application please refer to the [Docu
 </div>
 
 
-
-
-
-
-
-
-
