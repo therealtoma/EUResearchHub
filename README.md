@@ -42,21 +42,5 @@ For detailed information about the database design, please refer to the [Databas
 
 For comprehensive documentation of the web application please refer to the [Documentation](https://github.com/andreramolivaz/EUResearchHub/blob/main/docs/report.pdf).
 
-## Demo Video
-
-<div align="center">
-
-| Webapp presentation |
-|:------------------:|
-| ![Demo Video](https://github.com/andreramolivaz/EUResearchHub/assets/92636448/fed21aa8-1f6e-481f-8e8d-315af82cc304) |
-
-</div>
-
-### Contributors
-- [Alberto Tomasin](https://github.com/therealtoma) 
-- [Simone Dinato](https://github.com/simonedinato) 
-
-
-
 
 
