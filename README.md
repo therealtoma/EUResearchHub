@@ -33,6 +33,20 @@ The project also includes a messaging component through which researchers and ev
 - Evaluators can insert comments within the PDFs for evaluation.
 - Evaluation reports can reference specific comments within the documents.
 
+## Demo Video
+
+ <div align="center">
+
+ | Webapp presentation |
+ |:------------------:|
+ | ![Demo Video](https://github.com/andreramolivaz/EUResearchHub/assets/92636448/fed21aa8-1f6e-481f-8e8d-315af82cc304) |
+
+ </div>
+
+ ### Contributors
+ - [Alberto Tomasin](https://github.com/therealtoma) 
+ - [Simone Dinato](https://github.com/simonedinato) 
+
 
 ## Database Design
 
