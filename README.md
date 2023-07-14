@@ -21,6 +21,8 @@ Each project maintains a version history to track the different iterations of th
 
 The project also includes a messaging component through which researchers and evaluators can interact. For example, researchers can request further clarification on an evaluation received, and evaluators can respond anonymously. Evaluators can insert specific comments directly within the submitted PDFs for evaluation, such as notes. This way, evaluation reports can refer to these specific comments (e.g., "see note on page 4").
 
+> ⚠️ The application relies on an `.env` file to set environment variables. This file is not included in the repository for security reasons. If you want to run the application locally, you will need to create this file and set the needed variables.
+
 ## Features
 - Researchers can create new research projects for evaluation.
 - Each project consists of a textual description and one or more PDF documents.
