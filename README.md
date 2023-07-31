@@ -59,4 +59,4 @@ For detailed information about the database design, please refer to the [Databas
 For comprehensive documentation of the web application please refer to the [Documentation](https://github.com/andreramolivaz/EUResearchHub/blob/main/docs/report.pdf).
 
 
-
+ 
