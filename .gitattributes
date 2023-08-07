@@ -3,3 +3,4 @@
 *.scss linguist-detectable=false
 *.html linguist-detectable=false
 *.min linguist-detectable=false
+*.less linguist-detectable=false
