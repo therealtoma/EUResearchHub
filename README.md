@@ -46,7 +46,7 @@ The project also includes a messaging component through which researchers and ev
  </div>
 
  ### Contributors
- - [Alberto Tomasin](https://github.com/therealtoma) 
+ - [Andrè Ramolivaz](https://github.com/andreramolivaz) 
  - [Simone Dinato](https://github.com/simonedinato) 
 
 
